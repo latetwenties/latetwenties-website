@@ -30,7 +30,7 @@ export function CaseStudy() {
           }
         });
       },
-      { threshold: 0.4 },
+      { threshold: 0.6, rootMargin: "0px 0px -15% 0px" },
     );
     io.observe(el);
     return () => io.disconnect();
