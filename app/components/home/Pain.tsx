@@ -1,6 +1,8 @@
 import { Eyebrow } from "../Eyebrow";
 import { Reveal } from "../Reveal";
 
+import { PainCoda } from "./PainCoda";
+
 const PAIN_POINTS = [
   "Mostly repeat clients, not many new names.",
   "Others in your area seem busier than they should be.",
@@ -37,6 +39,8 @@ export function Pain() {
             </Reveal>
           ))}
         </ol>
+
+        <PainCoda />
       </div>
     </section>
   );

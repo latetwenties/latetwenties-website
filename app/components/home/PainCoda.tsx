@@ -1,16 +1,17 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 
 const CODA = "Word of mouth got you here. It won't get you there.";
 const WORDS = CODA.split(" ");
 
-// Scroll progress range over which words reveal. The 0-to-START_PROGRESS
-// slice is the lead-in (sticky pinned, nothing visible yet). END_PROGRESS-
-// to-1 is the hold (last word fully visible, holds before unpinning).
-const START_PROGRESS = 0.15;
-const END_PROGRESS = 0.85;
-const WORD_FADE = 0.12;
+// Scroll progress is 0 when the coda just enters viewport from the bottom,
+// 1 when it just exits at the top. Words reveal across the middle slice
+// (REVEAL_START to REVEAL_END), so they finish fading in well before the
+// coda exits the viewport.
+const REVEAL_START = 0.2;
+const REVEAL_END = 0.6;
+const WORD_FADE = 0.1;
 
 function clamp(value: number, min: number, max: number) {
   return Math.max(min, Math.min(max, value));
@@ -22,7 +23,7 @@ function getInitialReducedMotion() {
 }
 
 export function PainCoda() {
-  const trackRef = useRef<HTMLElement | null>(null);
+  const ref = useRef<HTMLDivElement | null>(null);
   const [progress, setProgress] = useState(0);
   const [reducedMotion, setReducedMotion] = useState(getInitialReducedMotion);
 
@@ -38,17 +39,17 @@ export function PainCoda() {
     let ticking = false;
     const update = () => {
       ticking = false;
-      const el = trackRef.current;
+      const el = ref.current;
       if (!el) return;
       const rect = el.getBoundingClientRect();
       const vh = window.innerHeight;
-      const total = el.offsetHeight - vh;
+      const total = vh + rect.height;
       if (total <= 0) {
         setProgress(0);
         return;
       }
-      const scrolled = Math.min(total, Math.max(0, -rect.top));
-      setProgress(scrolled / total);
+      const traversed = vh - rect.top;
+      setProgress(clamp(traversed / total, 0, 1));
     };
     const onScroll = () => {
       if (ticking) return;
@@ -66,28 +67,23 @@ export function PainCoda() {
 
   const visualProgress = reducedMotion ? 1 : progress;
   const stagger =
-    (END_PROGRESS - START_PROGRESS - WORD_FADE) /
+    (REVEAL_END - REVEAL_START - WORD_FADE) /
     Math.max(1, WORDS.length - 1);
 
   return (
-    <section
-      ref={trackRef}
-      className="pain-coda-track"
-      aria-label="Pain section coda"
-    >
-      <div className="pain-coda-sticky">
-        <p className="pain-coda-text">
-          <em>
-            {WORDS.map((word, i) => {
-              const wordStart = START_PROGRESS + i * stagger;
-              const op = clamp(
-                (visualProgress - wordStart) / WORD_FADE,
-                0,
-                1,
-              );
-              return (
+    <div ref={ref} className="pain-coda">
+      <p>
+        <em>
+          {WORDS.map((word, i) => {
+            const wordStart = REVEAL_START + i * stagger;
+            const op = clamp(
+              (visualProgress - wordStart) / WORD_FADE,
+              0,
+              1,
+            );
+            return (
+              <Fragment key={`${word}-${i}`}>
                 <span
-                  key={`${word}-${i}`}
                   className="pain-coda-word"
                   style={{
                     opacity: op,
@@ -95,13 +91,13 @@ export function PainCoda() {
                   }}
                 >
                   {word}
-                  {i < WORDS.length - 1 ? " " : ""}
                 </span>
-              );
-            })}
-          </em>
-        </p>
-      </div>
-    </section>
+                {i < WORDS.length - 1 ? " " : null}
+              </Fragment>
+            );
+          })}
+        </em>
+      </p>
+    </div>
   );
 }
