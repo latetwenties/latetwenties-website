@@ -68,7 +68,22 @@ function BrowserFrame({
         <span className="cs-bw-dot" />
         <div className="cs-bw-url">{url}</div>
       </div>
-      <div className="cs-bw-body">{children}</div>
+      <div className="cs-bw-body">
+        {children}
+        <div className="cs-bw-swipe-hint" aria-hidden="true">
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+          >
+            <path d="M12 5v14M6 11l6-6 6 6M6 13l6 6 6-6" />
+          </svg>
+        </div>
+      </div>
     </div>
   );
 }
@@ -258,14 +273,25 @@ export function BeforeAfterCompare() {
       <div className="wrap cs-compare-notes">
         <p className="cs-compare-notes-eyebrow">What we focused on</p>
         <ul className="cs-compare-notes-list">
-          <li>Real photography of Boaz builds, no stock</li>
-          <li>A dedicated page per service, so each is findable</li>
           <li>
-            Copy that uses the language locals actually search with
+            <strong>Dedicated service and location pages</strong>, each
+            findable in its own right
           </li>
           <li>
-            Service areas named in plain text, so AI tools have the
-            geographic context to recommend Boaz when asked for the area
+            <strong>Heavy SEO and GEO foundations</strong> — schema,
+            structured data, internal linking, AI-search markup
+          </li>
+          <li>
+            <strong>Copy lifted from how locals actually search</strong>,
+            using their language, not ours
+          </li>
+          <li>
+            <strong>Real Boaz photography</strong> from the build sites,
+            no stock
+          </li>
+          <li>
+            <strong>Named service areas in plain text</strong> so AI tools
+            confidently recommend Boaz when asked about the area
           </li>
         </ul>
       </div>

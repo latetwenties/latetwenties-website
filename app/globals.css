@@ -2589,7 +2589,7 @@ a.ct-row-val:hover {
 }
 
 .cs-compare-notes {
-  padding: 56px 0 96px;
+  padding: 56px 0 128px;
   max-width: 880px;
 }
 .cs-compare-notes-eyebrow {
@@ -2624,6 +2624,16 @@ a.ct-row-val:hover {
   height: 6px;
   border-radius: 999px;
   background: var(--accent);
+}
+.cs-compare-notes-list strong {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+/* Swipe hint pill — mobile only, indicates the screenshot frame is
+   scrollable internally. */
+.cs-bw-swipe-hint {
+  display: none;
 }
 
 /* Rank counter card (Act 3) */
@@ -3031,6 +3041,34 @@ a.ct-row-val:hover {
     height: 60vh;
     max-height: 520px;
     overflow-y: auto;
+  }
+  .cs-bw-swipe-hint {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 14px;
+    right: 14px;
+    width: 30px;
+    height: 30px;
+    border-radius: 999px;
+    background: rgba(26, 24, 20, 0.55);
+    color: rgba(242, 236, 224, 0.95);
+    backdrop-filter: blur(6px);
+    pointer-events: none;
+    z-index: 4;
+    animation: cs-swipe-pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes cs-swipe-pulse {
+    0%,
+    100% {
+      opacity: 0.55;
+      transform: translateY(0);
+    }
+    50% {
+      opacity: 0.95;
+      transform: translateY(-4px);
+    }
   }
   .cs-compare-img {
     position: relative;
