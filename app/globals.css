@@ -482,7 +482,7 @@ section {
   width: 4px;
   height: clamp(44px, 7vw, 92px);
   background: var(--ink);
-  margin-left: 8px;
+  margin-left: 2px;
   vertical-align: -10%;
   animation: blink 1.05s steps(1) infinite;
 }
@@ -694,6 +694,7 @@ section {
   background: var(--accent);
   padding: 5px 10px;
   border-radius: 999px;
+  white-space: nowrap;
 }
 .ai-meta {
   font-family: var(--mono);
@@ -975,6 +976,18 @@ section {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-mute);
+}
+@media (max-width: 920px) {
+  .case-attribution .case-attr-sep {
+    display: none;
+  }
+  .case-attribution .case-attr-name,
+  .case-attribution .case-attr-meta {
+    display: block;
+  }
+  .case-attribution .case-attr-meta {
+    margin-top: 4px;
+  }
 }
 .case-card {
   display: grid;
@@ -2739,7 +2752,11 @@ a.ct-row-val:hover {
   .hero-cta-row {
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
+    gap: 14px;
+  }
+  .hero-cta-row .btn-primary {
+    font-size: 14px;
+    padding: 14px 22px;
   }
   .hero-sub-tight {
     max-width: none;

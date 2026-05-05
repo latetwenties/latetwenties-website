@@ -8,12 +8,12 @@ import { Eyebrow } from "../Eyebrow";
 import { Reveal } from "../Reveal";
 
 export function CaseStudy() {
-  const ref = useRef<HTMLElement | null>(null);
+  const cardRef = useRef<HTMLDivElement | null>(null);
   const [active, setActive] = useState(false);
   const [rank, setRank] = useState(101);
 
   useEffect(() => {
-    const el = ref.current;
+    const el = cardRef.current;
     if (!el) return;
     const io = new IntersectionObserver(
       (entries) => {
@@ -30,7 +30,7 @@ export function CaseStudy() {
           }
         });
       },
-      { threshold: 0.35 },
+      { threshold: 0.4 },
     );
     io.observe(el);
     return () => io.disconnect();
@@ -52,7 +52,7 @@ export function CaseStudy() {
   }, [active]);
 
   return (
-    <section className="case" id="work" ref={ref}>
+    <section className="case" id="work">
       <div className="wrap">
         <div className="case-head">
           <Reveal>
@@ -65,11 +65,16 @@ export function CaseStudy() {
               across our neighbouring towns.
             </p>
             <div className="case-attribution">
-              Boaz Developments &nbsp;·&nbsp; Builders, Mangawhai
+              <span className="case-attr-name">Boaz Developments</span>
+              <span className="case-attr-sep" aria-hidden="true">
+                &nbsp;·&nbsp;
+              </span>
+              <span className="case-attr-meta">Builders, Mangawhai</span>
             </div>
           </Reveal>
         </div>
 
+        <div ref={cardRef}>
         <Reveal className={`case-card ${active ? "is-active" : ""}`} delay={140}>
           <div className="cc-stats">
             <div className="cc-metric">
@@ -138,6 +143,7 @@ export function CaseStudy() {
             </div>
           </div>
         </Reveal>
+        </div>
 
         <Reveal className="case-cta" delay={240}>
           <Link className="ghost-link" href="/work/boaz-developments">

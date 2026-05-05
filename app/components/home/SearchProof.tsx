@@ -62,8 +62,10 @@ export function SearchProof() {
                 <path d="m20 20-3.5-3.5" />
               </svg>
             )}
-            <span className="typed">{text}</span>
-            <span className="caret" />
+            <span className="typed">
+              {text}
+              <span className="caret" />
+            </span>
             <span className="domain">{isAI ? "ai answer" : "google.com"}</span>
           </div>
 
