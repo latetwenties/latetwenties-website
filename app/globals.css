@@ -240,7 +240,7 @@ section {
 .nav-links {
   display: flex;
   gap: 28px;
-  align-items: center;
+  align-items: baseline;
 }
 .nav-links a {
   color: var(--ink-soft);
@@ -265,8 +265,9 @@ section {
   height: 1px;
   background: var(--ink);
 }
-/* Nav CTA — editorial text link. Same register as the other nav links,
-   distinguished by italic serif styling and a thin underline. */
+/* Nav CTA — editorial text link in terracotta. Same register as the
+   other nav links, distinguished by italic serif styling, a thin
+   underline, and the brand accent colour used elsewhere on the page. */
 .nav-cta {
   display: inline-flex;
   align-items: center;
@@ -275,11 +276,11 @@ section {
   font-style: italic;
   font-size: 16px;
   line-height: 1;
-  color: var(--ink);
+  color: var(--accent);
   text-decoration: none;
   background: transparent;
   border: none;
-  border-bottom: 1px solid var(--ink);
+  border-bottom: 1px solid var(--accent);
   padding: 0 0 4px 0;
   border-radius: 0;
   white-space: nowrap;
@@ -291,12 +292,12 @@ section {
   transition: transform 200ms ease;
 }
 .nav-links a.nav-cta {
-  color: var(--ink);
+  color: var(--accent);
 }
 .nav-links a.nav-cta:hover,
 .nav-links a.nav-cta:focus-visible {
-  color: var(--accent);
-  border-color: var(--accent);
+  color: var(--ink);
+  border-color: var(--ink);
   background: transparent;
   outline: none;
 }
