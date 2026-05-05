@@ -52,8 +52,8 @@ export default function BoazCaseStudy() {
             </Reveal>
             <Reveal delay={80}>
               <h1 className="cs-h1">
-                From not showing, to <em>#2 in&nbsp;search</em> across our
-                neighbouring towns. In under two&nbsp;months.
+                From not showing, to <em>#2 in&nbsp;search</em>{" "}
+                across our neighbouring towns. In under two&nbsp;months.
               </h1>
             </Reveal>
             <Reveal delay={140}>
