@@ -72,7 +72,10 @@ export function Header({ current = "" }: HeaderProps) {
             );
           })}
           <Link className="nav-cta" href="/contact">
-            Free presence check →
+            Free presence check{" "}
+            <span className="arrow" aria-hidden="true">
+              →
+            </span>
           </Link>
         </div>
         <MobileMenu />

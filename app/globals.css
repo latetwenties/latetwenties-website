@@ -162,43 +162,6 @@ section {
   transform: translateX(3px);
 }
 
-/* Editorial primary CTA — italic serif text with a thin underline.
-   Hover shifts to terracotta. Used on the homepage hero in place of a
-   solid pill so the call sits inside the same typographic register as
-   the rest of the page. */
-.btn-editorial {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 12px;
-  background: transparent;
-  color: var(--ink);
-  font-family: var(--display, var(--serif));
-  font-style: italic;
-  font-size: clamp(22px, 2vw, 28px);
-  line-height: 1.1;
-  letter-spacing: -0.01em;
-  padding: 0 0 6px 0;
-  border: none;
-  border-bottom: 1px solid var(--ink);
-  text-decoration: none;
-  transition: color 200ms ease, border-color 200ms ease;
-  cursor: pointer;
-  white-space: nowrap;
-}
-.btn-editorial:hover,
-.btn-editorial:focus-visible {
-  color: var(--accent);
-  border-color: var(--accent);
-  outline: none;
-}
-.btn-editorial .arrow {
-  font-style: normal;
-  transition: transform 200ms ease;
-}
-.btn-editorial:hover .arrow,
-.btn-editorial:focus-visible .arrow {
-  transform: translateX(4px);
-}
 
 .btn-ghost {
   font-family: var(--mono);
@@ -302,28 +265,44 @@ section {
   height: 1px;
   background: var(--ink);
 }
+/* Nav CTA — editorial text link. Same register as the other nav links,
+   distinguished by italic serif styling and a thin underline. */
 .nav-cta {
-  font-family: var(--mono);
-  font-size: 11px;
-  white-space: nowrap;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--display, var(--serif));
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1;
   color: var(--ink);
-  background: transparent;
-  border: 1px solid var(--ink);
-  padding: 9px 16px;
-  border-radius: 999px;
   text-decoration: none;
-  transition: background 160ms, color 160ms, border-color 160ms;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--ink);
+  padding: 0 0 4px 0;
+  border-radius: 0;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+  transition: color 160ms ease, border-color 160ms ease;
+}
+.nav-cta .arrow {
+  font-style: normal;
+  transition: transform 200ms ease;
 }
 .nav-links a.nav-cta {
   color: var(--ink);
 }
 .nav-links a.nav-cta:hover,
 .nav-links a.nav-cta:focus-visible {
-  background: var(--ink);
-  color: var(--paper) !important;
-  border-color: var(--ink);
+  color: var(--accent);
+  border-color: var(--accent);
+  background: transparent;
+  outline: none;
+}
+.nav-links a.nav-cta:hover .arrow,
+.nav-links a.nav-cta:focus-visible .arrow {
+  transform: translateX(3px);
 }
 
 /* ==========================================================
@@ -553,12 +532,9 @@ section {
 }
 .hero-cta-row {
   display: flex;
-  align-items: baseline;
-  gap: 28px;
+  align-items: center;
+  gap: 24px;
   margin-top: 48px;
-}
-.hero-cta-row .btn-ghost {
-  font-size: 11px;
 }
 
 /* ==========================================================
@@ -2804,8 +2780,9 @@ a.ct-row-val:hover {
     align-items: flex-start;
     gap: 14px;
   }
-  .hero-cta-row .btn-editorial {
-    font-size: 20px;
+  .hero-cta-row .btn-primary {
+    font-size: 14px;
+    padding: 14px 22px;
   }
   .hero-sub-tight {
     max-width: none;
