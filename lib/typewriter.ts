@@ -37,7 +37,12 @@ export function useRotatingWord(
   { typeMs = 75, pauseMs = 1700, deleteMs = 38 }: RotateOptions = {},
 ) {
   const [idx, setIdx] = useState(0);
-  const [text, setText] = useState("");
+  // Start at the first word so the SSR'd HTML already has content in the
+  // headline. Without this the LCP element renders empty until JS
+  // hydrates and types the first character. The hook then immediately
+  // hits its "fully typed, schedule deletion" branch and the animation
+  // continues normally.
+  const [text, setText] = useState(words[0] ?? "");
   const [phase, setPhase] = useState<"typing" | "deleting">("typing");
 
   useEffect(() => {
