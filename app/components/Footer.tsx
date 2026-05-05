@@ -53,13 +53,22 @@ export function Footer() {
             <h4>Follow</h4>
             <ul>
               <li>
-                <a href="#">LinkedIn</a>
+                <a
+                  href="https://www.linkedin.com/company/latetwenties"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LinkedIn
+                </a>
               </li>
               <li>
-                <a href="#">Instagram</a>
-              </li>
-              <li>
-                <a href="#">Newsletter</a>
+                <a
+                  href="https://www.facebook.com/latetwenties"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Facebook
+                </a>
               </li>
             </ul>
           </div>

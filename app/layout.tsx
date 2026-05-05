@@ -99,6 +99,10 @@ const SCHEMA = [
       { "@type": "Country", name: "New Zealand" },
       { "@type": "Country", name: "Australia" },
     ],
+    sameAs: [
+      "https://www.linkedin.com/company/latetwenties",
+      "https://www.facebook.com/latetwenties",
+    ],
   },
   {
     "@context": "https://schema.org",
