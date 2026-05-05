@@ -288,7 +288,15 @@ section {
    Hero — pure type, rotating trade keyword
    ========================================================== */
 .hero-pure {
+  min-height: 100vh;
+  min-height: 100dvh;
   padding: 96px 0 110px;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-content: center;
+}
+.hero-pure > .wrap {
+  width: 100%;
 }
 .hero-eyebrow {
   display: flex;
