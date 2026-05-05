@@ -72,12 +72,12 @@ function BrowserFrame({
         {children}
         <div className="cs-bw-swipe-hint" aria-hidden="true">
           <svg
-            width="14"
-            height="14"
+            width="22"
+            height="22"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            strokeWidth="2"
+            strokeWidth="1.8"
             strokeLinecap="round"
           >
             <path d="M12 5v14M6 11l6-6 6 6M6 13l6 6 6-6" />
