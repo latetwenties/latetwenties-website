@@ -48,7 +48,7 @@ export function Hero() {
         </Reveal>
 
         <Reveal className="hero-cta-row" delay={280}>
-          <Link className="btn-outline" href="/contact">
+          <Link className="btn-editorial" href="/contact">
             Free presence check <span className="arrow">→</span>
           </Link>
           <Link className="btn-ghost" href="/how-it-works">
