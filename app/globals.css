@@ -2760,18 +2760,20 @@ a.ct-row-val:hover {
   }
 
   .hero-pure {
-    /* On mobile drop the 88dvh min-height — let the hero be content-
-       sized with tight padding so it doesn't feel empty. */
+    /* Content-sized (no min-height) so we don't waste space, but with
+       a larger headline so the hero still carries primary visual weight
+       above any section heading further down the page. */
     min-height: auto;
-    padding: 48px 0 64px;
+    padding: 64px 0 88px;
   }
   .hero-eyebrow {
-    margin-bottom: 28px;
+    margin-bottom: 32px;
   }
   .hero-pure-headline {
-    /* Sized so the longest trade ("plumber" / "florist") + " near me"
-       fits on a single line at iPhone widths. */
-    font-size: clamp(28px, 8.5vw, 56px);
+    /* Bumped from 8.5vw so the headline outscales SearchProof's H2 and
+       reads as a hero, not a section heading. Still fits the longest
+       trade ("plumber" / "florist") + " near me" on a single line. */
+    font-size: clamp(38px, 12vw, 60px);
     white-space: nowrap;
   }
   .hero-pure-headline .hp-caret {
