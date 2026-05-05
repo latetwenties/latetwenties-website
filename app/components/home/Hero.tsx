@@ -43,9 +43,8 @@ export function Hero() {
         </Reveal>
 
         <Reveal as="p" className="hero-sub hero-sub-tight" delay={200}>
-          Someone is searching for what you do, right now.
-          <br />
-          We make sure your business is the one they choose.
+          Someone is searching for what you do, right now. We make sure
+          your business is the one they choose.
         </Reveal>
 
         <Reveal className="hero-cta-row" delay={280}>

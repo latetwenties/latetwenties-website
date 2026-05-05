@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+import { MobileMenu } from "./MobileMenu";
 import { Wordmark } from "./Wordmark";
 
 const NAV_LINKS = [
@@ -74,6 +75,7 @@ export function Header({ current = "" }: HeaderProps) {
             Free presence check →
           </Link>
         </div>
+        <MobileMenu />
       </div>
     </nav>
   );

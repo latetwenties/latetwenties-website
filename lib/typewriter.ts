@@ -17,13 +17,13 @@ export const TRADES = [
 
 export const QUERIES: Query[] = [
   { q: "physio near me", kind: "local" },
-  { q: "best accountant for small business in north shore", kind: "ai" },
+  { q: "best accountant in north shore", kind: "ai" },
   { q: "electrician near me", kind: "local" },
-  { q: "trusted dog groomer in warkworth with good reviews", kind: "ai" },
+  { q: "trusted dog groomer with good reviews", kind: "ai" },
   { q: "builder near me", kind: "local" },
-  { q: "who's the best mortgage broker in auckland right now", kind: "ai" },
+  { q: "best mortgage broker in auckland", kind: "ai" },
   { q: "hairdresser near me", kind: "local" },
-  { q: "recommend a plumber for an old villa in ponsonby", kind: "ai" },
+  { q: "plumber for an old villa in ponsonby", kind: "ai" },
 ];
 
 type RotateOptions = {

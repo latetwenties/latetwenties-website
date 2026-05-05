@@ -149,6 +149,7 @@ section {
   transition: transform 160ms ease, background 160ms ease;
   cursor: pointer;
   border: none;
+  white-space: nowrap;
 }
 .btn-primary:hover {
   transform: translateY(-1px);
@@ -285,6 +286,150 @@ section {
   background: var(--ink);
   color: var(--paper) !important;
   border-color: var(--ink);
+}
+
+/* ==========================================================
+   Mobile menu — hamburger toggle + slide-in panel
+   ========================================================== */
+.mobile-menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  color: var(--ink);
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease;
+}
+.mobile-menu-toggle:hover,
+.mobile-menu-toggle:focus-visible {
+  background: var(--ink);
+  color: var(--paper);
+  outline: none;
+}
+.mobile-menu-icon {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 18px;
+}
+.mobile-menu-icon > span {
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  background: currentColor;
+}
+
+.mobile-menu-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--ground);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 24px 32px;
+  transform: translateX(100%);
+  transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0s linear 320ms;
+  visibility: hidden;
+}
+.mobile-menu-panel.is-open {
+  transform: translateX(0);
+  visibility: visible;
+  transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.mobile-menu-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+.mobile-menu-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.mobile-menu-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  color: var(--ink);
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease;
+}
+.mobile-menu-close:hover,
+.mobile-menu-close:focus-visible {
+  background: var(--ink);
+  color: var(--paper);
+  outline: none;
+}
+.mobile-menu-nav {
+  display: flex;
+  flex-direction: column;
+}
+.mobile-menu-link {
+  font-family: var(--display, var(--serif));
+  font-size: clamp(32px, 9vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--rule);
+  transition: color 160ms ease;
+}
+.mobile-menu-link:first-child {
+  border-top: 1px solid var(--rule);
+}
+.mobile-menu-link:hover {
+  color: var(--accent);
+}
+.mobile-menu-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--ink);
+  color: var(--ground);
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 16px;
+  padding: 18px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  margin-top: 36px;
+  transition: background 160ms ease;
+}
+.mobile-menu-cta:hover {
+  background: var(--accent);
+}
+.mobile-menu-foot {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 28px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+.mobile-menu-foot a {
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+.mobile-menu-foot a:hover {
+  color: var(--ink);
 }
 
 /* ==========================================================
@@ -2569,31 +2714,35 @@ a.ct-row-val:hover {
   .wrap {
     padding: 0 24px;
   }
-  .nav-links a:not(.nav-cta) {
+  .nav-links {
     display: none;
   }
-  .nav-cta {
-    font-size: 0;
-    padding: 8px 12px;
-  }
-  .nav-cta::before {
-    content: "Free check →";
-    font-size: 10px;
-    letter-spacing: 0.08em;
+  .mobile-menu-toggle {
+    display: inline-flex;
   }
 
   .hero-pure {
-    padding: 56px 0 80px;
+    padding: 64px 0 96px;
   }
   .hero-eyebrow {
     margin-bottom: 28px;
   }
   .hero-pure-headline {
-    font-size: clamp(44px, 13vw, 64px);
-    white-space: normal;
+    /* Sized so the longest trade ("plumber" / "florist") + " near me"
+       fits on a single line at iPhone widths. */
+    font-size: clamp(28px, 8.5vw, 56px);
+    white-space: nowrap;
   }
   .hero-pure-headline .hp-caret {
-    height: 38px;
+    height: 1em;
+  }
+  .hero-cta-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .hero-sub-tight {
+    max-width: none;
   }
 
   .searchproof {
@@ -2630,6 +2779,14 @@ a.ct-row-val:hover {
     padding: 36px 24px;
     min-height: auto;
   }
+  .two-foot {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .fake-search .domain {
+    display: none;
+  }
   .case {
     padding: 90px 0 80px;
   }
@@ -2640,11 +2797,20 @@ a.ct-row-val:hover {
   .founder {
     padding: 80px 0;
   }
-  .founder-photo {
-    position: static;
+  /* Photo containers must keep positioning context so next/image fill
+     resolves against them. Drop sticky-top behaviour but stay relative. */
+  .founder-photo,
+  .abf-photo {
+    position: relative !important;
+    top: auto !important;
   }
   .footer-top {
     grid-template-columns: 1fr 1fr;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
   }
 
   .prod-grid,
@@ -2658,9 +2824,10 @@ a.ct-row-val:hover {
     grid-template-columns: 1fr !important;
     gap: 48px !important;
   }
+  /* Sticky title columns: drop sticky on mobile. (Photo containers handled
+     above; they need to stay positioned for next/image fill.) */
   .prod-left,
   .proc-left,
-  .abf-photo,
   .ab-day-left,
   .cs-act-left,
   .faq-left {
