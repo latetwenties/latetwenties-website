@@ -208,7 +208,10 @@ section {
   z-index: 30;
   backdrop-filter: blur(10px);
   background: color-mix(in oklab, var(--ground) 84%, transparent);
-  border-bottom: 1px solid var(--rule);
+  transition: transform 280ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nav.is-hidden {
+  transform: translateY(-100%);
 }
 .nav-inner {
   max-width: 1320px;
@@ -290,7 +293,9 @@ section {
 .hero-pure {
   min-height: 100vh;
   min-height: 100dvh;
-  padding: 96px 0 110px;
+  /* Heavier bottom padding lifts the content above true centre, which
+     reads as visually balanced once the eye accounts for the nav at top. */
+  padding: 80px 0 160px;
   display: grid;
   grid-template-columns: 1fr;
   align-content: center;

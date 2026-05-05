@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 import { Wordmark } from "./Wordmark";
 
@@ -9,13 +12,46 @@ const NAV_LINKS = [
   { href: "/contact", label: "Contact", match: "contact" },
 ];
 
+const SHOW_AT_TOP_THRESHOLD = 80;
+const HIDE_DELTA = 6;
+
 type HeaderProps = {
   current?: string;
 };
 
 export function Header({ current = "" }: HeaderProps) {
+  const [hidden, setHidden] = useState(false);
+
+  useEffect(() => {
+    let lastY = window.scrollY;
+    let ticking = false;
+
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        if (y < SHOW_AT_TOP_THRESHOLD) {
+          setHidden(false);
+        } else if (y - lastY > HIDE_DELTA) {
+          setHidden(true);
+        } else if (lastY - y > HIDE_DELTA) {
+          setHidden(false);
+        }
+        lastY = y;
+        ticking = false;
+      });
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <nav className="nav" aria-label="Primary">
+    <nav
+      className={`nav ${hidden ? "is-hidden" : ""}`.trim()}
+      aria-label="Primary"
+    >
       <div className="nav-inner">
         <Link href="/" className="wordmark" aria-label="Latetwenties home">
           <Wordmark height={32} className="wordmark-mask" />
