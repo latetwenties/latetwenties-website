@@ -2764,16 +2764,15 @@ a.ct-row-val:hover {
        a larger headline so the hero still carries primary visual weight
        above any section heading further down the page. */
     min-height: auto;
-    padding: 64px 0 88px;
+    padding: 80px 0 104px;
   }
   .hero-eyebrow {
     margin-bottom: 32px;
   }
   .hero-pure-headline {
-    /* Bumped from 8.5vw so the headline outscales SearchProof's H2 and
-       reads as a hero, not a section heading. Still fits the longest
-       trade ("plumber" / "florist") + " near me" on a single line. */
-    font-size: clamp(38px, 12vw, 60px);
+    /* Sized so the headline reads as a hero (outscales SearchProof's H2
+       below) while staying clear of the right edge at iPhone widths. */
+    font-size: clamp(34px, 10.5vw, 56px);
     white-space: nowrap;
   }
   .hero-pure-headline .hp-caret {
