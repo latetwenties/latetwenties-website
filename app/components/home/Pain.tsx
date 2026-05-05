@@ -7,8 +7,6 @@ const PAIN_POINTS = [
   "You shouldn't have to be a marketer too.",
 ];
 
-const PAIN_CODA = "Word of mouth got you here. It won't get you there.";
-
 export function Pain() {
   return (
     <section className="pain">
@@ -39,12 +37,6 @@ export function Pain() {
             </Reveal>
           ))}
         </ol>
-
-        <Reveal className="pain-coda" delay={260}>
-          <p>
-            <em>{PAIN_CODA}</em>
-          </p>
-        </Reveal>
       </div>
     </section>
   );

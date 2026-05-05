@@ -5,6 +5,7 @@ import { CaseStudy } from "./components/home/CaseStudy";
 import { Founder } from "./components/home/Founder";
 import { Hero } from "./components/home/Hero";
 import { Pain } from "./components/home/Pain";
+import { PainCoda } from "./components/home/PainCoda";
 import { SearchProof } from "./components/home/SearchProof";
 import { TwoThings } from "./components/home/TwoThings";
 
@@ -16,6 +17,7 @@ export default function Home() {
         <Hero />
         <SearchProof />
         <Pain />
+        <PainCoda />
         <TwoThings />
         <CaseStudy />
         <Founder />
