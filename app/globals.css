@@ -9,7 +9,10 @@
   --color-paper: #faf6ec;
   --color-ink: #1a1814;
   --color-ink-soft: #4a4339;
-  --color-ink-mute: #8a7f6e;
+  /* Darkened from #8a7f6e to pass WCAG AA contrast (4.5:1) against
+     the cream ground. Used for eyebrows, meta labels, captions, and
+     similar muted text throughout the site. */
+  --color-ink-mute: #5e5644;
   --color-rule: rgba(26, 24, 20, 0.14);
   --color-rule-strong: rgba(26, 24, 20, 0.28);
   --color-accent: #b85a2e;
