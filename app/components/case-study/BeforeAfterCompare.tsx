@@ -254,6 +254,21 @@ export function BeforeAfterCompare() {
           <div className="cs-compare-hint">Scroll to compare</div>
         </div>
       </div>
+
+      <div className="wrap cs-compare-notes">
+        <p className="cs-compare-notes-eyebrow">What we focused on</p>
+        <ul className="cs-compare-notes-list">
+          <li>Real photography of Boaz builds, no stock</li>
+          <li>A dedicated page per service, so each is findable</li>
+          <li>
+            Copy that uses the language locals actually search with
+          </li>
+          <li>
+            Service areas named in plain text, so AI tools have the
+            geographic context to recommend Boaz when asked for the area
+          </li>
+        </ul>
+      </div>
     </section>
   );
 }

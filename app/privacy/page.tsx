@@ -41,8 +41,9 @@ export default function Privacy() {
               How we handle your data.
             </h1>
             <p className="mt-6 max-w-[60ch] text-base leading-[1.7] sm:text-lg">
-              We collect as little as we can. We don’t sell your data. We
-              don’t track you across the internet. Last updated {UPDATED}.
+              We collect as little as we can. We don&rsquo;t sell your data.
+              We don&rsquo;t share it with marketers, data brokers, or
+              anyone else. Last updated {UPDATED}.
             </p>
           </Container>
         </section>
@@ -85,29 +86,37 @@ export default function Privacy() {
                 </p>
                 <ul className="mt-4 list-disc space-y-3 pl-6">
                   <li>
-                    <strong className="font-medium">
-                      Anonymous analytics.
-                    </strong>{" "}
-                    We use Plausible Analytics, which is privacy-respecting by
-                    design. No cookies, no personal data, no cross-site
-                    tracking. We see counts of pages viewed, referring sites,
-                    and rough country-level location. We don’t see who you
-                    are.
+                    <strong className="font-medium">Site analytics.</strong>{" "}
+                    We use Google Analytics 4 to understand which pages
+                    people read so we can write better ones. GA places
+                    cookies in your browser and reports site usage to us in
+                    aggregate. We&rsquo;ve configured it to mask the last
+                    portion of your IP address and not collect anything
+                    that personally identifies you. If you&rsquo;d rather
+                    opt out, Google offers a{" "}
+                    <a
+                      href="https://tools.google.com/dlpage/gaoptout"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline underline-offset-4 hover:opacity-65 transition-opacity"
+                    >
+                      browser opt-out add-on
+                    </a>
+                    , and most browsers let you block analytics cookies in
+                    settings.
                   </li>
                   <li>
-                    <strong className="font-medium">
-                      Booking details.
-                    </strong>{" "}
+                    <strong className="font-medium">Booking details.</strong>{" "}
                     If you book a call through our TidyCal page, TidyCal
-                    captures your name, email, and any notes you add. We use
-                    that to prepare for and run the call.
+                    captures your name, email, and any notes you add. We
+                    use that to prepare for and run the call.
                   </li>
                   <li>
                     <strong className="font-medium">
                       Email correspondence.
                     </strong>{" "}
-                    If you email us directly, we keep the thread for as long
-                    as it’s useful for the relationship.
+                    If you email us directly, we keep the thread for as
+                    long as it&rsquo;s useful for the relationship.
                   </li>
                 </ul>
               </div>
@@ -120,9 +129,10 @@ export default function Privacy() {
                   How we use it
                 </h2>
                 <p className="mt-4">
-                  Plausible analytics tells us which pages people read so we
-                  can write better ones. Booking and email data lets us
-                  respond to you and run the relationship. That’s it.
+                  Google Analytics tells us which pages work and which
+                  don&rsquo;t, so we know what to write next. Booking and
+                  email data lets us respond to you and run the
+                  relationship. That&rsquo;s it.
                 </p>
               </div>
 
@@ -139,23 +149,19 @@ export default function Privacy() {
                 </p>
                 <ul className="mt-4 list-disc space-y-3 pl-6">
                   <li>
-                    Plausible Analytics, for the anonymous traffic data
-                    described above.
+                    Google (Analytics), for the site usage data described
+                    above.
                   </li>
-                  <li>
-                    TidyCal, for booking calls.
-                  </li>
+                  <li>TidyCal, for booking calls.</li>
                   <li>
                     Resend, if we send transactional email (e.g. a booking
                     confirmation).
                   </li>
-                  <li>
-                    Vercel, who host the site.
-                  </li>
+                  <li>Vercel, who host the site.</li>
                 </ul>
                 <p className="mt-4">
-                  We don’t sell your data. We don’t share it with marketers,
-                  data brokers, or anyone else.
+                  We don&rsquo;t sell your data. We don&rsquo;t share it
+                  with marketers, data brokers, or anyone else.
                 </p>
               </div>
 
