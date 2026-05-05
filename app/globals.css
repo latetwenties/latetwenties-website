@@ -317,16 +317,14 @@ section {
   height: 40px;
   padding: 0;
   background: transparent;
-  border: 1px solid var(--ink);
-  border-radius: 999px;
-  color: var(--ink);
+  border: none;
+  color: var(--accent);
   cursor: pointer;
-  transition: background 160ms ease, color 160ms ease;
+  transition: color 160ms ease;
 }
 .mobile-menu-toggle:hover,
 .mobile-menu-toggle:focus-visible {
-  background: var(--ink);
-  color: var(--paper);
+  color: var(--ink);
   outline: none;
 }
 .mobile-menu-icon {
