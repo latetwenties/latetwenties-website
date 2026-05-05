@@ -196,25 +196,27 @@ export function Act3() {
           <div className="cs-summary-tag">In summary</div>
           <ul className="cs-summary-list">
             <li>
-              <strong>Map pack:</strong> from not appearing to #2 average
-              across the neighbouring towns in under two months.
+              <strong>Map pack:</strong>{" "}
+              from not appearing to #2 average across the neighbouring
+              towns in under two months.
             </li>
             <li>
-              <strong>Google Business Profile:</strong> from thin to fully
-              built, with reviews coming in steadily.
+              <strong>Google Business Profile:</strong>{" "}
+              from thin to fully built, with reviews coming in steadily.
             </li>
             <li>
-              <strong>Website:</strong> from a basic placeholder to a
-              service-led, research-driven home.
+              <strong>Website:</strong>{" "}
+              from a basic placeholder to a service-led, research-driven
+              home.
             </li>
             <li>
-              <strong>AI search:</strong> ChatGPT recommends Boaz at position
-              #1 for the area.
+              <strong>AI search:</strong>{" "}
+              ChatGPT recommends Boaz at position #1 for the area.
             </li>
             <li>
-              <strong>The phone:</strong> ringing for the right kinds of jobs,
-              people who hadn&rsquo;t heard of Boaz before, searching for a
-              builder in the area.
+              <strong>The phone:</strong>{" "}
+              ringing for the right kinds of jobs, people who hadn&rsquo;t
+              heard of Boaz before, searching for a builder in the area.
             </li>
           </ul>
         </Reveal>

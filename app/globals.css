@@ -2894,6 +2894,9 @@ a.ct-row-val:hover {
     grid-template-columns: 1fr 1fr;
     gap: 24px;
   }
+  .cs-compare-intro {
+    padding-top: 140px;
+  }
   .cs-proof-grid,
   .cs-summary {
     grid-template-columns: 1fr !important;

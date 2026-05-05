@@ -139,15 +139,15 @@ export default function BoazCaseStudy() {
               </div>
               <Reveal as="div" className="cs-act-body" delay={80}>
                 <p>
-                  Reece and I met. After a brief conversation about what
+                  We met with Reece. After a brief conversation about what
                   Latetwenties does, he said it sounded like exactly what he
                   needed. The last thing he wanted was to sit at a computer
                   figuring out marketing himself.
                 </p>
                 <p>
-                  An onboarding session, then the in-depth research process. A
-                  V1 of the site delivered for review within a week. I sent
-                  the link in a text message.{" "}
+                  An onboarding session, then the in-depth research process.
+                  A V1 of the site delivered for review within a week. We
+                  sent the link in a text message.{" "}
                   <em>It went live with no changes from him.</em>
                 </p>
 
