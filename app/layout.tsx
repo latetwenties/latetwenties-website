@@ -47,12 +47,6 @@ const lustPro = localFont({
   display: "swap",
 });
 
-const lustStencil = localFont({
-  src: "./fonts/lust-stencil.otf",
-  variable: "--font-stencil-family",
-  display: "swap",
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://latetwenties.agency"),
   title: {
@@ -164,7 +158,7 @@ export default function RootLayout({
   return (
     <html
       lang="en-NZ"
-      className={`${interTight.variable} ${newsreader.variable} ${jetbrainsMono.variable} ${lustPro.variable} ${lustStencil.variable} antialiased`}
+      className={`${interTight.variable} ${newsreader.variable} ${jetbrainsMono.variable} ${lustPro.variable} antialiased`}
     >
       <head>
         <script

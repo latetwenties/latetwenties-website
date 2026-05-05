@@ -30,7 +30,6 @@
   --font-serif: var(--font-newsreader);
   --font-mono: var(--font-jetbrains-mono);
   --font-display: var(--font-display-family);
-  --font-stencil: var(--font-stencil-family);
 
   --ease-considered: cubic-bezier(0.16, 1, 0.3, 1);
 }
