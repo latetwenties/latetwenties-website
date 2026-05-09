@@ -5,9 +5,9 @@ import { article, breadcrumbList } from "@/lib/schema";
 import {
   BlogPost,
   H2,
+  OL,
   P,
   Strong,
-  UL,
 } from "../../components/blog/BlogPost";
 import { JsonLd } from "../../components/JsonLd";
 
@@ -41,21 +41,21 @@ export default function Post() {
       <JsonLd schema={SCHEMA} />
       <BlogPost
         title="The year your customers stopped clicking"
-        readTime="8 min read"
+        readTime="10 min read"
         lede="A quiet thing is happening to local service businesses across New Zealand and Australia right now. The Google rankings haven’t moved. Some have even improved. But the phone is ringing less than it used to, the contact form is quieter, and the traffic chart is sliding sideways into down. Nothing looks technically broken. The ground has shifted underneath."
         ctaTitle="Want me to run the diagnostic for you?"
         ctaBody="30 minutes, no pitch. Before we talk I’ll run these searches against your business across ChatGPT, Perplexity and Google’s AI mode, and come prepared with what they’re saying about you, what they’re missing, and what to do about it."
       >
         <H2>What’s actually happening</H2>
         <P>
-          In the last 18 months a layer has appeared above the search results.
-          Google began rolling out AI Overviews to New Zealand and Australia
-          through 2024 and 2025: the AI-generated summary that sits at the top
-          of the page and answers the question directly. ChatGPT Search
-          launched late 2024 and is now used by tens of millions of people each
-          week. Perplexity has grown more confident with every model release.
-          Apple Intelligence is wired into Siri’s local recommendations on
-          every recent iPhone in the country.
+          In the last two years a layer has appeared above the search results.
+          Google rolled out AI Overviews to New Zealand and Australia through
+          2024 and 2025: the AI-generated summary that sits at the top of the
+          page and answers the question directly. ChatGPT Search launched late
+          2024 and is now used by hundreds of millions of people each week.
+          Perplexity has grown more confident with every model release. Apple
+          Intelligence is wired into Siri’s local recommendations on every
+          recent iPhone in the country.
         </P>
         <P>
           These tools are answer engines, not search engines. They read the
@@ -63,13 +63,24 @@ export default function Post() {
           answer. Often without sending the click.
         </P>
         <P>
-          Pew Research has tracked this shift carefully. In a study published
-          July 2025, when a Google AI Overview appeared at the top of the
-          page, the click-through rate on the rest of the page roughly halved.
-          Almost 60% of all Google searches now end without a click on any
-          result at all. Ahrefs and Similarweb have published parallel numbers
-          on AI search traffic from ChatGPT and Perplexity, growing month on
-          month through 2025 and into 2026.
+          The numbers got loud in 2026. BrightLocal’s Local Consumer Review
+          Survey, published in March 2026, found that the share of consumers
+          using AI tools for local business recommendations jumped from 6% in
+          2025 to 45% in 2026. That’s not 6% growth. It’s 6% to 45% in twelve
+          months. AI is now the third most-used channel for finding local
+          businesses, behind only Google and Facebook. It already passed Yelp.
+          It already passed Tripadvisor.
+        </P>
+        <P>
+          Whitespark’s Q2 2026 local data set found that AI Overviews now
+          appear in 68% of all local searches, 92% of informational queries,
+          and 97% of hybrid-intent searches like “average cost of a kitchen
+          renovation in Tauranga”. The Google local map pack (the
+          three-business box with the map) only shows up for 39% of searches
+          now. Pew Research found that when an AI summary appears, the
+          click-through rate on the rest of the page nearly halves. Around
+          two-thirds of all Google searches now end without a click on any
+          result at all.
         </P>
         <P>
           You can feel this without reading a single report. Your customers
@@ -97,14 +108,26 @@ export default function Post() {
           you’ve made it into the considered set. If you’re not, you’re
           invisible at a layer the old SEO tools weren’t built to measure.
         </P>
+        <P>
+          SOCi’s 2026 Local Visibility Index analysed almost 350,000 business
+          locations across 2,751 brands and put hard numbers on the gap. Only
+          1.2% of locations were recommended by ChatGPT. Around 11% by Gemini.
+          About 7.4% by Perplexity. Compare that to a 35.9% appearance rate in
+          Google’s local 3-pack. Their estimate is that AI visibility is three
+          to thirty times harder to achieve than ranking well in traditional
+          local search.
+        </P>
+        <P>
+          The most uncomfortable finding from that report: only about 45% of
+          brands that win in traditional local search also appear in AI
+          recommendations. More than half of the businesses ranking well on
+          Google don’t show up in AI answers at all. Two different games. Two
+          different scorecards.
+        </P>
 
         <H2>The new question</H2>
-        <P>
-          The question used to be: where do I rank?
-        </P>
-        <P>
-          The question now is: am I being cited?
-        </P>
+        <P>The question used to be: where do I rank?</P>
+        <P>The question now is: am I being cited?</P>
         <P>
           These are not the same question. You can rank fifth on a Google
           search and be the first business named in the AI Overview, because
@@ -139,17 +162,21 @@ export default function Post() {
           <Strong>Clear structured data.</Strong> Schema markup
           (LocalBusiness, Service, FAQPage) gives the AI an unambiguous
           picture of who you are, what you do, where you do it, and what you
-          charge. Without it, the AI is reading your site like a human and
-          guessing. With it, you’re handing it the answer in a format it can’t
-          misinterpret. Most small business websites in NZ and AU still
-          don’t have this.
+          charge. Semrush ran the numbers and found pages with properly
+          implemented LocalBusiness schema have a 45% higher AI citation rate.
+          FogLift’s 2026 study found pages with FAQ schema are 2.8 times more
+          likely to be cited in AI answers than pages without it. Most small
+          business websites in NZ and AU still don’t have either, properly.
+          The closest thing to a free win available right now.
         </P>
         <P>
           <Strong>Citation density across the web.</Strong> Reviews, directory
           listings, mentions in local press, third-party case studies. Answer
           engines weigh corroborated information higher than self-described
-          claims. You can’t tell ChatGPT you’re trustworthy. Other sources
-          have to do that for you.
+          claims. SOCi found that locations recommended by ChatGPT average a
+          4.3-star review rating. Sentiment is now functioning as an
+          eligibility filter, not a tiebreaker. You can’t tell ChatGPT you’re
+          trustworthy. Other sources have to do that for you.
         </P>
 
         <H2>A diagnostic you can run in fifteen minutes</H2>
@@ -165,7 +192,7 @@ export default function Post() {
           . You can do it yourself first. It costs you nothing and it’s
           genuinely useful.
         </P>
-        <UL>
+        <OL>
           <li>
             Open ChatGPT (or Perplexity, or Google’s AI mode). Type the search
             a real customer would use. Not your business name. The job. “Best
@@ -189,7 +216,7 @@ export default function Post() {
             the top. Same questions. Are you mentioned? Is the description
             right?
           </li>
-        </UL>
+        </OL>
         <P>
           If the answers feel thin or wrong or absent, that’s the gap. That’s
           what’s costing you calls right now, and almost nothing in your old
@@ -208,10 +235,11 @@ export default function Post() {
         </P>
         <P>
           <Strong>Get your structured data right.</Strong> If you don’t have
-          LocalBusiness and Service schema on your site, you’re missing the
-          most direct lever for being parsed correctly by an answer engine.
-          It’s the closest thing to a free win available right now, and most
-          of your competitors don’t have it yet.
+          LocalBusiness, Service, and FAQPage schema on your site, you’re
+          missing the most direct lever for being parsed correctly by an
+          answer engine. The Semrush and FogLift numbers above are the
+          clearest reason to prioritise it. Most of your competitors still
+          haven’t.
         </P>
         <P>
           <Strong>Strengthen your citations.</Strong> Get your name, address
@@ -228,10 +256,11 @@ export default function Post() {
 
         <H2>The bottom line</H2>
         <P>
-          We’re still early in this shift. Most small business owners we
-          speak to haven’t named what they’re feeling yet. The numbers are
-          slipping a little, the calls are a little quieter, but everything
-          looks fine on the surface.
+          We’re no longer early in this shift. The 6%-to-45% jump in twelve
+          months is the kind of curve that doesn’t politely wait for small
+          business owners to notice. The numbers are slipping a little, the
+          calls are a little quieter, and now there’s a body of 2026 research
+          that explains exactly why.
         </P>
         <P>
           What’s happening is a quiet rewrite of the rules of being found

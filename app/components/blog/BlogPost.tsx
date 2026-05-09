@@ -135,6 +135,14 @@ export function UL({ children }: { children: ReactNode }) {
   );
 }
 
+export function OL({ children }: { children: ReactNode }) {
+  return (
+    <ol className="mt-6 list-decimal space-y-3 pl-6 text-base leading-[1.75] sm:text-lg">
+      {children}
+    </ol>
+  );
+}
+
 export function Strong({ children }: { children: ReactNode }) {
   return <strong className="font-medium">{children}</strong>;
 }
