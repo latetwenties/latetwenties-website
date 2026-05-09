@@ -27,6 +27,13 @@ type Post = {
 
 const POSTS: Post[] = [
   {
+    slug: "ai-search-shift",
+    title: "The year your customers stopped clicking",
+    description:
+      "Why local service businesses are seeing traffic fall while their Google rankings hold steady, and the diagnostic that explains where their customers actually went.",
+    readTime: "8 min read",
+  },
+  {
     slug: "google-ranking",
     title:
       "5 reasons your business isn’t showing up on Google",

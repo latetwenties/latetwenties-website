@@ -9,9 +9,18 @@ type BlogPostProps = {
   lede: string;
   readTime: string;
   children: ReactNode;
+  ctaTitle?: string;
+  ctaBody?: string;
 };
 
-export function BlogPost({ title, lede, readTime, children }: BlogPostProps) {
+export function BlogPost({
+  title,
+  lede,
+  readTime,
+  children,
+  ctaTitle = "Want me to take a look?",
+  ctaBody = "30 minutes, no pitch. I’ll come prepared with a look at where you sit and what’s costing you calls.",
+}: BlogPostProps) {
   return (
     <>
       <Header />
@@ -69,11 +78,10 @@ export function BlogPost({ title, lede, readTime, children }: BlogPostProps) {
                     lineHeight: "1.06",
                   }}
                 >
-                  Want me to take a look?
+                  {ctaTitle}
                 </h2>
                 <p className="mt-6 max-w-[52ch] text-base leading-[1.7] sm:text-lg">
-                  30 minutes, no pitch. I’ll come prepared with a look at
-                  where you sit and what’s costing you calls.
+                  {ctaBody}
                 </p>
               </div>
               <div className="lg:col-span-5 lg:flex lg:justify-end">
