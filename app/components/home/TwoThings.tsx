@@ -17,8 +17,9 @@ export function TwoThings() {
             </h2>
           </Reveal>
           <Reveal as="p" className="lede" delay={120}>
-            No retainers full of fluff. The foundations done right, then
-            steady, visible care, month after month.
+            The site gets you showing up. The steady work after gets you
+            moving up the list. We do both, in that order, so neither runs
+            on its own.
           </Reveal>
         </div>
 
@@ -27,14 +28,15 @@ export function TwoThings() {
             <div className="num">01 / Foundations</div>
             <h3>Foundations</h3>
             <p className="body">
-              Set up the website, Google Business Profile, listings, and
-              reviews so customers can find you.
+              Website, Google Business Profile, listings, and reviews, set up
+              properly. Then the first 30 days of Presence Care, already
+              included while the work is fresh.
             </p>
             <div className="price">
               <div className="amount">
-                From $2,500 <em>once</em>
+                $3,700 <em>once</em>
               </div>
-              <div className="deets">2 to 3 weeks</div>
+              <div className="deets">2 to 3 weeks build, then 30 days care</div>
             </div>
           </Reveal>
 
@@ -42,14 +44,15 @@ export function TwoThings() {
             <div className="num">02 / Presence Care</div>
             <h3>Presence Care</h3>
             <p className="body">
-              Keep the signals active month to month. Posts, reviews,
-              listings, ongoing SEO.
+              From day 31, the steady, visible care that keeps the signals
+              strong and moves you up the list. Posts, reviews, listings,
+              ongoing SEO.
             </p>
             <div className="price">
               <div className="amount">
                 $1,200 <em>a month</em>
               </div>
-              <div className="deets">Month to month</div>
+              <div className="deets">Month to month, from month two</div>
             </div>
           </Reveal>
         </div>

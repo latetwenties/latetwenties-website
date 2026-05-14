@@ -212,8 +212,9 @@ greppable.
   themselves.
 - **Trust stack** (ranked by leverage): real case studies (Boaz, Hooper, TMT
   when live) → named principal (Brendan) → direct testimonial (Reece, Boaz
-  Developments) → pricing visibility ($2,500 Foundations / $1,200/mo
-  Presence Care) → 10+ years operator experience.
+  Developments) → pricing visibility ($3,700 Foundations including the first
+  30 days of Presence Care, then $1,200/mo continuation) → 10+ years operator
+  experience.
 - **Phone (canonical, per `nap_descriptions.md` §1.1):** `09-884-4418`
   display, `098844418` for `tel:` href, `+64-9-884-4418` international.
   Note: build_brief §6.6 has an older format without internal hyphens; NAP

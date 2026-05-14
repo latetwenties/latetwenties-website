@@ -12,19 +12,24 @@ import { Reveal } from "../components/Reveal";
 export const metadata: Metadata = {
   title: "How it works",
   description:
-    "Foundations from $2,500. Presence Care $1,200 a month. Two products, plainly priced. No long lock-ins.",
+    "Foundations is $3,700 and includes the first 30 days of Presence Care. After that, Presence Care is $1,200 a month. Two products, plainly priced. No long lock-ins.",
 };
 
 const FAQS = [
   {
     question: "How long does Foundations take?",
     answer:
-      "Two to four weeks, end to end. The first week is research: your brief, your market, your competitors, and the search queries that matter. Weeks two and three are the build: site, Google Business Profile, listings, review system. Week four is launch and handover.",
+      "Two to four weeks, end to end. The first week is research: your brief, your market, your competitors, and the search queries that matter. Weeks two and three are the build: site, Google Business Profile, listings, review system. Week four is launch and handover. From launch, the first 30 days of Presence Care run automatically while the new work is still fresh.",
   },
   {
-    question: "What's the minimum on Presence Care?",
+    question: "Why is the first 30 days of Presence Care included?",
     answer:
-      "Three months. Long enough for the work to land in search results and for review velocity to lift. After that it's month-to-month. We don't lock you in beyond what's needed to give the work a fair shot.",
+      "Because that's when the work moves the most. A new site takes time to get indexed, a refreshed Google Business Profile takes time to be re-ranked, citations take time to propagate. We use those 30 days to run the cadence dense rather than light: frequent new pages and articles, Google Business Profile updates, review prompts. By day 30 you've already felt the shape of Presence Care, not just been pitched it.",
+  },
+  {
+    question: "What happens after the first 30 days?",
+    answer:
+      "Presence Care continues at $1,200 a month. We ask for two more months so the work has time to land in search results and review velocity has time to lift. That's three months total, including the one bundled with Foundations. After that it's month-to-month. We don't lock you in beyond what's needed to give the work a fair shot.",
   },
   {
     question: "Do you work with businesses outside Auckland?",
@@ -44,7 +49,7 @@ const FAQS = [
   {
     question: "Why aren't you on hourly rates?",
     answer:
-      "Hourly rates reward slow work. Fixed pricing rewards getting the work done properly. Foundations is $2,500 because that's what it costs to do it once, properly. Presence Care is $1,200 a month because that's what it costs to keep the signals strong.",
+      "Hourly rates reward slow work. Fixed pricing rewards getting the work done properly. Foundations is $3,700 because that's what it costs to do it once, properly, including the first 30 days of care while the work is still fresh. Presence Care is $1,200 a month because that's what it costs to keep the signals strong.",
   },
   {
     question: "What if it's not working?",
@@ -61,14 +66,14 @@ const SCHEMA = [
   service({
     name: "Foundations",
     description:
-      "A one-time build covering the website, Google Business Profile, listings, SEO and AI search foundations, and review systems. Built in two to four weeks.",
-    price: "2500",
+      "A one-time build covering the website, Google Business Profile, listings, SEO and AI search foundations, and review systems. Built in two to four weeks, with the first 30 days of Presence Care included from launch.",
+    price: "3700",
     url: "/how-it-works",
   }),
   service({
     name: "Presence Care",
     description:
-      "Ongoing care that keeps your signals strong: posts, reviews, listings, iterative SEO, and a regular update on what's working. Three-month minimum, then month-to-month.",
+      "Ongoing care that keeps your signals strong: posts, reviews, listings, iterative SEO, and a regular update on what's working. The first 30 days are included with Foundations. After that, $1,200 a month with two further months minimum, then month-to-month.",
     price: "1200",
     unitText: "MON",
     url: "/how-it-works",
@@ -243,9 +248,9 @@ export default function HowItWorks() {
             </Reveal>
             <Reveal delay={160}>
               <p className="hiw-lede">
-                Foundations is a one-time build. Once it&rsquo;s done,
-                it&rsquo;s yours. Presence Care is the ongoing care that keeps
-                your signals strong, so the work keeps earning.
+                Foundations gets you showing up. Presence Care moves you up
+                the list. We bundle the first 30 days of care into
+                Foundations, so the two run as one engagement, in order.
               </p>
             </Reveal>
           </div>
@@ -261,13 +266,14 @@ export default function HowItWorks() {
               <em>properly.</em>
             </>
           }
-          lede="Everything you need to be findable when someone searches. Set up properly, so you're not paying twice to fix it later."
-          price="From $2,500."
+          lede="Everything you need to be findable when someone searches. Built once, properly, then carried into the first 30 days of Presence Care while the work is still fresh, so the gains compound from launch instead of stalling."
+          price="$3,700."
           priceMeta={
             <>
               One-time build. Yours to keep when it&rsquo;s done.
               <br />
-              Two to four weeks, end to end.
+              Two to four weeks, then the first 30 days of Presence Care
+              included.
             </>
           }
           items={FOUNDATIONS_INCLUDED}
@@ -324,13 +330,14 @@ export default function HowItWorks() {
               signals <em>active.</em>
             </>
           }
-          lede="Foundations sets the engine. Presence Care keeps it running. Reviews come in, content goes up, listings stay clean, the technical bits stay current. Trust builds, the right calls follow."
+          lede="Foundations sets the engine. Presence Care keeps it running. The first 30 days are included with Foundations; from day 31 it continues as the steady, visible care that moves you up the list. Reviews come in, content goes up, listings stay clean, the technical bits stay current."
           price="$1,200 a month."
           priceMeta={
             <>
-              Three-month minimum to give the work time to land.
+              First 30 days included with Foundations.
               <br />
-              Month-to-month after that. No long lock-ins.
+              From month two, two further months minimum so the work has
+              time to land. Month-to-month after that. No long lock-ins.
             </>
           }
           items={PRESENCE_INCLUDED}
