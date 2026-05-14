@@ -29,7 +29,7 @@ const FAQS = [
   {
     question: "What happens after the first 30 days?",
     answer:
-      "Presence Care continues at $1,200 a month. We ask for two more months so the work has time to land in search results and review velocity has time to lift. That's three months total, including the one bundled with Foundations. After that it's month-to-month. We don't lock you in beyond what's needed to give the work a fair shot.",
+      "Presence Care continues at $1,200 a month, month-to-month. No lock-ins. The work compounds over months rather than weeks, so we'd say give it a fair run before judging it, but you're free to stop whenever it stops earning its keep.",
   },
   {
     question: "Do you work with businesses outside Auckland?",
@@ -73,7 +73,7 @@ const SCHEMA = [
   service({
     name: "Presence Care",
     description:
-      "Ongoing care that keeps your signals strong: posts, reviews, listings, iterative SEO, and a regular update on what's working. The first 30 days are included with Foundations. After that, $1,200 a month with two further months minimum, then month-to-month.",
+      "Ongoing care that keeps your signals strong: posts, reviews, listings, iterative SEO, and a regular update on what's working. The first 30 days are included with Foundations. After that, $1,200 a month, month-to-month.",
     price: "1200",
     unitText: "MON",
     url: "/how-it-works",
@@ -336,8 +336,7 @@ export default function HowItWorks() {
             <>
               First 30 days included with Foundations.
               <br />
-              From month two, two further months minimum so the work has
-              time to land. Month-to-month after that. No long lock-ins.
+              Month-to-month from month two. No lock-ins.
             </>
           }
           items={PRESENCE_INCLUDED}
