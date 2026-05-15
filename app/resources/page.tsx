@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "Resources",
   description:
     "Plain-spoken writing on Google rankings, Google Business Profile, and the small marketing decisions that actually matter for local service businesses.",
+  alternates: { canonical: "/resources" },
 };
 
 const SCHEMA = breadcrumbList([

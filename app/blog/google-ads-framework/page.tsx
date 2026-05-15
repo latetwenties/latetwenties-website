@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     "Should you run Google Ads? A framework for service businesses",
   description:
     "Google Ads can be a powerful lead generator or an expensive lesson in how fast money disappears. A practical framework for deciding which one it’ll be for you.",
+  alternates: { canonical: "/blog/google-ads-framework" },
 };
 
 const SCHEMA = [

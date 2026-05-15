@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   title: { absolute: "About Latetwenties | Small Auckland marketing agency" },
   description:
     "A small Auckland marketing practice. We help local service businesses across New Zealand get found online and chosen by local customers. Foundations first, properly.",
+  alternates: { canonical: "/about" },
 };
 
 const SCHEMA = breadcrumbList([

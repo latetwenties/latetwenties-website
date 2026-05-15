@@ -16,6 +16,7 @@ export const metadata: Metadata = {
     "Google Business Profile: the 15-minute setup most owners skip",
   description:
     "Your Google Business Profile is not a side note. For service businesses, it is the strategy. Here’s exactly how to optimise it in fifteen minutes.",
+  alternates: { canonical: "/blog/google-business-profile" },
 };
 
 const SCHEMA = [

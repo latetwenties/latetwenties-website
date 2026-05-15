@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   title: "Contact",
   description:
     "Want us to take a look? Thirty minutes, no pitch. Book a time and we'll come back to you within a day.",
+  alternates: { canonical: "/contact" },
 };
 
 const TIDYCAL_PATH = "latetwenties/30-min-strategy";

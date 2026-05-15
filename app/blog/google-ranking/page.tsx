@@ -16,6 +16,7 @@ export const metadata: Metadata = {
     "5 Reasons Your Business Isn’t Showing Up on Google",
   description:
     "Five very fixable mistakes that keep local service businesses invisible on Google, and the simple fixes that change everything.",
+  alternates: { canonical: "/blog/google-ranking" },
 };
 
 const SCHEMA = [

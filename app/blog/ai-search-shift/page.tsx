@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   title: "The year your customers stopped clicking",
   description:
     "Why local service businesses are seeing traffic fall while their Google rankings hold steady, and the diagnostic that explains where their customers actually went.",
+  alternates: { canonical: "/blog/ai-search-shift" },
 };
 
 const SCHEMA = [

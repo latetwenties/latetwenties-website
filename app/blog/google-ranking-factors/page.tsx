@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   title: "The 6 things that decide where you rank on Google",
   description:
     "The six actual ranking factors that decide whether your business shows up in local search. Plain-spoken, no jargon. Almost nobody gets all six right.",
+  alternates: { canonical: "/blog/google-ranking-factors" },
 };
 
 const SCHEMA = [

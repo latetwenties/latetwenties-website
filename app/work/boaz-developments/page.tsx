@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   title: "Boaz Developments, Mangawhai",
   description:
     "How Boaz Developments went from not showing on Google to #2 across the neighbouring towns in under two months. The full case study.",
+  alternates: { canonical: "/work/boaz-developments" },
 };
 
 const SCHEMA = [

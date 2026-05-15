@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   title: "How it works",
   description:
     "Foundations is $3,700 and includes the first 30 days of Presence Care. After that, Presence Care is $1,200 a month. Two products, plainly priced. No long lock-ins.",
+  alternates: { canonical: "/how-it-works" },
 };
 
 const FAQS = [

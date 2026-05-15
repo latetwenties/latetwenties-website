@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "Privacy",
   description:
     "How Latetwenties handles your data. Plain-spoken privacy policy under the New Zealand Privacy Act 2020.",
+  alternates: { canonical: "/privacy" },
 };
 
 const UPDATED = "May 2026";
