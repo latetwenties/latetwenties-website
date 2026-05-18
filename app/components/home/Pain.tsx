@@ -1,12 +1,10 @@
 import { Eyebrow } from "../Eyebrow";
 import { Reveal } from "../Reveal";
 
-import { PainCoda } from "./PainCoda";
-
 const PAIN_POINTS = [
   "Mostly repeat clients, not many new names.",
-  "Others in your area seem busier than they should be.",
-  "You shouldn't have to be a marketer too.",
+  "A newer outfit up the road comes up first when you search.",
+  "A half-built website sits in a tab you keep meaning to close.",
 ];
 
 export function Pain() {
@@ -17,9 +15,9 @@ export function Pain() {
           <Reveal>
             <Eyebrow num="02">We get you</Eyebrow>
             <h2>
-              You&rsquo;ve built
+              Word of mouth got you here.
               <br />
-              something real.
+              <em>It won&rsquo;t get you there.</em>
             </h2>
           </Reveal>
           <Reveal delay={120}>
@@ -39,8 +37,6 @@ export function Pain() {
             </Reveal>
           ))}
         </ol>
-
-        <PainCoda />
       </div>
     </section>
   );

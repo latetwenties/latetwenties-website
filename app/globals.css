@@ -790,7 +790,7 @@ section {
 }
 .pain-stack {
   list-style: none;
-  margin: 0 0 80px;
+  margin: 0;
   padding: 0;
   border-top: 1px solid var(--rule);
 }
@@ -823,30 +823,6 @@ section {
   margin: 0;
   text-wrap: pretty;
 }
-.pain-coda {
-  max-width: 880px;
-  margin: 0 auto;
-  text-align: center;
-  padding: 32px 24px 0;
-}
-.pain-coda p {
-  font-family: var(--serif);
-  font-size: clamp(22px, 2vw, 32px);
-  line-height: 1.35;
-  color: var(--ink-soft);
-  margin: 0;
-  text-wrap: balance;
-}
-.pain-coda em {
-  font-style: italic;
-  color: var(--ink);
-  font-weight: 400;
-}
-.pain-coda-word {
-  display: inline-block;
-  will-change: opacity, transform;
-}
-
 /* ==========================================================
    Two things — Foundations + Presence Care
    ========================================================== */
@@ -923,10 +899,23 @@ section {
 .two-card .price {
   margin-top: auto;
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
+  flex-direction: column;
+  gap: 10px;
   padding-top: 24px;
   border-top: 1px solid var(--rule);
+}
+.two-card .price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+}
+.two-card .price-note {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
 }
 .two-card .price .amount {
   font-family: var(--serif);

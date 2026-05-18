@@ -33,10 +33,15 @@ export function TwoThings() {
               included while the work is fresh.
             </p>
             <div className="price">
-              <div className="amount">
-                $3,700 <em>once</em>
+              <div className="price-row">
+                <div className="amount">
+                  $3,700 <em>once</em>
+                </div>
+                <div className="deets">2 to 3 weeks build</div>
               </div>
-              <div className="deets">2 to 3 weeks build, then 30 days care</div>
+              <div className="price-note">
+                Includes first 30 days of Presence Care
+              </div>
             </div>
           </Reveal>
 
@@ -49,10 +54,12 @@ export function TwoThings() {
               ongoing SEO.
             </p>
             <div className="price">
-              <div className="amount">
-                $1,200 <em>a month</em>
+              <div className="price-row">
+                <div className="amount">
+                  $1,200 <em>a month</em>
+                </div>
+                <div className="deets">Month to month, from month two</div>
               </div>
-              <div className="deets">Month to month, from month two</div>
             </div>
           </Reveal>
         </div>
