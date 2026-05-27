@@ -13,7 +13,7 @@ export function Pain() {
       <div className="wrap">
         <div className="pain-head">
           <Reveal>
-            <Eyebrow num="02">We get you</Eyebrow>
+            <Eyebrow num="01">We get you</Eyebrow>
             <h2>
               Word of mouth got you here.
               <br />

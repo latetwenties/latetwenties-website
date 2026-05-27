@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { breadcrumbList, faqPage, service } from "@/lib/schema";
+import { breadcrumbList, faqPage } from "@/lib/schema";
 
 import { Eyebrow } from "../components/Eyebrow";
 import { FinalCTA } from "../components/FinalCTA";
@@ -12,7 +12,7 @@ import { Reveal } from "../components/Reveal";
 export const metadata: Metadata = {
   title: "How it works",
   description:
-    "Foundations is $3,700 and includes the first 30 days of Presence Care. After that, Presence Care is $1,200 a month. Two products, plainly priced. No long lock-ins.",
+    "Foundations gets you showing up. Presence Care keeps you moving up the list. Paid Ads gets the phone ringing fast. Three things, done properly. No long lock-ins.",
   alternates: { canonical: "/how-it-works" },
 };
 
@@ -20,17 +20,22 @@ const FAQS = [
   {
     question: "How long does Foundations take?",
     answer:
-      "Two to four weeks, end to end. The first week is research: your brief, your market, your competitors, and the search queries that matter. Weeks two and three are the build: site, Google Business Profile, listings, review system. Week four is launch and handover. From launch, the first 30 days of Presence Care run automatically while the new work is still fresh.",
+      "Two to four weeks, end to end. The first week is research: your brief, your market, your competitors, and the search queries that matter. Weeks two and three are the build: site, Google Business Profile, listings, review system. Week four is launch and handover. From there it's yours, and you can pick up Presence Care or Paid Ads whenever you're ready.",
   },
   {
-    question: "Why is the first 30 days of Presence Care included?",
+    question: "When should Presence Care start?",
     answer:
-      "Because that's when the work moves the most. A new site takes time to get indexed, a refreshed Google Business Profile takes time to be re-ranked, citations take time to propagate. We use those 30 days to run the cadence dense rather than light: frequent new pages and articles, Google Business Profile updates, review prompts. By day 30 you've already felt the shape of Presence Care, not just been pitched it.",
+      "Whenever you're ready. Most clients pick it up the week Foundations goes live, so the signals get worked on while the new build is still fresh in Google's eyes. Others wait a month or two and start it once they've seen how the new site lands. Either way works; we'll tell you straight which makes more sense for your patch.",
   },
   {
-    question: "What happens after the first 30 days?",
+    question: "What does Paid Ads actually do?",
     answer:
-      "Presence Care continues at $1,200 a month, month-to-month. No lock-ins. The work compounds over months rather than weeks, so we'd say give it a fair run before judging it, but you're free to stop whenever it stops earning its keep.",
+      "It puts your business in front of the people searching right now. Foundations gets you findable. Presence Care moves you up the organic list over months. Paid Ads is the lever you pull when you want enquiries this week, not next quarter. We set up campaigns on Google and Meta, point them at the jobs you actually want, write the ads, build the landing pages they go to, and track the calls and form fills so you can see what the spend is buying.",
+  },
+  {
+    question: "Can I run Paid Ads on its own?",
+    answer:
+      "Yes. Foundations, Presence Care, and Paid Ads each work on their own and they're stronger together, but you don't have to do all three. Some clients start with just Foundations. Some come to us already with a site they're happy with and want Paid Ads only. We'll walk you through what makes sense for where you're at.",
   },
   {
     question: "Do you work with businesses outside Auckland?",
@@ -40,7 +45,7 @@ const FAQS = [
   {
     question: "What if I already have a website?",
     answer:
-      "We'll take a look at it before we recommend anything. Sometimes the right answer is a rebuild, usually because the existing site can't be optimised for local search without significant rework. Sometimes the right answer is to leave it and focus on Presence Care. We'll tell you straight.",
+      "We'll take a look at it before we recommend anything. Sometimes the right answer is a rebuild, usually because the existing site can't be optimised for local search without significant rework. Sometimes the right answer is to leave it and focus on Presence Care or Paid Ads. We'll tell you straight.",
   },
   {
     question: "Do I own everything when we're done?",
@@ -50,12 +55,12 @@ const FAQS = [
   {
     question: "Why aren't you on hourly rates?",
     answer:
-      "Hourly rates reward slow work. Fixed pricing rewards getting the work done properly. Foundations is $3,700 because that's what it costs to do it once, properly, including the first 30 days of care while the work is still fresh. Presence Care is $1,200 a month because that's what it costs to keep the signals strong.",
+      "Hourly rates reward slow work. Fixed pricing rewards getting it done properly. Foundations is a one-time fixed price for the build. Presence Care is a fixed monthly that holds the signals strong. Paid Ads is your ad budget plus a fixed management fee. We'll walk you through the numbers on the free presence check.",
   },
   {
     question: "What if it's not working?",
     answer:
-      "Then we'll tell you. We're honest about what's landing and what isn't. If after three months Presence Care isn't moving the needle in your area, we'll have an honest conversation about whether to keep going, change approach, or stop. We're not in the business of taking your money for work that isn't earning.",
+      "Then we'll tell you. We're honest about what's landing and what isn't. If after three months the work isn't moving the needle in your area, we'll have an honest conversation about whether to keep going, change approach, or stop. We're not in the business of taking your money for work that isn't earning.",
   },
 ];
 
@@ -64,21 +69,6 @@ const SCHEMA = [
     { name: "Home", href: "/" },
     { name: "How it works", href: "/how-it-works" },
   ]),
-  service({
-    name: "Foundations",
-    description:
-      "A one-time build covering the website, Google Business Profile, listings, SEO and AI search foundations, and review systems. Built in two to four weeks, with the first 30 days of Presence Care included from launch.",
-    price: "3700",
-    url: "/how-it-works",
-  }),
-  service({
-    name: "Presence Care",
-    description:
-      "Ongoing care that keeps your signals strong: posts, reviews, listings, iterative SEO, and a regular update on what's working. The first 30 days are included with Foundations. After that, $1,200 a month, month-to-month.",
-    price: "1200",
-    unitText: "MON",
-    url: "/how-it-works",
-  }),
   faqPage(FAQS),
 ];
 
@@ -102,6 +92,33 @@ const FOUNDATIONS_INCLUDED = [
   {
     title: "Review systems",
     body: "A simple way to ask, capture, and display reviews. The good ones come in steadily rather than in occasional bursts.",
+  },
+];
+
+const PAID_ADS_INCLUDED = [
+  {
+    title: "Campaigns set up properly",
+    body: "Structured around the jobs you actually want, on the platforms your customers are actually on. Google for the active searcher, Meta for the one who hasn't started looking yet. Locations, match types, negatives, audiences, sorted before a dollar goes out.",
+  },
+  {
+    title: "Ads that sound like you",
+    body: "Plain-spoken copy that matches what your customers are actually searching for. No hype, no fluff, no headlines we'd be embarrassed to read aloud.",
+  },
+  {
+    title: "Landing pages that earn the click",
+    body: "If the page they land on isn't ready for the ad, the ad doesn't earn its keep. We make sure both sides match up.",
+  },
+  {
+    title: "Conversion tracking that counts enquiries",
+    body: "Calls, form fills, and the actions that actually mean a lead. So you can see what the spend is buying, not just how many clicks it bought.",
+  },
+  {
+    title: "Budget and bids, managed",
+    body: "Started conservative, scaled when it's earning, paused when it isn't. We don't chase impressions for the sake of the chart.",
+  },
+  {
+    title: "A regular update on the spend",
+    body: "What went out, what came in, what to do next. So you always know whether to turn the tap up, down, or off.",
   },
 ];
 
@@ -173,8 +190,7 @@ type ProductBlockProps = {
   productName: string;
   headline: React.ReactNode;
   lede: string;
-  price: string;
-  priceMeta: React.ReactNode;
+  meta?: React.ReactNode;
   items: ProductItem[];
 };
 
@@ -183,8 +199,7 @@ function ProductBlock({
   productName,
   headline,
   lede,
-  price,
-  priceMeta,
+  meta,
   items,
 }: ProductBlockProps) {
   return (
@@ -199,12 +214,13 @@ function ProductBlock({
             <Reveal delay={80}>
               <p className="prod-lede">{lede}</p>
             </Reveal>
-            <Reveal delay={160}>
-              <div className="prod-price">
-                <div className="prod-price-amt">{price}</div>
-                <div className="prod-price-meta">{priceMeta}</div>
-              </div>
-            </Reveal>
+            {meta ? (
+              <Reveal delay={160}>
+                <div className="prod-price">
+                  <div className="prod-price-meta">{meta}</div>
+                </div>
+              </Reveal>
+            ) : null}
           </div>
 
           <div className="prod-right">
@@ -244,14 +260,15 @@ export default function HowItWorks() {
             </Reveal>
             <Reveal delay={80}>
               <h1 className="hiw-h1">
-                Two products. <em>Plainly priced.</em>
+                Three things. <em>Done properly.</em>
               </h1>
             </Reveal>
             <Reveal delay={160}>
               <p className="hiw-lede">
-                Foundations gets you showing up. Presence Care moves you up
-                the list. We bundle the first 30 days of care into
-                Foundations, so the two run as one engagement, in order.
+                Foundations gets you showing up. Presence Care keeps you
+                moving up the list. Paid Ads gets the phone ringing fast.
+                Three products, each working on its own, stronger when run
+                together. No long lock-ins.
               </p>
             </Reveal>
           </div>
@@ -267,14 +284,12 @@ export default function HowItWorks() {
               <em>properly.</em>
             </>
           }
-          lede="Everything you need to be findable when someone searches. Built once, properly, then carried into the first 30 days of Presence Care while the work is still fresh, so the gains compound from launch instead of stalling."
-          price="$3,700."
-          priceMeta={
+          lede="Everything you need to be findable when someone searches. Built once, properly, so every signal points to you from launch instead of pulling in different directions."
+          meta={
             <>
               One-time build. Yours to keep when it&rsquo;s done.
               <br />
-              Two to four weeks, then the first 30 days of Presence Care
-              included.
+              Two to four weeks, end to end.
             </>
           }
           items={FOUNDATIONS_INCLUDED}
@@ -331,16 +346,36 @@ export default function HowItWorks() {
               signals <em>active.</em>
             </>
           }
-          lede="Foundations sets the engine. Presence Care keeps it running. The first 30 days are included with Foundations; from day 31 it continues as the steady, visible care that moves you up the list. Reviews come in, content goes up, listings stay clean, the technical bits stay current."
-          price="$1,200 a month."
-          priceMeta={
+          lede="The steady, visible care that moves you up the list over months. Reviews come in, content goes up, listings stay clean, the technical bits stay current. Each month the signals get stronger; each month you climb a little further into the searches that bring you work."
+          meta={
             <>
-              First 30 days included with Foundations.
+              Month-to-month. No lock-ins.
               <br />
-              Month-to-month from month two. No lock-ins.
+              Start it whenever you&rsquo;re ready.
             </>
           }
           items={PRESENCE_INCLUDED}
+        />
+
+        <ProductBlock
+          num="03"
+          productName="Paid Ads"
+          headline={
+            <>
+              Straight to the
+              <br />
+              <em>enquiry.</em>
+            </>
+          }
+          lede="Paid placement on Google and Meta, built to put your business in front of the people searching right now. The fastest route from a search to a call landing with you. Campaigns pointed at the jobs you actually want, ads that sound like you, landing pages ready for the click, and conversions tracked so you know what the spend is buying."
+          meta={
+            <>
+              Your ad budget plus a fixed monthly management fee.
+              <br />
+              On when you want it, off when you don&rsquo;t. No lock-ins.
+            </>
+          }
+          items={PAID_ADS_INCLUDED}
         />
 
         <section className="hiw-working">

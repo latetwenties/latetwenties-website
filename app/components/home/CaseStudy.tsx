@@ -56,7 +56,7 @@ export function CaseStudy() {
       <div className="wrap">
         <div className="case-head">
           <Reveal>
-            <Eyebrow num="04">The work</Eyebrow>
+            <Eyebrow num="03">The work</Eyebrow>
           </Reveal>
           <Reveal delay={80}>
             <p className="case-pull">

@@ -9,17 +9,16 @@ export function TwoThings() {
       <div className="wrap">
         <div className="two-head">
           <Reveal>
-            <Eyebrow num="03">What we do</Eyebrow>
+            <Eyebrow num="02">What we do</Eyebrow>
             <h2>
-              Two things,
+              Three things,
               <br />
               <em>done properly.</em>
             </h2>
           </Reveal>
           <Reveal as="p" className="lede" delay={120}>
-            The site gets you showing up. The steady work after gets you
-            moving up the list. We do both, in that order, so neither runs
-            on its own.
+            Foundations gets you showing up. Presence Care keeps you moving
+            up the list. Paid Ads gets the phone ringing fast.
           </Reveal>
         </div>
 
@@ -29,38 +28,29 @@ export function TwoThings() {
             <h3>Foundations</h3>
             <p className="body">
               Website, Google Business Profile, listings, and reviews, set up
-              properly. Then the first 30 days of Presence Care, already
-              included while the work is fresh.
+              properly. Built once so every signal points to you when
+              someone searches.
             </p>
-            <div className="price">
-              <div className="price-row">
-                <div className="amount">
-                  $3,700 <em>once</em>
-                </div>
-                <div className="deets">2 to 3 weeks build</div>
-              </div>
-              <div className="price-note">
-                Includes first 30 days of Presence Care
-              </div>
-            </div>
           </Reveal>
 
-          <Reveal as="article" className="two-card" delay={120}>
+          <Reveal as="article" className="two-card" delay={80}>
             <div className="num">02 / Presence Care</div>
             <h3>Presence Care</h3>
             <p className="body">
-              From day 31, the steady, visible care that keeps the signals
-              strong and moves you up the list. Posts, reviews, listings,
-              ongoing SEO.
+              The steady, visible care that keeps the signals strong and
+              moves you up the list. Posts, reviews, listings, ongoing SEO.
+              Month after month.
             </p>
-            <div className="price">
-              <div className="price-row">
-                <div className="amount">
-                  $1,200 <em>a month</em>
-                </div>
-                <div className="deets">Month to month, from month two</div>
-              </div>
-            </div>
+          </Reveal>
+
+          <Reveal as="article" className="two-card" delay={160}>
+            <div className="num">03 / Paid Ads</div>
+            <h3>Paid Ads</h3>
+            <p className="body">
+              Paid placement on Google and Meta that puts your business in
+              front of the people searching right now. The fastest way to
+              get enquiries landing this week, not next quarter.
+            </p>
           </Reveal>
         </div>
 

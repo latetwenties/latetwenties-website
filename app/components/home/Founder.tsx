@@ -21,7 +21,7 @@ export function Founder() {
 
           <div>
             <Reveal>
-              <Eyebrow num="05">A note from Brendan</Eyebrow>
+              <Eyebrow num="04">A note from Brendan</Eyebrow>
               <h2>
                 Hi, I&rsquo;m Brendan.
                 <br />

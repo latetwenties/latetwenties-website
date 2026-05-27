@@ -7,7 +7,6 @@ import { CaseStudy } from "./components/home/CaseStudy";
 import { Founder } from "./components/home/Founder";
 import { Hero } from "./components/home/Hero";
 import { Pain } from "./components/home/Pain";
-import { SearchProof } from "./components/home/SearchProof";
 import { TwoThings } from "./components/home/TwoThings";
 
 export const metadata: Metadata = {
@@ -20,12 +19,11 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <SearchProof />
         <Pain />
         <TwoThings />
         <CaseStudy />
         <Founder />
-        <FinalCTA num="06" label="Free presence check" />
+        <FinalCTA num="05" label="Free presence check" />
       </main>
       <Footer />
     </>

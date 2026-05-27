@@ -759,6 +759,7 @@ section {
    ========================================================== */
 .pain {
   padding: 100px 0 110px;
+  background: var(--paper);
   border-top: 1px solid var(--rule);
 }
 .pain-head {
@@ -859,7 +860,7 @@ section {
 }
 .two-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 1px;
   background: var(--rule);
   border-top: 1px solid var(--rule);
@@ -867,11 +868,11 @@ section {
 }
 .two-card {
   background: var(--ground);
-  padding: 48px 40px 40px;
+  padding: 48px 32px 40px;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  min-height: 380px;
+  min-height: 320px;
   position: relative;
 }
 .two-card .num {
