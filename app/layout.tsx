@@ -3,6 +3,7 @@ import { Inter_Tight, JetBrains_Mono, Newsreader } from "next/font/google";
 import localFont from "next/font/local";
 import Script from "next/script";
 
+import { MicrosoftClarity } from "./components/analytics/MicrosoftClarity";
 import { TabTitleNudge } from "./components/TabTitleNudge";
 import "./globals.css";
 
@@ -182,6 +183,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
+        <MicrosoftClarity />
         <TabTitleNudge />
         {children}
       </body>
