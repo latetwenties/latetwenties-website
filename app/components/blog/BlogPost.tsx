@@ -27,7 +27,7 @@ export function BlogPost({
       <main className="bg-cream">
         <article>
           {/* Hero */}
-          <header className="py-24 sm:py-32">
+          <header className="pt-24 pb-12 sm:pt-32 sm:pb-16">
             <Container>
               <p className="text-xs uppercase tracking-[0.28em] opacity-55">
                 Resources / {readTime}
