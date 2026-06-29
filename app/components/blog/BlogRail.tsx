@@ -28,22 +28,38 @@ export function BlogRail({
   const railFillRef = useRef<HTMLDivElement>(null);
   const fixedFillRef = useRef<HTMLDivElement>(null);
 
-  // Reading progress, measured over the reading column.
+  // Reading progress + active section, both derived from scroll position so
+  // the highlight can't get stuck when scrolling fast.
   useEffect(() => {
     const region = document.querySelector<HTMLElement>("[data-bp-region]");
-    if (!region) return;
+    const headings = toc
+      .map((t) => document.getElementById(t.id))
+      .filter((el): el is HTMLElement => Boolean(el));
 
     let ticking = false;
     const update = () => {
       ticking = false;
-      const rect = region.getBoundingClientRect();
-      const total = rect.height - window.innerHeight;
-      const scrolled = -rect.top;
-      const pct =
-        total > 0 ? Math.min(100, Math.max(0, (scrolled / total) * 100)) : 0;
-      const width = `${pct}%`;
-      if (railFillRef.current) railFillRef.current.style.width = width;
-      if (fixedFillRef.current) fixedFillRef.current.style.width = width;
+
+      if (region) {
+        const rect = region.getBoundingClientRect();
+        const total = rect.height - window.innerHeight;
+        const scrolled = -rect.top;
+        const pct =
+          total > 0 ? Math.min(100, Math.max(0, (scrolled / total) * 100)) : 0;
+        const width = `${pct}%`;
+        if (railFillRef.current) railFillRef.current.style.width = width;
+        if (fixedFillRef.current) fixedFillRef.current.style.width = width;
+      }
+
+      if (headings.length) {
+        // The last heading whose top has crossed the line near the top of
+        // the viewport is the section currently being read.
+        let active = headings[0].id;
+        for (const h of headings) {
+          if (h.getBoundingClientRect().top <= 140) active = h.id;
+        }
+        setActiveId(active);
+      }
     };
     const onScroll = () => {
       if (ticking) return;
@@ -58,30 +74,6 @@ export function BlogRail({
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
     };
-  }, []);
-
-  // Scroll-spy over the section headings.
-  useEffect(() => {
-    if (!toc.length) return;
-    const headings = toc
-      .map((t) => document.getElementById(t.id))
-      .filter((el): el is HTMLElement => Boolean(el));
-    if (!headings.length) return;
-
-    const visible = new Set<string>();
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) visible.add(entry.target.id);
-          else visible.delete(entry.target.id);
-        }
-        const firstVisible = toc.find((t) => visible.has(t.id));
-        if (firstVisible) setActiveId(firstVisible.id);
-      },
-      { rootMargin: "-20% 0px -70% 0px", threshold: 0 },
-    );
-    headings.forEach((h) => observer.observe(h));
-    return () => observer.disconnect();
   }, [toc]);
 
   return (

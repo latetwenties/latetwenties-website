@@ -3105,33 +3105,37 @@ a.ct-row-val:hover {
   color: var(--accent);
 }
 
-/* ----- Sticky rail ----- */
+/* ----- Sticky rail -----
+   The aside itself is the sticky element. The grid uses align-items:start so
+   this item stays its content height (shorter than the tall reading column),
+   which gives it room to travel and stick within the grid as you scroll. */
 .bp-rail {
   min-width: 0;
-}
-.bp-rail-inner {
   position: sticky;
   top: 100px;
-  /* Scroll the rail internally when it is taller than the viewport, so the
-     lower blocks (key stat, CTA) stay reachable on shorter screens. */
+  align-self: start;
+  /* Scroll internally when taller than the viewport, so the lower blocks
+     (key stat, CTA) stay reachable on shorter screens. */
   max-height: calc(100vh - 124px);
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-width: thin;
   scrollbar-color: var(--rule-strong) transparent;
-  display: flex;
-  flex-direction: column;
-  gap: 26px;
   /* Room for the scrollbar without it crowding the text. */
   padding-right: 6px;
   margin-right: -6px;
 }
-.bp-rail-inner::-webkit-scrollbar {
+.bp-rail::-webkit-scrollbar {
   width: 6px;
 }
-.bp-rail-inner::-webkit-scrollbar-thumb {
+.bp-rail::-webkit-scrollbar-thumb {
   background: var(--rule-strong);
   border-radius: 999px;
+}
+.bp-rail-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
 }
 .bp-toc-eyebrow {
   font-family: var(--mono);
