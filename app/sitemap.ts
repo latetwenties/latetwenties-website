@@ -8,6 +8,7 @@ const ROUTES: { path: string; priority: number; changeFrequency: MetadataRoute.S
   { path: "/how-it-works", priority: 0.8, changeFrequency: "monthly" },
   { path: "/work/boaz-developments", priority: 0.7, changeFrequency: "monthly" },
   { path: "/resources", priority: 0.6, changeFrequency: "weekly" },
+  { path: "/blog/what-a-customer-costs-you", priority: 0.6, changeFrequency: "monthly" },
   { path: "/blog/google-ranking", priority: 0.6, changeFrequency: "monthly" },
   { path: "/blog/google-ranking-factors", priority: 0.6, changeFrequency: "monthly" },
   { path: "/blog/google-business-profile", priority: 0.6, changeFrequency: "monthly" },

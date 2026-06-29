@@ -28,6 +28,13 @@ type Post = {
 
 const POSTS: Post[] = [
   {
+    slug: "what-a-customer-costs-you",
+    title: "Do you actually know what a customer costs you?",
+    description:
+      "Most local business owners can’t say what they pay to win one new customer. Not because they’re not smart. Because nobody’s ever added it up. Here’s how to.",
+    readTime: "5 min read",
+  },
+  {
     slug: "ai-search-shift",
     title: "The year your customers stopped clicking",
     description:
