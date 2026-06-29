@@ -5,7 +5,9 @@ import { article, breadcrumbList, faqPage } from "@/lib/schema";
 import {
   BlogPost,
   H2,
+  Ledger,
   P,
+  Signoff,
 } from "../../components/blog/BlogPost";
 import { JsonLd } from "../../components/JsonLd";
 
@@ -14,6 +16,14 @@ const TITLE =
 const DESCRIPTION =
   "The report says your ads are crushing it. The bank account disagrees. Here’s the gap between a good-looking ROI number and money you actually keep.";
 const URL = "/blog/ad-roi-trap";
+
+const TOC = [
+  { id: "the-number", label: "The number that fools everyone" },
+  { id: "peel-it-back", label: "Let’s peel it back" },
+  { id: "how-it-happens", label: "How this happens to sensible people" },
+  { id: "not-anti-ads", label: "We’re not anti-ads" },
+  { id: "foundations-first", label: "Foundations first, ads second" },
+];
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -55,6 +65,13 @@ export default function Post() {
         title={TITLE}
         readTime="6 min read"
         lede="Someone runs your Google Ads. Maybe it’s an agency. Maybe it’s you, late at night, after the kids are down."
+        toc={TOC}
+        keyStat={{
+          label: "What’s actually left",
+          value: "$500",
+          caption: "real profit from a “5x” month, before your own time.",
+        }}
+        railCtaLine="Want the profit version of your ad report?"
         ctaTitle="Been told your ads are working, but the bank account hasn’t noticed?"
         ctaBody="30 minutes, no pitch. We’ll come prepared with a look at what you’re actually keeping from your ad spend, and whether the foundations underneath are doing their job."
       >
@@ -77,7 +94,7 @@ export default function Post() {
           They’d be making more money if they switched the ads off entirely.
         </P>
 
-        <H2>The number that fools everyone</H2>
+        <H2 id="the-number">The number that fools everyone</H2>
         <P>
           The number you usually get told is built on revenue. The money that
           came in the top.
@@ -105,12 +122,21 @@ export default function Post() {
           really yours to begin with.
         </P>
 
-        <H2>Let’s peel it back</H2>
+        <H2 id="peel-it-back">Let’s peel it back</H2>
         <P>
           Same example. $10,000 of work came in from the ads. $2,000 spent on
           the ads. Looks like a 5x return.
         </P>
         <P>Now let’s do the real maths.</P>
+        <Ledger
+          caption="A “5x” month, in profit"
+          rows={[
+            { label: "Work the ads brought in", value: "$10,000" },
+            { label: "Your margin at 25%", value: "$2,500", subtotal: true },
+            { label: "Less the ad spend", value: "$2,000" },
+          ]}
+          total={{ label: "Left in your pocket", value: "$500" }}
+        />
         <P>
           That $10,000 of work cost you money to actually do. Say your jobs run
           at a 25% profit margin once everything’s paid, which is generous for
@@ -137,7 +163,7 @@ export default function Post() {
           You’d have made more by doing fewer jobs and going home earlier.
         </P>
 
-        <H2>How does this happen to sensible people?</H2>
+        <H2 id="how-it-happens">How does this happen to sensible people?</H2>
         <P>It’s not stupidity. It’s the way the number gets reported.</P>
         <P>
           Everyone in the marketing world talks in revenue because revenue is
@@ -157,7 +183,7 @@ export default function Post() {
           does.
         </P>
 
-        <H2>We’re not anti-ads</H2>
+        <H2 id="not-anti-ads">We’re not anti-ads</H2>
         <P>
           Let’s be clear. Ads can be brilliant. For the right business, with
           the right margins, at the right time, paid advertising is a proper
@@ -181,7 +207,7 @@ export default function Post() {
           And busy is not the same as better off.
         </P>
 
-        <H2>Foundations first, ads second</H2>
+        <H2 id="foundations-first">Foundations first, ads second</H2>
         <P>
           Here’s the part most agencies won’t tell you, because there’s less
           money in it for them.
@@ -213,12 +239,12 @@ export default function Post() {
           Or you might find the most profitable thing you could do this month
           is turn them off and fix what’s underneath instead.
         </P>
-        <P>
+        <Signoff>
           At Latetwenties we help local service businesses across New Zealand
           get found online and chosen by the right customers, by getting the
           foundations right first. If you’ve been told your ads are working but
           the bank account hasn’t noticed, that’s usually worth a proper look.
-        </P>
+        </Signoff>
       </BlogPost>
     </>
   );

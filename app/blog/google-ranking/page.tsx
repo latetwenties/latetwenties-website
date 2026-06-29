@@ -57,8 +57,7 @@ export default function Post() {
       <P>Here are the five most common reasons.</P>
 
       <H2>
-        1. Your Google Business Profile is incomplete (or you don’t have
-        one)
+        Your Google Business Profile is incomplete (or you don’t have one)
       </H2>
       <P>
         This is the single biggest lever in local search, and most service
@@ -113,7 +112,7 @@ export default function Post() {
       </P>
 
       <H2>
-        2. Your business name, address, and phone number are inconsistent
+        Your business name, address, and phone number are inconsistent
         across the web
       </H2>
       <P>
@@ -144,9 +143,7 @@ export default function Post() {
         scale if you have listings across multiple platforms.
       </P>
 
-      <H2>
-        3. You have no reviews, or you’re not getting new ones
-      </H2>
+      <H2>You have no reviews, or you’re not getting new ones</H2>
       <P>
         Reviews are social proof for human customers. But for Google,
         they’re a ranking signal.
@@ -181,9 +178,7 @@ export default function Post() {
         a minimum of 2 to 4 new reviews per month.
       </P>
 
-      <H2>
-        4. Your website isn’t sending the right local signals
-      </H2>
+      <H2>Your website isn’t sending the right local signals</H2>
       <P>
         Your GBP is the engine. Your website is the fuel. If your website
         doesn’t reinforce the same location and service signals, you’re
@@ -222,9 +217,7 @@ export default function Post() {
         suburbs, start building out individual service area pages.
       </P>
 
-      <H2>
-        5. You’re not active enough to register as a “real” business
-      </H2>
+      <H2>You’re not active enough to register as a “real” business</H2>
       <P>
         Here’s something most people don’t realise: Google is running a
         constant background check on your business to determine whether

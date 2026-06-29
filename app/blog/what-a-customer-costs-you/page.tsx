@@ -5,8 +5,9 @@ import { article, breadcrumbList, faqPage } from "@/lib/schema";
 import {
   BlogPost,
   H2,
+  Ledger,
   P,
-  UL,
+  Signoff,
 } from "../../components/blog/BlogPost";
 import { JsonLd } from "../../components/JsonLd";
 
@@ -14,6 +15,14 @@ const TITLE = "Do You Actually Know What a Customer Costs You?";
 const DESCRIPTION =
   "Most local business owners can’t say what they pay to win one new customer. Not because they’re not smart. Because nobody’s ever added it up. Here’s how to.";
 const URL = "/blog/what-a-customer-costs-you";
+
+const TOC = [
+  { id: "spending", label: "You’re already spending it" },
+  { id: "the-maths", label: "Let’s do the maths" },
+  { id: "what-it-means", label: "What $300 actually means" },
+  { id: "the-risk", label: "Why guessing is dangerous" },
+  { id: "good-news", label: "The good news" },
+];
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -55,6 +64,13 @@ export default function Post() {
         title={TITLE}
         readTime="5 min read"
         lede="We sit across from a lot of business owners. Good ones. People who turn up, do proper work, and have built something real out of a van, a phone, and a lot of long days."
+        toc={TOC}
+        keyStat={{
+          label: "The number",
+          value: "$300",
+          caption: "what one new customer costs this builder.",
+        }}
+        railCtaLine="Want to know your number?"
         ctaTitle="Want us to work out your number with you?"
         ctaBody="30 minutes, no pitch. We’ll come prepared with a look at where you sit and what it’s costing you to win a customer right now."
       >
@@ -75,7 +91,7 @@ export default function Post() {
           haven’t added it up.
         </P>
 
-        <H2>You’re already spending it</H2>
+        <H2 id="spending">You’re already spending it</H2>
         <P>
           Think about everything that has to happen before someone hands you a
           job.
@@ -103,19 +119,19 @@ export default function Post() {
         </P>
         <P>That number is what a customer costs you.</P>
 
-        <H2>Let’s do the maths</H2>
+        <H2 id="the-maths">Let’s do the maths</H2>
         <P>Say you’re a builder. Last month you spent:</P>
-        <UL>
-          <li>$600 on Google Ads</li>
-          <li>
-            $200 on your website and listings (spread across the year, but call
-            it $200 that month)
-          </li>
-          <li>
-            A full Saturday quoting three jobs you didn’t get. Call your time
-            $400.
-          </li>
-        </UL>
+        <Ledger
+          caption="Last month, getting work"
+          rows={[
+            { label: "Google Ads", value: "$600" },
+            { label: "Website and listings", value: "$200" },
+            { label: "A Saturday quoting (3 jobs, your time)", value: "$400" },
+            { label: "Spent on getting work", value: "$1,200", subtotal: true },
+            { label: "New customers won", value: "4" },
+          ]}
+          total={{ label: "Cost per customer", value: "$300" }}
+        />
         <P>That’s $1,200 spent on getting work.</P>
         <P>That month, you won four new jobs.</P>
         <P>$1,200 divided by 4 is $300.</P>
@@ -130,7 +146,7 @@ export default function Post() {
           unstuck.
         </P>
 
-        <H2>$300 means nothing on its own</H2>
+        <H2 id="what-it-means">$300 means nothing on its own</H2>
         <P>
           A $300 cost to win a customer is brilliant if that customer is worth
           $5,000 to you.
@@ -159,7 +175,7 @@ export default function Post() {
           guess.
         </P>
 
-        <H2>Why the guessing is dangerous</H2>
+        <H2 id="the-risk">Why the guessing is dangerous</H2>
         <P>
           When you don’t know what a customer costs you, a few things happen,
           and none of them are good.
@@ -181,7 +197,7 @@ export default function Post() {
           see this one constantly. Booked solid, and somehow no better off.
         </P>
 
-        <H2>The good news</H2>
+        <H2 id="good-news">The good news</H2>
         <P>
           You don’t need a finance degree to fix this. You don’t need fancy
           software. You need one afternoon and a willingness to look.
@@ -208,13 +224,13 @@ export default function Post() {
           So we’ll ask it again, and this time we’d love you to have an answer.
         </P>
         <P>How much does one new customer cost you?</P>
-        <P>
+        <Signoff>
           At Latetwenties we help local service businesses across New Zealand
           get found online and chosen by the right customers. Getting the
           foundations right, the website, the Google Business Profile, the
           listings, the reviews, is how we make the phone ring with work worth
           winning. Knowing your numbers is how you keep it that way.
-        </P>
+        </Signoff>
       </BlogPost>
     </>
   );

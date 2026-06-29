@@ -6,6 +6,7 @@ import {
   BlogPost,
   H2,
   P,
+  Signoff,
 } from "../../components/blog/BlogPost";
 import { JsonLd } from "../../components/JsonLd";
 
@@ -14,6 +15,13 @@ const TITLE =
 const DESCRIPTION =
   "Booked solid, working harder than ever, and the money still doesn’t reflect it. You’re not imagining it. Busy and profitable are two different things.";
 const URL = "/blog/good-work-good-money";
+
+const TOC = [
+  { id: "more-work", label: "More work doesn’t mean more money" },
+  { id: "the-2000-job", label: "The job that wasn’t really $2,000" },
+  { id: "revenue-lies", label: "Revenue is the number that lies" },
+  { id: "what-to-do", label: "So what do you do about it" },
+];
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -55,6 +63,13 @@ export default function Post() {
         title={TITLE}
         readTime="6 min read"
         lede="Cast your mind back to why you started this thing."
+        toc={TOC}
+        keyStat={{
+          label: "The real number",
+          value: "$300",
+          caption: "actual profit in a “$2,000” job, once everything’s paid.",
+        }}
+        railCtaLine="Want to know what your jobs really leave?"
         ctaTitle="Want to know what your most common job actually leaves you?"
         ctaBody="30 minutes, no pitch. We’ll come prepared with a look at where the money goes and which jobs are worth chasing."
       >
@@ -83,7 +98,7 @@ export default function Post() {
           and almost nobody tells you that when you start.
         </P>
 
-        <H2>More work doesn’t mean more money</H2>
+        <H2 id="more-work">More work doesn’t mean more money</H2>
         <P>
           This is the trap, and it’s a sneaky one, because it feels like the
           opposite should be true.
@@ -111,7 +126,7 @@ export default function Post() {
           We’ve watched it happen to people who are excellent at what they do.
         </P>
 
-        <H2>The job that wasn’t really $2,000</H2>
+        <H2 id="the-2000-job">The job that wasn’t really $2,000</H2>
         <P>Let’s make it real.</P>
         <P>
           A builder tells us proudly that his average job is two grand. Good
@@ -141,7 +156,7 @@ export default function Post() {
           and wondering why the calendar’s full but the account isn’t.
         </P>
 
-        <H2>Revenue is the number that lies to you</H2>
+        <H2 id="revenue-lies">Revenue is the number that lies to you</H2>
         <P>Here’s the heart of it.</P>
         <P>
           Revenue, the money coming in the top, is the number everyone talks
@@ -168,7 +183,7 @@ export default function Post() {
           whole thing, and the money got left behind.
         </P>
 
-        <H2>So what do you actually do about it</H2>
+        <H2 id="what-to-do">So what do you actually do about it</H2>
         <P>
           You stop chasing more and start looking at what you’ve got.
         </P>
@@ -198,12 +213,12 @@ export default function Post() {
           You set out to do good work and make good money. The good work was
           never the problem. Let’s go sort out the other half.
         </P>
-        <P>
+        <Signoff>
           At Latetwenties we help local service businesses across New Zealand
           get found online and chosen by the right customers. The right ones,
           not just any ones. Because filling the calendar was never really the
           goal.
-        </P>
+        </Signoff>
       </BlogPost>
     </>
   );

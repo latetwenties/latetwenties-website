@@ -51,7 +51,7 @@ export default function Post() {
         enough to hand jobs to a competitor who does.
       </P>
 
-      <H2>1. Your primary category is your single biggest ranking lever</H2>
+      <H2>Your primary category is your single biggest ranking lever</H2>
       <P>
         When you set up a Google Business Profile, it asks you to pick a
         category. Most people pick something broad. “Contractor.”
@@ -69,7 +69,7 @@ export default function Post() {
         exaggeration. Check yours.
       </P>
 
-      <H2>2. Google is reading your reviews for keywords</H2>
+      <H2>Google is reading your reviews for keywords</H2>
       <P>
         Reviews aren’t just social proof. Google scans the words inside
         them to understand what you actually do and where you do it.
@@ -91,9 +91,7 @@ export default function Post() {
         the needle.
       </P>
 
-      <H2>
-        3. Your website probably doesn’t mention your suburb once
-      </H2>
+      <H2>Your website probably doesn’t mention your suburb once</H2>
       <P>
         Google needs to connect your website to a physical location. If
         your site doesn’t say where you are, not just in the footer but in
@@ -114,8 +112,8 @@ export default function Post() {
       </P>
 
       <H2>
-        4. Tiny inconsistencies across the internet are silently killing
-        your ranking
+        Tiny inconsistencies across the internet are silently killing your
+        ranking
       </H2>
       <P>
         Google doesn’t just look at your website and your Google profile.
@@ -139,9 +137,7 @@ export default function Post() {
         details appear and make them match exactly.
       </P>
 
-      <H2>
-        5. Review volume doesn’t matter as much as review recency
-      </H2>
+      <H2>Review volume doesn’t matter as much as review recency</H2>
       <P>
         Here’s one most people get wrong: 80 reviews from 2021 is worse
         than 12 reviews with 3 from last month.
@@ -161,9 +157,7 @@ export default function Post() {
         one or two every month without you having to think about it.
       </P>
 
-      <H2>
-        6. People clicking on your listing is itself a ranking signal
-      </H2>
+      <H2>People clicking on your listing is itself a ranking signal</H2>
       <P>
         This one surprises people: Google watches what happens after it
         shows your listing.

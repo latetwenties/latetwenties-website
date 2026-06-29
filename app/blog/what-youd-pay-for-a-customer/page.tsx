@@ -7,6 +7,7 @@ import {
   H2,
   H3,
   P,
+  Signoff,
 } from "../../components/blog/BlogPost";
 import { JsonLd } from "../../components/JsonLd";
 
@@ -15,6 +16,13 @@ const TITLE =
 const DESCRIPTION =
   "The one number that turns marketing from a guess into a decision. Work out your ceiling, and every choice about ads, leads, and growth gets easier.";
 const URL = "/blog/what-youd-pay-for-a-customer";
+
+const TOC = [
+  { id: "why-ceiling", label: "Why you need a ceiling" },
+  { id: "work-it-out", label: "How to work out your number" },
+  { id: "what-it-unlocks", label: "What the ceiling unlocks" },
+  { id: "cost-of-dunno", label: "The cost of “dunno”" },
+];
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -61,6 +69,13 @@ export default function Post() {
         title={TITLE}
         readTime="6 min read"
         lede="There’s one number that changes the way you run your whole business. Most owners don’t have it. The ones who do make better decisions, sleep better, and waste a lot less money."
+        toc={TOC}
+        keyStat={{
+          label: "Worth, not price",
+          value: "$700",
+          caption: "lifetime profit from a $130 physio patient.",
+        }}
+        railCtaLine="Want help setting your ceiling?"
         ctaTitle="Want to work out your ceiling number?"
         ctaBody="30 minutes, no pitch. We’ll come prepared with a look at what a customer is worth to you and the most you should ever pay to win one."
       >
@@ -77,7 +92,7 @@ export default function Post() {
           this number, everything else gets easier.
         </P>
 
-        <H2>Why you need a ceiling</H2>
+        <H2 id="why-ceiling">Why you need a ceiling</H2>
         <P>Picture two builders.</P>
         <P>
           The first one has no idea what a customer is worth to him. So when
@@ -108,7 +123,7 @@ export default function Post() {
           ceiling is the difference.
         </P>
 
-        <H2>How to work out your number</H2>
+        <H2 id="work-it-out">How to work out your number</H2>
         <P>
           It’s two steps, and you can do it on the back of an invoice.
         </P>
@@ -156,7 +171,7 @@ export default function Post() {
           that, you do more of. Anything that costs more than that, you don’t.
         </P>
 
-        <H2>What the ceiling unlocks</H2>
+        <H2 id="what-it-unlocks">What the ceiling unlocks</H2>
         <P>Once you’ve got that number, the fog clears.</P>
         <P>
           You can look at your Google Ads and know, in one glance, whether
@@ -179,7 +194,7 @@ export default function Post() {
           ceiling makes you money.
         </P>
 
-        <H2>The cost of “dunno”</H2>
+        <H2 id="cost-of-dunno">The cost of “dunno”</H2>
         <P>
           Every month you go without this number, you’re making marketing
           decisions by feel.
@@ -210,13 +225,13 @@ export default function Post() {
           you’d pay for a new customer, you’ll have a number. And the
           bewildered look will be on the other side of the table.
         </P>
-        <P>
+        <Signoff>
           At Latetwenties we help local service businesses across New Zealand
           get found online and chosen by the right customers. Often the
           cheapest customers you’ll ever win are the ones who find you and
           choose you without an ad in sight. Getting those foundations right is
           where we start.
-        </P>
+        </Signoff>
       </BlogPost>
     </>
   );
