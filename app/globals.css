@@ -1146,6 +1146,8 @@ section {
   margin-top: 48px;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px 40px;
 }
 
 /* ==========================================================
@@ -2285,6 +2287,9 @@ a.ct-row-val:hover {
   position: relative;
   height: 320vh;
 }
+.cs-compare-track-single {
+  height: 360vh;
+}
 .cs-compare-sticky {
   position: sticky;
   top: 0;
@@ -2302,6 +2307,10 @@ a.ct-row-val:hover {
   max-width: 1400px;
   align-items: stretch;
   height: min(82vh, 720px);
+}
+.cs-compare-grid-single {
+  grid-template-columns: 1fr;
+  max-width: 720px;
 }
 .cs-compare-col {
   display: flex;
@@ -2547,6 +2556,11 @@ a.ct-row-val:hover {
   background: var(--rule);
   border-radius: 999px;
   pointer-events: none;
+}
+.cs-compare-rail-single {
+  left: auto;
+  right: max(24px, calc(50% - 460px));
+  transform: translateY(-50%);
 }
 .cs-compare-rail-fill {
   position: absolute;

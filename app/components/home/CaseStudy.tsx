@@ -149,6 +149,9 @@ export function CaseStudy() {
           <Link className="ghost-link" href="/work/boaz-developments">
             Read the full case study →
           </Link>
+          <Link className="ghost-link" href="/work/rbm-concrete">
+            New: RBM Concrete, Bairnsdale. First lead in four days →
+          </Link>
         </Reveal>
       </div>
     </section>
