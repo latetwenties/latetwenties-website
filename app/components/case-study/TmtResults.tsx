@@ -25,9 +25,9 @@ function useCountAnim(from: number, to: number, active: boolean, ms = 1600) {
 
 const SUBSTATS = [
   {
-    value: "AU$71.67",
-    label: "Cost per ad enquiry",
-    note: "AU$502 spent, 7 enquiries straight off the ads. The line we set was AU$200.",
+    value: "7 of the 12",
+    label: "Enquiries that came from the ads",
+    note: "A small search campaign, switched on once the site was ready. Each enquiry came in at about a third of the cost we'd allowed for.",
   },
   {
     value: "#1 on the map",
@@ -159,8 +159,9 @@ export function TmtResults() {
               me&rdquo; from anywhere around Sale and TMT comes up first.
             </li>
             <li>
-              <strong>Google Ads:</strong> 7 enquiries at AU$71.67 each in
-              the first full month, against the AU$200 line we set together.
+              <strong>Google Ads:</strong> 7 of the 12 enquiries came
+              straight off the ads, each at about a third of the cost we
+              allowed for.
             </li>
             <li>
               <strong>Enquiries:</strong> 4 in May, 12 in June. Tracked end

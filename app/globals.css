@@ -2269,7 +2269,7 @@ a.ct-row-val:hover {
   width: 100%;
   max-width: 1400px;
   align-items: stretch;
-  height: min(82vh, 720px);
+  height: min(88vh, 960px);
 }
 .cs-compare-grid-single {
   grid-template-columns: 1fr;

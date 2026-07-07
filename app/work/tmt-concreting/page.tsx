@@ -202,10 +202,10 @@ export default function TmtCaseStudy() {
                 </p>
                 <p>
                   Only once that was standing did the ads go on. A small
-                  Google Ads search campaign, about AU$16.50 a day, sending
-                  paid clicks to pages built to convert them. Foundations
-                  first is the point: the same ad budget works harder when
-                  the landing isn&rsquo;t a template.
+                  Google Ads search campaign on a modest daily budget,
+                  sending paid clicks to pages built to convert them.
+                  Foundations first is the point: the same budget works
+                  harder when the landing isn&rsquo;t a template.
                 </p>
               </Reveal>
             </div>
@@ -218,7 +218,7 @@ export default function TmtCaseStudy() {
               The site, <em>before and after.</em>
             </>
           }
-          lede="Side-by-side, scrolled in sync. Same trade, same towns, a completely different job being asked of the website. Hover the markers to see where each strategic decision lives."
+          lede="The old homepage and the new one, scrolled together. Hover the markers to see what changed and why."
           url="tmtconcreteandmaintenance.com.au"
           before={{
             src: "/images/case-studies/tmt/website-home-before.jpg",

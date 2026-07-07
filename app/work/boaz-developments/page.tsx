@@ -225,7 +225,7 @@ export default function BoazCaseStudy() {
               The site, <em>before and after.</em>
             </>
           }
-          lede="Side-by-side, scrolled in sync. The new home page is built with intent, not decoration. Hover the markers to see where each strategic decision lives."
+          lede="The old homepage and the new one, scrolled together. Hover the markers to see where each decision lives."
           url="boazdevelopments.co.nz"
           before={{
             src: "/images/case-studies/boaz/website-home-before.png",
