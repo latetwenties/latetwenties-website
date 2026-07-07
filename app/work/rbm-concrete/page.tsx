@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const SCHEMA = [
   breadcrumbList([
     { name: "Home", href: "/" },
-    { name: "Work", href: "/work/rbm-concrete" },
+    { name: "Work", href: "/work" },
     { name: "RBM Concrete & Excavation", href: "/work/rbm-concrete" },
   ]),
   article({
@@ -37,7 +37,7 @@ export default function RbmCaseStudy() {
   return (
     <>
       <JsonLd schema={SCHEMA} />
-      <Header />
+      <Header current="work" />
       <main>
         <section className="cs-hero">
           <div className="wrap">

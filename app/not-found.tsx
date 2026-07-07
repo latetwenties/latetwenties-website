@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 const SUGGESTIONS = [
   { href: "/", label: "Home" },
   { href: "/how-it-works", label: "How it works" },
-  { href: "/work/boaz-developments", label: "Recent work" },
+  { href: "/work", label: "Recent work" },
   { href: "/about", label: "About" },
   { href: "/resources", label: "Resources" },
   { href: "/contact", label: "Contact" },

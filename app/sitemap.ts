@@ -6,6 +6,7 @@ const ROUTES: { path: string; priority: number; changeFrequency: MetadataRoute.S
   { path: "/", priority: 1, changeFrequency: "weekly" },
   { path: "/about", priority: 0.8, changeFrequency: "monthly" },
   { path: "/how-it-works", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/work", priority: 0.7, changeFrequency: "monthly" },
   { path: "/work/boaz-developments", priority: 0.7, changeFrequency: "monthly" },
   { path: "/work/tmt-concreting", priority: 0.7, changeFrequency: "monthly" },
   { path: "/work/rbm-concrete", priority: 0.7, changeFrequency: "monthly" },

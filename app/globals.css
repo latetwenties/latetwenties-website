@@ -1102,6 +1102,16 @@ section {
 .case-tile:hover .case-tile-arrow {
   transform: translateX(4px);
 }
+.case-cta {
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Work hub — case study index */
+.work-grid-section {
+  padding: 24px 0 150px;
+}
 
 /* ==========================================================
    Founder block — sticky portrait + signed letter

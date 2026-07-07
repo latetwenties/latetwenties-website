@@ -8,6 +8,7 @@ import { Wordmark } from "./Wordmark";
 
 const NAV_LINKS = [
   { href: "/how-it-works", label: "How it works", match: "how-it-works" },
+  { href: "/work", label: "Work", match: "work" },
   { href: "/about", label: "About", match: "about" },
   { href: "/resources", label: "Resources", match: "resources" },
   { href: "/contact", label: "Contact", match: "contact" },

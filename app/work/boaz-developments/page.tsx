@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 const SCHEMA = [
   breadcrumbList([
     { name: "Home", href: "/" },
-    { name: "Work", href: "/work/boaz-developments" },
+    { name: "Work", href: "/work" },
     { name: "Boaz Developments", href: "/work/boaz-developments" },
   ]),
   article({
@@ -86,7 +86,7 @@ export default function BoazCaseStudy() {
   return (
     <>
       <JsonLd schema={SCHEMA} />
-      <Header />
+      <Header current="work" />
       <main>
         <section className="cs-hero">
           <div className="wrap">
