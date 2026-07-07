@@ -1,56 +1,61 @@
-"use client";
-
-import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { ReactNode } from "react";
 
 import { Eyebrow } from "../Eyebrow";
 import { Reveal } from "../Reveal";
 
+type CaseTile = {
+  href: string;
+  client: string;
+  meta: string;
+  line: ReactNode;
+  stat: string;
+  statLabel: string;
+};
+
+const CASES: CaseTile[] = [
+  {
+    href: "/work/boaz-developments",
+    client: "Boaz Developments",
+    meta: "Builders · Mangawhai NZ",
+    line: (
+      <>
+        From not showing, to <em>#2 in search</em> across the neighbouring
+        towns.
+      </>
+    ),
+    stat: "10.1 → 2.5",
+    statLabel: "Map-pack rank, under two months",
+  },
+  {
+    href: "/work/tmt-concreting",
+    client: "TMT Concreting & Maintenance",
+    meta: "Concreting · Gippsland VIC",
+    line: (
+      <>
+        Four enquiries a month <em>became twelve</em>, first full month with
+        everything on.
+      </>
+    ),
+    stat: "4 → 12",
+    statLabel: "Enquiries, May to June",
+  },
+  {
+    href: "/work/rbm-concrete",
+    client: "RBM Concrete & Excavation",
+    meta: "Concrete & excavation · Bairnsdale VIC",
+    line: (
+      <>
+        No website at all, then <em>a stranger on the phone</em> about a new
+        house slab.
+      </>
+    ),
+    stat: "Four days",
+    statLabel: "From launch to first lead",
+  },
+];
+
 export function CaseStudy() {
-  const cardRef = useRef<HTMLDivElement | null>(null);
-  const [active, setActive] = useState(false);
-  const [rank, setRank] = useState(101);
-
-  useEffect(() => {
-    const el = cardRef.current;
-    if (!el) return;
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setRank(101);
-            setActive(false);
-            requestAnimationFrame(() =>
-              requestAnimationFrame(() => setActive(true)),
-            );
-          } else {
-            setActive(false);
-            setRank(101);
-          }
-        });
-      },
-      { threshold: 0.6, rootMargin: "0px 0px -15% 0px" },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (!active) return;
-    const start = performance.now();
-    const dur = 1800;
-    const ease = (t: number) => 1 - Math.pow(1 - t, 3);
-    let raf = 0;
-    const tick = (now: number) => {
-      const t = Math.min(1, (now - start) / dur);
-      setRank(Math.round(101 - 76 * ease(t)));
-      if (t < 1) raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [active]);
-
   return (
     <section className="case" id="work">
       <div className="wrap">
@@ -60,99 +65,42 @@ export function CaseStudy() {
           </Reveal>
           <Reveal delay={80}>
             <p className="case-pull">
-              From not showing, to <em>#2 in search</em>
+              Three local businesses.
               <br />
-              across our neighbouring towns.
+              <em>Three phones ringing.</em>
             </p>
             <div className="case-attribution">
-              <span className="case-attr-name">Boaz Developments</span>
+              <span className="case-attr-name">Real clients, real numbers</span>
               <span className="case-attr-sep" aria-hidden="true">
                 &nbsp;·&nbsp;
               </span>
-              <span className="case-attr-meta">Builders, Mangawhai</span>
+              <span className="case-attr-meta">
+                Every case study links the receipts
+              </span>
             </div>
           </Reveal>
         </div>
 
-        <div ref={cardRef}>
-        <Reveal className={`case-card ${active ? "is-active" : ""}`} delay={140}>
-          <div className="cc-stats">
-            <div className="cc-metric">
-              <div className="cc-metric-label">Avg map-pack rank</div>
-              <div className="cc-metric-value">
-                <span className="cc-old">10.1</span>
-                <span className="cc-arrow" aria-hidden="true">
-                  →
-                </span>
-                <span className="cc-new">{(rank / 10).toFixed(1)}</span>
-              </div>
-              <div className="cc-metric-q">for &ldquo;builder mangawhai&rdquo;</div>
-            </div>
-
-            <div className="cc-meta">
-              <div className="cc-meta-row">
-                <span className="cc-k">Engagement</span>
-                <span className="cc-v">Foundations + Presence Care</span>
-              </div>
-              <div className="cc-meta-row">
-                <span className="cc-k">Timeframe</span>
-                <span className="cc-v">Under 8 weeks</span>
-              </div>
-              <div className="cc-meta-row">
-                <span className="cc-k">Outcome</span>
-                <span className="cc-v">Top 3 across 80% of search grid</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="cc-visual">
-            <div className="cc-mappack">
-              <Image
-                className="cc-map cc-map-before"
-                src="/images/case-studies/boaz/map-pack-before.png"
-                alt="Map pack before. Average rank 10.1."
-                fill
-                sizes="(max-width: 920px) 100vw, 480px"
-              />
-              <Image
-                className="cc-map cc-map-after"
-                src="/images/case-studies/boaz/map-pack-after.png"
-                alt="Map pack after. Average rank 2.5."
-                fill
-                sizes="(max-width: 920px) 100vw, 480px"
-                style={{
-                  zIndex: 2,
-                  clipPath: active ? "inset(0 0 0 0)" : "inset(0 100% 0 0)",
-                  transition:
-                    "clip-path 1800ms cubic-bezier(0.65, 0, 0.35, 1) 200ms",
-                }}
-              />
-              <div
-                className="cc-wipe"
-                style={{
-                  left: active ? "100%" : "0%",
-                  transition:
-                    "left 1800ms cubic-bezier(0.65, 0, 0.35, 1) 200ms",
-                }}
-              />
-            </div>
-            <div className="cc-mappack-foot">
-              <span>Before · 11 Apr</span>
-              <span className="cc-divider" />
-              <span>After · 30 Apr</span>
-            </div>
-          </div>
-        </Reveal>
+        <div className="case-grid">
+          {CASES.map((c, i) => (
+            <Reveal key={c.href} delay={120 + i * 80}>
+              <Link className="case-tile" href={c.href}>
+                <div className="case-tile-meta">{c.meta}</div>
+                <p className="case-tile-line">{c.line}</p>
+                <div className="case-tile-stat">
+                  <span className="case-tile-stat-value">{c.stat}</span>
+                  <span className="case-tile-stat-label">{c.statLabel}</span>
+                </div>
+                <div className="case-tile-foot">
+                  <span className="case-tile-client">{c.client}</span>
+                  <span className="case-tile-arrow" aria-hidden="true">
+                    →
+                  </span>
+                </div>
+              </Link>
+            </Reveal>
+          ))}
         </div>
-
-        <Reveal className="case-cta" delay={240}>
-          <Link className="ghost-link" href="/work/boaz-developments">
-            Read the full case study →
-          </Link>
-          <Link className="ghost-link" href="/work/rbm-concrete">
-            New: RBM Concrete, Bairnsdale. First lead in four days →
-          </Link>
-        </Reveal>
       </div>
     </section>
   );

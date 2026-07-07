@@ -151,9 +151,8 @@ export function HomeShowcase() {
         </Reveal>
         <Reveal delay={80}>
           <p className="cs-ba-lede">
-            No before screenshot this time. There wasn&rsquo;t a website to
-            screenshot. This is the home page that went live, top to bottom.
-            Hover the markers to see where each strategic decision lives.
+            This is the home page that went live, top to bottom. Hover the
+            markers to see where each strategic decision lives.
           </p>
         </Reveal>
       </div>

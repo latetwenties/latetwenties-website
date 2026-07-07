@@ -5,7 +5,7 @@ import { ReactNode, useEffect, useRef, useState } from "react";
 
 import { Reveal } from "../Reveal";
 
-type Hotspot = {
+export type CompareHotspot = {
   id: number;
   top: number;
   side: "left" | "right";
@@ -13,43 +13,23 @@ type Hotspot = {
   body: string;
 };
 
-const HOTSPOTS: Hotspot[] = [
-  {
-    id: 1,
-    top: 0.04,
-    side: "right",
-    title: "Real project photography",
-    body: "Hero swapped from generic stock framing to a real Boaz build. Visitors see the actual quality of work, and Google sees authentic, original imagery on a builder site.",
-  },
-  {
-    id: 2,
-    top: 0.2,
-    side: "left",
-    title: "Individual service pages",
-    body: "Three service entry points (new builds, renovations, maintenance), each linking to a dedicated page. Content depth signals expertise to both Google and visitors comparing builders.",
-  },
-  {
-    id: 3,
-    top: 0.34,
-    side: "right",
-    title: "Real, recent projects",
-    body: "Visitors landing here recognise the builds. Locals see houses they've driven past. Trust comes from seeing real work in real places, not a stock gallery.",
-  },
-  {
-    id: 4,
-    top: 0.5,
-    side: "left",
-    title: "Research-led copy",
-    body: "Every “why choose us” line maps to a real pain point lifted from interviewing locals about builder horror stories. It speaks to the visitor's actual hesitations.",
-  },
-  {
-    id: 5,
-    top: 0.66,
-    side: "right",
-    title: "Service area signals",
-    body: "The towns Boaz serves are named on the homepage in plain language. Same content gives ChatGPT, Gemini and Google the geographic context they need to recommend Boaz when someone asks for a builder in the area.",
-  },
-];
+export type CompareImage = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+};
+
+type BeforeAfterCompareProps = {
+  heading: ReactNode;
+  lede: string;
+  url: string;
+  before: CompareImage;
+  after: CompareImage;
+  hotspots: CompareHotspot[];
+  notesEyebrow?: string;
+  notes: ReactNode[];
+};
 
 function BrowserFrame({
   url,
@@ -97,7 +77,16 @@ function translateY(dims: Dims, progress: number) {
   return -max * progress;
 }
 
-export function BeforeAfterCompare() {
+export function BeforeAfterCompare({
+  heading,
+  lede,
+  url,
+  before,
+  after,
+  hotspots,
+  notesEyebrow = "What we focused on",
+  notes,
+}: BeforeAfterCompareProps) {
   const trackRef = useRef<HTMLDivElement | null>(null);
   const beforeImgRef = useRef<HTMLImageElement | null>(null);
   const afterImgRef = useRef<HTMLImageElement | null>(null);
@@ -108,30 +97,30 @@ export function BeforeAfterCompare() {
 
   useEffect(() => {
     const measure = () => {
-      const before = beforeImgRef.current;
-      const after = afterImgRef.current;
-      if (before && before.parentElement) {
+      const beforeEl = beforeImgRef.current;
+      const afterEl = afterImgRef.current;
+      if (beforeEl && beforeEl.parentElement) {
         setBeforeDims({
-          imgH: before.clientHeight,
-          frameH: before.parentElement.clientHeight,
+          imgH: beforeEl.clientHeight,
+          frameH: beforeEl.parentElement.clientHeight,
         });
       }
-      if (after && after.parentElement) {
+      if (afterEl && afterEl.parentElement) {
         setAfterDims({
-          imgH: after.clientHeight,
-          frameH: after.parentElement.clientHeight,
+          imgH: afterEl.clientHeight,
+          frameH: afterEl.parentElement.clientHeight,
         });
       }
     };
     measure();
-    const before = beforeImgRef.current;
-    const after = afterImgRef.current;
-    before?.addEventListener("load", measure);
-    after?.addEventListener("load", measure);
+    const beforeEl = beforeImgRef.current;
+    const afterEl = afterImgRef.current;
+    beforeEl?.addEventListener("load", measure);
+    afterEl?.addEventListener("load", measure);
     window.addEventListener("resize", measure);
     return () => {
-      before?.removeEventListener("load", measure);
-      after?.removeEventListener("load", measure);
+      beforeEl?.removeEventListener("load", measure);
+      afterEl?.removeEventListener("load", measure);
       window.removeEventListener("resize", measure);
     };
   }, []);
@@ -166,16 +155,10 @@ export function BeforeAfterCompare() {
     <section className="cs-compare">
       <div className="wrap cs-compare-intro">
         <Reveal>
-          <h2 className="cs-ba-h2">
-            The site, <em>before and after.</em>
-          </h2>
+          <h2 className="cs-ba-h2">{heading}</h2>
         </Reveal>
         <Reveal delay={80}>
-          <p className="cs-ba-lede">
-            Side-by-side, scrolled in sync. The new home page is built with
-            intent, not decoration. Hover the markers to see where each
-            strategic decision lives.
-          </p>
+          <p className="cs-ba-lede">{lede}</p>
         </Reveal>
       </div>
 
@@ -184,14 +167,14 @@ export function BeforeAfterCompare() {
           <div className="cs-compare-grid">
             <div className="cs-compare-col">
               <div className="cs-compare-tag">Before</div>
-              <BrowserFrame url="boazdevelopments.co.nz" tone="muted">
+              <BrowserFrame url={url} tone="muted">
                 <Image
                   ref={beforeImgRef}
                   className="cs-compare-img"
-                  src="/images/case-studies/boaz/website-home-before.png"
-                  alt="Boaz Developments homepage before. Generic dark builder template, stock framing imagery, vague headlines."
-                  width={2578}
-                  height={8684}
+                  src={before.src}
+                  alt={before.alt}
+                  width={before.width}
+                  height={before.height}
                   sizes="(max-width: 920px) 100vw, 700px"
                   style={{ transform: `translateY(${beforeY}px)` }}
                 />
@@ -200,21 +183,21 @@ export function BeforeAfterCompare() {
 
             <div className="cs-compare-col">
               <div className="cs-compare-tag cs-compare-tag-after">After</div>
-              <BrowserFrame url="boazdevelopments.co.nz">
+              <BrowserFrame url={url}>
                 <Image
                   ref={afterImgRef}
                   className="cs-compare-img"
-                  src="/images/case-studies/boaz/website-home-after.png"
-                  alt="Boaz Developments homepage after. Real project photography, service-led layout, research-driven copy."
-                  width={2746}
-                  height={12374}
+                  src={after.src}
+                  alt={after.alt}
+                  width={after.width}
+                  height={after.height}
                   sizes="(max-width: 920px) 100vw, 700px"
                   style={{ transform: `translateY(${afterY}px)` }}
                 />
                 <div className="cs-compare-spots">
                   {afterDims.imgH > 0 &&
                     afterDims.frameH > 0 &&
-                    HOTSPOTS.map((h) => {
+                    hotspots.map((h) => {
                       const targetY = h.top * afterDims.imgH;
                       const visibleY = targetY + afterY;
                       const visiblePct =
@@ -257,7 +240,7 @@ export function BeforeAfterCompare() {
               className="cs-compare-rail-fill"
               style={{ height: `${progress * 100}%` }}
             />
-            {HOTSPOTS.map((h) => (
+            {hotspots.map((h) => (
               <div
                 key={h.id}
                 className="cs-compare-rail-tick"
@@ -271,28 +254,11 @@ export function BeforeAfterCompare() {
       </div>
 
       <div className="wrap cs-compare-notes">
-        <p className="cs-compare-notes-eyebrow">What we focused on</p>
+        <p className="cs-compare-notes-eyebrow">{notesEyebrow}</p>
         <ul className="cs-compare-notes-list">
-          <li>
-            <strong>Dedicated service and location pages</strong>, each
-            findable in its own right
-          </li>
-          <li>
-            <strong>Heavy SEO and GEO foundations</strong> — schema,
-            structured data, internal linking, AI-search markup
-          </li>
-          <li>
-            <strong>Copy lifted from how locals actually search</strong>,
-            using their language, not ours
-          </li>
-          <li>
-            <strong>Real Boaz photography</strong> from the build sites,
-            no stock
-          </li>
-          <li>
-            <strong>Named service areas in plain text</strong> so AI tools
-            confidently recommend Boaz when asked about the area
-          </li>
+          {notes.map((note, i) => (
+            <li key={i}>{note}</li>
+          ))}
         </ul>
       </div>
     </section>

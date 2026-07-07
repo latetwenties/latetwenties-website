@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
+import { Fragment } from "react";
 import Image from "next/image";
 
 import { article, breadcrumbList, review } from "@/lib/schema";
 
 import { Act3 } from "../../components/case-study/Act3";
-import { BeforeAfterCompare } from "../../components/case-study/BeforeAfterCompare";
+import {
+  BeforeAfterCompare,
+  CompareHotspot,
+} from "../../components/case-study/BeforeAfterCompare";
 import { Eyebrow } from "../../components/Eyebrow";
 import { FinalCTA } from "../../components/FinalCTA";
 import { Footer } from "../../components/Footer";
@@ -38,6 +42,44 @@ const SCHEMA = [
     body: "From not showing, to #2 in search across our neighbouring towns. In under two months.",
     rating: 5,
   }),
+];
+
+const HOTSPOTS: CompareHotspot[] = [
+  {
+    id: 1,
+    top: 0.04,
+    side: "right",
+    title: "Real project photography",
+    body: "Hero swapped from generic stock framing to a real Boaz build. Visitors see the actual quality of work, and Google sees authentic, original imagery on a builder site.",
+  },
+  {
+    id: 2,
+    top: 0.2,
+    side: "left",
+    title: "Individual service pages",
+    body: "Three service entry points (new builds, renovations, maintenance), each linking to a dedicated page. Content depth signals expertise to both Google and visitors comparing builders.",
+  },
+  {
+    id: 3,
+    top: 0.34,
+    side: "right",
+    title: "Real, recent projects",
+    body: "Visitors landing here recognise the builds. Locals see houses they've driven past. Trust comes from seeing real work in real places, not a stock gallery.",
+  },
+  {
+    id: 4,
+    top: 0.5,
+    side: "left",
+    title: "Research-led copy",
+    body: "Every “why choose us” line maps to a real pain point lifted from interviewing locals about builder horror stories. It speaks to the visitor's actual hesitations.",
+  },
+  {
+    id: 5,
+    top: 0.66,
+    side: "right",
+    title: "Service area signals",
+    body: "The towns Boaz serves are named on the homepage in plain language. Same content gives ChatGPT, Gemini and Google the geographic context they need to recommend Boaz when someone asks for a builder in the area.",
+  },
 ];
 
 export default function BoazCaseStudy() {
@@ -177,7 +219,50 @@ export default function BoazCaseStudy() {
           </div>
         </section>
 
-        <BeforeAfterCompare />
+        <BeforeAfterCompare
+          heading={
+            <>
+              The site, <em>before and after.</em>
+            </>
+          }
+          lede="Side-by-side, scrolled in sync. The new home page is built with intent, not decoration. Hover the markers to see where each strategic decision lives."
+          url="boazdevelopments.co.nz"
+          before={{
+            src: "/images/case-studies/boaz/website-home-before.png",
+            alt: "Boaz Developments homepage before. Generic dark builder template, stock framing imagery, vague headlines.",
+            width: 2578,
+            height: 8684,
+          }}
+          after={{
+            src: "/images/case-studies/boaz/website-home-after.png",
+            alt: "Boaz Developments homepage after. Real project photography, service-led layout, research-driven copy.",
+            width: 2746,
+            height: 12374,
+          }}
+          hotspots={HOTSPOTS}
+          notes={[
+            <Fragment key={1}>
+              <strong>Dedicated service and location pages</strong>, each
+              findable in its own right
+            </Fragment>,
+            <Fragment key={2}>
+              <strong>Heavy SEO and GEO foundations</strong>: schema,
+              structured data, internal linking, AI-search markup
+            </Fragment>,
+            <Fragment key={3}>
+              <strong>Copy lifted from how locals actually search</strong>,
+              using their language, not ours
+            </Fragment>,
+            <Fragment key={4}>
+              <strong>Real Boaz photography</strong> from the build sites,
+              no stock
+            </Fragment>,
+            <Fragment key={5}>
+              <strong>Named service areas in plain text</strong> so AI tools
+              confidently recommend Boaz when asked about the area
+            </Fragment>,
+          ]}
+        />
 
         <Act3 />
 

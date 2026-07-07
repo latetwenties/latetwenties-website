@@ -193,8 +193,8 @@ export default function RbmCaseStudy() {
                 </p>
                 <p>
                   Up next is the Google layer: profile verification, reviews,
-                  the map pack. The same layer that took Boaz Developments to
-                  #2 across their neighbouring towns.
+                  the map pack. The foundations are set. Now the signals
+                  build on top.
                 </p>
               </Reveal>
             </div>
