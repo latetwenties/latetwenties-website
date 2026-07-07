@@ -32,7 +32,7 @@ const SCHEMA = [
     headline:
       "TMT Concreting & Maintenance: from four enquiries a month to twelve in the first full month",
     description:
-      "How a Gippsland concreter went from a single-page template website to twelve enquiries in a month, with a research-led rebuild, local search foundations and a small Google Ads campaign.",
+      "How a Gippsland concreter went from a template website to twelve enquiries in a month, with a research-led rebuild, local search foundations and a small Google Ads campaign.",
     url: "/work/tmt-concreting",
     datePublished: "2026-07-07",
   }),
@@ -136,9 +136,9 @@ export default function TmtCaseStudy() {
                   <h2 className="cs-act-h2">
                     A 5.0-star crew
                     <br />
-                    on a <em>one-page</em>
+                    on a <em>template</em>
                     <br />
-                    <em>template.</em>
+                    <em>website.</em>
                   </h2>
                 </Reveal>
               </div>
@@ -152,12 +152,12 @@ export default function TmtCaseStudy() {
                   people he&rsquo;s poured for.
                 </p>
                 <p>
-                  The website didn&rsquo;t. A single-page template with a
-                  generic headline, a services list and a gallery. Nothing
-                  for someone searching &ldquo;concrete driveway Sale&rdquo;
-                  or &ldquo;epoxy flooring Traralgon&rdquo; to land on, and
-                  nothing measured, so no way of knowing what any of it was
-                  doing.
+                  The website didn&rsquo;t. A template site with a generic
+                  headline, one catch-all services list and a gallery.
+                  Nothing for someone searching &ldquo;concrete driveway
+                  Sale&rdquo; or &ldquo;epoxy flooring Traralgon&rdquo; to
+                  land on, and nothing measured, so no way of knowing what
+                  any of it was doing.
                 </p>
                 <p className="cs-act-pull">
                   The work earned the reviews. The website didn&rsquo;t earn
@@ -222,7 +222,7 @@ export default function TmtCaseStudy() {
           url="tmtconcreteandmaintenance.com.au"
           before={{
             src: "/images/case-studies/tmt/website-home-before.jpg",
-            alt: "TMT homepage before. Single-page purple template with a generic Building Trust headline over a bitumen photo, a services list and a gallery grid.",
+            alt: "TMT homepage before. Purple template site with a generic Building Trust headline over a bitumen photo, a catch-all services list and a gallery grid.",
             width: 2746,
             height: 7780,
           }}

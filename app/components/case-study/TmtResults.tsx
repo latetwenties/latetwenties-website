@@ -30,9 +30,9 @@ const SUBSTATS = [
     note: "AU$502 spent, 7 enquiries straight off the ads. The line we set was AU$200.",
   },
   {
-    value: "#1 · all 49 points",
-    label: "“Concreter near me”, local grid",
-    note: "First across every point of the 7x7 BrightLocal grid around Sale, 29 June run.",
+    value: "#1 on the map",
+    label: "“Concreter near me”, around Sale",
+    note: "Search it from anywhere in the Sale area and TMT comes up first. We check from 49 spots across the district every month, and in late June every one of them showed TMT on top.",
   },
   {
     value: "+68%",
@@ -155,8 +155,8 @@ export function TmtResults() {
               service-led home with a page for every job type and town.
             </li>
             <li>
-              <strong>Local map:</strong>{" "}&ldquo;concreter near me&rdquo; at
-              #1 across all 49 points of the local grid around Sale.
+              <strong>Local map:</strong>{" "}search &ldquo;concreter near
+              me&rdquo; from anywhere around Sale and TMT comes up first.
             </li>
             <li>
               <strong>Google Ads:</strong> 7 enquiries at AU$71.67 each in
