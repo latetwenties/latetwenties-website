@@ -151,7 +151,7 @@ export function TmtResults() {
           <div className="cs-summary-tag">In summary</div>
           <ul className="cs-summary-list">
             <li>
-              <strong>Website:</strong> from a single-page template to a
+              <strong>Website:</strong> from a template site to a
               service-led home with a page for every job type and town.
             </li>
             <li>
