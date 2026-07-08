@@ -28,7 +28,7 @@ export function Hero() {
 
         <div className="hero-eyebrow">
           <span className="dot" />
-          <Eyebrow>Built for local service businesses · NZ &amp; AU</Eyebrow>
+          <Eyebrow>Local marketing · Auckland &amp; across NZ</Eyebrow>
         </div>
 
         <div className="hero-pure-headline" aria-hidden="true">
@@ -39,36 +39,28 @@ export function Hero() {
           <span className="hp-tail">near me</span>
         </div>
 
-        <p className="hero-promise">
-          More local enquiries in 90 days. Or we keep working, free, until you
-          get them.
-        </p>
-
-        <p className="hero-sub hero-sub-tight">
-          Someone is searching for what you do right now. We make sure your
-          business is the one they choose.
-        </p>
-
-        <p className="hero-proof">
-          4 → 12 enquiries in one month
-          <span className="hero-proof-sep" aria-hidden="true">
-            &nbsp;·&nbsp;
-          </span>
-          #2 in local search in under two months
-          <span className="hero-proof-sep" aria-hidden="true">
-            &nbsp;·&nbsp;
-          </span>
-          First lead 4 days after launch
-        </p>
+        <div className="hero-subrow">
+          <p className="hero-lede">
+            More local enquiries in 90 days. Someone is searching for what you
+            do right now. We make sure your business is the one they choose.
+          </p>
+          <ul className="hero-services">
+            <li>New websites</li>
+            <li>Google &amp; Meta ads</li>
+            <li>Reviews &amp; local SEO</li>
+          </ul>
+        </div>
 
         <div className="hero-cta-row">
           <Link className="btn-primary" href="/contact">
             Get your free Presence Report <span className="arrow">→</span>
           </Link>
           <Link className="btn-ghost" href="/how-it-works">
-            See the system
+            See how it works <span className="arrow">→</span>
           </Link>
         </div>
+
+        <p className="hero-trust">No pitch · No lock-ins</p>
       </div>
     </section>
   );

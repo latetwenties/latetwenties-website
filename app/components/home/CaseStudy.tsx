@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 import { CaseTileGrid } from "../CaseTileGrid";
-import { Eyebrow } from "../Eyebrow";
 import { Reveal } from "../Reveal";
 
 export function CaseStudy() {
@@ -10,25 +9,15 @@ export function CaseStudy() {
       <div className="wrap">
         <div className="case-head">
           <Reveal>
-            <Eyebrow num="04">The proof</Eyebrow>
-          </Reveal>
-          <Reveal delay={80}>
             <p className="case-pull">
               Local businesses,
               <br />
               <em>found and chosen.</em>
             </p>
-            <div className="case-attribution">
-              <span className="case-attr-name">
-                A handful of our case studies
-              </span>
-              <span className="case-attr-sep" aria-hidden="true">
-                &nbsp;·&nbsp;
-              </span>
-              <span className="case-attr-meta">
-                Real clients, real numbers, recent work
-              </span>
-            </div>
+          </Reveal>
+          <Reveal as="p" className="case-meta" delay={80}>
+            <span className="case-meta-num">04</span> The proof · Real clients ·
+            Real numbers · Recent work
           </Reveal>
         </div>
 

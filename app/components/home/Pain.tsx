@@ -22,9 +22,9 @@ export function Pain() {
           </Reveal>
           <Reveal delay={120}>
             <p className="pain-lede">
-              You&rsquo;ve earned your reputation the hard way. The work is
+              You&rsquo;ve earned your reputation the hard way, and the work is
               good. But good work only sells itself to people who already know
-              you. Right now:
+              you. Right now, the people searching don&rsquo;t.
             </p>
           </Reveal>
         </div>

@@ -45,15 +45,13 @@ export default function About() {
               <p>
                 Latetwenties is for local service owners who are good at the
                 work and tired of being the best-kept secret in town. We get
-                you found online and chosen by local customers, and we put a
-                number and a deadline on it: more enquiries within 90 days, or
-                we keep working free until you get them.
+                you found online and chosen by local customers, and we treat
+                the job with the same seriousness you treat yours.
               </p>
               <p>
-                That guarantee is the whole point. If we&rsquo;re asking you to
-                trust a marketing partner off the internet, the risk should sit
-                with us, not you. Here&rsquo;s the story of why we built it that
-                way.
+                If we&rsquo;re asking you to trust a marketing partner off the
+                internet, the risk should sit with us, not you. Here&rsquo;s
+                the story of why we work the way we do.
               </p>
             </Reveal>
           </div>
@@ -194,25 +192,15 @@ export default function About() {
           <div className="wrap">
             <div className="case-head">
               <Reveal>
-                <Eyebrow num="03">The proof</Eyebrow>
-              </Reveal>
-              <Reveal delay={80}>
                 <p className="case-pull">
                   Local businesses,
                   <br />
                   <em>found and chosen.</em>
                 </p>
-                <div className="case-attribution">
-                  <span className="case-attr-name">
-                    A handful of our case studies
-                  </span>
-                  <span className="case-attr-sep" aria-hidden="true">
-                    &nbsp;·&nbsp;
-                  </span>
-                  <span className="case-attr-meta">
-                    Real clients, real numbers, recent work
-                  </span>
-                </div>
+              </Reveal>
+              <Reveal as="p" className="case-meta" delay={80}>
+                <span className="case-meta-num">03</span> The proof · Real
+                clients · Real numbers · Recent work
               </Reveal>
             </div>
             <CaseTileGrid />

@@ -9,7 +9,6 @@ type CaseTile = {
   meta: string;
   line: ReactNode;
   stat: string;
-  statLabel: string;
 };
 
 export const CASE_TILES: CaseTile[] = [
@@ -24,7 +23,6 @@ export const CASE_TILES: CaseTile[] = [
       </>
     ),
     stat: "10.1 → 2.5",
-    statLabel: "Map-pack rank, under two months",
   },
   {
     href: "/work/tmt-concreting",
@@ -37,7 +35,6 @@ export const CASE_TILES: CaseTile[] = [
       </>
     ),
     stat: "4 → 12",
-    statLabel: "Enquiries, May to June",
   },
   {
     href: "/work/rbm-concrete",
@@ -50,9 +47,23 @@ export const CASE_TILES: CaseTile[] = [
       </>
     ),
     stat: "Four days",
-    statLabel: "From launch to first lead",
   },
 ];
+
+// Render the metric with a terracotta arrow when the stat is a before/after.
+function renderStat(stat: string): ReactNode {
+  if (!stat.includes("→")) return stat;
+  const [before, after] = stat.split("→");
+  return (
+    <>
+      {before}
+      <span className="case-tile-stat-arrow" aria-hidden="true">
+        →
+      </span>
+      {after}
+    </>
+  );
+}
 
 export function CaseTileGrid({ baseDelay = 120 }: { baseDelay?: number }) {
   return (
@@ -63,8 +74,9 @@ export function CaseTileGrid({ baseDelay = 120 }: { baseDelay?: number }) {
             <div className="case-tile-meta">{c.meta}</div>
             <p className="case-tile-line">{c.line}</p>
             <div className="case-tile-stat">
-              <span className="case-tile-stat-value">{c.stat}</span>
-              <span className="case-tile-stat-label">{c.statLabel}</span>
+              <span className="case-tile-stat-value">
+                {renderStat(c.stat)}
+              </span>
             </div>
             <div className="case-tile-foot">
               <span className="case-tile-client">{c.client}</span>

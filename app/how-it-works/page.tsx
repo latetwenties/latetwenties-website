@@ -267,9 +267,7 @@ export default function HowItWorks() {
               <p className="hiw-lede">
                 One system, three parts. Get Found builds your presence so you
                 show up. Stay Chosen keeps you climbing. Ring This Week brings
-                enquiries in fast. Run one or all three, no lock-ins. And the
-                promise holds across all of it: more local enquiries in 90
-                days, or we work free until you get them.
+                enquiries in fast. Run one or all three, no lock-ins.
               </p>
             </Reveal>
           </div>
@@ -420,10 +418,8 @@ export default function HowItWorks() {
                     what&rsquo;s next.
                   </p>
                   <p>
-                    Your build goes live in two to four weeks. From the day it
-                    does and Stay Chosen begins, the 90-day guarantee clock
-                    starts: more local enquiries than the 90 days before us, or
-                    we keep working free until you get them.
+                    Your build goes live in two to four weeks. From there, Stay
+                    Chosen keeps building on it, month after month.
                   </p>
                   <p>
                     The wins get celebrated. The bits that aren&rsquo;t

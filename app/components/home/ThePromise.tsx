@@ -8,18 +8,19 @@ export function ThePromise() {
   return (
     <section className="promise" id="the-promise">
       <div className="wrap">
-        <div className="promise-head">
-          <Reveal>
-            <Eyebrow num="02">The promise</Eyebrow>
-            <h2>
-              Here&rsquo;s the deal,
-              <br />
-              <em>in one sentence.</em>
-            </h2>
-          </Reveal>
-        </div>
+        <div className="promise-grid">
+          <div className="promise-head">
+            <Reveal>
+              <Eyebrow num="02">The promise</Eyebrow>
+              <h2>
+                Here&rsquo;s the deal,
+                <br />
+                <em>in one sentence.</em>
+              </h2>
+            </Reveal>
+          </div>
 
-        <Reveal as="div" className="promise-body" delay={120}>
+          <Reveal as="div" className="promise-body" delay={120}>
           <p className="promise-lead">
             Within 90 days of starting, you&rsquo;ll have more enquiries than
             you did in the 90 days before us. If you don&rsquo;t, we keep
@@ -39,8 +40,9 @@ export function ThePromise() {
             Fair&rsquo;s fair: the foundations we build need to stay live, and
             we need to see your enquiry numbers. That&rsquo;s it. No other fine
             print.
-          </p>
-        </Reveal>
+            </p>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
