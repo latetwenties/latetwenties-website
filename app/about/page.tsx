@@ -3,6 +3,7 @@ import Image from "next/image";
 
 import { breadcrumbList } from "@/lib/schema";
 
+import { CaseTileGrid } from "../components/CaseTileGrid";
 import { Eyebrow } from "../components/Eyebrow";
 import { FinalCTA } from "../components/FinalCTA";
 import { Footer } from "../components/Footer";
@@ -13,7 +14,7 @@ import { Reveal } from "../components/Reveal";
 export const metadata: Metadata = {
   title: { absolute: "About Latetwenties | Small Auckland marketing agency" },
   description:
-    "A small Auckland marketing practice. We help local service businesses across New Zealand get found online and chosen by local customers. Foundations first, properly.",
+    "We help local service owners get found online and chosen by local customers, with a plain promise: more enquiries in 90 days, or we work free until you get them. The story behind why that guarantee exists.",
   alternates: { canonical: "/about" },
 };
 
@@ -35,26 +36,24 @@ export default function About() {
             </Reveal>
             <Reveal delay={80}>
               <h1 className="ab-h1">
-                A small practice, doing the
+                We treat your business
                 <br />
-                <em>foundations properly.</em>
+                <em>like our own.</em>
               </h1>
             </Reveal>
             <Reveal as="div" className="ab-lede" delay={160}>
               <p>
-                Latetwenties is a small Auckland marketing agency. We help
-                local service businesses across New Zealand and Australia get
-                found online and chosen by local customers. We do this through
-                the places people actually find you, your website, your search
-                profiles, the listings and reviews that connect them, treated
-                as one connected thing.
+                Latetwenties is for local service owners who are good at the
+                work and tired of being the best-kept secret in town. We get
+                you found online and chosen by local customers, and we put a
+                number and a deadline on it: more enquiries within 90 days, or
+                we keep working free until you get them.
               </p>
               <p>
-                The reason this practice exists is simple. Most local service
-                business owners are good at what they do. They&rsquo;ve built
-                something real over years. The thing they don&rsquo;t want to
-                do is sit at a computer figuring out how to be a marketer too.
-                That&rsquo;s our job. We treat your business like our own.
+                That guarantee is the whole point. If we&rsquo;re asking you to
+                trust a marketing partner off the internet, the risk should sit
+                with us, not you. Here&rsquo;s the story of why we built it that
+                way.
               </p>
             </Reveal>
           </div>
@@ -191,7 +190,36 @@ export default function About() {
           </div>
         </section>
 
-        <FinalCTA num="03" label="Free presence check" />
+        <section className="case">
+          <div className="wrap">
+            <div className="case-head">
+              <Reveal>
+                <Eyebrow num="03">The proof</Eyebrow>
+              </Reveal>
+              <Reveal delay={80}>
+                <p className="case-pull">
+                  Local businesses,
+                  <br />
+                  <em>found and chosen.</em>
+                </p>
+                <div className="case-attribution">
+                  <span className="case-attr-name">
+                    A handful of our case studies
+                  </span>
+                  <span className="case-attr-sep" aria-hidden="true">
+                    &nbsp;·&nbsp;
+                  </span>
+                  <span className="case-attr-meta">
+                    Real clients, real numbers, recent work
+                  </span>
+                </div>
+              </Reveal>
+            </div>
+            <CaseTileGrid />
+          </div>
+        </section>
+
+        <FinalCTA num="04" label="Free Presence Report" />
       </main>
       <Footer />
     </>

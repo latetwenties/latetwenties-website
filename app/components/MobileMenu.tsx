@@ -85,7 +85,7 @@ export function MobileMenu() {
       </nav>
 
       <Link href="/contact" className="mobile-menu-cta" onClick={close}>
-        Free presence check <span aria-hidden="true">→</span>
+        Free Presence Report <span aria-hidden="true">→</span>
       </Link>
 
       <div className="mobile-menu-foot">

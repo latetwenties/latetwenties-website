@@ -116,11 +116,11 @@ export default function TmtCaseStudy() {
               <div className="cs-meta-cell">
                 <div className="cs-meta-label">Engagement</div>
                 <div className="cs-meta-val">
-                  Foundations, Presence Care and Google Ads
+                  Get Found, Stay Chosen and Ring This Week
                 </div>
               </div>
               <div className="cs-meta-cell">
-                <div className="cs-meta-label">Enquiries, May to June</div>
+                <div className="cs-meta-label">Enquiries, first full month</div>
                 <div className="cs-meta-val">4 → 12</div>
               </div>
             </Reveal>
@@ -175,7 +175,7 @@ export default function TmtCaseStudy() {
                 <Reveal>
                   <Eyebrow num="02">The work</Eyebrow>
                   <h2 className="cs-act-h2">
-                    Foundations first.
+                    Get found first.
                     <br />
                     <em>Then fuel.</em>
                   </h2>
@@ -204,7 +204,7 @@ export default function TmtCaseStudy() {
                   Only once that was standing did the ads go on. A small
                   Google Ads search campaign on a modest daily budget,
                   sending paid clicks to pages built to convert them.
-                  Foundations first is the point: the same budget works
+                  Getting found first is the point: the same budget works
                   harder when the landing isn&rsquo;t a template.
                 </p>
               </Reveal>
@@ -259,7 +259,17 @@ export default function TmtCaseStudy() {
 
         <TmtResults />
 
-        <FinalCTA num="05" label="Free presence check" />
+        <FinalCTA
+          num="05"
+          label="Free Presence Report"
+          heading={
+            <>
+              Want numbers
+              <br />
+              <em>like these?</em>
+            </>
+          }
+        />
       </main>
       <Footer />
     </>

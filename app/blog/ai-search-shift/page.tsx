@@ -188,7 +188,7 @@ export default function Post() {
             href="/contact"
             className="underline underline-offset-4 hover:opacity-65 transition-opacity"
           >
-            booked a free presence check
+            asked us for a free Presence Report
           </a>
           . You can do it yourself first. It costs you nothing and it’s
           genuinely useful.

@@ -55,10 +55,15 @@ export default function WorkPage() {
         <section className="work-grid-section">
           <div className="wrap">
             <CaseTileGrid baseDelay={80} />
+            <Reveal as="p" className="work-verify" delay={320}>
+              Every client here is named and real, and the numbers are theirs,
+              not ours. Want to check one? Look them up, or ask us and
+              we&rsquo;ll point you their way.
+            </Reveal>
           </div>
         </section>
 
-        <FinalCTA num="02" label="Free presence check" />
+        <FinalCTA num="02" label="Free Presence Report" />
       </main>
       <Footer />
     </>

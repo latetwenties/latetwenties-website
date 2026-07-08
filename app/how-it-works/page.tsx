@@ -12,30 +12,30 @@ import { Reveal } from "../components/Reveal";
 export const metadata: Metadata = {
   title: "How it works",
   description:
-    "Foundations gets you showing up. Presence Care keeps you moving up the list. Paid Ads gets the phone ringing fast. Three things, done properly. No long lock-ins.",
+    "How we get you found online and chosen by local customers: one system, three parts. Get Found, Stay Chosen, Ring This Week. More local enquiries in 90 days, or we work free until you get them.",
   alternates: { canonical: "/how-it-works" },
 };
 
 const FAQS = [
   {
-    question: "How long does Foundations take?",
+    question: "How long does Get Found take?",
     answer:
-      "Two to four weeks, end to end. The first week is research: your brief, your market, your competitors, and the search queries that matter. Weeks two and three are the build: site, Google Business Profile, listings, review system. Week four is launch and handover. From there it's yours, and you can pick up Presence Care or Paid Ads whenever you're ready.",
+      "Two to four weeks, end to end. The first week is research: your brief, your market, your competitors, and the search queries that matter. Weeks two and three are the build: site, Google Business Profile, listings, review system. Week four is launch and handover. From there it's yours, and you can pick up Stay Chosen or Ring This Week whenever you're ready.",
   },
   {
-    question: "When should Presence Care start?",
+    question: "When should Stay Chosen start?",
     answer:
-      "Whenever you're ready. Most clients pick it up the week Foundations goes live, so the signals get worked on while the new build is still fresh in Google's eyes. Others wait a month or two and start it once they've seen how the new site lands. Either way works; we'll tell you straight which makes more sense for your patch.",
+      "Whenever you're ready. Most clients pick it up the week Get Found goes live, so the signals get worked on while the new build is still fresh in Google's eyes. Others wait a month or two and start it once they've seen how the new site lands. Either way works; we'll tell you straight which makes more sense for your patch.",
   },
   {
-    question: "What does Paid Ads actually do?",
+    question: "What does Ring This Week actually do?",
     answer:
-      "It puts your business in front of the people searching right now. Foundations gets you findable. Presence Care moves you up the organic list over months. Paid Ads is the lever you pull when you want enquiries this week, not next quarter. We set up campaigns on Google and Meta, point them at the jobs you actually want, write the ads, build the landing pages they go to, and track the calls and form fills so you can see what the spend is buying.",
+      "It puts your business in front of the people searching right now. Get Found makes you findable. Stay Chosen moves you up the organic list over months. Ring This Week is the lever you pull when you want enquiries this week, not next quarter. We set up campaigns on Google and Meta, point them at the jobs you actually want, write the ads, build the landing pages they go to, and track the calls and form fills so you can see what the spend is buying.",
   },
   {
-    question: "Can I run Paid Ads on its own?",
+    question: "Can I run Ring This Week on its own?",
     answer:
-      "Yes. Foundations, Presence Care, and Paid Ads each work on their own and they're stronger together, but you don't have to do all three. Some clients start with just Foundations. Some come to us already with a site they're happy with and want Paid Ads only. We'll walk you through what makes sense for where you're at.",
+      "Yes. Get Found, Stay Chosen, and Ring This Week each work on their own and they're stronger together, but you don't have to do all three. Some clients start with just Get Found. Some come to us already with a site they're happy with and want Ring This Week only. We'll walk you through what makes sense for where you're at.",
   },
   {
     question: "Do you work with businesses outside Auckland?",
@@ -45,7 +45,7 @@ const FAQS = [
   {
     question: "What if I already have a website?",
     answer:
-      "We'll take a look at it before we recommend anything. Sometimes the right answer is a rebuild, usually because the existing site can't be optimised for local search without significant rework. Sometimes the right answer is to leave it and focus on Presence Care or Paid Ads. We'll tell you straight.",
+      "We'll take a look at it before we recommend anything. Sometimes the right answer is a rebuild, usually because the existing site can't be optimised for local search without significant rework. Sometimes the right answer is to leave it and focus on Stay Chosen or Ring This Week. We'll tell you straight.",
   },
   {
     question: "Do I own everything when we're done?",
@@ -55,12 +55,12 @@ const FAQS = [
   {
     question: "Why aren't you on hourly rates?",
     answer:
-      "Hourly rates reward slow work. Fixed pricing rewards getting it done properly. Foundations is a one-time fixed price for the build. Presence Care is a fixed monthly that holds the signals strong. Paid Ads is your ad budget plus a fixed management fee. We'll walk you through the numbers on the free presence check.",
+      "Hourly rates reward slow work. Fixed pricing rewards getting it done properly. Get Found is a one-time fixed price for the build. Stay Chosen is a fixed monthly that holds the signals strong. Ring This Week is your ad budget plus a fixed management fee. We'll walk you through the numbers on your free Presence Report.",
   },
   {
     question: "What if it's not working?",
     answer:
-      "Then we'll tell you. We're honest about what's landing and what isn't. If after three months the work isn't moving the needle in your area, we'll have an honest conversation about whether to keep going, change approach, or stop. We're not in the business of taking your money for work that isn't earning.",
+      "Then we keep working, free. That's the guarantee: run the full 90 days with us, the build plus your first three months of Stay Chosen, and if you don't have more enquiries than the 90 days before us, we keep going for free until you do. No lock-in either way. We're honest about what's landing and what isn't, and we're not in the business of taking your money for work that isn't earning.",
   },
 ];
 
@@ -72,7 +72,7 @@ const SCHEMA = [
   faqPage(FAQS),
 ];
 
-const FOUNDATIONS_INCLUDED = [
+const GET_FOUND_INCLUDED = [
   {
     title: "A website you can stand behind",
     body: "Fast, plain-spoken, structured around the work you actually sell. Service-led pages, not generic templates.",
@@ -95,7 +95,7 @@ const FOUNDATIONS_INCLUDED = [
   },
 ];
 
-const PAID_ADS_INCLUDED = [
+const RING_THIS_WEEK_INCLUDED = [
   {
     title: "Campaigns set up properly",
     body: "Structured around the jobs you actually want, on the platforms your customers are actually on. Google for the active searcher, Meta for the one who hasn't started looking yet. Locations, match types, negatives, audiences, sorted before a dollar goes out.",
@@ -122,7 +122,7 @@ const PAID_ADS_INCLUDED = [
   },
 ];
 
-const PRESENCE_INCLUDED = [
+const STAY_CHOSEN_INCLUDED = [
   {
     title: "Google Business Profile posts",
     body: "Posts that keep you active. The kind of signal Google reads as a healthy, current business.",
@@ -260,15 +260,16 @@ export default function HowItWorks() {
             </Reveal>
             <Reveal delay={80}>
               <h1 className="hiw-h1">
-                Three things. <em>Done properly.</em>
+                How we get you <em>found and chosen.</em>
               </h1>
             </Reveal>
             <Reveal delay={160}>
               <p className="hiw-lede">
-                Foundations gets you showing up. Presence Care keeps you
-                moving up the list. Paid Ads gets the phone ringing fast.
-                Three products, each working on its own, stronger when run
-                together. No long lock-ins.
+                One system, three parts. Get Found builds your presence so you
+                show up. Stay Chosen keeps you climbing. Ring This Week brings
+                enquiries in fast. Run one or all three, no lock-ins. And the
+                promise holds across all of it: more local enquiries in 90
+                days, or we work free until you get them.
               </p>
             </Reveal>
           </div>
@@ -276,7 +277,7 @@ export default function HowItWorks() {
 
         <ProductBlock
           num="01"
-          productName="Foundations"
+          productName="Get Found"
           headline={
             <>
               Once,
@@ -292,7 +293,7 @@ export default function HowItWorks() {
               Two to four weeks, end to end.
             </>
           }
-          items={FOUNDATIONS_INCLUDED}
+          items={GET_FOUND_INCLUDED}
         />
 
         <section className="hiw-process">
@@ -300,9 +301,9 @@ export default function HowItWorks() {
             <div className="proc-grid">
               <div className="proc-left">
                 <Reveal>
-                  <Eyebrow>Inside Foundations</Eyebrow>
+                  <Eyebrow>Inside Get Found</Eyebrow>
                   <h2 className="proc-h2">
-                    How a Foundations
+                    How a Get Found
                     <br />
                     build runs.
                   </h2>
@@ -338,7 +339,7 @@ export default function HowItWorks() {
 
         <ProductBlock
           num="02"
-          productName="Presence Care"
+          productName="Stay Chosen"
           headline={
             <>
               Keep the
@@ -354,12 +355,12 @@ export default function HowItWorks() {
               Start it whenever you&rsquo;re ready.
             </>
           }
-          items={PRESENCE_INCLUDED}
+          items={STAY_CHOSEN_INCLUDED}
         />
 
         <ProductBlock
           num="03"
-          productName="Paid Ads"
+          productName="Ring This Week"
           headline={
             <>
               Straight to the
@@ -375,7 +376,7 @@ export default function HowItWorks() {
               On when you want it, off when you don&rsquo;t. No lock-ins.
             </>
           }
-          items={PAID_ADS_INCLUDED}
+          items={RING_THIS_WEEK_INCLUDED}
         />
 
         <section className="hiw-working">
@@ -403,12 +404,26 @@ export default function HowItWorks() {
                     you can make. A specific accreditation, a claim about your
                     service area, the kind of thing the owner has to confirm.
                   </p>
+                  <p>
+                    Your side of it stays light. We do the website copywriting
+                    and we source the images. At onboarding you upload your own
+                    project photos, and that&rsquo;s the bulk of your part
+                    done. After that it&rsquo;s the odd new photo for a Google
+                    update, and a quick yes by email when fresh content goes
+                    live.
+                  </p>
                   <p className="work-pull">
                     No status meetings for the sake of status meetings. No
                     jargon. No upsells masquerading as recommendations. Each
                     month you get a single page or a short Loom from us with
                     what&rsquo;s been done, what&rsquo;s changed, and
                     what&rsquo;s next.
+                  </p>
+                  <p>
+                    Your build goes live in two to four weeks. From the day it
+                    does and Stay Chosen begins, the 90-day guarantee clock
+                    starts: more local enquiries than the 90 days before us, or
+                    we keep working free until you get them.
                   </p>
                   <p>
                     The wins get celebrated. The bits that aren&rsquo;t
@@ -440,7 +455,7 @@ export default function HowItWorks() {
                 <Reveal delay={80}>
                   <p className="faq-lede">
                     If you&rsquo;ve got something else on your mind, the
-                    quickest way to ask is the free presence check.
+                    quickest way to ask is the free Presence Report.
                   </p>
                 </Reveal>
               </div>
@@ -462,7 +477,7 @@ export default function HowItWorks() {
           </div>
         </section>
 
-        <FinalCTA num="06" label="Free presence check" />
+        <FinalCTA num="06" label="Free Presence Report" />
       </main>
       <Footer />
     </>

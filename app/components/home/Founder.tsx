@@ -21,7 +21,7 @@ export function Founder() {
 
           <div>
             <Reveal>
-              <Eyebrow num="04">A note from Brendan</Eyebrow>
+              <Eyebrow num="05">A note from Brendan</Eyebrow>
               <h2>
                 Hi, I&rsquo;m Brendan.
                 <br />
@@ -31,25 +31,21 @@ export function Founder() {
 
             <Reveal as="div" className="founder-letter" delay={100}>
               <p>
-                I&rsquo;m six coffees deep writing this page, and I&rsquo;ve
-                rewritten it four or five times today trying to get it right.
-              </p>
-              <p>
-                Over the last decade in marketing, I&rsquo;ve helped
-                one-man-bands land their first customer, and helped bigger
-                businesses run campaigns at scale. Out of all of it, the work
-                I&rsquo;ve enjoyed most has been with local service business
-                owners who&rsquo;ve built something real, to provide for their
-                family, and do right by their community.
+                Over the last decade in marketing I&rsquo;ve helped
+                one-man-bands land their first customer and helped bigger
+                businesses run campaigns at scale. The work I&rsquo;ve enjoyed
+                most, by a mile, has been with local service business owners,
+                people who built something real to provide for their family and
+                do right by their community.
               </p>
               <div className="pull">
-                That&rsquo;s why this exists. We help local service businesses
-                move forward, and we get to see the difference it makes.
+                That&rsquo;s why this exists, and it&rsquo;s why the guarantee
+                exists. If I&rsquo;m asking you to trust a marketing guy off the
+                internet, the risk should sit with me, not you.
               </div>
               <p>
-                The same care I&rsquo;ve put into getting this page right is
-                the care we put into your work. Everything we put out, we
-                scrutinise the way <em>you</em> would.
+                Everything we put out, we scrutinise the way <em>you</em>{" "}
+                would.
               </p>
 
               <div className="founder-sig">

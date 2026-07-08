@@ -65,7 +65,7 @@ export default function RbmCaseStudy() {
               </div>
               <div className="cs-meta-cell">
                 <div className="cs-meta-label">Engagement</div>
-                <div className="cs-meta-val">Foundations</div>
+                <div className="cs-meta-val">Get Found</div>
               </div>
               <div className="cs-meta-cell">
                 <div className="cs-meta-label">Time to first lead</div>
@@ -175,8 +175,8 @@ export default function RbmCaseStudy() {
               </div>
               <Reveal as="div" className="cs-act-body" delay={80}>
                 <p>
-                  The site went live in late June 2026. Four days later, an
-                  enquiry landed from a complete stranger: a new house slab.
+                  The new site went live. Four days later, an enquiry landed
+                  from a complete stranger: a new house slab.
                   No referral, no builder connection, nobody who knew the
                   crew. Someone searching online for a concreter found RBM
                   and asked for a quote.
@@ -223,7 +223,17 @@ export default function RbmCaseStudy() {
           </div>
         </section>
 
-        <FinalCTA num="04" label="Free presence check" />
+        <FinalCTA
+          num="04"
+          label="Free Presence Report"
+          heading={
+            <>
+              Want numbers
+              <br />
+              <em>like these?</em>
+            </>
+          }
+        />
       </main>
       <Footer />
     </>

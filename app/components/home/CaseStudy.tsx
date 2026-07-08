@@ -10,7 +10,7 @@ export function CaseStudy() {
       <div className="wrap">
         <div className="case-head">
           <Reveal>
-            <Eyebrow num="03">The work</Eyebrow>
+            <Eyebrow num="04">The proof</Eyebrow>
           </Reveal>
           <Reveal delay={80}>
             <p className="case-pull">
@@ -26,7 +26,7 @@ export function CaseStudy() {
                 &nbsp;·&nbsp;
               </span>
               <span className="case-attr-meta">
-                Real clients, real numbers
+                Real clients, real numbers, recent work
               </span>
             </div>
           </Reveal>

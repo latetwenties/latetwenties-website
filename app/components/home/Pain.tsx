@@ -2,9 +2,9 @@ import { Eyebrow } from "../Eyebrow";
 import { Reveal } from "../Reveal";
 
 const PAIN_POINTS = [
-  "Mostly repeat clients, not many new names.",
-  "A newer outfit up the road comes up first when you search.",
-  "A half-built website sits in a tab you keep meaning to close.",
+  "Mostly repeat clients. Not many new names.",
+  "A newer outfit up the road comes up first when someone searches your trade.",
+  "Your Google reviews say 2019. Your last five years of good work say nothing at all.",
 ];
 
 export function Pain() {
@@ -22,9 +22,9 @@ export function Pain() {
           </Reveal>
           <Reveal delay={120}>
             <p className="pain-lede">
-              We work with local service business owners who&rsquo;ve earned
-              their reputation the hard way. The work is good. The phone could
-              ring more.
+              You&rsquo;ve earned your reputation the hard way. The work is
+              good. But good work only sells itself to people who already know
+              you. Right now:
             </p>
           </Reveal>
         </div>
@@ -37,6 +37,11 @@ export function Pain() {
             </Reveal>
           ))}
         </ol>
+
+        <Reveal as="p" className="pain-kicker" delay={120}>
+          None of that means your work slipped. It means nobody&rsquo;s doing
+          the online part. That&rsquo;s the part we do.
+        </Reveal>
       </div>
     </section>
   );

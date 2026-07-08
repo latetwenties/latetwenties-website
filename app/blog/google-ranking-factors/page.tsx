@@ -187,8 +187,8 @@ export default function Post() {
         follow-up process in place.
       </P>
       <P>
-        If you want someone to look at all 6 for you, we do a Free
-        Presence Check. No pitch, just a clear picture of where you stand
+        If you want someone to look at all 6 for you, we do a free
+        Presence Report. No pitch, just a clear picture of where you stand
         and what to fix.
       </P>
     </BlogPost>

@@ -115,7 +115,7 @@ export default function BoazCaseStudy() {
               <div className="cs-meta-cell">
                 <div className="cs-meta-label">Engagement</div>
                 <div className="cs-meta-val">
-                  Foundations and Presence Care
+                  Get Found and Stay Chosen
                 </div>
               </div>
               <div className="cs-meta-cell">
@@ -209,7 +209,7 @@ export default function BoazCaseStudy() {
                 </figure>
 
                 <p>
-                  From there we took over Presence Care. The relationship runs
+                  From there we took over Stay Chosen. The relationship runs
                   smoothly because Reece trusts the practice. We only check in
                   when factual confirmation is needed. Otherwise he focuses on
                   his actual work and the signals stay active.
@@ -266,7 +266,17 @@ export default function BoazCaseStudy() {
 
         <Act3 />
 
-        <FinalCTA num="06" label="Free presence check" />
+        <FinalCTA
+          num="06"
+          label="Free Presence Report"
+          heading={
+            <>
+              Want numbers
+              <br />
+              <em>like these?</em>
+            </>
+          }
+        />
       </main>
       <Footer />
     </>

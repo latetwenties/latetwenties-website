@@ -6,6 +6,9 @@ export function Footer() {
   return (
     <footer className="footer" id="contact">
       <div className="wrap">
+        <p className="footer-promise">
+          More local enquiries in 90 days, or we work free until you get them.
+        </p>
         <div className="footer-top">
           <div>
             <span className="wordmark">

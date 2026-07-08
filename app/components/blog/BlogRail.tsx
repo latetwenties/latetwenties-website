@@ -22,7 +22,7 @@ export function BlogRail({
   keyStat,
   ctaLine = "Not sure where you stand?",
   ctaHref = "/contact",
-  ctaLabel = "Free presence check",
+  ctaLabel = "Free Presence Report",
 }: BlogRailProps) {
   const [activeId, setActiveId] = useState<string>(toc[0]?.id ?? "");
   const railFillRef = useRef<HTMLDivElement>(null);

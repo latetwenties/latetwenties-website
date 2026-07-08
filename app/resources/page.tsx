@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { breadcrumbList } from "@/lib/schema";
 
 import { Container } from "../components/Container";
+import { FinalCTA } from "../components/FinalCTA";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { JsonLd } from "../components/JsonLd";
@@ -146,6 +147,8 @@ export default function Resources() {
             </ul>
           </Container>
         </section>
+
+        <FinalCTA num="02" label="Free Presence Report" />
       </main>
       <Footer />
     </>
