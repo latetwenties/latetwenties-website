@@ -25,12 +25,14 @@ a portfolio. Promise + guarantee + proof is an offer.
 
 1. Lead with the outcome, never the vehicle. If a heading names a deliverable,
    rewrite it to name a result.
-2. Every page carries the promise via the footer line (footer counts). State it
-   in FULL once, on the homepage Promise section, and answer it in the
-   /how-it-works "what if it's not working" FAQ. Do NOT lead non-pitch pages
-   (About) with it, and do NOT restate it in multiple sections of one page. A
-   light echo ("Backed by the 90-day guarantee") is fine; a full restatement in
-   every section reads as anxious and breaks the "quietly confident" voice.
+2. The guarantee is NOT a site-wide brand element. Do not put it in the footer or
+   on every page. It lives in FULL once, on the homepage Promise section, is
+   lightly echoed on the homepage (hero opening + "Backed by the 90-day guarantee"
+   under the System), and is answered in the /how-it-works "what if it's not
+   working" FAQ. That's it. Do NOT lead non-pitch pages (About) with it, do NOT
+   restate it in multiple sections of one page, and do NOT add a footer promise
+   line. Over-exposure reads as anxious and breaks the "quietly confident" voice
+   (Brendan's call, 2026-07-08).
 3. Numbers beat adjectives. Wherever copy says "properly", "strong", "moving up",
    ask if a number exists. If it does, use it.
 4. Proof rules, in order: others saying it > us saying it; identical-to-them >
