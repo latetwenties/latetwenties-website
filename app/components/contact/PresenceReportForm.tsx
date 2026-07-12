@@ -59,7 +59,7 @@ export function PresenceReportForm() {
         </div>
         <div className="pr-field">
           <label htmlFor="pr-town">Your town</label>
-          <input id="pr-town" name="town" type="text" placeholder="e.g. Bairnsdale" />
+          <input id="pr-town" name="town" type="text" placeholder="Where you're based" />
         </div>
       </div>
 
