@@ -16,6 +16,89 @@ export type Post = {
 
 export const POSTS: Post[] = [
   {
+    slug: "five-minute-rule",
+    title:
+      "The five-minute rule: why the business that answers first wins the job",
+    description:
+      "The business that replies first wins the job about half the time, regardless of price, reviews or reputation. Here’s the five-minute rule and how to actually run it.",
+    readTime: "7 min read",
+    publishedAt: "2026-07-21",
+  },
+  {
+    slug: "how-to-get-google-reviews",
+    title: "How to get 50 Google reviews without being weird about it",
+    description:
+      "Most local businesses have a handful of reviews and no system for getting more. Here’s how to ask without cringing, what to say, and what to do about the bad ones.",
+    readTime: "8 min read",
+    publishedAt: "2026-07-26",
+  },
+  {
+    slug: "ranking-in-nearby-suburbs",
+    title: "You show up in your suburb. Three suburbs over, you don’t exist.",
+    description:
+      "Why your business ranks well close to home and vanishes a few suburbs away, and what you can honestly do about it without faking an address.",
+    readTime: "6 min read",
+    publishedAt: "2026-07-31",
+  },
+  {
+    slug: "what-a-website-costs-nz",
+    title: "What should a website actually cost in New Zealand?",
+    description:
+      "Real price ranges for a New Zealand small business website in 2026, what you get at each level, what the hidden costs are, and how to tell if you’re being overcharged.",
+    readTime: "9 min read",
+    publishedAt: "2026-08-05",
+  },
+  {
+    slug: "questions-to-ask-a-marketing-agency",
+    title:
+      "Seven questions to ask a marketing agency before you pay them a cent",
+    description:
+      "Seven questions that separate a marketing agency worth paying from one that will take your money and send you a report. Ask them before you sign anything.",
+    readTime: "6 min read",
+    publishedAt: "2026-08-10",
+  },
+  {
+    slug: "following-up-quotes",
+    title: "The jobs you didn’t lose. You just never followed them up.",
+    description:
+      "Most local businesses quote, send it, and wait. The work you think you lost is usually just sitting there unclaimed. Here’s the follow-up system and the exact words to send.",
+    readTime: "6 min read",
+    publishedAt: "2026-08-15",
+  },
+  {
+    slug: "google-ads-vs-facebook-ads",
+    title:
+      "Google Ads or Facebook Ads? For a local business, the answer isn’t close.",
+    description:
+      "Which one should a local service business run first? The honest answer, the one exception, and why running both badly is worse than running one well.",
+    readTime: "7 min read",
+    publishedAt: "2026-08-20",
+  },
+  {
+    slug: "get-recommended-by-ai",
+    title: "How to get ChatGPT to recommend your business",
+    description:
+      "People are asking AI who to hire instead of searching Google. Here’s what decides which local businesses get named, and what you can actually do about it.",
+    readTime: "7 min read",
+    publishedAt: "2026-08-25",
+  },
+  {
+    slug: "google-business-profile-photos",
+    title: "Nine photos, and why they’re worth more than your last $2,000 of ads",
+    description:
+      "The nine photos every local business should have on its Google Business Profile, why they beat a lot of paid advertising, and how to take them on a phone this week.",
+    readTime: "5 min read",
+    publishedAt: "2026-08-30",
+  },
+  {
+    slug: "competitor-outranking-you",
+    title: "Someone newer is outranking you. Here’s exactly what they did.",
+    description:
+      "A competitor half your age is above you in Google. It’s not luck and it’s not a trick. Here’s the checklist of what they almost certainly did, and how to take the spot back.",
+    readTime: "8 min read",
+    publishedAt: "2026-09-04",
+  },
+  {
     slug: "what-a-customer-costs-you",
     title: "Do you actually know what a customer costs you?",
     description:
