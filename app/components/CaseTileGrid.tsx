@@ -54,11 +54,11 @@ export const CASE_TILES: CaseTile[] = [
     meta: "Bookkeeping · Christchurch NZ",
     line: (
       <>
-        She asked to rank for bookkeeper Christchurch. We aimed the site at{" "}
-        <em>Xero, nationwide.</em>
+        A local bookkeeping site, re-aimed at Xero nationwide. Its first
+        Google enquiry <em>became a client.</em>
       </>
     ),
-    stat: "20 → 720",
+    stat: "Seven days",
   },
 ];
 

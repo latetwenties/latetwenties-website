@@ -18,7 +18,7 @@ import { Reveal } from "../../components/Reveal";
 export const metadata: Metadata = {
   title: "KD Bookworks, Christchurch",
   description:
-    "How a Christchurch bookkeeper stopped competing for a 20-a-month local search and aimed her whole site at Xero instead. Seven days after launch, a builder chose her over the other option, and it became live Xero-training work.",
+    "How a Christchurch bookkeeping brand stopped competing for a 20-a-month local search and aimed its whole site at Xero instead. Seven days after launch, its first Google enquiry became a client.",
   alternates: { canonical: "/work/kd-bookworks" },
 };
 
@@ -32,7 +32,7 @@ const SCHEMA = [
     headline:
       "KD Bookworks: the brief said bookkeeping, the searches said Xero",
     description:
-      "How an opportunity pass re-aimed a Christchurch bookkeeper's site from a 20-a-month local search to nationwide Xero, and produced a first Google enquiry seven days after launch that became live Xero-training work.",
+      "How an opportunity pass re-aimed a Christchurch bookkeeping site from a 20-a-month local search to nationwide Xero, and produced a first Google enquiry that became a client seven days after launch.",
     url: "/work/kd-bookworks",
     datePublished: "2026-07-17",
   }),
@@ -47,14 +47,14 @@ const HOTSPOTS: CompareHotspot[] = [
     top: 0.03,
     side: "right",
     title: "Her voice, in the first person",
-    body: "\"I make Xero make sense.\" The old site said \"we\" and sounded like a firm. Karen is one person who teaches you the software rather than taking it away from you, so the site says \"I\".",
+    body: "\"I make Xero make sense.\" The old site said \"we\" and sounded like a firm. This is one person who teaches you the software rather than taking it away from you, so the site says \"I\".",
   },
   {
     id: 2,
     top: 0.07,
     side: "left",
-    title: "Her face, above the fold",
-    body: "Named, credentialed, photographed. The enquiry that arrived seven days after launch cited exactly this: the more personalised approach on the site.",
+    title: "A face, above the fold",
+    body: "Named, credentialed, photographed. The enquiry that arrived a week after launch cited exactly this: the more personalised approach on the site.",
   },
   {
     id: 3,
@@ -92,10 +92,10 @@ export default function KdBookworksCaseStudy() {
             </Reveal>
             <Reveal delay={80}>
               <h1 className="cs-h1">
-                She asked for a bookkeeping site. The searches said Xero.{" "}
+                The brief said bookkeeping. The searches said Xero.{" "}
                 <em>
-                  Seven days after the new one went live, a builder chose her
-                  over the other bloke.
+                  Seven days after the new site went live, its first enquiry
+                  became a client.
                 </em>
               </h1>
             </Reveal>
@@ -110,15 +110,15 @@ export default function KdBookworksCaseStudy() {
               </div>
               <div className="cs-meta-cell">
                 <div className="cs-meta-label">Location</div>
-                <div className="cs-meta-val">Waltham, Christchurch</div>
+                <div className="cs-meta-val">Christchurch NZ</div>
               </div>
               <div className="cs-meta-cell">
                 <div className="cs-meta-label">Engagement</div>
                 <div className="cs-meta-val">Get Found</div>
               </div>
               <div className="cs-meta-cell">
-                <div className="cs-meta-label">First enquiry</div>
-                <div className="cs-meta-val">Seven days after launch</div>
+                <div className="cs-meta-label">Time to first client</div>
+                <div className="cs-meta-val">Seven days</div>
               </div>
             </Reveal>
           </div>
@@ -131,32 +131,24 @@ export default function KdBookworksCaseStudy() {
                 <Reveal>
                   <Eyebrow num="01">The situation</Eyebrow>
                   <h2 className="cs-act-h2">
-                    A Xero specialist
+                    A Xero specialist,
                     <br />
-                    aiming at the
+                    fishing
                     <br />
-                    <em>smallest pool.</em>
+                    <em>too small a pond.</em>
                   </h2>
                 </Reveal>
               </div>
               <Reveal as="div" className="cs-act-body" delay={80}>
                 <p>
-                  Karen Dunford runs KD Bookworks out of Waltham,
-                  Christchurch. Ten years at it, ICNZB certified, Xero Partner
-                  Silver, Xero Advisor and Xero Payroll certified. She works
-                  remotely with clients across New Zealand, and she refers
-                  limited-company end-of-year work to accountants rather than
-                  pretending to be one.
+                  KD Bookworks is a Xero specialist. Setup, training, the
+                  ongoing books, all done remotely with clients anywhere in
+                  New Zealand.
                 </p>
                 <p>
-                  Her old site opened with &ldquo;We take care of the numbers
-                  so you can grow your business.&rdquo; Third person, no face,
-                  packages named after a fox. It was a site about bookkeeping,
-                  and it read like every other site about bookkeeping.
-                </p>
-                <p>
-                  She came to us wanting a bookkeeping site, with Xero as a
-                  sub-product.
+                  The old site read like every other bookkeeping site. Third
+                  person, no face, packages named after a fox. And it was
+                  aimed at one city, when the work travels the whole country.
                 </p>
                 <p className="cs-act-pull">
                   The brief said bookkeeping. The demand was somewhere else.
@@ -175,47 +167,37 @@ export default function KdBookworksCaseStudy() {
                   <h2 className="cs-act-h2">
                     Before the design,
                     <br />
-                    <em>a look at what</em>
+                    <em>we read the</em>
                     <br />
-                    <em>people type.</em>
+                    <em>searches.</em>
                   </h2>
                 </Reveal>
               </div>
               <Reveal as="div" className="cs-act-body" delay={80}>
                 <p>
-                  Every onboarding here has an opportunity phase. Not just
-                  what the client asked for, but what else is sitting there
-                  unclaimed. For Karen that meant reading the searches behind
-                  the brief before anyone drew a page.
+                  Every build here starts with an opportunity pass. Not just
+                  what the client asked for, but what the searches say is
+                  actually there.
                 </p>
                 <p>
-                  Bookkeeping reads as local. People want a bookkeeper near
-                  them, so Karen&rsquo;s real market was Christchurch-sized.{" "}
-                  <em>Bookkeeper Christchurch</em> runs about 20 searches a
-                  month, and it is a high-competition term. She would have
-                  been competing hardest for the smallest pool she had.
-                </p>
-                <p>
-                  Xero is a different shape. Setup and training happen down a
-                  video call, so the market is not Christchurch, it is the
-                  country. <em>Xero training</em> runs around 720 searches a
-                  month nationally, and <em>Xero help</em> another 260 at
-                  almost no competition (Google Ads volumes, New Zealand, July
-                  2026). The same gap held at the May research pass and across
-                  the twelve months before it. And Karen already held the
-                  credentials for every one of those searches.
+                  Bookkeeping is a local search. <em>Bookkeeper Christchurch</em>{" "}
+                  runs about 20 a month, and it is fought over. Xero is
+                  different. Setup and training happen down a video call, so
+                  the market is the whole country. <em>Xero training</em> runs
+                  about 720 a month, at almost no competition (Google Ads
+                  volumes, NZ, 2026). KD Bookworks already held the credentials
+                  for all of it.
                 </p>
                 <p className="cs-act-pull">
-                  She was already qualified for the bigger market. The site
-                  just was not pointed at it.
+                  Already qualified for the bigger market. The site just was
+                  not pointed at it.
                 </p>
                 <p>
                   So we aimed the whole site at Xero. Setup and training took
-                  the lead position with a page of its own. The copy moved
-                  into her own voice, first person, because she teaches the
-                  software rather than taking it off you. Her face went above
-                  the fold. The bookkeeping stayed. It stopped being the front
-                  door.
+                  the lead, with a page of its own. The copy moved into the
+                  first person, because this is one person who teaches you the
+                  software rather than taking it off you. The bookkeeping
+                  stayed. It stopped being the front door.
                 </p>
               </Reveal>
             </div>
@@ -242,7 +224,7 @@ export default function KdBookworksCaseStudy() {
           }}
           after={{
             src: "/images/case-studies/kdbookworks/website-home-after.png",
-            alt: "KD Bookworks homepage after. Cream editorial layout, first-person headline reading I make Xero make sense, Karen photographed above the fold, Xero setup and training leading the services, pricing shown plainly.",
+            alt: "KD Bookworks homepage after. Cream editorial layout, first-person headline reading I make Xero make sense, the owner photographed above the fold, Xero setup and training leading the services, pricing shown plainly.",
             width: 2368,
             height: 16384,
           }}
@@ -280,81 +262,49 @@ export default function KdBookworksCaseStudy() {
                   <h2 className="cs-act-h2">
                     Seven days later,
                     <br />
-                    a builder chose her.
-                    <br />
-                    <em>Then he became a client.</em>
+                    <em>the ideal client.</em>
                   </h2>
                 </Reveal>
               </div>
               <Reveal as="div" className="cs-act-body" delay={80}>
-                <p>
-                  The new site went live on Thursday 9 July. Seven days later
-                  Karen&rsquo;s first enquiry arrived through Google search: a
-                  builder whose partner wanted help getting their Xero sorted.
-                </p>
-                <p>
-                  He had two options in front of him. He contacted Karen
-                  first, and he told her why. He liked the more personalised
-                  approach on her website.
-                </p>
-                <p>
-                  The reason matters more than the speed. He was not choosing
-                  on price, and he was not choosing on proximity. He chose on
-                  the sense that a real person would sit down and help him,
-                  which is precisely what the first-person voice and the
-                  photograph were put there to do.
-                </p>
-                <p>
-                  The enquiry has since become the work. They have started
-                  together, a builder who wants to run his own Xero properly
-                  rather than hand the books off. That is the exact job the site
-                  was re-aimed to bring in: not a local bookkeeping lead, a
-                  Xero-training client who could have been anywhere in the
-                  country. Seven days from launch to the kind of client the
-                  redesign was for.
-                </p>
-                <p>
-                  It also happened with everything else switched off.
-                  Karen&rsquo;s Google Business Profile is suspended and still
-                  working through recovery, so none of this came from the map
-                  pack. No Google reviews. No ongoing work, no posts, no ads.
-                  The website did it on its own.
-                </p>
-                <p className="cs-act-pull">
-                  Chosen first, out of two, before anything else was even
-                  switched on.
-                </p>
-
-                {/* TODO(asset): Karen's message, cropped to the message itself.
-                    Correct width/height to the real file on swap-in. */}
+                {/* TODO(asset): the client's message, cropped to the message
+                    itself. Correct width/height to the real file on swap-in. */}
                 <figure className="cs-react-inline">
                   <Image
                     src="/images/case-studies/kdbookworks/text-reaction.jpg"
-                    alt="Text message from Karen. She writes that her first enquiry came through Google search that day, that they liked the more personalised approach on the website so chose to contact her first out of two options, and that it is a builder whose partner wants help with the Xero."
+                    alt="Text message reporting the first enquiry. It says the enquiry came through Google search that day, that the customer liked the more personalised approach on the website and made contact first out of two options, and that it is a builder whose partner wants help with Xero."
                     width={1206}
                     height={2041}
                     sizes="(max-width: 920px) 240px, 280px"
                     style={{ width: "100%", height: "auto" }}
                   />
                   <figcaption>
-                    Karen, by text. Seven days after launch.
+                    KD Bookworks, by text. A week after launch.
                   </figcaption>
                 </figure>
 
                 <p>
-                  Up next is the Google layer: the Business Profile back from
-                  suspension, then reviews and the map pack on top of
-                  foundations that are already working.
+                  The new site went live. Seven days later the first enquiry
+                  came in through Google search: a builder wanting help getting
+                  his Xero sorted.
                 </p>
                 <p>
-                  Karen left us a Google review after the site went live. The
-                  line that stuck was the one about the opportunity pass:{" "}
-                  <em>
-                    &ldquo;He knows exactly what to do to optimize your
-                    marketing plan within any given industry.&rdquo;
-                  </em>{" "}
-                  She said it about bookkeeping, which is not an industry we
-                  specialise in. That is rather the point.
+                  He had two options and contacted KD Bookworks first. He said
+                  why. He liked the more personalised approach on the site. Not
+                  price, not proximity. The sense that a real person would sit
+                  down and help him.
+                </p>
+                <p>
+                  It has since become the work: a builder learning to run his
+                  own Xero properly, which is exactly the client the site was
+                  rebuilt to bring in. And it happened with everything else
+                  switched off. The Google Business Profile is still in
+                  recovery, there are no reviews yet, no ads. The site did it
+                  on its own.
+                </p>
+                <p className="cs-act-pull">
+                  Chosen first, out of two, before anything else was even
+                  switched on.
                 </p>
               </Reveal>
             </div>
@@ -363,24 +313,19 @@ export default function KdBookworksCaseStudy() {
               <div className="cs-summary-tag">In summary</div>
               <ul className="cs-summary-list">
                 <li>
-                  <strong>Opportunity pass:</strong> the brief said bookkeeping
-                  (bookkeeper Christchurch, about 20 searches a month, high
-                  competition). The searches said Xero (Xero training, about
-                  720 a month, nationwide).
+                  <strong>New site, live.</strong> A local bookkeeping template
+                  rebuilt as a first-person Xero specialist site, pricing on
+                  the page.
                 </li>
                 <li>
-                  <strong>Website:</strong> from a third-person template to a
-                  first-person Xero specialist site, her voice and her face,
-                  pricing on the page.
+                  <strong>Opportunity found.</strong> The brief said bookkeeper
+                  Christchurch, about 20 searches a month. The searches said
+                  Xero training, about 720 a month, nationwide.
                 </li>
                 <li>
-                  <strong>First enquiry, first client:</strong> seven days
-                  after launch a builder chose her through Google over the other
-                  option, and it has become live Xero-training work.
-                </li>
-                <li>
-                  <strong>Up next:</strong> Google Business Profile recovery,
-                  then reviews and the map pack.
+                  <strong>Ideal client.</strong> Seven days after launch a
+                  builder chose KD Bookworks through Google, over the other
+                  option, and it became live Xero work.
                 </li>
               </ul>
             </Reveal>
