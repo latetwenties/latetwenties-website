@@ -260,7 +260,9 @@ export default function HowItWorks() {
             </Reveal>
             <Reveal delay={80}>
               <h1 className="hiw-h1">
-                How we get you <em>found and chosen.</em>
+                The Found &amp; Chosen System.
+                <br />
+                <em>How it works.</em>
               </h1>
             </Reveal>
             <Reveal delay={160}>
