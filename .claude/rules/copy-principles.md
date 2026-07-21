@@ -53,6 +53,19 @@ a portfolio. Promise + guarantee + proof is an offer.
     number, or a testimonial that isn't real and confirmed by Brendan. If a claim
     isn't confirmed, ship the page without it and flag it. Get as close to the
     ideal without lying or exaggerating.
+11. Manaakitanga, never put-downs (hard rule, Brendan's call 2026-07-21). Never
+    disparage what came before: not the client's old website, not their past
+    naming or design choices, not competitors, not "every other business does X".
+    No "read like every other bookkeeping site", no "packages named after a fox".
+    Putting-down is not in Brendan's vocabulary and it breaks manaakitanga
+    (respecting and honouring people). You can still tell the transformation
+    story: state the factual before/after ("the old site spoke in the third
+    person, was built around bookkeeping for one city") with no judgement attached,
+    and frame the work as collaborative discovery, not correction. The client
+    brings their focus and knows their business; our part is to sit the data next
+    to that in case it surfaces an opportunity neither party had spotted yet.
+    Never "what the client asked for vs what's actually there" (implies they were
+    wrong).
 
 ## Per-page adaptation notes (not yet applied beyond homepage)
 

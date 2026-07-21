@@ -146,9 +146,9 @@ export default function KdBookworksCaseStudy() {
                   New Zealand.
                 </p>
                 <p>
-                  The old site read like every other bookkeeping site. Third
-                  person, no face, packages named after a fox. And it was
-                  aimed at one city, when the work travels the whole country.
+                  The old site spoke in the third person and kept the owner
+                  off the page. It was built around bookkeeping, for one city,
+                  when the work could reach the whole country.
                 </p>
                 <p className="cs-act-pull">
                   The brief said bookkeeping. The demand was somewhere else.
@@ -175,9 +175,10 @@ export default function KdBookworksCaseStudy() {
               </div>
               <Reveal as="div" className="cs-act-body" delay={80}>
                 <p>
-                  Every build here starts with an opportunity pass. Not just
-                  what the client asked for, but what the searches say is
-                  actually there.
+                  A client comes to us clear on their focus, on what they know
+                  their business is about. Our part is to sit the data next to
+                  that, in case it points to an opportunity neither of us had
+                  spotted yet.
                 </p>
                 <p>
                   Bookkeeping is a local search. <em>Bookkeeper Christchurch</em>{" "}
@@ -218,7 +219,7 @@ export default function KdBookworksCaseStudy() {
           url="kdbookworks.co.nz"
           before={{
             src: "/images/case-studies/kdbookworks/website-home-before.png",
-            alt: "KD Bookworks homepage before. Navy Squarespace template, third-person copy reading We take care of the numbers so you can grow your business, generic services overview, packages named after a fox.",
+            alt: "KD Bookworks homepage before. Navy Squarespace template, third-person copy reading We take care of the numbers so you can grow your business, services overview, themed pricing packages.",
             width: 3076,
             height: 12896,
           }}
@@ -278,9 +279,6 @@ export default function KdBookworksCaseStudy() {
                     sizes="(max-width: 920px) 240px, 280px"
                     style={{ width: "100%", height: "auto" }}
                   />
-                  <figcaption>
-                    KD Bookworks, by text. A week after launch.
-                  </figcaption>
                 </figure>
 
                 <p>

@@ -203,9 +203,6 @@ export default function BoazCaseStudy() {
                     sizes="(max-width: 920px) 240px, 280px"
                     style={{ width: "100%", height: "auto" }}
                   />
-                  <figcaption>
-                    Reece, by text. Shortly after the V1 link landed.
-                  </figcaption>
                 </figure>
 
                 <p>
