@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 
+import { getLivePosts } from "@/lib/posts";
+
 const SITE = "https://latetwenties.agency";
 
 const ROUTES: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
@@ -12,21 +14,25 @@ const ROUTES: { path: string; priority: number; changeFrequency: MetadataRoute.S
   { path: "/work/rbm-concrete", priority: 0.7, changeFrequency: "monthly" },
   { path: "/work/kd-bookworks", priority: 0.7, changeFrequency: "monthly" },
   { path: "/resources", priority: 0.6, changeFrequency: "weekly" },
-  { path: "/blog/what-a-customer-costs-you", priority: 0.6, changeFrequency: "monthly" },
-  { path: "/blog/google-ranking", priority: 0.6, changeFrequency: "monthly" },
-  { path: "/blog/google-ranking-factors", priority: 0.6, changeFrequency: "monthly" },
-  { path: "/blog/google-business-profile", priority: 0.6, changeFrequency: "monthly" },
-  { path: "/blog/google-ads-framework", priority: 0.6, changeFrequency: "monthly" },
   { path: "/contact", priority: 0.7, changeFrequency: "yearly" },
   { path: "/privacy", priority: 0.2, changeFrequency: "yearly" },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
-  return ROUTES.map(({ path, priority, changeFrequency }) => ({
+  // Blog posts come from the date-gated registry, so future-dated posts stay
+  // out of the sitemap until they publish.
+  const blogRoutes = getLivePosts().map((post) => ({
+    url: `${SITE}/blog/${post.slug}`,
+    lastModified,
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+  const staticRoutes = ROUTES.map(({ path, priority, changeFrequency }) => ({
     url: `${SITE}${path}`,
     lastModified,
     changeFrequency,
     priority,
   }));
+  return [...staticRoutes, ...blogRoutes];
 }

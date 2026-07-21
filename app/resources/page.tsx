@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { getLivePosts } from "@/lib/posts";
 import { breadcrumbList } from "@/lib/schema";
 
 import { Container } from "../components/Container";
@@ -20,61 +21,8 @@ const SCHEMA = breadcrumbList([
   { name: "Resources", href: "/resources" },
 ]);
 
-type Post = {
-  slug: string;
-  title: string;
-  description: string;
-  readTime: string;
-};
-
-const POSTS: Post[] = [
-  {
-    slug: "what-a-customer-costs-you",
-    title: "Do you actually know what a customer costs you?",
-    description:
-      "Most local business owners can’t say what they pay to win one new customer. Not because they’re not smart. Because nobody’s ever added it up. Here’s how to.",
-    readTime: "5 min read",
-  },
-  {
-    slug: "ai-search-shift",
-    title: "The year your customers stopped clicking",
-    description:
-      "Why local service businesses are seeing traffic fall while their Google rankings hold steady, and the diagnostic that explains where their customers actually went.",
-    readTime: "8 min read",
-  },
-  {
-    slug: "google-ranking",
-    title:
-      "5 reasons your business isn’t showing up on Google",
-    description:
-      "Five very fixable mistakes that keep local service businesses invisible on Google, and the simple fixes that change everything.",
-    readTime: "7 min read",
-  },
-  {
-    slug: "google-ranking-factors",
-    title: "The 6 things that decide where you show up on Google",
-    description:
-      "The six actual ranking factors that decide whether your business shows up in local search. Almost nobody gets all six right.",
-    readTime: "5 min read",
-  },
-  {
-    slug: "google-business-profile",
-    title:
-      "Google Business Profile: the 15-minute task that doubles your calls",
-    description:
-      "Your Google Business Profile is not a side note. For service businesses, it is the strategy. Here’s exactly how to optimise it.",
-    readTime: "8 min read",
-  },
-  {
-    slug: "google-ads-framework",
-    title: "Should you run Google Ads? A framework for service businesses",
-    description:
-      "When ads make sense, when they don’t, and the structure that keeps the spend honest. Written for owners, not marketers.",
-    readTime: "7 min read",
-  },
-];
-
 export default function Resources() {
+  const posts = getLivePosts();
   return (
     <>
       <JsonLd schema={SCHEMA} />
@@ -105,7 +53,7 @@ export default function Resources() {
         <section className="pb-32 sm:pb-44">
           <Container>
             <ul className="space-y-12 sm:space-y-16">
-              {POSTS.map((post) => (
+              {posts.map((post) => (
                 <li
                   key={post.slug}
                   className="border-t border-ink/10 pt-12 sm:pt-16"
