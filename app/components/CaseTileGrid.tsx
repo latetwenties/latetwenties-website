@@ -48,6 +48,18 @@ export const CASE_TILES: CaseTile[] = [
     ),
     stat: "Four days",
   },
+  {
+    href: "/work/kd-bookworks",
+    client: "KD Bookworks",
+    meta: "Bookkeeping · Christchurch NZ",
+    line: (
+      <>
+        She asked to rank for bookkeeper Christchurch. We aimed the site at{" "}
+        <em>Xero, nationwide.</em>
+      </>
+    ),
+    stat: "20 → 720",
+  },
 ];
 
 // Render the metric with a terracotta arrow when the stat is a before/after.

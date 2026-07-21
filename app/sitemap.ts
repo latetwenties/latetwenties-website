@@ -10,6 +10,7 @@ const ROUTES: { path: string; priority: number; changeFrequency: MetadataRoute.S
   { path: "/work/boaz-developments", priority: 0.7, changeFrequency: "monthly" },
   { path: "/work/tmt-concreting", priority: 0.7, changeFrequency: "monthly" },
   { path: "/work/rbm-concrete", priority: 0.7, changeFrequency: "monthly" },
+  { path: "/work/kd-bookworks", priority: 0.7, changeFrequency: "monthly" },
   { path: "/resources", priority: 0.6, changeFrequency: "weekly" },
   { path: "/blog/what-a-customer-costs-you", priority: 0.6, changeFrequency: "monthly" },
   { path: "/blog/google-ranking", priority: 0.6, changeFrequency: "monthly" },
