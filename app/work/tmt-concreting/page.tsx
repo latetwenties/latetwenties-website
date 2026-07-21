@@ -32,7 +32,7 @@ const SCHEMA = [
     headline:
       "TMT Concreting & Maintenance: from four enquiries a month to twelve in the first full month",
     description:
-      "How a Gippsland concreter went from a template website to twelve enquiries in a month, with a research-led rebuild, local search foundations and a small Google Ads campaign.",
+      "How a Gippsland concreter went from a website that wasn't being found to twelve enquiries in a month, with a research-led rebuild, local search foundations and a small Google Ads campaign.",
     url: "/work/tmt-concreting",
     datePublished: "2026-07-07",
   }),
@@ -56,7 +56,7 @@ const HOTSPOTS: CompareHotspot[] = [
     top: 0.3,
     side: "left",
     title: "A page for every service",
-    body: "Seven services, each with its own dedicated page. Someone searching for epoxy flooring or exposed aggregate lands on a page about exactly that, not a catch-all list.",
+    body: "Seven services, each with its own dedicated page. Someone searching for epoxy flooring or exposed aggregate lands on a page about exactly that.",
   },
   {
     id: 3,
@@ -136,9 +136,9 @@ export default function TmtCaseStudy() {
                   <h2 className="cs-act-h2">
                     A 5.0-star crew
                     <br />
-                    on a <em>template</em>
+                    the searches
                     <br />
-                    <em>website.</em>
+                    <em>couldn&rsquo;t find.</em>
                   </h2>
                 </Reveal>
               </div>
@@ -152,16 +152,15 @@ export default function TmtCaseStudy() {
                   people he&rsquo;s poured for.
                 </p>
                 <p>
-                  The website didn&rsquo;t. A template site with a generic
-                  headline, one catch-all services list and a gallery.
-                  Nothing for someone searching &ldquo;concrete driveway
-                  Sale&rdquo; or &ldquo;epoxy flooring Traralgon&rdquo; to
-                  land on, and nothing measured, so no way of knowing what
-                  any of it was doing.
+                  The website hadn&rsquo;t caught up. One headline, a single
+                  services list and a gallery. Nothing for someone searching
+                  &ldquo;concrete driveway Sale&rdquo; or &ldquo;epoxy flooring
+                  Traralgon&rdquo; to land on, and nothing measured, so no way
+                  of knowing what any of it was doing.
                 </p>
                 <p className="cs-act-pull">
-                  The work earned the reviews. The website didn&rsquo;t earn
-                  the work.
+                  The work earned the reviews. The website hadn&rsquo;t started
+                  earning the work yet.
                 </p>
               </Reveal>
             </div>
@@ -205,7 +204,7 @@ export default function TmtCaseStudy() {
                   Google Ads search campaign on a modest daily budget,
                   sending paid clicks to pages built to convert them.
                   Getting found first is the point: the same budget works
-                  harder when the landing isn&rsquo;t a template.
+                  harder when the page it lands on is built for the click.
                 </p>
               </Reveal>
             </div>
@@ -222,7 +221,7 @@ export default function TmtCaseStudy() {
           url="tmtconcreteandmaintenance.com.au"
           before={{
             src: "/images/case-studies/tmt/website-home-before.jpg",
-            alt: "TMT homepage before. Purple template site with a generic Building Trust headline over a bitumen photo, a catch-all services list and a gallery grid.",
+            alt: "TMT homepage before. Purple homepage with a Building Trust headline over a bitumen photo, a single services list and a gallery grid.",
             width: 2746,
             height: 7780,
           }}
