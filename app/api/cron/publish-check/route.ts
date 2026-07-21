@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 
 import {
   LOW_QUEUE_THRESHOLD,
+  notifyBackfillDue,
   notifyBlogLive,
   notifyQueueStatus,
 } from "@/lib/notify";
@@ -46,6 +47,12 @@ export async function GET(request: Request): Promise<NextResponse> {
   const remaining = getScheduledPosts();
   if (dueToday.length > 0 && remaining.length <= LOW_QUEUE_THRESHOLD) {
     await notifyQueueStatus(remaining.length);
+  }
+
+  // One-off: the launch pack's closer landing is the cue to backfill the
+  // original six posts' forward-links (all targets are now live).
+  if (dueToday.some((p) => p.slug === "competitor-outranking-you")) {
+    await notifyBackfillDue();
   }
 
   return NextResponse.json({

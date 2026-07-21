@@ -65,6 +65,20 @@ export async function notifyBlogLive(post: Post): Promise<void> {
   await notify(subject, text, blocks);
 }
 
+// One-off nudge for the July 2026 launch pack: fires the day its closer
+// (competitor-outranking-you) publishes, when all ten internal-link targets are
+// finally live and the forward-links can be backfilled into the original six
+// posts (see the pack's production notes). Wired in the publish-check route.
+export async function notifyBackfillDue(): Promise<void> {
+  const subject = "Blog pack complete: time for the backfill";
+  const text =
+    "The launch pack’s closer is live, so all ten new posts are now published. Time to backfill the forward-links from the original six posts into the new ones (map is in the content pack’s production notes). One-off job.";
+  const blocks = [
+    { type: "section", text: { type: "mrkdwn", text: `:link: ${text}` } },
+  ];
+  await notify(subject, text, blocks);
+}
+
 // Fires only on a run that published something, when the queue is at or below
 // the low-queue threshold (0 = drained). Prompts the next batch.
 export async function notifyQueueStatus(remaining: number): Promise<void> {
