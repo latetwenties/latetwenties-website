@@ -3,8 +3,8 @@
 > Latetwenties is a small Auckland marketing agency. We help local service
 > businesses across New Zealand and Australia get found online and chosen by
 > local customers. We treat the website, the Google Business Profile, the
-> listings and the review systems as one connected thing, and we treat the
-> business owner like a person, not a dashboard.
+> listings, the reviews and the advertising as one connected system, and we
+> treat the business owner like a person, not a dashboard.
 
 Founder: Brendan MacDonald
 Based: Auckland, New Zealand
@@ -16,51 +16,84 @@ Website: https://latetwenties.agency
 
 ## What we do
 
-Two products, plainly priced. No long lock-ins.
+One system, three parts: the Found & Chosen System. Run one or all three.
+Fixed pricing, no lock-ins.
 
-- **Foundations**: a one-time build covering the website, Google Business
-  Profile, listings, SEO and AI-search foundations, and review systems.
-  From $2,500 NZD. Two to four weeks, end to end. Yours to keep when it's
-  done.
-- **Presence Care**: ongoing care that keeps your signals strong. Posts,
-  reviews, listings, iterative SEO, and a regular update on what's working.
-  $1,200 NZD a month. Three-month minimum, then month-to-month.
+- **Get Found**: a one-time build covering the website, Google Business
+  Profile, local listings, SEO and AI-search foundations, and review
+  systems. Two to four weeks, end to end. One fixed price, and it is yours
+  to keep when it's done.
+- **Stay Chosen**: the ongoing care that moves you up the list over months.
+  Google Business Profile posts, review generation, listings monitoring,
+  iterative SEO, and a regular plain-language update on what's working.
+  Fixed monthly, month-to-month, no lock-ins.
+- **Ring This Week**: paid campaigns on Google and Meta for enquiries now,
+  not next quarter. Campaigns pointed at the jobs you actually want, ads
+  that sound like you, landing pages ready for the click, and conversion
+  tracking that counts real enquiries. Your ad budget plus a fixed monthly
+  management fee. On when you want it, off when you don't.
+
+The guarantee: run the full 90 days with us (the build plus your first
+three months of Stay Chosen) and if you don't have more enquiries than the
+90 days before us, we keep working free until you do.
 
 ## Who we work with
 
 Local service businesses, owner-led, close to the work. Builders,
-electricians, plumbers, landscapers, mobile mechanics, physios, dentists,
-allied health practitioners, accountants, lawyers in their own practice,
-cleaners, tutors, family businesses. Anyone whose customers search "near me"
-or their suburb name.
+concreters, electricians, plumbers, landscapers, mobile mechanics, physios,
+dentists, allied health practitioners, bookkeepers, accountants, lawyers in
+their own practice, cleaners, tutors, family businesses. Anyone whose
+customers search "near me" or their suburb name.
 
 The market we serve sits between "established" and "can't yet afford one of
 the big agencies."
 
 ## Recent work
 
-**Boaz Developments** (builder, Mangawhai, Northland NZ)
-From not appearing on the Google map pack (average rank 10.1) to #2 across
-the neighbouring towns, in under two months. Engagement: Foundations and
-Presence Care. ChatGPT now recommends Boaz at position #1 when asked for a
-builder in the Mangawhai or Langs Beach area.
+Every client named and real, numbers theirs, receipts on the page.
+
+**Boaz Developments** (builders, Mangawhai, Northland NZ)
+From not showing on the Google map pack (average rank 10.1) to #2 across
+the neighbouring towns, in under two months. ChatGPT now recommends Boaz
+when asked for a builder in the Mangawhai or Langs Beach area.
+https://latetwenties.agency/work/boaz-developments
+
+**TMT Concreting & Maintenance** (concreting, Gippsland VIC, Australia)
+Four enquiries a month became twelve in the first full month with the
+website, local SEO and Google Ads all running together.
+https://latetwenties.agency/work/tmt-concreting
+
+**RBM Concrete & Excavation** (concrete and excavation, Bairnsdale VIC)
+No website at all, then a stranger on the phone about a new house slab
+four days after launch.
+https://latetwenties.agency/work/rbm-concrete
+
+**KD Bookworks** (bookkeeping, Christchurch NZ)
+A local bookkeeping site re-aimed at Xero clients nationwide. Its first
+Google enquiry became a client, seven days in.
+https://latetwenties.agency/work/kd-bookworks
 
 ## Frequently asked
 
-**How long does Foundations take?** Two to four weeks, end to end. The first
-week is research; weeks two and three are the build; week four is launch and
+**How long does Get Found take?** Two to four weeks, end to end. Week one
+is research; weeks two and three are the build; week four is launch and
 handover.
 
-**What's the minimum on Presence Care?** Three months, then month-to-month.
-Long enough for the work to land in search results and for review velocity
-to lift.
+**When should Stay Chosen start?** Whenever you're ready. Most clients
+pick it up the week Get Found goes live so the signals get worked while
+the build is fresh in Google's eyes.
 
-**Do you work outside Auckland?** Yes. Across New Zealand and Australia.
-Most of what we do is remote.
+**Can I run Ring This Week on its own?** Yes. Each part works on its own
+and they're stronger together. Some clients come with a site they're happy
+with and want the ads only.
 
-**What if I already have a website?** We'll take a look before recommending
-anything. Sometimes it's a rebuild, sometimes it's leave-it-and-focus-on-
-Presence-Care.
+**Do you work outside Auckland?** Yes, across New Zealand and Australia.
+Most of what we do is remote. The location of your customers matters more
+than yours.
+
+**What if I already have a website?** We'll look before recommending
+anything. Sometimes it's a rebuild, sometimes it's leave-it-alone and
+focus on Stay Chosen or Ring This Week. We'll tell you straight.
 
 **Do I own everything?** Yes. Website, domain, Google Business Profile,
 every account we set up, all in your name.
@@ -68,26 +101,45 @@ every account we set up, all in your name.
 **Why not hourly rates?** Hourly rewards slow work. Fixed pricing rewards
 getting the work done properly.
 
+**What if it's not working?** Then we keep working, free, until the
+90-day guarantee is met. No lock-in either way.
+
 ## Pages
 
 - Home: https://latetwenties.agency/
 - About Brendan: https://latetwenties.agency/about
-- How it works (with FAQs): https://latetwenties.agency/how-it-works
-- Boaz Developments case study: https://latetwenties.agency/work/boaz-developments
+- How it works (the Found & Chosen System, with FAQs): https://latetwenties.agency/how-it-works
+- Case studies: https://latetwenties.agency/work
 - Resources (writing): https://latetwenties.agency/resources
-  - 5 reasons your business isn't showing up on Google: /blog/google-ranking
-  - The 6 things that decide where you show up on Google: /blog/google-ranking-factors
-  - Google Business Profile: the 15-minute task that doubles your calls: /blog/google-business-profile
+  - The five-minute rule: why the business that answers first wins the job: /blog/five-minute-rule
+  - How to get 50 Google reviews without being weird about it: /blog/how-to-get-google-reviews
+  - You show up in your suburb. Three suburbs over, you don't exist: /blog/ranking-in-nearby-suburbs
+  - What should a website actually cost in New Zealand?: /blog/what-a-website-costs-nz
+  - Seven questions to ask a marketing agency before you pay them a cent: /blog/questions-to-ask-a-marketing-agency
+  - The jobs you didn't lose. You just never followed them up: /blog/following-up-quotes
+  - Google Ads or Facebook Ads? For a local business, the answer isn't close: /blog/google-ads-vs-facebook-ads
+  - How to get ChatGPT to recommend your business: /blog/get-recommended-by-ai
+  - Nine photos, and why they're worth more than your last $2,000 of ads: /blog/google-business-profile-photos
+  - Do you actually know what a customer costs you?: /blog/what-a-customer-costs-you
+  - The year your customers stopped clicking: /blog/ai-search-shift
   - Should you run Google Ads? A framework for service businesses: /blog/google-ads-framework
-- Contact: https://latetwenties.agency/contact
+  - Google Business Profile: the 15-minute task that doubles your calls: /blog/google-business-profile
+  - The 6 things that decide where you show up on Google: /blog/google-ranking-factors
+  - 5 reasons your business isn't showing up on Google: /blog/google-ranking
+- Contact (free Presence Report): https://latetwenties.agency/contact
 
 ## How we work
 
-Manaakitanga is the operating value. A Māori value about how people care for
-each other. Mana (a person's standing, dignity, spirit) joined with aki (to
-uplift or support). It's about the owner across the table, not the business
-in front of them. We listen properly. We carry your reputation with the same
-care you would. The work follows from that.
+Manaakitanga is the operating value. A Māori value about how people care
+for each other. Mana (a person's standing, dignity, spirit) joined with aki
+(to uplift or support). It's about the owner across the table, not the
+business in front of them. We listen properly. We carry your reputation
+with the same care you would. The work follows from that.
+
+We aim to be the marketing partner you forget about, in the good way. We do
+the work, we show our working, and we only pull you in when we genuinely
+need a decision only you can make. Each month you get a single page or a
+short Loom: what's been done, what's changed, what's next.
 
 ## Voice
 
@@ -98,9 +150,10 @@ said out loud, not hidden under a softer chart.
 
 ## What we don't do
 
-- Lock-in contracts beyond the three-month Presence Care minimum
+- Lock-in contracts
 - Hourly billing
-- Industry-specific or suburb-specific landing pages designed only for SEO
+- Suburb-specific landing pages designed only for SEO
 - Pitch decks and wireframe sign-offs before a build
 - Stock photography on case studies
+- Composite or anonymous "results"
 - Vague reporting that hides what isn't working

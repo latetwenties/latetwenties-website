@@ -99,6 +99,38 @@ export const POSTS: Post[] = [
     publishedAt: "2026-09-04",
   },
   {
+    slug: "replying-to-google-reviews",
+    title: "How to reply to Google reviews, including the unfair one",
+    description:
+      "Your replies are read by every future customer who checks you out, not just the person who left the review. What to write back to the good ones, the quiet ones, and the one that made your blood boil.",
+    readTime: "7 min read",
+    publishedAt: "2026-09-11",
+  },
+  {
+    slug: "fix-your-listings",
+    title: "Your business details are wrong somewhere online right now",
+    description:
+      "An old phone number on a directory you forgot exists can quietly cost you calls and rankings. Where the wrong listings hide, why they matter to Google, and how to clean them up in an afternoon.",
+    readTime: "6 min read",
+    publishedAt: "2026-09-18",
+  },
+  {
+    slug: "what-customers-type-into-google",
+    title: "You say retaining wall. Your customer types fix leaning fence.",
+    description:
+      "Trade businesses describe their work in trade language, then wonder why the phone is quiet. How to find the words your customers actually search, and where to put them on your site.",
+    readTime: "6 min read",
+    publishedAt: "2026-09-25",
+  },
+  {
+    slug: "why-your-ranking-dropped",
+    title: "Your Google ranking dropped. Read this before you panic.",
+    description:
+      "Most ranking drops are not penalties and half of them are not even real. How to tell a bad data day from a genuine slide, the usual causes, and what to check in what order.",
+    readTime: "7 min read",
+    publishedAt: "2026-10-02",
+  },
+  {
     slug: "what-a-customer-costs-you",
     title: "Do you actually know what a customer costs you?",
     description:

@@ -65,6 +65,26 @@ export async function notifyBlogLive(post: Post): Promise<void> {
   await notify(subject, text, blocks);
 }
 
+// Fired when the publish cron checks its own work and finds a miss: a
+// revealed post URL that is not serving 200, or a due slug absent from the
+// live sitemap. Without this, a failed reveal is a cached 404 that nothing
+// ever re-checks: get-recommended-by-ai (due 25 Aug 2026) sat unreachable for
+// six days while the "post live" ping said it was fine.
+export async function notifyRevealFailure(problems: string[]): Promise<void> {
+  const subject = "Blog publish check FAILED";
+  const text = `Blog publish check failed. The cron revealed today's posts but verification found:\n${problems.map((p) => `- ${p}`).join("\n")}\nFix: redeploy the site, or investigate the reveal path.`;
+  const blocks = [
+    {
+      type: "section",
+      text: {
+        type: "mrkdwn",
+        text: `:rotating_light: *Blog publish check FAILED*\n${problems.map((p) => `• ${p}`).join("\n")}\nFix: redeploy the site, or investigate the reveal path.`,
+      },
+    },
+  ];
+  await notify(subject, text, blocks);
+}
+
 // One-off nudge for the July 2026 launch pack: fires the day its closer
 // (competitor-outranking-you) publishes, when all ten internal-link targets are
 // finally live and the forward-links can be backfilled into the original six
