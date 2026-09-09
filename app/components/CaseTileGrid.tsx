@@ -13,18 +13,6 @@ type CaseTile = {
 
 export const CASE_TILES: CaseTile[] = [
   {
-    href: "/work/boaz-developments",
-    client: "Boaz Developments",
-    meta: "Builders · Mangawhai NZ",
-    line: (
-      <>
-        From not showing, to <em>#2 in search</em> across the neighbouring
-        towns.
-      </>
-    ),
-    stat: "10.1 → 2.5",
-  },
-  {
     href: "/work/tmt-concreting",
     client: "TMT Concreting & Maintenance",
     meta: "Concreting · Gippsland VIC",
@@ -35,6 +23,18 @@ export const CASE_TILES: CaseTile[] = [
       </>
     ),
     stat: "4 → 12",
+  },
+  {
+    href: "/work/boaz-developments",
+    client: "Boaz Developments",
+    meta: "Builders · Mangawhai NZ",
+    line: (
+      <>
+        From not showing, to <em>#2 in search</em> across the neighbouring
+        towns.
+      </>
+    ),
+    stat: "10.1 → 2.5",
   },
   {
     href: "/work/rbm-concrete",

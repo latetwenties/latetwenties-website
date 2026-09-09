@@ -35,7 +35,7 @@ const FAQS = [
   {
     question: "Can I run Ring This Week on its own?",
     answer:
-      "Yes. Get Found, Stay Chosen, and Ring This Week each work on their own and they're stronger together, but you don't have to do all three. Some clients start with just Get Found. Some come to us already with a site they're happy with and want Ring This Week only. We'll walk you through what makes sense for where you're at.",
+      "The system is built to run together, and the guarantee covers the full run: the build plus your first three months of Stay Chosen. Ring This Week is the lever we add on top when you want enquiries this week, not next quarter. If you already have a site you're happy with and only want the ads, ask us. We'll tell you straight whether that makes sense for where you're at.",
   },
   {
     question: "Do you work with businesses outside Auckland?",
@@ -269,7 +269,7 @@ export default function HowItWorks() {
               <p className="hiw-lede">
                 One system, three parts. Get Found builds your presence so you
                 show up. Stay Chosen keeps you climbing. Ring This Week brings
-                enquiries in fast. Run one or all three, no lock-ins.
+                enquiries in fast. Built to run as one system. No lock-ins.
               </p>
             </Reveal>
           </div>
@@ -352,7 +352,7 @@ export default function HowItWorks() {
             <>
               Month-to-month. No lock-ins.
               <br />
-              Start it whenever you&rsquo;re ready.
+              Runs alongside the build from day one.
             </>
           }
           items={STAY_CHOSEN_INCLUDED}
