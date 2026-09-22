@@ -115,7 +115,11 @@ export default function Post() {
       <P>
         Pull up a competitor who outranks you in maps. Use a free Chrome
         extension like GMB Everywhere to see what primary and secondary
-        categories they’re using. Then choose the single most accurate,
+        categories they’re using. That{" "}
+        <a href="/blog/competitor-outranking-you">
+          newer business sitting above you
+        </a>{" "}
+        almost always got the category right first. Then choose the single most accurate,
         specific primary category that reflects your core service. Add
         up to 9 secondary categories for your other services.
       </P>
@@ -198,7 +202,11 @@ export default function Post() {
       <P>
         Today, upload at least five photos if you haven’t already: your
         van or truck (this helps enormously with trust), two or three
-        completed job images, and your team if possible.
+        completed job images, and your team if possible.{" "}
+        <a href="/blog/google-business-profile-photos">
+          The nine photos worth having
+        </a>{" "}
+        covers the full set and how to shoot them on a phone.
       </P>
 
       <H3>Step 6. Post an update right now</H3>
@@ -237,7 +245,11 @@ export default function Post() {
       <P>
         <Strong>After every job:</Strong> Take one photo and upload it
         to GBP. Send a review request to the customer with your direct
-        Google review link.
+        Google review link.{" "}
+        <a href="/blog/how-to-get-google-reviews">
+          Here is how to ask without cringing
+        </a>
+        , including what to say.
       </P>
       <P>
         <Strong>Monthly:</Strong> Check your GBP insights. Look at how
@@ -273,6 +285,14 @@ export default function Post() {
         business that gives a damn. That’s exactly what you want
         potential customers to think when they’re deciding who to call.
       </P>
+      <P>
+        The one that makes your blood boil is the hardest to answer well,
+        so{" "}
+        <a href="/blog/replying-to-google-reviews">
+          we wrote out what to send back
+        </a>{" "}
+        for the good ones, the quiet ones, and the unfair one.
+      </P>
 
       <H2>The results you can expect</H2>
       <P>None of this is overnight. But the trajectory is faster than most people expect.</P>
@@ -287,6 +307,15 @@ export default function Post() {
       <P>
         Your GBP isn’t a checkbox. It’s the most powerful free marketing
         tool available to any service business. Treat it that way.
+      </P>
+      <P>
+        It is also increasingly what an AI assistant reads when someone
+        asks it who to hire, so a complete profile is now doing two jobs.
+        More on{" "}
+        <a href="/blog/get-recommended-by-ai">
+          what decides which businesses get named
+        </a>
+        .
       </P>
     </BlogPost>
     </>

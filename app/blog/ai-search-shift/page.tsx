@@ -244,10 +244,13 @@ export default function Post() {
         </P>
         <P>
           <Strong>Strengthen your citations.</Strong> Get your name, address
-          and phone consistent across every directory. Build review velocity
-          (recent, frequent, specific to your services and patch). Make sure
-          every third-party page that mentions your business is accurate. The
-          AI is reading all of it.
+          and phone consistent across every directory (
+          <a href="/blog/fix-your-listings">
+            here is where the wrong ones hide
+          </a>
+          ). Build review velocity, recent, frequent, and specific to your
+          services and patch. Make sure every third-party page that mentions
+          your business is accurate. The AI is reading all of it.
         </P>
         <P>
           These aren’t new fundamentals. They’re the same fundamentals,
@@ -275,6 +278,17 @@ export default function Post() {
           where you stand. That’s the new version of the diagnostic, and it
           tells you almost everything you need to know about whether your
           marketing is still doing its job.
+        </P>
+        <P>
+          If the answer named someone else, the next read is{" "}
+          <a href="/blog/get-recommended-by-ai">
+            what actually decides which local businesses get named
+          </a>
+          . And once the enquiries do start arriving,{" "}
+          <a href="/blog/five-minute-rule">
+            how fast you answer
+          </a>{" "}
+          decides how many of them turn into work.
         </P>
       </BlogPost>
     </>

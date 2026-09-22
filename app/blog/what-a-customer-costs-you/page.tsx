@@ -183,7 +183,12 @@ export default function Post() {
         <P>
           You can’t tell which marketing is working. The ads might be carrying
           you. The ads might be bleeding you dry. You genuinely cannot say, so
-          you keep paying for both the good and the bad.
+          you keep paying for both the good and the bad. It is also the number
+          that decides{" "}
+          <a href="/blog/google-ads-framework">
+            whether Google Ads is worth running at all
+          </a>
+          .
         </P>
         <P>
           You can’t say yes to growth with any confidence. Someone offers you a
@@ -216,6 +221,18 @@ export default function Post() {
           Once you can see what a customer costs you, you can start to manage
           it. Push it down. Spend more where it’s working and less where it
           isn’t. Decide, on purpose, what you’re willing to pay.
+        </P>
+        <P>
+          The cheapest place to push it down is usually the enquiries you have
+          already paid for.{" "}
+          <a href="/blog/five-minute-rule">
+            Answering inside five minutes
+          </a>{" "}
+          and{" "}
+          <a href="/blog/following-up-quotes">
+            following up the quotes you sent
+          </a>{" "}
+          both cost nothing and both win work you have already bought.
         </P>
         <P>
           But none of that happens until you stop shrugging at the question.

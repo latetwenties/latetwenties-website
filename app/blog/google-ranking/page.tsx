@@ -93,7 +93,11 @@ export default function Post() {
         </li>
         <li>
           At least 10 to 15 photos, including job site images, your
-          van/truck, and your team
+          van/truck, and your team (there are{" "}
+          <a href="/blog/google-business-profile-photos">
+            nine shots worth taking first
+          </a>
+          )
         </li>
         <li>
           Consistent, regularly updated posts (at minimum once a week)
@@ -140,7 +144,11 @@ export default function Post() {
         major directories: Google, Yelp, Facebook, BBB, Apple Maps, Bing
         Places, and any local directories in your area. Make every entry
         match your GBP exactly. Tools like BrightLocal can audit this at
-        scale if you have listings across multiple platforms.
+        scale if you have listings across multiple platforms.{" "}
+        <a href="/blog/fix-your-listings">
+          Where the wrong listings usually hide
+        </a>{" "}
+        walks through the afternoon version of this job.
       </P>
 
       <H2>You have no reviews, or you’re not getting new ones</H2>
@@ -153,7 +161,8 @@ export default function Post() {
         <Strong>review velocity</Strong> (how recently and frequently
         you’re getting them), average rating, review sentiment (whether
         customers mention specific services and locations), and whether
-        you’re responding to them.
+        you’re{" "}
+        <a href="/blog/replying-to-google-reviews">responding to them</a>.
       </P>
       <P>
         A business with 80 reviews all from three years ago will often
@@ -175,7 +184,11 @@ export default function Post() {
         post-job workflow. A text message or email sent within 24 hours
         of completing a job, with a direct Google review link, will
         convert far better than any follow-up you do weeks later. Aim for
-        a minimum of 2 to 4 new reviews per month.
+        a minimum of 2 to 4 new reviews per month.{" "}
+        <a href="/blog/how-to-get-google-reviews">
+          Getting to 50 reviews without being weird about it
+        </a>{" "}
+        has the wording we use.
       </P>
 
       <H2>Your website isn’t sending the right local signals</H2>
@@ -189,6 +202,11 @@ export default function Post() {
         <Strong>No service area pages.</Strong> A single homepage that
         says “serving the greater Auckland area” is nearly useless
         compared to individual pages for each suburb or region you cover.
+        This is usually the reason you{" "}
+        <a href="/blog/ranking-in-nearby-suburbs">
+          show up at home and vanish three suburbs over
+        </a>
+        .
         A dedicated page for your service in a specific suburb, with that
         suburb’s name woven naturally into the content, title tag, and
         meta description, will rank in those searches. A generic page
@@ -266,6 +284,14 @@ export default function Post() {
         Start with your GBP. Get your NAP consistent. Get a review system
         in place. Then build from there. The compounding effect is real,
         and it starts faster than most business owners expect.
+      </P>
+      <P>
+        If there is a specific business sitting above you and you want to
+        know what they did,{" "}
+        <a href="/blog/competitor-outranking-you">
+          here is the checklist they almost certainly worked through
+        </a>
+        .
       </P>
     </BlogPost>
     </>

@@ -88,7 +88,11 @@ export default function Post() {
       <P>
         A message that says “Would you mind mentioning what we helped you
         with and where you’re based?” gets you reviews that actually move
-        the needle.
+        the needle.{" "}
+        <a href="/blog/how-to-get-google-reviews">
+          The full way we ask for reviews
+        </a>{" "}
+        is written out if you want the wording.
       </P>
 
       <H2>Your website probably doesn’t mention your suburb once</H2>
@@ -109,6 +113,13 @@ export default function Post() {
         Google can’t rank you for local searches it can’t verify you’re
         local for. Your suburb, your city, your service areas need to
         appear naturally in your content. Not stuffed. Just present.
+      </P>
+      <P>
+        This is also the reason a business{" "}
+        <a href="/blog/ranking-in-nearby-suburbs">
+          ranks at home and disappears a few suburbs over
+        </a>
+        . The signal stops where the content stops.
       </P>
 
       <H2>
@@ -134,7 +145,12 @@ export default function Post() {
       </P>
       <P>
         The fix is boring but effective: audit every place your business
-        details appear and make them match exactly.
+        details appear and make them match exactly. It is about an
+        afternoon’s work, once, and{" "}
+        <a href="/blog/fix-your-listings">
+          the places wrong details usually hide
+        </a>{" "}
+        narrows the search.
       </P>
 
       <H2>Review volume doesn’t matter as much as review recency</H2>
@@ -154,7 +170,10 @@ export default function Post() {
       </P>
       <P>
         You don’t need a flood of reviews. You need a system that gets you
-        one or two every month without you having to think about it.
+        one or two every month without you having to think about it. Then{" "}
+        <a href="/blog/replying-to-google-reviews">reply to each one</a>,
+        including the unfair one, because every future customer reads
+        those replies too.
       </P>
 
       <H2>People clicking on your listing is itself a ranking signal</H2>
@@ -173,6 +192,11 @@ export default function Post() {
         This means your photos, your business description, your review
         score, and your hours all affect your ranking. Not just because
         they look good, but because they influence whether someone clicks.
+        Photos do the most work here, and there are{" "}
+        <a href="/blog/google-business-profile-photos">
+          nine of them worth taking on a phone this week
+        </a>
+        .
       </P>
       <P>
         Most businesses treat their Google profile like a form they filled
@@ -185,6 +209,13 @@ export default function Post() {
         Start with the easy stuff: check your primary category, make sure
         your details are consistent everywhere, and put a simple review
         follow-up process in place.
+      </P>
+      <P>
+        If someone newer is already sitting above you,{" "}
+        <a href="/blog/competitor-outranking-you">
+          what they did is usually this same list
+        </a>
+        , worked through in order.
       </P>
       <P>
         If you want someone to look at all 6 for you, we do a free

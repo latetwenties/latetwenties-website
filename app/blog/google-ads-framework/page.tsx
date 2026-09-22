@@ -133,7 +133,11 @@ export default function Post() {
         of <Strong>15 to 20 reviews with an average above 4.5 stars</Strong>.
         If you’re below that, put the ad budget into a concerted
         review-generation push first. The economics work out much
-        better.
+        better, and{" "}
+        <a href="/blog/how-to-get-google-reviews">
+          getting to 50 reviews
+        </a>{" "}
+        costs nothing but a system.
       </P>
 
       <H3>
@@ -164,8 +168,12 @@ export default function Post() {
         and markets, that works. For others, it doesn’t.
       </P>
       <P>
-        Run your own numbers. If the maths shows that Ads could be
-        profitable, proceed. If the numbers don’t work at realistic CPC
+        Run your own numbers. If you have never added this up,{" "}
+        <a href="/blog/what-a-customer-costs-you">
+          what a customer actually costs you
+        </a>{" "}
+        walks through it line by line. If the maths shows that Ads could
+        be profitable, proceed. If the numbers don’t work at realistic CPC
         rates, you have two options: improve your conversion rate
         (better landing page, stronger offer) or wait until your
         organic and GBP presence generates leads at lower cost first.
@@ -180,14 +188,23 @@ export default function Post() {
         If you’re already stretched, or if you can’t reliably answer
         your phone during business hours, you’ll burn money on leads
         you can’t convert. A missed call from an ad click is a wasted
-        click.
+        click, and{" "}
+        <a href="/blog/five-minute-rule">
+          the business that replies first wins the job about half the time
+        </a>
+        , whatever you paid for the click.
       </P>
       <P>
         Before scaling up ad spend, make sure your lead handling is
         solid: you or someone in your business answers calls during
         business hours, you have a system for after-hours enquiries
         (even a well-worded voicemail with a callback promise), and you
-        can actually schedule the volume of work that results.
+        can actually schedule the volume of work that results. The same
+        goes at the other end:{" "}
+        <a href="/blog/following-up-quotes">
+          a quote you never followed up
+        </a>{" "}
+        is an ad click you paid for twice.
       </P>
 
       <H3>
@@ -250,7 +267,11 @@ export default function Post() {
         <Strong>You want to expand into a new service area.</Strong>{" "}
         Organic rankings take time to develop in new suburbs. Ads can
         establish a presence immediately while you build the organic
-        signals over time.
+        signals over time. Worth reading{" "}
+        <a href="/blog/ranking-in-nearby-suburbs">
+          why you vanish a few suburbs over
+        </a>{" "}
+        before you decide how long that build will take.
       </P>
 
       <H2>When Google Ads should wait</H2>
@@ -314,6 +335,13 @@ export default function Post() {
           Build the foundation. Then run the ads. That sequence almost
           always outperforms the reverse.
         </Strong>
+      </P>
+      <P>
+        If you have already decided to spend and the question is where,{" "}
+        <a href="/blog/google-ads-vs-facebook-ads">
+          Google Ads or Facebook Ads for a local business
+        </a>{" "}
+        is the shorter answer.
       </P>
     </BlogPost>
     </>
