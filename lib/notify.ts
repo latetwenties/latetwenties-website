@@ -1,5 +1,6 @@
 import { Resend } from "resend";
 
+import type { IndexNowResult } from "./indexnow";
 import type { Post } from "./posts";
 import { postToSlack } from "./slack";
 
@@ -49,20 +50,33 @@ async function notify(
 }
 
 // One per post that went live today.
-export async function notifyBlogLive(post: Post): Promise<void> {
+export async function notifyBlogLive(
+  post: Post,
+  indexNow?: IndexNowResult | null,
+): Promise<void> {
   const url = `${SITE}/blog/${post.slug}`;
   const subject = `New blog live: ${post.title}`;
-  const text = `New blog live: ${post.title}\n${post.description}\n${url}`;
+  // The IndexNow outcome rides on the go-live ping rather than a second
+  // notification rail, so a silently failing ping surfaces where Brendan is
+  // already looking. Google is not part of this line: it ignores IndexNow.
+  const status = indexNowLine(indexNow);
+  const text = `New blog live: ${post.title}\n${post.description}\n${url}${status ? `\n${status}` : ""}`;
   const blocks = [
     {
       type: "section",
       text: {
         type: "mrkdwn",
-        text: `*New blog live*\n<${url}|${post.title}>\n${post.description}`,
+        text: `*New blog live*\n<${url}|${post.title}>\n${post.description}${status ? `\n_${status}_` : ""}`,
       },
     },
   ];
   await notify(subject, text, blocks);
+}
+
+function indexNowLine(result?: IndexNowResult | null): string {
+  if (!result) return "";
+  if (result.ok) return `Bing notified via IndexNow (${result.submitted} URL${result.submitted === 1 ? "" : "s"}).`;
+  return `IndexNow ping failed: ${result.error}`;
 }
 
 // Fired when the publish cron checks its own work and finds a miss: a

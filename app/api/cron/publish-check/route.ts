@@ -1,6 +1,7 @@
 import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 
+import { pingIndexNow, type IndexNowResult } from "@/lib/indexnow";
 import {
   LOW_QUEUE_THRESHOLD,
   notifyBackfillDue,
@@ -60,9 +61,28 @@ export async function GET(request: Request): Promise<NextResponse> {
       .map((p) => /^\/blog\/([\w-]+) /.exec(p)?.[1])
       .filter((s): s is string => Boolean(s)),
   );
-  for (const post of dueToday) {
-    if (!failedSlugs.has(post.slug)) await notifyBlogLive(post);
+  const verified = dueToday.filter((p) => !failedSlugs.has(p.slug));
+
+  // Tell Bing the moment a post goes live, and only once it has verified as
+  // serving 200. This is the only place that knows a publish happened: posts
+  // ship with the repo and reveal by date, so no deploy fires here and a
+  // deploy-time ping would miss every post. Bing feeds ChatGPT search, Copilot
+  // and DuckDuckGo, so this is an AI-visibility step. Google ignores IndexNow
+  // entirely; its side of this is the truthful sitemap lastmod plus internal
+  // links, never the Indexing API (JobPosting/BroadcastEvent only).
+  // Never allowed to break the run: a missed ping costs latency, nothing more.
+  let indexNow: IndexNowResult | null = null;
+  if (verified.length > 0) {
+    indexNow = await pingIndexNow(
+      verified.map((p) => `${SITE}/blog/${p.slug}`),
+      { siteUrl: SITE },
+    );
+    if (!indexNow.ok) {
+      console.error(`[/api/cron/publish-check] IndexNow: ${indexNow.error}`);
+    }
   }
+
+  for (const post of verified) await notifyBlogLive(post, indexNow);
 
   // Clause 5 (+ low-queue enhancement): only nudge on a run that published
   // something, so the channel isn't spammed once the queue is empty.
@@ -81,6 +101,7 @@ export async function GET(request: Request): Promise<NextResponse> {
     ok: problems.length === 0,
     date: today,
     published: dueToday.map((p) => p.slug),
+    indexNow,
     verificationProblems: problems,
     remaining: remaining.length,
   });
