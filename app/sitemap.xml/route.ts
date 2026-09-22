@@ -66,10 +66,14 @@ export function GET(): NextResponse {
   // Blog posts come from the date-gated registry, so future-dated posts stay
   // out of the sitemap until they publish (a queued post's URL 404s, and a
   // sitemap must never advertise a 404).
+  // lastmod is the last real modification, which is publishedAt until a post's
+  // body is actually changed and given an updatedAt. Google only treats lastmod
+  // as a freshness signal while it is truthful, so it is never auto-bumped on
+  // deploy.
   const blogEntries = getLivePosts().map((post) =>
     urlEntry({
       loc: `${SITE}/blog/${post.slug}`,
-      lastmod: post.publishedAt,
+      lastmod: post.updatedAt ?? post.publishedAt,
       changefreq: "monthly",
       priority: 0.6,
     }),

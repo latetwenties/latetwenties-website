@@ -12,6 +12,11 @@ export type Post = {
   description: string;
   readTime: string;
   publishedAt: string; // YYYY-MM-DD, NZ time
+  // Set only when a published post's body is materially changed, so the
+  // sitemap's <lastmod> stays a truthful modification date rather than a
+  // restated publish date. The standard is explicit that lastmod is a
+  // freshness signal only while it is honest, so it is never auto-bumped.
+  updatedAt?: string; // YYYY-MM-DD, NZ time
 };
 
 export const POSTS: Post[] = [
@@ -137,6 +142,7 @@ export const POSTS: Post[] = [
       "Most local business owners can’t say what they pay to win one new customer. Not because they’re not smart. Because nobody’s ever added it up. Here’s how to.",
     readTime: "5 min read",
     publishedAt: "2026-06-30",
+    updatedAt: "2026-09-23",
   },
   {
     slug: "ai-search-shift",
@@ -145,6 +151,7 @@ export const POSTS: Post[] = [
       "Why local service businesses are seeing traffic fall while their Google rankings hold steady, and the diagnostic that explains where their customers actually went.",
     readTime: "8 min read",
     publishedAt: "2026-05-09",
+    updatedAt: "2026-09-23",
   },
   {
     slug: "google-ads-framework",
@@ -153,6 +160,7 @@ export const POSTS: Post[] = [
       "When ads make sense, when they don’t, and the structure that keeps the spend honest. Written for owners, not marketers.",
     readTime: "7 min read",
     publishedAt: "2026-03-22",
+    updatedAt: "2026-09-23",
   },
   {
     slug: "google-business-profile",
@@ -162,6 +170,7 @@ export const POSTS: Post[] = [
       "Your Google Business Profile is not a side note. For service businesses, it is the strategy. Here’s exactly how to optimise it.",
     readTime: "8 min read",
     publishedAt: "2026-03-15",
+    updatedAt: "2026-09-23",
   },
   {
     slug: "google-ranking-factors",
@@ -170,6 +179,7 @@ export const POSTS: Post[] = [
       "The six actual ranking factors that decide whether your business shows up in local search. Almost nobody gets all six right.",
     readTime: "5 min read",
     publishedAt: "2026-03-08",
+    updatedAt: "2026-09-23",
   },
   {
     slug: "google-ranking",
@@ -178,6 +188,7 @@ export const POSTS: Post[] = [
       "Five very fixable mistakes that keep local service businesses invisible on Google, and the simple fixes that change everything.",
     readTime: "7 min read",
     publishedAt: "2026-03-01",
+    updatedAt: "2026-09-23",
   },
 ];
 
