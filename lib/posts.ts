@@ -136,6 +136,38 @@ export const POSTS: Post[] = [
     publishedAt: "2026-10-02",
   },
   {
+    slug: "what-is-local-seo",
+    title: "What is local SEO? A plain answer for trade businesses",
+    description:
+      "Local SEO is the work that gets your business shown when someone nearby searches for what you do. What it covers, the three places you can show up, how long it takes, and whether you need it.",
+    readTime: "8 min read",
+    publishedAt: "2026-10-09",
+  },
+  {
+    slug: "marketing-agency-near-me",
+    title: "Does your marketing agency need to be near you?",
+    description:
+      "Searching for a marketing agency near me? For local SEO and Google Ads, the agency doesn’t need to be in your town. It needs to know your town. How to tell the difference.",
+    readTime: "7 min read",
+    publishedAt: "2026-10-16",
+  },
+  {
+    slug: "local-seo-cost-nz",
+    title: "What does local SEO cost in New Zealand?",
+    description:
+      "What NZ trade and local service businesses are typically quoted for local SEO, what the money should buy, why quotes vary so much, and how to work out if it’s worth it for you.",
+    readTime: "8 min read",
+    publishedAt: "2026-10-23",
+  },
+  {
+    slug: "diy-local-seo-vs-agency",
+    title: "Local SEO: what to do yourself, and when to pay an agency",
+    description:
+      "An honest split for trade businesses: the local SEO you can do yourself for free, where doing it yourself usually stalls, and when paying an agency is the wrong call.",
+    readTime: "8 min read",
+    publishedAt: "2026-10-30",
+  },
+  {
     slug: "what-a-customer-costs-you",
     title: "Do you actually know what a customer costs you?",
     description:
