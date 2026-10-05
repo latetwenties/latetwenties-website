@@ -26,7 +26,6 @@ const ROUTES: StaticRoute[] = [
   { path: "/work/tmt-concreting", priority: 0.7, changeFrequency: "monthly" },
   { path: "/work/rbm-concrete", priority: 0.7, changeFrequency: "monthly" },
   { path: "/work/kd-bookworks", priority: 0.7, changeFrequency: "monthly" },
-  { path: "/work/glenbuild", priority: 0.7, changeFrequency: "monthly" },
   { path: "/resources", priority: 0.6, changeFrequency: "weekly" },
   { path: "/contact", priority: 0.7, changeFrequency: "yearly" },
   { path: "/privacy", priority: 0.2, changeFrequency: "yearly" },
