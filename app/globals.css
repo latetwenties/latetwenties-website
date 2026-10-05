@@ -2597,6 +2597,12 @@ a.ct-row-val:hover {
   overflow: hidden;
   min-height: 0;
 }
+/* A live video in a standalone browser frame (outside the compare track). */
+.cs-bw-video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 .cs-compare-img {
   position: absolute;
   top: 0;

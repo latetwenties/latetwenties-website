@@ -9,6 +9,9 @@ type CaseTile = {
   meta: string;
   line: ReactNode;
   stat: string;
+  // Results still to come. Shown on /work only, so the homepage and About
+  // grids stay results-only.
+  inProgress?: boolean;
 };
 
 export const CASE_TILES: CaseTile[] = [
@@ -60,6 +63,19 @@ export const CASE_TILES: CaseTile[] = [
     ),
     stat: "Seven days",
   },
+  {
+    href: "/work/glenbuild",
+    client: "Glenbuild",
+    meta: "Builders · Auckland NZ",
+    line: (
+      <>
+        Thirty years of award-winning homes, built on referrals. The
+        foundations are in, <em>results to follow.</em>
+      </>
+    ),
+    stat: "In progress",
+    inProgress: true,
+  },
 ];
 
 // Render the metric with a terracotta arrow when the stat is a before/after.
@@ -77,10 +93,17 @@ function renderStat(stat: string): ReactNode {
   );
 }
 
-export function CaseTileGrid({ baseDelay = 120 }: { baseDelay?: number }) {
+export function CaseTileGrid({
+  baseDelay = 120,
+  showInProgress = false,
+}: {
+  baseDelay?: number;
+  showInProgress?: boolean;
+}) {
+  const tiles = CASE_TILES.filter((c) => showInProgress || !c.inProgress);
   return (
     <div className="case-grid">
-      {CASE_TILES.map((c, i) => (
+      {tiles.map((c, i) => (
         <Reveal key={c.href} delay={baseDelay + i * 80}>
           <Link className="case-tile" href={c.href}>
             <div className="case-tile-meta">{c.meta}</div>

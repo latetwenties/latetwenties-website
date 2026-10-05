@@ -54,7 +54,7 @@ export default function WorkPage() {
 
         <section className="work-grid-section">
           <div className="wrap">
-            <CaseTileGrid baseDelay={80} />
+            <CaseTileGrid baseDelay={80} showInProgress />
             <Reveal as="p" className="work-verify" delay={320}>
               Every client here is named and real, and the numbers are theirs,
               not ours. Want to check one? Look them up, or ask us and
