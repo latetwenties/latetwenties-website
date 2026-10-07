@@ -77,10 +77,19 @@ function renderStat(stat: string): ReactNode {
   );
 }
 
-export function CaseTileGrid({ baseDelay = 120 }: { baseDelay?: number }) {
+export function CaseTileGrid({
+  baseDelay = 120,
+  only,
+}: {
+  baseDelay?: number;
+  only?: string[];
+}) {
+  const tiles = only
+    ? CASE_TILES.filter((c) => only.includes(c.href))
+    : CASE_TILES;
   return (
     <div className="case-grid">
-      {CASE_TILES.map((c, i) => (
+      {tiles.map((c, i) => (
         <Reveal key={c.href} delay={baseDelay + i * 80}>
           <Link className="case-tile" href={c.href}>
             <div className="case-tile-meta">{c.meta}</div>

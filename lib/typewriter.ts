@@ -4,28 +4,25 @@ import { useEffect, useState } from "react";
 
 export type Query = { q: string; kind: "local" | "ai" };
 
-// High-value local service trades only. Deliberately no low-ticket,
-// low-margin, walk-in businesses (barber, florist, hairdresser, etc.):
-// they don't have the customer value to justify the marketing spend, so
-// they're not who we go after.
+// Trades only, to match who we work with and every case study on the site.
+// The first word is server-rendered into the hero headline, so it leads
+// with a trade our proof speaks to directly.
 export const TRADES = [
-  "physio",
   "builder",
+  "concreter",
   "plumber",
   "electrician",
-  "concreter",
-  "dentist",
   "roofer",
-  "lawyer",
+  "landscaper",
 ];
 
 export const QUERIES: Query[] = [
-  { q: "physio near me", kind: "local" },
-  { q: "best accountant in north shore", kind: "ai" },
+  { q: "concreter near me", kind: "local" },
+  { q: "best builder on the north shore", kind: "ai" },
   { q: "electrician near me", kind: "local" },
   { q: "reliable landscaper for a full backyard", kind: "ai" },
   { q: "builder near me", kind: "local" },
-  { q: "best mortgage broker in auckland", kind: "ai" },
+  { q: "best drainlayer in auckland", kind: "ai" },
   { q: "roofer near me", kind: "local" },
   { q: "plumber for an old villa in ponsonby", kind: "ai" },
 ];

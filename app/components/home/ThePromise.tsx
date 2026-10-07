@@ -3,15 +3,16 @@ import { Reveal } from "../Reveal";
 
 // The promise section is the spine of the offer. The 90-day guarantee applies
 // to clients who run the full 90 days: the foundations plus the first three
-// months of ongoing care. Confirmed by Brendan, 2026-07.
-export function ThePromise() {
+// months of ongoing care. Confirmed by Brendan, 2026-07. Shown in full on the
+// homepage and at the top of /how-it-works (Brendan's call, 2026-10).
+export function ThePromise({ num = "02" }: { num?: string }) {
   return (
     <section className="promise" id="the-promise">
       <div className="wrap">
         <div className="promise-grid">
           <div className="promise-head">
             <Reveal>
-              <Eyebrow num="02">The promise</Eyebrow>
+              <Eyebrow num={num}>The promise</Eyebrow>
               <h2>
                 Here&rsquo;s the deal,
                 <br />

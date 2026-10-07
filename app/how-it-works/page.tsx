@@ -2,10 +2,14 @@ import type { Metadata } from "next";
 
 import { breadcrumbList, faqPage } from "@/lib/schema";
 
+import Link from "next/link";
+
+import { CaseTileGrid } from "../components/CaseTileGrid";
 import { Eyebrow } from "../components/Eyebrow";
 import { FinalCTA } from "../components/FinalCTA";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
+import { ThePromise } from "../components/home/ThePromise";
 import { JsonLd } from "../components/JsonLd";
 import { Reveal } from "../components/Reveal";
 
@@ -20,22 +24,17 @@ const FAQS = [
   {
     question: "How long does Get Found take?",
     answer:
-      "Two to four weeks, end to end. The first week is research: your brief, your market, your competitors, and the search queries that matter. Weeks two and three are the build: site, Google Business Profile, listings, review system. Week four is launch and handover. From there it's yours, and you can pick up Stay Chosen or Ring This Week whenever you're ready.",
+      "Two to four weeks, end to end. The first week is research: your brief, your market, your competitors, and the search queries that matter. Weeks two and three are the build: site, Google Business Profile, listings, review system. Week four is launch, and Stay Chosen starts the same week.",
   },
   {
-    question: "When should Stay Chosen start?",
+    question: "When does Stay Chosen start?",
     answer:
-      "Whenever you're ready. Most clients pick it up the week Get Found goes live, so the signals get worked on while the new build is still fresh in Google's eyes. Others wait a month or two and start it once they've seen how the new site lands. Either way works; we'll tell you straight which makes more sense for your patch.",
+      "The week your build goes live. That's when the new site is fresh in Google's eyes, so it's when steady care moves you up fastest. Your first three months of Stay Chosen are part of the 90-day run the guarantee covers. After that it's month to month.",
   },
   {
     question: "What does Ring This Week actually do?",
     answer:
-      "It puts your business in front of the people searching right now. Get Found makes you findable. Stay Chosen moves you up the organic list over months. Ring This Week is the lever you pull when you want enquiries this week, not next quarter. We set up campaigns on Google and Meta, point them at the jobs you actually want, write the ads, build the landing pages they go to, and track the calls and form fills so you can see what the spend is buying.",
-  },
-  {
-    question: "Can I run Ring This Week on its own?",
-    answer:
-      "The system is built to run together, and the guarantee covers the full run: the build plus your first three months of Stay Chosen. Ring This Week is the lever we add on top when you want enquiries this week, not next quarter. If you already have a site you're happy with and only want the ads, ask us. We'll tell you straight whether that makes sense for where you're at.",
+      "It puts your business in front of the people searching right now. Get Found makes you findable. Stay Chosen moves you up the list over months. Ring This Week is the accelerator on top, for when you want enquiries this week, not next quarter. We set up campaigns on Google and Meta, point them at the jobs you actually want, write the ads, build the pages they land on, and track the calls and form fills so you can see what the spend is buying.",
   },
   {
     question: "Do you work with businesses outside Auckland?",
@@ -45,7 +44,7 @@ const FAQS = [
   {
     question: "What if I already have a website?",
     answer:
-      "We'll take a look at it before we recommend anything. Sometimes the right answer is a rebuild, usually because the existing site can't be optimised for local search without significant rework. Sometimes the right answer is to leave it and focus on Stay Chosen or Ring This Week. We'll tell you straight.",
+      "We rebuild it onto our platform, because that's what lets us make changes the same day instead of waiting on someone else. It's also what lets us put the 90-day guarantee in writing. The new site, the domain and every account stay in your name.",
   },
   {
     question: "Do I own everything when we're done?",
@@ -55,12 +54,7 @@ const FAQS = [
   {
     question: "Why aren't you on hourly rates?",
     answer:
-      "Hourly rates reward slow work. Fixed pricing rewards getting it done properly. Get Found is a one-time fixed price for the build. Stay Chosen is a fixed monthly that holds the signals strong. Ring This Week is your ad budget plus a fixed management fee. We'll walk you through the numbers on your free Presence Report.",
-  },
-  {
-    question: "What if it's not working?",
-    answer:
-      "Then we keep working, free. That's the guarantee: run the full 90 days with us, the build plus your first three months of Stay Chosen, and if you don't have more enquiries than the 90 days before us, we keep going for free until you do. No lock-in either way. We're honest about what's landing and what isn't, and we're not in the business of taking your money for work that isn't earning.",
+      "Hourly rates reward slow work. Fixed pricing rewards getting it done properly. The Get Found build is a one-time fixed price, and Stay Chosen is a fixed monthly that keeps you climbing. When Ring This Week runs on top, it's your ad budget plus a fixed management fee. We'll walk you through the numbers on your free Presence Report.",
   },
 ];
 
@@ -72,76 +66,78 @@ const SCHEMA = [
   faqPage(FAQS),
 ];
 
+// Each item leads with the problem it removes or the result it brings, then
+// says what the work is. Proof figures come from the confirmed case studies.
 const GET_FOUND_INCLUDED = [
   {
-    title: "A website you can stand behind",
-    body: "Fast, plain-spoken, structured around the work you actually sell. Service-led pages, not generic templates.",
+    title: "Visitors who turn into calls",
+    body: "A fast, plain-spoken website built around the jobs you want. A page for each service, so someone after a new driveway lands on driveways, not a generic home page. TMT's rebuild gave each of its seven services a page of its own.",
   },
   {
-    title: "Google Business Profile, set up properly",
-    body: "Categories, photos, hours, service area, review settings. The decisions that determine whether you appear on the map pack.",
+    title: "You show up on the map",
+    body: "Your Google Business Profile set up properly: categories, photos, hours, service area, review settings. These are the decisions that decide whether you appear when someone nearby searches. Boaz went from not showing to #2 across its neighbouring towns.",
   },
   {
-    title: "Local listings, consistent",
-    body: "Cleaned up and aligned across the directories that matter. Inconsistent listings cost you calls; we don't leave them inconsistent.",
+    title: "Every directory tells the same story",
+    body: "Your name, address and number cleaned up and matched across the directories that matter. When they disagree, Google trusts you less and customers ring the wrong number. We sort it before launch.",
   },
   {
-    title: "SEO and AI search foundations",
-    body: "Schema, structure, internal linking, the technical bits. Built so people searching on Google find you, and so AI tools can cite you when they answer.",
+    title: "Found on Google, and named by AI tools",
+    body: "Schema, structure, internal linking, the technical bits you never see. Built so people searching on Google find you, and so tools like ChatGPT can name you when someone asks who to call.",
   },
   {
-    title: "Review systems",
-    body: "A simple way to ask, capture, and display reviews. The good ones come in steadily rather than in occasional bursts.",
-  },
-];
-
-const RING_THIS_WEEK_INCLUDED = [
-  {
-    title: "Campaigns set up properly",
-    body: "Structured around the jobs you actually want, on the platforms your customers are actually on. Google for the active searcher, Meta for the one who hasn't started looking yet. Locations, match types, negatives, audiences, sorted before a dollar goes out.",
-  },
-  {
-    title: "Ads that sound like you",
-    body: "Plain-spoken copy that matches what your customers are actually searching for. No hype, no fluff, no headlines we'd be embarrassed to read aloud.",
-  },
-  {
-    title: "Landing pages that earn the click",
-    body: "If the page they land on isn't ready for the ad, the ad doesn't earn its keep. We make sure both sides match up.",
-  },
-  {
-    title: "Conversion tracking that counts enquiries",
-    body: "Calls, form fills, and the actions that actually mean a lead. So you can see what the spend is buying, not just how many clicks it bought.",
-  },
-  {
-    title: "Budget and bids, managed",
-    body: "Started conservative, scaled when it's earning, paused when it isn't. We don't chase impressions for the sake of the chart.",
-  },
-  {
-    title: "A regular update on the spend",
-    body: "What went out, what came in, what to do next. So you always know whether to turn the tap up, down, or off.",
+    title: "Reviews that keep coming in",
+    body: "A simple way to ask every happy customer, capture the review, and show it on your site. New reviews land steadily, not in a rush every couple of years.",
   },
 ];
 
 const STAY_CHOSEN_INCLUDED = [
   {
-    title: "Google Business Profile posts",
-    body: "Posts that keep you active. The kind of signal Google reads as a healthy, current business.",
+    title: "Google sees a business that's open and busy",
+    body: "Regular posts on your Google Business Profile, made from your own job photos. Google reads that as a current, active business. So do the customers deciding who to ring.",
   },
   {
-    title: "Review generation",
-    body: "We help you ask. You stay close to your customers. The good reviews come in at a steady cadence rather than in occasional bursts.",
+    title: "Your newest review is from this month",
+    body: "We make asking easy and prompt it at the right moment, after a job goes well. Reviews keep landing, so the first one a customer reads is recent.",
   },
   {
-    title: "Listings monitoring",
-    body: "We watch the directories that matter and catch the broken ones before they cost you calls.",
+    title: "Nobody gets your old number",
+    body: "We check every directory monthly, so a customer never rings a disconnected line or drives to your old yard.",
   },
   {
-    title: "Iterative SEO",
-    body: "We keep watching what's working. New service pages, ranking opportunities, content that earns its keep. Tuned, not bloated.",
+    title: "You keep climbing, not sliding",
+    body: "Search shifts every month, and newer businesses are always working their way up. We watch what's ranking, add service pages where there's demand, and tune what's already there.",
   },
   {
-    title: "A regular update on what's working",
-    body: "What was done, what changed, what's next. So you always know where it sits.",
+    title: "You always know where you stand",
+    body: "Each month, a single page or a short video: what was done, what changed, what's next. What isn't landing gets said out loud.",
+  },
+];
+
+const RING_THIS_WEEK_INCLUDED = [
+  {
+    title: "No spend on jobs you don't want",
+    body: "Campaigns built around the work you want, in the towns you cover. Google for the person searching now, Meta for the one who hasn't started looking. Locations, negatives and audiences sorted before a dollar goes out.",
+  },
+  {
+    title: "The right people click",
+    body: "Plain-spoken ads that match what your customers type and say what you do and where. The people who click are the people with the job you want.",
+  },
+  {
+    title: "Clicks turn into enquiries",
+    body: "Every ad lands on a page made for it, with the service, the area and a way to get in touch up top. A paid click on a page that isn't ready is a click you paid for and lost.",
+  },
+  {
+    title: "You see what each dollar bought",
+    body: "Calls and form fills tracked back to the ad that brought them. At TMT, 7 of the 12 enquiries in the first full month came from a small search campaign, each at about a third of the cost we'd allowed.",
+  },
+  {
+    title: "Spend goes where it's earning",
+    body: "Start conservative, scale what's working, pause what isn't. We don't chase clicks for the sake of a chart.",
+  },
+  {
+    title: "You decide when to turn the tap",
+    body: "A regular update on what went out, what came in, and what we'd do next. Turn it up when you want more work, down when you're booked out.",
   },
 ];
 
@@ -159,7 +155,7 @@ const PROCESS_STEPS = [
   {
     num: "03",
     title: "Competition",
-    body: "Who shows up now, where the gaps sit, and which competitors we can credibly outrank without overpromising.",
+    body: "Who shows up now, where the gaps sit, and where you can credibly move up without overpromising.",
   },
   {
     num: "04",
@@ -179,7 +175,7 @@ const PROCESS_STEPS = [
   {
     num: "07",
     title: "Build",
-    body: "We build the site, the GMB, the listings, the review systems. Working from the keywords and the brief, no decks or wireframes to sign off.",
+    body: "We build the site, the Google Business Profile, the listings, the review systems. Working from the keywords and the brief, no decks or wireframes to sign off.",
   },
 ];
 
@@ -267,16 +263,65 @@ export default function HowItWorks() {
             </Reveal>
             <Reveal delay={160}>
               <p className="hiw-lede">
-                One system, three parts. Get Found builds your presence so you
-                show up. Stay Chosen keeps you climbing. Ring This Week brings
-                enquiries in fast. Built to run as one system. No lock-ins.
+                One system, run together. Get Found builds the presence that
+                gets you found. Stay Chosen keeps you there, month after month.
+                Ring This Week is the accelerator on top when you want the
+                phone ringing sooner.
               </p>
             </Reveal>
           </div>
         </section>
 
+        <ThePromise num="01" />
+
+        <section className="hiw-working">
+          <div className="wrap">
+            <div className="work-grid">
+              <div className="work-left">
+                <Reveal>
+                  <Eyebrow num="02">Working with us</Eyebrow>
+                  <h2 className="work-h2">
+                    Your side of it
+                    <br />
+                    <em>stays light.</em>
+                  </h2>
+                </Reveal>
+              </div>
+
+              <div className="work-right">
+                <Reveal as="div" className="work-body" delay={80}>
+                  <p>
+                    We do the website copywriting and we source the images. At
+                    onboarding you upload your own project photos, and
+                    that&rsquo;s the bulk of your part done. After that
+                    it&rsquo;s the odd new photo for a Google update, and a
+                    quick yes by email when fresh content goes live.
+                  </p>
+                  <p>
+                    We only pull you in when we need a decision only you can
+                    make. A specific accreditation, a claim about your service
+                    area, the kind of thing the owner has to confirm.
+                  </p>
+                  <p className="work-pull">
+                    No status meetings for the sake of status meetings. No
+                    jargon. No upsells dressed up as recommendations. Each
+                    month you get a single page or a short Loom from us with
+                    what&rsquo;s been done, what&rsquo;s changed, and
+                    what&rsquo;s next.
+                  </p>
+                  <p>
+                    Your build goes live in two to four weeks. We treat your
+                    business like our own, and everything we put out, we
+                    scrutinise the way <em>you</em> would.
+                  </p>
+                </Reveal>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <ProductBlock
-          num="01"
+          num="03"
           productName="Get Found"
           headline={
             <>
@@ -338,7 +383,7 @@ export default function HowItWorks() {
         </section>
 
         <ProductBlock
-          num="02"
+          num="04"
           productName="Stay Chosen"
           headline={
             <>
@@ -350,16 +395,16 @@ export default function HowItWorks() {
           lede="The steady, visible care that moves you up the list over months. Reviews come in, content goes up, listings stay clean, the technical bits stay current. Each month the signals get stronger; each month you climb a little further into the searches that bring you work."
           meta={
             <>
-              Month-to-month. No lock-ins.
+              Starts the week your build goes live.
               <br />
-              Runs alongside the build from day one.
+              The first three months are part of the guarantee run.
             </>
           }
           items={STAY_CHOSEN_INCLUDED}
         />
 
         <ProductBlock
-          num="03"
+          num="05"
           productName="Ring This Week"
           headline={
             <>
@@ -371,70 +416,43 @@ export default function HowItWorks() {
           lede="Paid placement on Google and Meta, built to put your business in front of the people searching right now. The fastest route from a search to a call landing with you. Campaigns pointed at the jobs you actually want, ads that sound like you, landing pages ready for the click, and conversions tracked so you know what the spend is buying."
           meta={
             <>
-              Your ad budget plus a fixed monthly management fee.
+              The accelerator, run on top of the system.
               <br />
-              On when you want it, off when you don&rsquo;t. No lock-ins.
+              Your ad budget plus a fixed monthly management fee.
             </>
           }
           items={RING_THIS_WEEK_INCLUDED}
         />
 
-        <section className="hiw-working">
+        <section className="case" id="proof">
           <div className="wrap">
-            <div className="work-grid">
-              <div className="work-left">
-                <Reveal>
-                  <Eyebrow>Working with us</Eyebrow>
-                  <h2 className="work-h2">
-                    We treat
-                    <br />
-                    your business
-                    <br />
-                    like our own.
-                  </h2>
-                </Reveal>
-              </div>
-
-              <div className="work-right">
-                <Reveal as="div" className="work-body" delay={80}>
-                  <p>
-                    We aim to be the marketing partner you forget about, in
-                    the good way. We do the work, we show our working, and we
-                    only pull you in when we genuinely need a decision only
-                    you can make. A specific accreditation, a claim about your
-                    service area, the kind of thing the owner has to confirm.
-                  </p>
-                  <p>
-                    Your side of it stays light. We do the website copywriting
-                    and we source the images. At onboarding you upload your own
-                    project photos, and that&rsquo;s the bulk of your part
-                    done. After that it&rsquo;s the odd new photo for a Google
-                    update, and a quick yes by email when fresh content goes
-                    live.
-                  </p>
-                  <p className="work-pull">
-                    No status meetings for the sake of status meetings. No
-                    jargon. No upsells masquerading as recommendations. Each
-                    month you get a single page or a short Loom from us with
-                    what&rsquo;s been done, what&rsquo;s changed, and
-                    what&rsquo;s next.
-                  </p>
-                  <p>
-                    Your build goes live in two to four weeks. From there, Stay
-                    Chosen keeps building on it, month after month.
-                  </p>
-                  <p>
-                    The wins get celebrated. The bits that aren&rsquo;t
-                    landing get said out loud, not hidden under a softer
-                    chart.
-                  </p>
-                  <p>
-                    Everything we put out, we scrutinise the way{" "}
-                    <em>you</em> would.
-                  </p>
-                </Reveal>
-              </div>
+            <div className="case-head">
+              <Reveal>
+                <p className="case-pull">
+                  The same system,
+                  <br />
+                  <em>already working.</em>
+                </p>
+              </Reveal>
+              <Reveal as="p" className="case-meta" delay={80}>
+                <span className="case-meta-num">06</span> The proof · Real
+                clients · Real numbers · Recent work
+              </Reveal>
             </div>
+
+            <CaseTileGrid
+              only={[
+                "/work/tmt-concreting",
+                "/work/boaz-developments",
+                "/work/rbm-concrete",
+              ]}
+            />
+
+            <Reveal className="case-cta" delay={360}>
+              <Link className="ghost-link" href="/work">
+                All case studies →
+              </Link>
+            </Reveal>
           </div>
         </section>
 
@@ -443,7 +461,7 @@ export default function HowItWorks() {
             <div className="faq-grid">
               <div className="faq-left">
                 <Reveal>
-                  <Eyebrow>FAQ</Eyebrow>
+                  <Eyebrow num="07">FAQ</Eyebrow>
                   <h2 className="faq-h2">
                     The questions
                     <br />
@@ -475,7 +493,7 @@ export default function HowItWorks() {
           </div>
         </section>
 
-        <FinalCTA num="06" label="Free Presence Report" />
+        <FinalCTA num="08" label="Free Presence Report" />
       </main>
       <Footer />
     </>

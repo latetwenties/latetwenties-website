@@ -26,10 +26,10 @@ a portfolio. Promise + guarantee + proof is an offer.
 1. Lead with the outcome, never the vehicle. If a heading names a deliverable,
    rewrite it to name a result.
 2. The guarantee is NOT a site-wide brand element. Do not put it in the footer or
-   on every page. It lives in FULL once, on the homepage Promise section, is
-   lightly echoed on the homepage (hero opening + "Backed by the 90-day guarantee"
-   under the System), and is answered in the /how-it-works "what if it's not
-   working" FAQ. That's it. Do NOT lead non-pitch pages (About) with it, do NOT
+   on every page. It lives in FULL on the homepage Promise section and at the
+   top of /how-it-works (same `ThePromise` component, Brendan's call 2026-10),
+   and is lightly echoed on the homepage (hero opening + "Backed by the 90-day
+   guarantee" under the System). That's it. Do NOT lead non-pitch pages (About) with it, do NOT
    restate it in multiple sections of one page, and do NOT add a footer promise
    line. Over-exposure reads as anxious and breaks the "quietly confident" voice
    (Brendan's call, 2026-07-08).
@@ -115,6 +115,30 @@ a portfolio. Promise + guarantee + proof is an offer.
    the final CTA. The booking month is computed automatically by
    `app/components/home/BookingMonth.tsx` (current month, rolling to the next in
    the last 7 days), so it stays honest without manual updates.
+
+## Selling one system, not a menu (Brendan's call, 2026-10)
+
+- The default offer is the full run: Get Found build + Stay Chosen care, with
+  Ring This Week as the accelerator on top. That's what the guarantee covers.
+- Never present the parts as separately sold, and never write "run one or all
+  three" or "each part works on its own". Ads-only is never offered on the site;
+  it's handled case by case on a sales call.
+- We always rebuild an existing website onto our platform. Never say we might
+  leave a client's existing site in place. The rebuild is the reason we can make
+  same-day changes and put the guarantee in writing.
+- Deliverables are written obstacle-first: the title names the problem removed
+  or the result, the body says what the work is, how it helps, and proof where
+  it exists. Never a bare task name ("GBP posts", "Iterative SEO").
+- Search examples (hero, typewriter queries) are trades only, to match the
+  clients and proof.
+
+## Pending confirmation
+
+- TMT proof figure. A stronger current figure (~7 to ~35 enquiries a month at
+  three months, same ad spend) was proposed in Oct 2026, but its baseline (7)
+  doesn't match the published baseline (4 in May). The site still says 4 to 12
+  in the first full month. Don't swap it until Brendan confirms both numbers
+  and the period they cover.
 
 ## Standing rule on dates
 
