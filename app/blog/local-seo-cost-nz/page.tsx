@@ -260,7 +260,7 @@ export default function Post() {
           For a real example of the upside, a concreter in Gippsland went
           from{" "}
           <a href="/work/tmt-concreting">
-            four enquiries a month to twelve in the first full month
+            four enquiries a month to thirty-five by the third full month
           </a>
           , with a new website, the local search work and a small Google
           Ads campaign running together. Not every business will see that,

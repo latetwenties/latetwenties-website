@@ -115,6 +115,9 @@ a portfolio. Promise + guarantee + proof is an offer.
    the final CTA. The booking month is computed automatically by
    `app/components/home/BookingMonth.tsx` (current month, rolling to the next in
    the last 7 days), so it stays honest without manual updates.
+3. TMT enquiries (confirmed by Brendan, 2026-10): 4 in May (baseline), 12 in
+   June (first full month), 35 in August (third full month). The headline proof
+   is 4 to 35. The June detail (7 of 12 from ads) stays as first-month colour.
 
 ## Selling one system, not a menu (Brendan's call, 2026-10)
 
@@ -131,14 +134,6 @@ a portfolio. Promise + guarantee + proof is an offer.
   it exists. Never a bare task name ("GBP posts", "Iterative SEO").
 - Search examples (hero, typewriter queries) are trades only, to match the
   clients and proof.
-
-## Pending confirmation
-
-- TMT proof figure. A stronger current figure (~7 to ~35 enquiries a month at
-  three months, same ad spend) was proposed in Oct 2026, but its baseline (7)
-  doesn't match the published baseline (4 in May). The site still says 4 to 12
-  in the first full month. Don't swap it until Brendan confirms both numbers
-  and the period they cover.
 
 ## Standing rule on dates
 
