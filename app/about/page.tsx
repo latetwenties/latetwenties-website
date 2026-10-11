@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Image from "next/image";
 
 import { breadcrumbList } from "@/lib/schema";
 
-import { CaseTileGrid } from "../components/CaseTileGrid";
+import { CaseTileGrid, FEATURED_CASES } from "../components/CaseTileGrid";
 import { Eyebrow } from "../components/Eyebrow";
 import { FinalCTA } from "../components/FinalCTA";
 import { Footer } from "../components/Footer";
@@ -202,8 +203,13 @@ export default function About() {
                 <span className="case-meta-num">03</span> The proof · Real
                 clients · Real numbers · Recent work
               </Reveal>
+              <Reveal delay={120}>
+                <Link className="ghost-link" href="/work">
+                  See all case studies →
+                </Link>
+              </Reveal>
             </div>
-            <CaseTileGrid />
+            <CaseTileGrid only={FEATURED_CASES} />
           </div>
         </section>
 

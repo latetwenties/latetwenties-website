@@ -74,7 +74,7 @@ export function TmtResults() {
     };
   }, []);
 
-  const enquiries = useCountAnim(4, 35, active);
+  const enquiries = useCountAnim(7, 35, active);
 
   return (
     <section className="cs-act cs-act-3" ref={ref}>
@@ -94,15 +94,16 @@ export function TmtResults() {
           </div>
           <Reveal as="div" className="cs-act-body" delay={80}>
             <p>
-              June 2026 was the first full month with all of it running
-              together: the new site, the local layer, the ads. TMT took 12
-              enquiries for the month, up from 4 in May. Ten came through the
+              Before we started, TMT took about seven enquiries a month. June
+              2026 was the first full month with all of it running together:
+              the new site, the local layer, the ads. TMT took 12 enquiries
+              for the month. Ten came through the
               quote forms, one from a phone tap on the site, and one call
               straight off an ad.
             </p>
             <p>
               It kept building from there. By August, the third full month,
-              TMT took 35 enquiries.
+              TMT took 35 enquiries, with no extra ad spend.
             </p>
           </Reveal>
         </div>
@@ -110,16 +111,16 @@ export function TmtResults() {
         <Reveal className={`cs-rank ${active ? "is-active" : ""}`} delay={120}>
           <div className="cs-rank-stats">
             <div className="cs-rank-label">
-              Enquiries · May → August 2026
+              Enquiries a month · before → August 2026
             </div>
             <div className="cs-rank-value">
-              <span className="cs-rank-old">4</span>
+              <span className="cs-rank-old">7</span>
               <span className="cs-rank-arrow">→</span>
               <span className="cs-rank-new">{enquiries}</span>
             </div>
             <div className="cs-rank-meta">
-              <em>Nearly nine times May&rsquo;s enquiries</em> by the third
-              full month with the site, the map and the ads all working.
+              <em>Five times the enquiries</em> by the third full month, with
+              no extra ad spend. Every enquiry counted, before and after.
               Counted from GA4 and Google Ads, August 2026.
             </div>
           </div>
@@ -168,7 +169,7 @@ export function TmtResults() {
               allowed for.
             </li>
             <li>
-              <strong>Enquiries:</strong> 4 in May, 12 in June, 35 in August. Tracked end
+              <strong>Enquiries:</strong> about 7 a month before, 12 in June, 35 in August, with no extra ad spend. Tracked end
               to end, so every one of them is counted, not guessed.
             </li>
             <li>

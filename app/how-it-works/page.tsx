@@ -4,12 +4,13 @@ import { breadcrumbList, faqPage } from "@/lib/schema";
 
 import Link from "next/link";
 
-import { CaseTileGrid } from "../components/CaseTileGrid";
+import { CaseTileGrid, FEATURED_CASES } from "../components/CaseTileGrid";
 import { Eyebrow } from "../components/Eyebrow";
 import { FinalCTA } from "../components/FinalCTA";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { ThePromise } from "../components/home/ThePromise";
+import { Stage, SystemStages } from "../components/how-it-works/SystemStages";
 import { JsonLd } from "../components/JsonLd";
 import { Reveal } from "../components/Reveal";
 
@@ -179,69 +180,102 @@ const PROCESS_STEPS = [
   },
 ];
 
-type ProductItem = { title: string; body: string };
-
-type ProductBlockProps = {
-  num: string;
-  productName: string;
-  headline: React.ReactNode;
-  lede: string;
-  meta?: React.ReactNode;
-  items: ProductItem[];
-};
-
-function ProductBlock({
-  num,
-  productName,
-  headline,
-  lede,
-  meta,
-  items,
-}: ProductBlockProps) {
-  return (
-    <section className="prod-block">
-      <div className="wrap">
-        <div className="prod-grid">
-          <div className="prod-left">
-            <Reveal>
-              <Eyebrow num={num}>{productName}</Eyebrow>
-              <h2 className="prod-h2">{headline}</h2>
-            </Reveal>
-            <Reveal delay={80}>
-              <p className="prod-lede">{lede}</p>
-            </Reveal>
-            {meta ? (
-              <Reveal delay={160}>
-                <div className="prod-price">
-                  <div className="prod-price-meta">{meta}</div>
-                </div>
-              </Reveal>
-            ) : null}
+const PROCESS = (
+  <div className="sys-process">
+    <div className="eyebrow">How the build runs</div>
+    <p className="sys-process-lede">
+      Six research steps, then we build. It&rsquo;s the difference between a
+      website that looks good and a website that earns calls.
+    </p>
+    <ol className="proc-steps">
+      {PROCESS_STEPS.map((step) => (
+        <li key={step.num} className="proc-step">
+          <span className="proc-step-num">{step.num}</span>
+          <div className="proc-step-body">
+            <h5 className="proc-step-h">{step.title}</h5>
+            <p className="proc-step-p">{step.body}</p>
           </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+);
 
-          <div className="prod-right">
-            <Reveal>
-              <div className="eyebrow">What&rsquo;s included</div>
-            </Reveal>
-            <ul className="prod-items">
-              {items.map((item, i) => (
-                <Reveal
-                  as="li"
-                  key={item.title}
-                  delay={80 + i * 60}
-                  className="prod-item"
-                >
-                  <h3 className="prod-item-h">{item.title}</h3>
-                  <p className="prod-item-p">{item.body}</p>
-                </Reveal>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
+const STAGES: Stage[] = [
+  {
+    id: "get-found",
+    num: "01",
+    name: "Get Found",
+    when: "Weeks 1 to 4",
+    headline: (
+      <>
+        Show up when
+        <br />
+        <em>locals search.</em>
+      </>
+    ),
+    summary:
+      "We research your market, then build your website, Google Business Profile, listings and reviews around the jobs you want. Live in two to four weeks.",
+    lede: "Everything you need to be findable when someone searches. Built once, properly, so every signal points to you from launch instead of pulling in different directions.",
+    meta: (
+      <>
+        One-time build. Yours to keep when it&rsquo;s done.
+        <br />
+        Two to four weeks, end to end.
+      </>
+    ),
+    items: GET_FOUND_INCLUDED,
+    extra: PROCESS,
+  },
+  {
+    id: "stay-chosen",
+    num: "02",
+    name: "Stay Chosen",
+    when: "From launch, every month",
+    headline: (
+      <>
+        Keep climbing,
+        <br />
+        <em>month after month.</em>
+      </>
+    ),
+    summary:
+      "Fresh reviews, regular posts, clean listings and ongoing SEO, so you keep moving up the list instead of sliding back. Starts the week your build goes live.",
+    lede: "The steady, visible care that moves you up the list over months. Reviews come in, content goes up, listings stay clean, the technical bits stay current. Each month you climb a little further into the searches that bring you work.",
+    meta: (
+      <>
+        Starts the week your build goes live.
+        <br />
+        The first three months are part of the guarantee run.
+      </>
+    ),
+    items: STAY_CHOSEN_INCLUDED,
+  },
+  {
+    id: "ring-this-week",
+    num: "03",
+    name: "Ring This Week",
+    when: "On top, when you want calls sooner",
+    headline: (
+      <>
+        The phone ringing
+        <br />
+        <em>this week.</em>
+      </>
+    ),
+    summary:
+      "Google and Meta ads aimed at the jobs you want, in the towns you cover. The accelerator for enquiries now, while the rest of the system builds.",
+    lede: "Paid placement on Google and Meta, built to put your business in front of the people searching right now. The fastest route from a search to a call landing with you.",
+    meta: (
+      <>
+        The accelerator, run on top of the system.
+        <br />
+        Your ad budget plus a fixed monthly management fee.
+      </>
+    ),
+    items: RING_THIS_WEEK_INCLUDED,
+  },
+];
 
 export default function HowItWorks() {
   return (
@@ -320,109 +354,28 @@ export default function HowItWorks() {
           </div>
         </section>
 
-        <ProductBlock
-          num="03"
-          productName="Get Found"
-          headline={
-            <>
-              Once,
-              <br />
-              <em>properly.</em>
-            </>
-          }
-          lede="Everything you need to be findable when someone searches. Built once, properly, so every signal points to you from launch instead of pulling in different directions."
-          meta={
-            <>
-              One-time build. Yours to keep when it&rsquo;s done.
-              <br />
-              Two to four weeks, end to end.
-            </>
-          }
-          items={GET_FOUND_INCLUDED}
-        />
-
-        <section className="hiw-process">
+        <section className="sys" id="the-system">
           <div className="wrap">
-            <div className="proc-grid">
-              <div className="proc-left">
-                <Reveal>
-                  <Eyebrow>Inside Get Found</Eyebrow>
-                  <h2 className="proc-h2">
-                    How a Get Found
-                    <br />
-                    build runs.
-                  </h2>
-                </Reveal>
-                <Reveal delay={80}>
-                  <p className="proc-lede">
-                    Six research steps, then we build. We do the work because
-                    it&rsquo;s the difference between a website that looks
-                    good and a website that earns calls.
-                  </p>
-                </Reveal>
-              </div>
-
-              <ol className="proc-steps">
-                {PROCESS_STEPS.map((step, i) => (
-                  <Reveal
-                    as="li"
-                    key={step.num}
-                    delay={i * 50}
-                    className="proc-step"
-                  >
-                    <span className="proc-step-num">{step.num}</span>
-                    <div className="proc-step-body">
-                      <h3 className="proc-step-h">{step.title}</h3>
-                      <p className="proc-step-p">{step.body}</p>
-                    </div>
-                  </Reveal>
-                ))}
-              </ol>
+            <div className="sys-head">
+              <Reveal>
+                <Eyebrow num="03">The system</Eyebrow>
+                <h2 className="sys-h2">
+                  Three stages.
+                  <br />
+                  <em>One system.</em>
+                </h2>
+              </Reveal>
+              <Reveal as="p" className="sys-lede" delay={80}>
+                Get Found and Stay Chosen always run together, in that order.
+                Ring This Week goes on top when you want the phone ringing
+                sooner. Open any stage to see exactly what&rsquo;s in it.
+              </Reveal>
             </div>
+            <Reveal delay={140}>
+              <SystemStages stages={STAGES} />
+            </Reveal>
           </div>
         </section>
-
-        <ProductBlock
-          num="04"
-          productName="Stay Chosen"
-          headline={
-            <>
-              Keep the
-              <br />
-              signals <em>active.</em>
-            </>
-          }
-          lede="The steady, visible care that moves you up the list over months. Reviews come in, content goes up, listings stay clean, the technical bits stay current. Each month the signals get stronger; each month you climb a little further into the searches that bring you work."
-          meta={
-            <>
-              Starts the week your build goes live.
-              <br />
-              The first three months are part of the guarantee run.
-            </>
-          }
-          items={STAY_CHOSEN_INCLUDED}
-        />
-
-        <ProductBlock
-          num="05"
-          productName="Ring This Week"
-          headline={
-            <>
-              Straight to the
-              <br />
-              <em>enquiry.</em>
-            </>
-          }
-          lede="Paid placement on Google and Meta, built to put your business in front of the people searching right now. The fastest route from a search to a call landing with you. Campaigns pointed at the jobs you actually want, ads that sound like you, landing pages ready for the click, and conversions tracked so you know what the spend is buying."
-          meta={
-            <>
-              The accelerator, run on top of the system.
-              <br />
-              Your ad budget plus a fixed monthly management fee.
-            </>
-          }
-          items={RING_THIS_WEEK_INCLUDED}
-        />
 
         <section className="case" id="proof">
           <div className="wrap">
@@ -435,24 +388,17 @@ export default function HowItWorks() {
                 </p>
               </Reveal>
               <Reveal as="p" className="case-meta" delay={80}>
-                <span className="case-meta-num">06</span> The proof · Real
+                <span className="case-meta-num">04</span> The proof · Real
                 clients · Real numbers · Recent work
+              </Reveal>
+              <Reveal delay={120}>
+                <Link className="ghost-link" href="/work">
+                  See all case studies →
+                </Link>
               </Reveal>
             </div>
 
-            <CaseTileGrid
-              only={[
-                "/work/tmt-concreting",
-                "/work/boaz-developments",
-                "/work/rbm-concrete",
-              ]}
-            />
-
-            <Reveal className="case-cta" delay={360}>
-              <Link className="ghost-link" href="/work">
-                All case studies →
-              </Link>
-            </Reveal>
+            <CaseTileGrid only={FEATURED_CASES} />
           </div>
         </section>
 
@@ -461,7 +407,7 @@ export default function HowItWorks() {
             <div className="faq-grid">
               <div className="faq-left">
                 <Reveal>
-                  <Eyebrow num="07">FAQ</Eyebrow>
+                  <Eyebrow num="05">FAQ</Eyebrow>
                   <h2 className="faq-h2">
                     The questions
                     <br />
@@ -484,8 +430,13 @@ export default function HowItWorks() {
                     className="faq-item"
                     delay={i * 60}
                   >
-                    <h3 className="faq-q">{item.question}</h3>
-                    <p className="faq-a">{item.answer}</p>
+                    <details className="faq-details">
+                      <summary className="faq-summary">
+                        <h3 className="faq-q">{item.question}</h3>
+                        <span className="faq-icon" aria-hidden="true" />
+                      </summary>
+                      <p className="faq-a">{item.answer}</p>
+                    </details>
                   </Reveal>
                 ))}
               </ol>
@@ -493,7 +444,7 @@ export default function HowItWorks() {
           </div>
         </section>
 
-        <FinalCTA num="08" label="Free Presence Report" />
+        <FinalCTA num="06" label="Free Presence Report" />
       </main>
       <Footer />
     </>
