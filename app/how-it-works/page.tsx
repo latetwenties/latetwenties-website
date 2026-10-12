@@ -17,7 +17,7 @@ import { Reveal } from "../components/Reveal";
 export const metadata: Metadata = {
   title: "How it works",
   description:
-    "How we get you found online and chosen by local customers: one system, three parts. Groundwork, Momentum, Ring This Week. More local enquiries in 90 days, or we work free until you get them.",
+    "How we get you found online and chosen by local customers: one system, three parts. Groundwork, Momentum, Fast Track. More local enquiries in 90 days, or we work free until you get them.",
   alternates: { canonical: "/how-it-works" },
 };
 
@@ -33,9 +33,9 @@ const FAQS = [
       "The week your build goes live. That's when the new site is fresh in Google's eyes, so it's when steady care moves you up fastest. Your first three months of Momentum are part of the 90-day run the guarantee covers. After that it's month to month.",
   },
   {
-    question: "What does Ring This Week actually do?",
+    question: "What does Fast Track actually do?",
     answer:
-      "It puts your business in front of the people searching right now. Groundwork makes you findable. Momentum moves you up the list over months. Ring This Week is the accelerator on top, for when you want enquiries in weeks, not months. We set up campaigns on Google and Meta, point them at the jobs you actually want, write the ads, build the pages they land on, and track the calls and form fills so you can see what the spend is buying.",
+      "It puts your business in front of the people searching right now. Groundwork makes you findable. Momentum moves you up the list over months. Fast Track is the accelerator on top, for when you want enquiries in weeks, not months. We set up campaigns on Google and Meta, point them at the jobs you actually want, write the ads, build the pages they land on, and track the calls and form fills so you can see what the spend is buying.",
   },
   {
     question: "Do you work with businesses outside Auckland?",
@@ -55,7 +55,7 @@ const FAQS = [
   {
     question: "Why aren't you on hourly rates?",
     answer:
-      "Hourly rates reward slow work. Fixed pricing rewards getting it done properly. The Groundwork build is a one-time fixed price, and Momentum is a fixed monthly that keeps you climbing. When Ring This Week runs on top, it's your ad budget plus a fixed management fee. We'll walk you through the numbers on your free Presence Report.",
+      "Hourly rates reward slow work. Fixed pricing rewards getting it done properly. The Groundwork build is a one-time fixed price, and Momentum is a fixed monthly that keeps you climbing. When Fast Track runs on top, it's your ad budget plus a fixed management fee. We'll walk you through the numbers on your free Presence Report.",
   },
 ];
 
@@ -115,7 +115,7 @@ const STAY_CHOSEN_INCLUDED = [
   },
 ];
 
-const RING_THIS_WEEK_INCLUDED = [
+const FAST_TRACK_INCLUDED = [
   {
     title: "No spend on jobs you don't want",
     body: "Campaigns built around the work you want, in the towns you cover. Google for the person searching now, Meta for the one who hasn't started looking. Locations, negatives and audiences sorted before a dollar goes out.",
@@ -252,9 +252,9 @@ const STAGES: Stage[] = [
     items: STAY_CHOSEN_INCLUDED,
   },
   {
-    id: "ring-this-week",
+    id: "fast-track",
     num: "03",
-    name: "Ring This Week",
+    name: "Fast Track",
     when: "On top, when you want calls sooner",
     headline: (
       <>
@@ -273,7 +273,7 @@ const STAGES: Stage[] = [
         Your ad budget plus a fixed monthly management fee.
       </>
     ),
-    items: RING_THIS_WEEK_INCLUDED,
+    items: FAST_TRACK_INCLUDED,
   },
 ];
 
@@ -299,7 +299,7 @@ export default function HowItWorks() {
               <p className="hiw-lede">
                 One system, run together. Groundwork builds the presence that
                 gets you found. Momentum keeps you there, month after month.
-                Ring This Week is the accelerator on top when you want the
+                Fast Track is the accelerator on top when you want the
                 phone ringing sooner.
               </p>
             </Reveal>
@@ -367,7 +367,7 @@ export default function HowItWorks() {
               </Reveal>
               <Reveal as="p" className="sys-lede" delay={80}>
                 Groundwork and Momentum always run together, in that order.
-                Ring This Week goes on top when you want the phone ringing
+                Fast Track goes on top when you want the phone ringing
                 sooner. Open any stage to see exactly what&rsquo;s in it.
               </Reveal>
             </div>

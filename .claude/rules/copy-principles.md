@@ -47,7 +47,7 @@ a portfolio. Promise + guarantee + proof is an offer.
 8. Reader > writer. Every "I/we" sentence must serve the reader. One founder-story
    moment of personality per page, max.
 9. One named system: "The Found & Chosen System". Parts: Groundwork / Momentum /
-   Ring This Week (ads name under review, Brendan 2026-10). Use consistently.
+   Fast Track (Brendan's call, 2026-10). Use consistently.
    Momentum is explained in plain words as "the monthly upkeep that keeps you
    climbing". Retire "Foundations", "Presence Care", "Get Found" and "Stay
    Chosen" from customer-facing copy.
@@ -76,7 +76,7 @@ a portfolio. Promise + guarantee + proof is an offer.
 
 - /how-it-works: restructure around time + effort, when the first visible result
   lands, when the guarantee clock starts. Rename steps to Groundwork / Momentum /
-  Ring This Week. End with promise + Presence Report CTA. Real client-effort shape
+  Fast Track. End with promise + Presence Report CTA. Real client-effort shape
   (confirmed by Brendan, do NOT invent a minutes figure): Brendan does all the
   website copywriting and sources the images. At onboarding the client just uploads
   their own project photos. After that the only asks are occasional new photos for
@@ -129,7 +129,7 @@ a portfolio. Promise + guarantee + proof is an offer.
 ## Selling one system, not a menu (Brendan's call, 2026-10)
 
 - The default offer is the full run: Groundwork build + Momentum care, with
-  Ring This Week as the accelerator on top. That's what the guarantee covers.
+  Fast Track as the accelerator on top. That's what the guarantee covers.
 - Never present the parts as separately sold, and never write "run one or all
   three" or "each part works on its own". Ads-only is never offered on the site;
   it's handled case by case on a sales call.

@@ -44,11 +44,6 @@ export function Hero() {
             More local enquiries in 90 days. Someone is searching for what you
             do right now. We make sure your business is the one they choose.
           </p>
-          <ul className="hero-services">
-            <li>New names calling, not just referrals</li>
-            <li>Done for you. Your part is a few photos</li>
-            <li>A straight report every month</li>
-          </ul>
         </div>
 
         <div className="hero-cta-row">

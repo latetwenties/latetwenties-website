@@ -49,9 +49,9 @@ export function TwoThings() {
 
           <Reveal as="article" className="two-card" delay={160}>
             <div className="num">
-              <span className="num-i">03</span> / Ring This Week
+              <span className="num-i">03</span> / Fast Track
             </div>
-            <h3>Ring This Week</h3>
+            <h3>Fast Track</h3>
             <p className="body">
               Paid placement on Google and Meta puts you in front of people
               searching right now. The fast lane: enquiries in weeks, not
