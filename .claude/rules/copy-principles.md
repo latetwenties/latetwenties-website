@@ -46,9 +46,14 @@ a portfolio. Promise + guarantee + proof is an offer.
    problem at all". Warm is fine, doormat is not. End sections with a next step.
 8. Reader > writer. Every "I/we" sentence must serve the reader. One founder-story
    moment of personality per page, max.
-9. One named system: "The Found & Chosen System". Parts: Get Found / Stay Chosen /
-   Ring This Week. Use consistently. Retire "Foundations" and "Presence Care" from
-   customer-facing copy.
+9. One named system: "The Found & Chosen System". Parts: Groundwork / Momentum /
+   Ring This Week (ads name under review, Brendan 2026-10). Use consistently.
+   Momentum is explained in plain words as "the monthly upkeep that keeps you
+   climbing". Retire "Foundations", "Presence Care", "Get Found" and "Stay
+   Chosen" from customer-facing copy.
+   Never promise a timeframe we can't guarantee for every client: no "phone
+   ringing this week", no "show up first", nothing that depends on the client's
+   own workload (like review volume). Say "in weeks, not months" for ads.
 10. Truth constraint (hard rule). Never publish a guarantee, a scarcity claim, a
     number, or a testimonial that isn't real and confirmed by Brendan. If a claim
     isn't confirmed, ship the page without it and flag it. Get as close to the
@@ -70,7 +75,7 @@ a portfolio. Promise + guarantee + proof is an offer.
 ## Per-page adaptation notes (not yet applied beyond homepage)
 
 - /how-it-works: restructure around time + effort, when the first visible result
-  lands, when the guarantee clock starts. Rename steps to Get Found / Stay Chosen /
+  lands, when the guarantee clock starts. Rename steps to Groundwork / Momentum /
   Ring This Week. End with promise + Presence Report CTA. Real client-effort shape
   (confirmed by Brendan, do NOT invent a minutes figure): Brendan does all the
   website copywriting and sources the images. At onboarding the client just uploads
@@ -109,7 +114,7 @@ a portfolio. Promise + guarantee + proof is an offer.
 
 1. The 90-day guarantee is live and confirmed. It applies to clients who run the
    full 90 days: the foundations plus the first three months of ongoing care
-   (Stay Chosen). The Promise section and fine print carry that condition. No
+   (Momentum). The Promise section and fine print carry that condition. No
    lock-in contract still holds; the guarantee just needs the full run to be fair.
 2. The "three new businesses a month" scarcity cap is confirmed and rendered in
    the final CTA. The booking month is computed automatically by
@@ -123,7 +128,7 @@ a portfolio. Promise + guarantee + proof is an offer.
 
 ## Selling one system, not a menu (Brendan's call, 2026-10)
 
-- The default offer is the full run: Get Found build + Stay Chosen care, with
+- The default offer is the full run: Groundwork build + Momentum care, with
   Ring This Week as the accelerator on top. That's what the guarantee covers.
 - Never present the parts as separately sold, and never write "run one or all
   three" or "each part works on its own". Ads-only is never offered on the site;

@@ -17,17 +17,17 @@ export function TwoThings() {
             </h2>
           </Reveal>
           <Reveal as="p" className="lede" delay={120}>
-            One system, three parts. Get found. Stay chosen. Speed it up when
-            you need the phone to ring now.
+            One system, three parts. Groundwork first. Momentum every month.
+            Speed it up when you want calls sooner.
           </Reveal>
         </div>
 
         <div className="two-grid">
           <Reveal as="article" className="two-card">
             <div className="num">
-              <span className="num-i">01</span> / Get Found
+              <span className="num-i">01</span> / Groundwork
             </div>
-            <h3>Get Found</h3>
+            <h3>Groundwork</h3>
             <p className="body">
               When someone searches your trade in your area, you show up, and
               you look like the obvious choice. Website, Google Business
@@ -37,13 +37,13 @@ export function TwoThings() {
 
           <Reveal as="article" className="two-card" delay={80}>
             <div className="num">
-              <span className="num-i">02</span> / Stay Chosen
+              <span className="num-i">02</span> / Momentum
             </div>
-            <h3>Stay Chosen</h3>
+            <h3>Momentum</h3>
             <p className="body">
-              Showing up once isn&rsquo;t enough. We keep the signals strong,
-              posts, fresh reviews, listings, ongoing SEO, so you don&rsquo;t
-              slip back down the list while a newer outfit climbs.
+              The monthly upkeep that keeps you climbing. Posts, fresh
+              reviews, clean listings and ongoing SEO, so you keep moving up
+              the list instead of slipping back.
             </p>
           </Reveal>
 
@@ -54,8 +54,8 @@ export function TwoThings() {
             <h3>Ring This Week</h3>
             <p className="body">
               Paid placement on Google and Meta puts you in front of people
-              searching right now. The fast lane: enquiries landing this week,
-              not next quarter, while the rest of the system compounds.
+              searching right now. The fast lane: enquiries in weeks, not
+              months, while the rest of the system builds.
             </p>
           </Reveal>
         </div>

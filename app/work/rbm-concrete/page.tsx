@@ -65,7 +65,7 @@ export default function RbmCaseStudy() {
               </div>
               <div className="cs-meta-cell">
                 <div className="cs-meta-label">Engagement</div>
-                <div className="cs-meta-val">Get Found</div>
+                <div className="cs-meta-val">Groundwork</div>
               </div>
               <div className="cs-meta-cell">
                 <div className="cs-meta-label">Time to first lead</div>

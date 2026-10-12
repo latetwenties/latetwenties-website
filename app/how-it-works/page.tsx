@@ -17,25 +17,25 @@ import { Reveal } from "../components/Reveal";
 export const metadata: Metadata = {
   title: "How it works",
   description:
-    "How we get you found online and chosen by local customers: one system, three parts. Get Found, Stay Chosen, Ring This Week. More local enquiries in 90 days, or we work free until you get them.",
+    "How we get you found online and chosen by local customers: one system, three parts. Groundwork, Momentum, Ring This Week. More local enquiries in 90 days, or we work free until you get them.",
   alternates: { canonical: "/how-it-works" },
 };
 
 const FAQS = [
   {
-    question: "How long does Get Found take?",
+    question: "How long does Groundwork take?",
     answer:
-      "Two to four weeks, end to end. The first week is research: your brief, your market, your competitors, and the search queries that matter. Weeks two and three are the build: site, Google Business Profile, listings, review system. Week four is launch, and Stay Chosen starts the same week.",
+      "Two to four weeks, end to end. The first week is research: your brief, your market, your competitors, and the search queries that matter. Weeks two and three are the build: site, Google Business Profile, listings, review system. Week four is launch, and Momentum starts the same week.",
   },
   {
-    question: "When does Stay Chosen start?",
+    question: "When does Momentum start?",
     answer:
-      "The week your build goes live. That's when the new site is fresh in Google's eyes, so it's when steady care moves you up fastest. Your first three months of Stay Chosen are part of the 90-day run the guarantee covers. After that it's month to month.",
+      "The week your build goes live. That's when the new site is fresh in Google's eyes, so it's when steady care moves you up fastest. Your first three months of Momentum are part of the 90-day run the guarantee covers. After that it's month to month.",
   },
   {
     question: "What does Ring This Week actually do?",
     answer:
-      "It puts your business in front of the people searching right now. Get Found makes you findable. Stay Chosen moves you up the list over months. Ring This Week is the accelerator on top, for when you want enquiries this week, not next quarter. We set up campaigns on Google and Meta, point them at the jobs you actually want, write the ads, build the pages they land on, and track the calls and form fills so you can see what the spend is buying.",
+      "It puts your business in front of the people searching right now. Groundwork makes you findable. Momentum moves you up the list over months. Ring This Week is the accelerator on top, for when you want enquiries in weeks, not months. We set up campaigns on Google and Meta, point them at the jobs you actually want, write the ads, build the pages they land on, and track the calls and form fills so you can see what the spend is buying.",
   },
   {
     question: "Do you work with businesses outside Auckland?",
@@ -55,7 +55,7 @@ const FAQS = [
   {
     question: "Why aren't you on hourly rates?",
     answer:
-      "Hourly rates reward slow work. Fixed pricing rewards getting it done properly. The Get Found build is a one-time fixed price, and Stay Chosen is a fixed monthly that keeps you climbing. When Ring This Week runs on top, it's your ad budget plus a fixed management fee. We'll walk you through the numbers on your free Presence Report.",
+      "Hourly rates reward slow work. Fixed pricing rewards getting it done properly. The Groundwork build is a one-time fixed price, and Momentum is a fixed monthly that keeps you climbing. When Ring This Week runs on top, it's your ad budget plus a fixed management fee. We'll walk you through the numbers on your free Presence Report.",
   },
 ];
 
@@ -205,7 +205,7 @@ const STAGES: Stage[] = [
   {
     id: "get-found",
     num: "01",
-    name: "Get Found",
+    name: "Groundwork",
     when: "Weeks 1 to 4",
     headline: (
       <>
@@ -230,7 +230,7 @@ const STAGES: Stage[] = [
   {
     id: "stay-chosen",
     num: "02",
-    name: "Stay Chosen",
+    name: "Momentum",
     when: "From launch, every month",
     headline: (
       <>
@@ -240,7 +240,7 @@ const STAGES: Stage[] = [
       </>
     ),
     summary:
-      "Fresh reviews, regular posts, clean listings and ongoing SEO, so you keep moving up the list instead of sliding back. Starts the week your build goes live.",
+      "The monthly upkeep that keeps you climbing: fresh reviews, regular posts, clean listings and ongoing SEO. Starts the week your build goes live.",
     lede: "The steady, visible care that moves you up the list over months. Reviews come in, content goes up, listings stay clean, the technical bits stay current. Each month you climb a little further into the searches that bring you work.",
     meta: (
       <>
@@ -258,9 +258,9 @@ const STAGES: Stage[] = [
     when: "On top, when you want calls sooner",
     headline: (
       <>
-        The phone ringing
+        Calls in weeks,
         <br />
-        <em>this week.</em>
+        <em>not months.</em>
       </>
     ),
     summary:
@@ -297,8 +297,8 @@ export default function HowItWorks() {
             </Reveal>
             <Reveal delay={160}>
               <p className="hiw-lede">
-                One system, run together. Get Found builds the presence that
-                gets you found. Stay Chosen keeps you there, month after month.
+                One system, run together. Groundwork builds the presence that
+                gets you found. Momentum keeps you there, month after month.
                 Ring This Week is the accelerator on top when you want the
                 phone ringing sooner.
               </p>
@@ -366,7 +366,7 @@ export default function HowItWorks() {
                 </h2>
               </Reveal>
               <Reveal as="p" className="sys-lede" delay={80}>
-                Get Found and Stay Chosen always run together, in that order.
+                Groundwork and Momentum always run together, in that order.
                 Ring This Week goes on top when you want the phone ringing
                 sooner. Open any stage to see exactly what&rsquo;s in it.
               </Reveal>

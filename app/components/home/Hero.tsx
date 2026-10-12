@@ -45,9 +45,9 @@ export function Hero() {
             do right now. We make sure your business is the one they choose.
           </p>
           <ul className="hero-services">
-            <li>Show up first in your area</li>
-            <li>Phone ringing this week</li>
-            <li>Reviews that aren&rsquo;t from 2019</li>
+            <li>New names calling, not just referrals</li>
+            <li>Done for you. Your part is a few photos</li>
+            <li>A straight report every month</li>
           </ul>
         </div>
 

@@ -260,10 +260,10 @@ export default function Post() {
           once for the parts that need skill, a website built to be found
           and a profile set up properly, then keep up the everyday work
           yourself, or hand the upkeep over when you’d rather not. That’s
-          why we sell the build and the ongoing care separately:{" "}
-          <a href="/how-it-works">Get Found is a one-off build that’s
-          yours to keep</a>, and Stay Chosen is there if you want the
-          upkeep off your plate.
+          why the build comes first and stays yours:{" "}
+          <a href="/how-it-works">Groundwork is a one-off build that’s
+          yours to keep</a>, and Momentum takes the monthly upkeep off your
+          plate from there.
         </P>
         <P>
           One timing note. It’s the end of October. The profile, reviews

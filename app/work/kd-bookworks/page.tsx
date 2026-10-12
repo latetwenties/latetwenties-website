@@ -114,7 +114,7 @@ export default function KdBookworksCaseStudy() {
               </div>
               <div className="cs-meta-cell">
                 <div className="cs-meta-label">Engagement</div>
-                <div className="cs-meta-val">Get Found</div>
+                <div className="cs-meta-val">Groundwork</div>
               </div>
               <div className="cs-meta-cell">
                 <div className="cs-meta-label">Time to first client</div>

@@ -116,7 +116,7 @@ export default function TmtCaseStudy() {
               <div className="cs-meta-cell">
                 <div className="cs-meta-label">Engagement</div>
                 <div className="cs-meta-val">
-                  Get Found, Stay Chosen and Ring This Week
+                  Groundwork, Momentum and Ring This Week
                 </div>
               </div>
               <div className="cs-meta-cell">

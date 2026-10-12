@@ -115,7 +115,7 @@ export default function BoazCaseStudy() {
               <div className="cs-meta-cell">
                 <div className="cs-meta-label">Engagement</div>
                 <div className="cs-meta-val">
-                  Get Found and Stay Chosen
+                  Groundwork and Momentum
                 </div>
               </div>
               <div className="cs-meta-cell">
@@ -206,7 +206,7 @@ export default function BoazCaseStudy() {
                 </figure>
 
                 <p>
-                  From there we took over Stay Chosen. The relationship runs
+                  From there we moved into Momentum. The relationship runs
                   smoothly because Reece trusts the practice. We only check in
                   when factual confirmation is needed. Otherwise he focuses on
                   his actual work and the signals stay active.
