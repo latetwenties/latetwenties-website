@@ -56,11 +56,11 @@ export const metadata: Metadata = {
     template: "%s | Latetwenties",
   },
   description:
-    "A small Auckland marketing agency helping local service businesses across New Zealand get found online and chosen by local customers. Plain-spoken, no jargon.",
+    "A small Auckland marketing agency helping local service businesses across New Zealand and Australia get found online and chosen by local customers. Plain-spoken, no jargon.",
   openGraph: {
     title: "Latetwenties | Local marketing for service businesses, Auckland",
     description:
-      "A small Auckland marketing agency helping local service businesses across New Zealand get found online and chosen by local customers.",
+      "A small Auckland marketing agency helping local service businesses across New Zealand and Australia get found online and chosen by local customers.",
     url: "https://latetwenties.agency",
     siteName: "Latetwenties",
     locale: "en_NZ",
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Latetwenties | Local marketing for service businesses, Auckland",
     description:
-      "A small Auckland marketing agency helping local service businesses across New Zealand get found online and chosen by local customers.",
+      "A small Auckland marketing agency helping local service businesses across New Zealand and Australia get found online and chosen by local customers.",
   },
 };
 
