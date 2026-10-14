@@ -28,7 +28,7 @@ export function Hero() {
 
         <div className="hero-eyebrow">
           <span className="dot" />
-          <Eyebrow>Local marketing · Auckland &amp; across NZ</Eyebrow>
+          <Eyebrow>Local marketing · Auckland, working across NZ &amp; Australia</Eyebrow>
         </div>
 
         <div className="hero-pure-headline" aria-hidden="true">
