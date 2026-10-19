@@ -419,6 +419,17 @@ export default function HowItWorks() {
                     If you&rsquo;ve got something else on your mind, the
                     quickest way to ask is the free Presence Report.
                   </p>
+                  <p className="faq-lede">
+                    New to this? Start with{" "}
+                    <a href="/blog/what-is-local-seo">
+                      what local SEO actually is
+                    </a>
+                    , or read{" "}
+                    <a href="/blog/marketing-agency-near-me">
+                      whether your agency needs to be near you
+                    </a>
+                    .
+                  </p>
                 </Reveal>
               </div>
 
