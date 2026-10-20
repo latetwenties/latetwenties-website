@@ -22,14 +22,11 @@ export const dynamic = "force-dynamic";
 export const maxDuration = 60;
 
 export async function GET(request: Request): Promise<NextResponse> {
-  // Clause 6: cron auth. When CRON_SECRET is set, require it so the endpoint
-  // isn't publicly triggerable. Vercel Cron sends it as a bearer token.
+  // Clause 6: cron auth. Vercel Cron sends CRON_SECRET as a bearer token.
+  // Fails closed: a dropped CRON_SECRET must never silently leave this route open.
   const secret = process.env.CRON_SECRET;
-  if (secret) {
-    const auth = request.headers.get("authorization");
-    if (auth !== `Bearer ${secret}`) {
-      return NextResponse.json({ error: "unauthorized" }, { status: 401 });
-    }
+  if (!secret || request.headers.get("authorization") !== `Bearer ${secret}`) {
+    return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
 
   const today = nzToday();
