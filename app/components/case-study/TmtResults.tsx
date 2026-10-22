@@ -74,7 +74,7 @@ export function TmtResults() {
     };
   }, []);
 
-  const enquiries = useCountAnim(7, 35, active);
+  const enquiries = useCountAnim(4, 13, active);
 
   return (
     <section className="cs-act cs-act-3" ref={ref}>
@@ -94,7 +94,8 @@ export function TmtResults() {
           </div>
           <Reveal as="div" className="cs-act-body" delay={80}>
             <p>
-              Before we started, TMT took about seven enquiries a month. June
+              Before we started, TMT took about seven enquiries a month, and
+              four of those were worth quoting. June
               2026 was the first full month with all of it running together:
               the new site, the local layer, the ads. TMT took 12 enquiries
               for the month. Ten came through the
@@ -103,7 +104,8 @@ export function TmtResults() {
             </p>
             <p>
               It kept building from there. By August, the third full month,
-              TMT took 35 enquiries, with no extra ad spend.
+              15 enquiries came through the quote forms, and 13 of them were
+              worth quoting.
             </p>
           </Reveal>
         </div>
@@ -111,17 +113,18 @@ export function TmtResults() {
         <Reveal className={`cs-rank ${active ? "is-active" : ""}`} delay={120}>
           <div className="cs-rank-stats">
             <div className="cs-rank-label">
-              Enquiries a month · before → August 2026
+              Quote-worthy enquiries a month · before → August 2026
             </div>
             <div className="cs-rank-value">
-              <span className="cs-rank-old">7</span>
+              <span className="cs-rank-old">4</span>
               <span className="cs-rank-arrow">→</span>
               <span className="cs-rank-new">{enquiries}</span>
             </div>
             <div className="cs-rank-meta">
-              <em>Five times the enquiries</em> by the third full month, with
-              no extra ad spend. Every enquiry counted, before and after.
-              Counted from GA4 and Google Ads, August 2026.
+              <em>Over three times the jobs worth quoting</em> by the third
+              full month. Quote-form enquiries only, August 2026. Phone taps
+              are left out, because a tap on the number isn&rsquo;t always a
+              call.
             </div>
           </div>
 
@@ -169,8 +172,9 @@ export function TmtResults() {
               allowed for.
             </li>
             <li>
-              <strong>Enquiries:</strong> about 7 a month before, 12 in June, 35 in August, with no extra ad spend. Tracked end
-              to end, so every one of them is counted, not guessed.
+              <strong>Enquiries:</strong> about 7 a month before, 4 of them
+              worth quoting. 15 quote-form enquiries in August, 13 of them
+              worth quoting.
             </li>
             <li>
               <strong>Up next:</strong> hold the map, keep publishing, keep
