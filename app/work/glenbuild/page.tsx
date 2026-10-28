@@ -184,14 +184,14 @@ export default function GlenbuildCaseStudy() {
                       className="cs-bw-shot"
                       src="/images/case-studies/glenbuild/website-scroll.mp4"
                       poster="/images/case-studies/glenbuild/website-scroll-poster.jpg"
-                      width={1280}
-                      height={720}
+                      width={1440}
+                      height={866}
                       autoPlay
                       muted
                       loop
                       playsInline
                       preload="metadata"
-                      aria-label="A scroll through the new Glenbuild homepage: the headline Award-winning new builds and renovations across Auckland, their Master Builders awards, a carousel of finished projects, and the enquiry form."
+                      aria-label="A scroll through the new Glenbuild homepage: the headline Award-winning new builds and renovations across Auckland, their Master Builders awards, a carousel of finished projects, a note from Finn as director, common questions, and the enquiry form."
                     />
                   </div>
                 </div>
