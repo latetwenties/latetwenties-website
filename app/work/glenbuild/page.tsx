@@ -10,17 +10,18 @@ import { Header } from "../../components/Header";
 import { JsonLd } from "../../components/JsonLd";
 import { Reveal } from "../../components/Reveal";
 
-// Results-pending case study: foundations only. The baseline (BrightLocal grid
-// and rank tracker, GA4 export) lives in the client's Drive `baseline` folder
-// and stays off the page until Brendan approves the Stay Chosen results to set
-// beside it. Add those as a result act when they land.
+// Early-signal case study (see the case study template in
+// .claude/rules/copy-principles.md): month-one results now, map pack next. The
+// baseline (BrightLocal grid and rank tracker, GA4 export) lives in the
+// client's Drive `baseline` folder; add a before-to-after result act once the
+// map pack moves.
 //
 // Hidden for now: noindex, left out of the sitemap and the /work grid. Shared
 // by direct link only until Brendan is ready to list it.
 export const metadata: Metadata = {
   title: "Glenbuild, Auckland",
   description:
-    "An award-winning Auckland builder with thirty years of referral work, and the foundations we built so new clients can find it in search. Results to follow.",
+    "An award-winning Auckland builder with thirty years of referral work. Within its first month, page one on Google for builder searches in four of its focus suburbs.",
   alternates: { canonical: "/work/glenbuild" },
   robots: { index: false, follow: true },
 };
@@ -33,9 +34,9 @@ const SCHEMA = [
   ]),
   article({
     headline:
-      "Glenbuild: an award-winning Auckland builder, and the foundations to be found",
+      "Glenbuild: an award-winning Auckland builder, page one in its first month",
     description:
-      "How a National Supreme House of the Year builder that ran on referrals got a site built around its award-winning projects, ready for the results to follow.",
+      "How a National Supreme Renovation of the Year builder that ran on referrals reached page one on Google in four of its focus suburbs within a month.",
     url: "/work/glenbuild",
     datePublished: "2026-10-05",
   }),
@@ -54,8 +55,8 @@ export default function GlenbuildCaseStudy() {
             </Reveal>
             <Reveal delay={80}>
               <h1 className="cs-h1">
-                Thirty years of award-winning homes, built on referrals.{" "}
-                <em>The foundations are in. The results are on their way.</em>
+                Thirty years of award-winning homes.{" "}
+                <em>One month to page one in four of its focus suburbs.</em>
               </h1>
             </Reveal>
             <Reveal delay={140}>
@@ -77,7 +78,7 @@ export default function GlenbuildCaseStudy() {
               </div>
               <div className="cs-meta-cell">
                 <div className="cs-meta-label">Status</div>
-                <div className="cs-meta-val">Live, results to follow</div>
+                <div className="cs-meta-val">Live, map pack next</div>
               </div>
             </Reveal>
           </div>
@@ -204,11 +205,11 @@ export default function GlenbuildCaseStudy() {
             <div className="cs-act-grid">
               <div className="cs-act-left">
                 <Reveal>
-                  <Eyebrow num="03">Up next</Eyebrow>
+                  <Eyebrow num="03">Month one</Eyebrow>
                   <h2 className="cs-act-h2">
-                    The foundations are set.
+                    Page one in a month.
                     <br />
-                    <em>Now we measure.</em>
+                    <em>The map pack is next.</em>
                   </h2>
                 </Reveal>
               </div>

@@ -100,6 +100,43 @@ a portfolio. Promise + guarantee + proof is an offer.
 - /resources: each resource is a lead magnet. Solve one narrow problem completely,
   point to the system for the rest. Add the Presence Report CTA to every resource.
 
+## Case study template (Brendan's call, 2026-10)
+
+Use this for every /work case study so the shape never needs rethinking.
+Grounded in the Proof Checklist (big > small > no results, numbers > no
+numbers, newer > older) and the Hooks Playbook (call out + value).
+
+**Headline = known fact + biggest true number + time taken.**
+"[Award, years in trade, or trade and town]. [Before to after, or the first
+real result] in [time]." The known fact is the call out (and the borrowed
+credibility of a recognisable name). The number is the value. Never lead with
+"results to follow" or anything that announces no result.
+
+**Pick the headline by stage:**
+
+1. Live under a month, no numbers yet: hidden page only (noindex, out of the
+   sitemap and the /work grid), shared by direct link. Don't list it.
+2. Early signal: lead with the first true number, and say plainly what comes
+   next ("the map pack is next"). Status line names the next step, not
+   "results to follow". Example: Glenbuild, "Thirty years of award-winning
+   homes. One month to page one in four of its focus suburbs."
+3. Full result: lead with before to after and the time taken. Example: TMT,
+   7 to 35 enquiries a month.
+
+**Sections, same order every time:**
+
+1. The situation: who they are, in specifics (personal > generic). Factual
+   before, no judgement (rule 11).
+2. The work: show it (site video or scroll, screenshots), don't list it.
+3. The result: numbers with how they were measured, before/after screenshots
+   (map pack, branded search, AI answers). Durations, not month stamps.
+4. In their words: a named client quote.
+5. CTA: the Presence Report.
+
+Every number must be backed by a source we can show (Search Console,
+BrightLocal, the client's own count) and confirmed by Brendan (rule 10).
+Crop competitor names out of screenshots.
+
 ## Page-ship checklist (run before committing any page)
 
 - [ ] Outcome in the H1, not the vehicle
