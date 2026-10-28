@@ -25,8 +25,8 @@ function useCountAnim(from: number, to: number, active: boolean, ms = 1600) {
 
 const SUBSTATS = [
   {
-    value: "7 of the 15",
-    label: "Enquiries that came from the ads",
+    value: "⅓ the cost",
+    label: "Per enquiry from the ads",
     note: "A small search campaign, switched on once the site was ready. Each enquiry came in at about a third of the cost we'd allowed for.",
   },
   {
@@ -157,9 +157,8 @@ export function TmtResults() {
               me&rdquo; from anywhere around Sale and TMT comes up first.
             </li>
             <li>
-              <strong>Google Ads:</strong> 7 of the 15 enquiries came
-              straight off the ads, each at about a third of the cost we
-              allowed for.
+              <strong>Google Ads:</strong> each enquiry off the ads came
+              in at about a third of the cost we allowed for.
             </li>
             <li>
               <strong>Enquiries:</strong> 4 in May, 15 in June. Tracked end
