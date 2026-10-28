@@ -15,15 +15,11 @@ import { Reveal } from "../../components/Reveal";
 // baseline (BrightLocal grid and rank tracker, GA4 export) lives in the
 // client's Drive `baseline` folder; add a before-to-after result act once the
 // map pack moves.
-//
-// Hidden for now: noindex, left out of the sitemap and the /work grid. Shared
-// by direct link only until Brendan is ready to list it.
 export const metadata: Metadata = {
   title: "Glenbuild, Auckland",
   description:
     "An award-winning Auckland builder with thirty years of referral work. Within its first month, page one on Google for builder searches in four of its focus suburbs.",
   alternates: { canonical: "/work/glenbuild" },
-  robots: { index: false, follow: true },
 };
 
 const SCHEMA = [
@@ -38,7 +34,7 @@ const SCHEMA = [
     description:
       "How a National Supreme Renovation of the Year builder that ran on referrals reached page one on Google in four of its focus suburbs within a month.",
     url: "/work/glenbuild",
-    datePublished: "2026-10-05",
+    datePublished: "2026-10-28",
   }),
 ];
 

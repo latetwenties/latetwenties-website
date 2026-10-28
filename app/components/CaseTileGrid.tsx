@@ -20,6 +20,17 @@ export const FEATURED_CASES = [
 
 export const CASE_TILES: CaseTile[] = [
   {
+    href: "/work/glenbuild",
+    client: "Glenbuild",
+    meta: "Builders · Auckland NZ",
+    line: (
+      <>
+        Thirty years of award-winning homes, then <em>page one</em> in four of
+        its focus suburbs, one month in.
+      </>
+    ),
+  },
+  {
     href: "/work/tmt-concreting",
     client: "TMT Concreting & Maintenance",
     meta: "Concreting · Gippsland VIC",
