@@ -266,6 +266,30 @@ export default function GlenbuildCaseStudy() {
               </div>
             </Reveal>
 
+            <Reveal as="div" className="cs-proof cs-proof-ai" delay={120}>
+              <div className="cs-proof-head">
+                <Eyebrow>AI search</Eyebrow>
+                <h3 className="cs-proof-h3">
+                  Ask ChatGPT for a builder to renovate a Mt Eden villa.
+                  Glenbuild comes back <em>first on the list.</em>
+                </h3>
+                <p className="cs-proof-sub">
+                  Asked the way a homeowner would ask it. ChatGPT names the
+                  2023 National Supreme Renovation of the Year and cites
+                  Glenbuild&rsquo;s own site as the source.
+                </p>
+              </div>
+              <figure className="cs-proof-fig cs-proof-fig-single">
+                <Image
+                  src="/images/case-studies/glenbuild/chatgpt-mt-eden.png"
+                  alt="ChatGPT answer. The user asks for a reliable, trustworthy builder around central Auckland for a renovation on a Mt Eden villa. ChatGPT's recommended shortlist puts Glenbuild first, best for major, high-quality renovations, established in 1994 with renovation experience across Mt Eden and Grey Lynn, including the 2023 National Supreme Renovation of the Year, citing Glenbuild's website."
+                  width={1632}
+                  height={1296}
+                  sizes="(max-width: 920px) 100vw, 880px"
+                />
+              </figure>
+            </Reveal>
+
             <Reveal as="div" className="cs-proof" delay={120}>
               <div className="cs-proof-head">
                 <Eyebrow num="04">In their words</Eyebrow>
