@@ -21,11 +21,11 @@ export const CASE_TILES: CaseTile[] = [
     meta: "Concreting · Gippsland VIC",
     line: (
       <>
-        Four enquiries a month <em>became twelve</em>, first full month with
+        Four enquiries a month <em>became fifteen</em>, first full month with
         everything on.
       </>
     ),
-    stat: "4 → 12",
+    stat: "4 → 15",
   },
   {
     href: "/work/boaz-developments",

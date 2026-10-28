@@ -25,7 +25,7 @@ function useCountAnim(from: number, to: number, active: boolean, ms = 1600) {
 
 const SUBSTATS = [
   {
-    value: "7 of the 12",
+    value: "7 of the 15",
     label: "Enquiries that came from the ads",
     note: "A small search campaign, switched on once the site was ready. Each enquiry came in at about a third of the cost we'd allowed for.",
   },
@@ -74,7 +74,7 @@ export function TmtResults() {
     };
   }, []);
 
-  const enquiries = useCountAnim(4, 12, active);
+  const enquiries = useCountAnim(4, 15, active);
 
   return (
     <section className="cs-act cs-act-3" ref={ref}>
@@ -95,10 +95,8 @@ export function TmtResults() {
           <Reveal as="div" className="cs-act-body" delay={80}>
             <p>
               June 2026 was the first full month with all of it running
-              together: the new site, the local layer, the ads. TMT took 12
-              enquiries for the month, up from 4 in May. Ten came through the
-              quote forms, one from a phone tap on the site, and one call
-              straight off an ad.
+              together: the new site, the local layer, the ads. TMT took 15
+              enquiries for the month, up from 4 in May.
             </p>
           </Reveal>
         </div>
@@ -114,7 +112,7 @@ export function TmtResults() {
               <span className="cs-rank-new">{enquiries}</span>
             </div>
             <div className="cs-rank-meta">
-              <em>Three times May&rsquo;s enquiries</em> in the first full
+              <em>Nearly four times May&rsquo;s enquiries</em> in the first full
               month with the site, the map and the ads all working. Counted
               from GA4 and Google Ads, June 2026.
             </div>
@@ -159,12 +157,12 @@ export function TmtResults() {
               me&rdquo; from anywhere around Sale and TMT comes up first.
             </li>
             <li>
-              <strong>Google Ads:</strong> 7 of the 12 enquiries came
+              <strong>Google Ads:</strong> 7 of the 15 enquiries came
               straight off the ads, each at about a third of the cost we
               allowed for.
             </li>
             <li>
-              <strong>Enquiries:</strong> 4 in May, 12 in June. Tracked end
+              <strong>Enquiries:</strong> 4 in May, 15 in June. Tracked end
               to end, so every one of them is counted, not guessed.
             </li>
             <li>
