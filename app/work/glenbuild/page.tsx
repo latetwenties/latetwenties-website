@@ -166,7 +166,8 @@ export default function GlenbuildCaseStudy() {
                   The work up front, <em>from the first second.</em>
                 </h3>
                 <p className="cs-proof-sub">
-                  The homepage opens on Glenbuild&rsquo;s own finished homes.
+                  The homepage, top to bottom: Glenbuild&rsquo;s own finished
+                  homes, its awards, and an enquiry form Finn reads himself.
                 </p>
               </div>
               <div className="cs-proof-fig-single">
@@ -178,13 +179,18 @@ export default function GlenbuildCaseStudy() {
                     <div className="cs-bw-url">glenbuild.co.nz</div>
                   </div>
                   <div className="cs-bw-body">
-                    <Image
+                    <video
                       className="cs-bw-shot"
-                      src="/images/case-studies/glenbuild/website-home.jpg"
-                      alt="The new Glenbuild homepage: the Glenbuild logo and menu over a photo of a finished kitchen, with the headline Award-winning new builds and renovations across Auckland."
+                      src="/images/case-studies/glenbuild/website-scroll.mp4"
+                      poster="/images/case-studies/glenbuild/website-scroll-poster.jpg"
                       width={1280}
                       height={720}
-                      sizes="(max-width: 920px) 100vw, 880px"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      aria-label="A scroll through the new Glenbuild homepage: the headline Award-winning new builds and renovations across Auckland, their Master Builders awards, a carousel of finished projects, and the enquiry form."
                     />
                   </div>
                 </div>
@@ -219,6 +225,46 @@ export default function GlenbuildCaseStudy() {
                 </p>
               </Reveal>
             </div>
+
+            <Reveal as="div" className="cs-proof" delay={120}>
+              <div className="cs-proof-head">
+                <Eyebrow>Search the name</Eyebrow>
+                <h3 className="cs-proof-h3">
+                  Type &ldquo;glenbuild&rdquo; into Google, and the result now{" "}
+                  <em>tells the story.</em>
+                </h3>
+                <p className="cs-proof-sub">
+                  Before: a listing titled &ldquo;Glenbuild | Home&rdquo;, two
+                  Google reviews, filed as a construction company. After:
+                  &ldquo;Award-Winning Auckland Builder&rdquo;, six reviews,
+                  filed as a custom home builder, and an AI
+                  Overview that describes Glenbuild in the site&rsquo;s own
+                  words.
+                </p>
+              </div>
+              <div className="cs-proof-grid">
+                <figure className="cs-proof-fig">
+                  <div className="cs-proof-tag">Before</div>
+                  <Image
+                    src="/images/case-studies/glenbuild/serp-before.jpg"
+                    alt="Google results for glenbuild before. The site listed as Glenbuild | Home with generic sitelinks, and a business profile showing 2 Google reviews, categorised as a construction company."
+                    width={2000}
+                    height={1000}
+                    sizes="(max-width: 920px) 100vw, 600px"
+                  />
+                </figure>
+                <figure className="cs-proof-fig">
+                  <div className="cs-proof-tag cs-proof-tag-after">After</div>
+                  <Image
+                    src="/images/case-studies/glenbuild/serp-after.jpg"
+                    alt="Google results for glenbuild after. The site listed as Glenbuild: Award-Winning Auckland Builder with sitelinks for Projects and Awards, Mt Eden and Grey Lynn, a business profile with 6 Google reviews categorised as a custom home builder, and an AI Overview describing Glenbuild as a family-run building company in Mount Albert."
+                    width={2000}
+                    height={1262}
+                    sizes="(max-width: 920px) 100vw, 600px"
+                  />
+                </figure>
+              </div>
+            </Reveal>
 
             <Reveal as="div" className="cs-proof" delay={120}>
               <div className="cs-proof-head">

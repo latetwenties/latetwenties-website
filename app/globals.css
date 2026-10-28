@@ -2833,7 +2833,7 @@ a.ct-row-val:hover {
   overflow: hidden;
   min-height: 0;
 }
-/* A single screenshot in a standalone browser frame (outside the compare track). */
+/* A video or screenshot in a standalone browser frame (outside the compare track). */
 .cs-bw-shot {
   display: block;
   width: 100%;
