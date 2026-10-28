@@ -164,7 +164,7 @@ export default function Post() {
         <P>
           <Strong>Australia.</Strong> The ACCC has said for years that
           businesses should not selectively invite customers they expect to
-          leave good reviews. In 2017 the Federal Court ordered Meriton to pay
+          leave good reviews. In 2018 the Federal Court ordered Meriton to pay
           $3 million after it stopped review invitations going to guests it
           thought might complain.
         </P>
