@@ -95,8 +95,9 @@ export function TmtResults() {
           <Reveal as="div" className="cs-act-body" delay={80}>
             <p>
               June 2026 was the first full month with all of it running
-              together: the new site, the local layer, the ads. TMT took 15
-              enquiries for the month, up from 4 in May.
+              together: the new site, the local layer, the ads. By August,
+              three months in, TMT took 15 quality enquiries for the month,
+              up from 4 in May.
             </p>
           </Reveal>
         </div>
@@ -104,7 +105,7 @@ export function TmtResults() {
         <Reveal className={`cs-rank ${active ? "is-active" : ""}`} delay={120}>
           <div className="cs-rank-stats">
             <div className="cs-rank-label">
-              Enquiries · May → June 2026
+              Enquiries · May → August 2026
             </div>
             <div className="cs-rank-value">
               <span className="cs-rank-old">4</span>
@@ -112,9 +113,9 @@ export function TmtResults() {
               <span className="cs-rank-new">{enquiries}</span>
             </div>
             <div className="cs-rank-meta">
-              <em>Nearly four times May&rsquo;s enquiries</em> in the first full
-              month with the site, the map and the ads all working. Counted
-              from GA4 and Google Ads, June 2026.
+              <em>Nearly four times May&rsquo;s enquiries</em> three months after
+              the site, the map and the ads all went to work. Counted from
+              GA4 and Google Ads, August 2026.
             </div>
           </div>
 
@@ -161,7 +162,7 @@ export function TmtResults() {
               in at about a third of the cost we allowed for.
             </li>
             <li>
-              <strong>Enquiries:</strong> 4 in May, 15 in June. Tracked end
+              <strong>Enquiries:</strong> 4 in May, 15 in August. Tracked end
               to end, so every one of them is counted, not guessed.
             </li>
             <li>

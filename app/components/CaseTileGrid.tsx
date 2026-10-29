@@ -21,8 +21,8 @@ export const CASE_TILES: CaseTile[] = [
     meta: "Concreting · Gippsland VIC",
     line: (
       <>
-        Four enquiries a month <em>became fifteen</em>, first full month with
-        everything on.
+        Four enquiries a month <em>became fifteen</em>, three months after
+        everything went on.
       </>
     ),
     stat: "4 → 15",

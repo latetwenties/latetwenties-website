@@ -18,7 +18,7 @@ import { Reveal } from "../../components/Reveal";
 export const metadata: Metadata = {
   title: "TMT Concreting & Maintenance, Gippsland",
   description:
-    "How TMT Concreting & Maintenance went from four enquiries a month to fifteen in the first full month with a new website, local search and Google Ads working together. The full case study.",
+    "How TMT Concreting & Maintenance went from four enquiries a month to fifteen within three months of a new website, local search and Google Ads working together. The full case study.",
   alternates: { canonical: "/work/tmt-concreting" },
 };
 
@@ -30,9 +30,9 @@ const SCHEMA = [
   ]),
   article({
     headline:
-      "TMT Concreting & Maintenance: from four enquiries a month to fifteen in the first full month",
+      "TMT Concreting & Maintenance: from four enquiries a month to fifteen within three months",
     description:
-      "How a Gippsland concreter went from a website that wasn't being found to fifteen enquiries in a month, with a research-led rebuild, local search foundations and a small Google Ads campaign.",
+      "How a Gippsland concreter went from a website that wasn't being found to fifteen enquiries a month, with a research-led rebuild, local search foundations and a small Google Ads campaign.",
     url: "/work/tmt-concreting",
     datePublished: "2026-07-07",
   }),
@@ -94,8 +94,8 @@ export default function TmtCaseStudy() {
             </Reveal>
             <Reveal delay={80}>
               <h1 className="cs-h1">
-                Four enquiries a month <em>became fifteen</em>. In the first
-                full month with everything switched&nbsp;on.
+                Four enquiries a month <em>became fifteen</em>. Three months after
+                everything switched&nbsp;on.
               </h1>
             </Reveal>
             <Reveal delay={140}>
@@ -120,7 +120,7 @@ export default function TmtCaseStudy() {
                 </div>
               </div>
               <div className="cs-meta-cell">
-                <div className="cs-meta-label">Enquiries, first full month</div>
+                <div className="cs-meta-label">Enquiries, three months in</div>
                 <div className="cs-meta-val">4 → 15</div>
               </div>
             </Reveal>
