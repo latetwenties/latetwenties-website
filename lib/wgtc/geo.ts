@@ -6,7 +6,11 @@ const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 export type Point = { name: string; lat: number; lng: number };
 
-export async function geocode(place: string): Promise<(Point & { country: string }) | null> {
+// Grid spacing by what kind of place was typed: a whole city needs a wider
+// net than a suburb, or every point lands in the CBD.
+const SPACING_KM: Record<string, number> = { city: 6, state: 6, region: 6, county: 6, town: 3.5 };
+
+export async function geocode(place: string): Promise<(Point & { country: string; km: number }) | null> {
   const url =
     "https://nominatim.openstreetmap.org/search?" +
     new URLSearchParams({ q: place, format: "json", limit: "1", countrycodes: "nz,au", addressdetails: "1" });
@@ -14,6 +18,7 @@ export async function geocode(place: string): Promise<(Point & { country: string
   const hits = (await res.json()) as Array<{
     lat: string;
     lon: string;
+    addresstype?: string;
     address?: Record<string, string>;
   }>;
   const h = hits[0];
@@ -24,19 +29,25 @@ export async function geocode(place: string): Promise<(Point & { country: string
     lat: +(+h.lat).toFixed(5),
     lng: +(+h.lon).toFixed(5),
     country: a.country_code === "au" ? "Australia" : "New Zealand",
+    km: SPACING_KM[h.addresstype ?? ""] ?? 2.5,
   };
 }
 
-async function reverseName(lat: number, lng: number): Promise<string | null> {
+// The suburb a point falls in. `land: false` when the lookup finds no place at
+// all, only an administrative boundary (a point out in the harbour or sea).
+async function reverseName(lat: number, lng: number): Promise<{ name: string | null; land: boolean }> {
   const url =
     "https://nominatim.openstreetmap.org/reverse?" +
     new URLSearchParams({ lat: String(lat), lon: String(lng), format: "json", zoom: "14" });
   try {
     const res = await fetch(url, { headers: { "User-Agent": UA }, cache: "no-store" });
-    const a = ((await res.json()) as { address?: Record<string, string> }).address ?? {};
-    return a.suburb ?? a.neighbourhood ?? a.quarter ?? a.village ?? a.town ?? a.city_district ?? null;
+    const d = (await res.json()) as { error?: string; address?: Record<string, string> };
+    if (d.error) return { name: null, land: false };
+    const a = d.address ?? {};
+    const name = a.suburb ?? a.neighbourhood ?? a.quarter ?? a.village ?? a.hamlet ?? a.town ?? a.city_district ?? null;
+    return { name, land: !!(name ?? a.road ?? a.locality ?? a.isolated_dwelling) };
   } catch {
-    return null;
+    return { name: null, land: true }; // lookup failed: keep the point, unnamed
   }
 }
 
@@ -62,6 +73,7 @@ export function gridPoints(centre: Point, km = 2.5): Point[] {
   return pts;
 }
 
+// Names each point and drops points in the sea, so no search is paid for there.
 export async function nameGrid(pts: Point[], centreName: string): Promise<Point[]> {
   // A suburb already used keeps its compass label, so no two cells share a name.
   const out: Point[] = [];
@@ -71,14 +83,15 @@ export async function nameGrid(pts: Point[], centreName: string): Promise<Point[
       out.push(p);
       continue;
     }
-    const n = await reverseName(p.lat, p.lng);
-    if (n && !used.has(n)) {
-      used.add(n);
-      out.push({ ...p, name: n });
+    const { name, land } = await reverseName(p.lat, p.lng);
+    await sleep(1050);
+    if (!land) continue;
+    if (name && !used.has(name)) {
+      used.add(name);
+      out.push({ ...p, name });
     } else {
       out.push(p);
     }
-    await sleep(1050);
   }
   return out;
 }

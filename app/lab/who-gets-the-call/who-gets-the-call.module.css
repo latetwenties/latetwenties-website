@@ -496,3 +496,40 @@
 .chat {
   overflow: hidden;
 }
+.badge {
+  align-self: flex-start;
+  margin-top: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 9px;
+  border-radius: 999px;
+  animation: fadeUp 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.badgeYes {
+  background: color-mix(in oklab, var(--color-green) 16%, var(--paper));
+  color: var(--color-green);
+}
+.badgeNo {
+  background: color-mix(in oklab, var(--color-red) 12%, var(--paper));
+  color: var(--color-red);
+}
+.callingNote {
+  max-width: 24ch;
+  margin: 18px 0 0;
+  font-size: 12px;
+  line-height: 1.45;
+  opacity: 0.7;
+}
+.baseTag {
+  font-family: var(--mono);
+  font-size: 9px !important;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent) !important;
+}
+.bubbleBot mark {
+  background: color-mix(in oklab, var(--color-green) 22%, var(--paper));
+  color: inherit;
+  padding: 0 2px;
+  border-radius: 3px;
+}

@@ -3,6 +3,8 @@
 // project. Measured cost (Nov 2026): Google SERP $0.004, ChatGPT $0.004,
 // Maps $0.002 a call. One full run is about US$0.03.
 
+import { brandName } from "./names";
+
 const API = "https://api.dataforseo.com/v3/";
 
 function auth(): string {
@@ -71,6 +73,8 @@ export type Business = {
   rating?: number;
   reviews?: number;
   category?: string;
+  lat?: number;
+  lng?: number;
 };
 
 export function toBusiness(i: Item): Business {
@@ -84,6 +88,8 @@ export function toBusiness(i: Item): Business {
     rating: rating?.value,
     reviews: rating?.votes_count,
     category: (i.category as string | undefined) ?? undefined,
+    lat: typeof i.latitude === "number" ? i.latitude : undefined,
+    lng: typeof i.longitude === "number" ? i.longitude : undefined,
   };
 }
 
@@ -105,23 +111,33 @@ const nameKey = (n?: string | null) =>
     .replace(/\b(ltd|limited|pty|nz|co|company|the)\b/g, "")
     .replace(/[^a-z0-9]/g, "");
 
+// Google listing names are often keyword-stuffed ("Lewis Build – Luxury Home
+// Builders Auckland"), but people and AI answers use the brand part. Match on
+// that, and on the website's name ("lewisbuild" from lewisbuild.co.nz).
+
+function keys(b: Business): string[] {
+  const out = [nameKey(b.name), nameKey(brandName(b.name))];
+  const stem = b.domain?.split(".")[0];
+  if (stem) out.push(nameKey(stem));
+  return [...new Set(out)].filter((k) => k.length >= 5);
+}
+
 // Same order as agency-layer lib/prospect/maps_grid.py: id, domain, phone, name.
 export function isYou(i: Item | Business, you: Business): boolean {
   const b = "type" in i ? toBusiness(i as Item) : (i as Business);
   if (you.cid && b.cid && you.cid === b.cid) return true;
   if (you.domain && b.domain && you.domain === b.domain) return true;
   if (phoneKey(you.phone) && phoneKey(you.phone) === phoneKey(b.phone)) return true;
-  const a = nameKey(you.name);
-  const c = nameKey(b.name);
-  return a.length >= 5 && c.length >= 5 && (a === c || c.includes(a) || a.includes(c));
+  const theirs = keys(b);
+  return keys(you).some((a) => theirs.includes(a));
 }
 
 // Whether free text (an AI answer) names the business, by name or website.
 export function textNamesYou(text: string, you: Business): boolean {
   const t = text.toLowerCase();
   if (you.domain && t.includes(you.domain)) return true;
-  const key = nameKey(you.name);
-  return key.length >= 5 && nameKey(text).includes(key);
+  const flat = nameKey(text);
+  return keys(you).some((k) => flat.includes(k));
 }
 
 // Strip markdown, links, images and citation junk to readable plain text.

@@ -3,7 +3,7 @@ import type { Business } from "./dataforseo";
 
 export type { Business };
 
-export type Centre = { name: string; lat: number; lng: number; country: string };
+export type Centre = { name: string; lat: number; lng: number; country: string; km: number };
 
 export type FindResult = { centre: Centre; candidates: Business[] };
 
@@ -18,7 +18,8 @@ export type SearchResult = {
 };
 
 export type GridResult = {
-  cells: { name: string; rank: number | null; shown: number }[];
+  // `base` marks the extra cell searched from the business's own address.
+  cells: { name: string; rank: number | null; shown: number; base?: boolean }[];
   leaders: { name: string; top3: number; rating?: number; reviews?: number }[];
 };
 

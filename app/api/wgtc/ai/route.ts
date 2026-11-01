@@ -47,7 +47,7 @@ export async function POST(req: Request) {
 
     const result: AiResult = {
       question,
-      answer: plain(answer, 650),
+      answer: plain(answer, 520),
       named: named.slice(0, 6),
       youNamed,
     };

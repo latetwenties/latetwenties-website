@@ -3,6 +3,7 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
 
 import { moves } from "@/lib/wgtc/moves";
+import { brandName } from "@/lib/wgtc/names";
 import type {
   AiResult,
   Business,
@@ -59,6 +60,13 @@ const tone = (rank: number | null) =>
 
 const ok = <T,>(v: Slot<T>): v is T => v !== null && v !== "error";
 
+// Marks the visitor's own name wherever it appears in an AI answer.
+function highlight(text: string, name: string) {
+  if (name.length < 3) return text;
+  const re = new RegExp(`(${name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`, "gi");
+  return text.split(re).map((part, i) => (i % 2 ? <mark key={i}>{part}</mark> : part));
+}
+
 export function WhoGetsTheCall() {
   const [phase, setPhase] = useState<Phase>("form");
   const [error, setError] = useState("");
@@ -74,6 +82,7 @@ export function WhoGetsTheCall() {
   const [contact, setContact] = useState("");
   const [sending, setSending] = useState(false);
   const runId = useRef(0);
+  const [waited, setWaited] = useState(0);
 
   const centre: Centre | null = found?.centre ?? null;
   const area = centre?.name ?? "";
@@ -82,6 +91,24 @@ export function WhoGetsTheCall() {
 
   const typedQuery = useTyped(query, phase === "running" && reached("query"), 55);
   const typedChat = useTyped(ok(ai) ? ai.answer : "", phase === "running" && reached("chatgpt") && ok(ai), 12);
+
+  // Seconds on the phone, for the "still searching" lines while Google loads.
+  useEffect(() => {
+    if (phase !== "running") return;
+    const id = setInterval(() => setWaited((w) => w + 1), 1000);
+    return () => {
+      clearInterval(id);
+      setWaited(0);
+    };
+  }, [phase]);
+  const waitLine =
+    waited < 4
+      ? `Searching from ${area}…`
+      : waited < 8
+        ? "Loading the map results…"
+        : waited < 12
+          ? "Checking who's paying for ads…"
+          : "Waiting on Google's AI answer…";
 
   // Is the data for stage i on hand (or failed, which also lets it pass)?
   const ready = (i: number) => {
@@ -148,11 +175,14 @@ export function WhoGetsTheCall() {
     setContact("");
   }
 
+  const me = you ? brandName(you.name) : brandName(business);
   const centreCell = ok(grid) ? (grid.cells.find((c) => c.name === area) ?? grid.cells[4]) : null;
   const pack = ok(search) ? search.pack : [];
   const winner =
     pack[0]?.name ?? (ok(grid) ? grid.leaders[0]?.name : undefined) ?? null;
   const youFirst = ok(search) && search.youInPack === 1;
+  const top3 = ok(grid) ? grid.cells.filter((c) => c.rank !== null && c.rank <= 3).length : 0;
+  const spots = ok(grid) ? grid.cells.length : 0;
   const theMoves = you ? moves(you, area, job, ok(search) ? search : null, ok(grid) ? grid : null, ok(ai) ? ai : null) : [];
 
   function summary(): string {
@@ -171,7 +201,7 @@ export function WhoGetsTheCall() {
         `AI Overview: ${search.aio ? (search.aio.namesYou ? "names them" : "doesn't name them") : "none"}`,
       );
     }
-    if (ok(grid)) lines.push(`Grid: ${grid.cells.map((c) => `${c.name} ${c.rank ?? "-"}`).join(", ")}`);
+    if (ok(grid)) lines.push(`Grid: ${grid.cells.map((c) => `${c.name}${c.base ? " (base)" : ""} ${c.rank ?? "-"}`).join(", ")}`);
     if (ok(ai)) lines.push(`ChatGPT: ${ai.youNamed ? "named" : "not named"}. Named: ${ai.named.join(", ")}`);
     lines.push("", "Moves shown:", ...theMoves.map((m) => `- ${m.title}`));
     return lines.join("\n");
@@ -260,7 +290,11 @@ export function WhoGetsTheCall() {
                   </span>
                 </div>
 
-                {stage >= 0 && !reached("ads") && <p className={s.wait}>Searching from {area}…</p>}
+                {stage >= 0 && !reached("ads") && (
+                  <p className={s.wait} key={waitLine}>
+                    {waitLine}
+                  </p>
+                )}
 
                 {reached("ads") && search === "error" && (
                   <p className={s.wait}>Google didn&rsquo;t answer this time. Carrying on with Maps and ChatGPT.</p>
@@ -298,7 +332,7 @@ export function WhoGetsTheCall() {
                       <div className={`${s.listing} ${s.you}`}>
                         <span className={s.pin}>{centreCell?.rank ?? "?"}</span>
                         <div>
-                          <strong>{you?.name}</strong>
+                          <strong>{me}</strong>
                           <p>
                             {centreCell?.rank
                               ? "Below “More places”. Most people never tap it."
@@ -316,6 +350,9 @@ export function WhoGetsTheCall() {
                   <div className={`${s.block} ${s.aio}`}>
                     <span className={s.sponsored}>AI Overview</span>
                     <p>{search.aio.text}</p>
+                    <span className={`${s.badge} ${search.aio.namesYou ? s.badgeYes : s.badgeNo}`}>
+                      {search.aio.namesYou ? `Names ${me}` : `Doesn't name ${me}`}
+                    </span>
                   </div>
                 )}
               </>
@@ -323,16 +360,28 @@ export function WhoGetsTheCall() {
               <div className={s.chat}>
                 <div className={s.chatHead}>ChatGPT</div>
                 <div className={s.bubbleUser}>{ok(ai) ? ai.question : `Who's the best ${job} in ${area}?`}</div>
+                {ok(ai) && (
+                  <span className={`${s.badge} ${ai.youNamed ? s.badgeYes : s.badgeNo}`}>
+                    {ai.youNamed ? `ChatGPT names ${me}` : `${me} isn't named`}
+                  </span>
+                )}
                 <div className={s.bubbleBot}>
-                  {ok(ai) ? typedChat : "ChatGPT didn't answer this time."}
+                  {ok(ai) ? highlight(typedChat, me) : "ChatGPT didn't answer this time."}
                 </div>
               </div>
             ) : (
               <div className={s.calling}>
                 <div className={s.ring} />
-                <p className={s.callingLabel}>Calling</p>
-                <p className={s.callingName}>{youFirst ? you?.name : (winner ?? "someone else")}</p>
-                <p className={s.callingSub}>{youFirst ? "That's you." : `Not ${you?.name}.`}</p>
+                <p className={s.callingLabel}>Calling from Google Maps</p>
+                <p className={s.callingName}>{youFirst ? me : winner ? brandName(winner) : "someone else"}</p>
+                <p className={s.callingSub}>{youFirst ? "That's you." : `Not ${me}.`}</p>
+                <p className={s.callingNote}>
+                  {youFirst
+                    ? "First on the map for this search."
+                    : ok(ai) && ai.youNamed
+                      ? "ChatGPT named you, but most local calls still start on the map, and you're not first there."
+                      : "First on the map for this search, where most local calls start."}
+                </p>
               </div>
             )}
           </div>
@@ -344,9 +393,9 @@ export function WhoGetsTheCall() {
           <p className={s.kicker}>Your result for &ldquo;{query}&rdquo;</p>
           <h2 className={s.cardTitle}>
             {youFirst ? (
-              <>Right now, this search puts <em>you</em> first.</>
+              <>Right now, Google Maps puts <em>you</em> first for this search.</>
             ) : winner ? (
-              <>Right now, this search puts <em>{winner}</em> first.</>
+              <>Right now, Google Maps puts <em>{brandName(winner)}</em> first for this search.</>
             ) : (
               <>We couldn&rsquo;t read who&rsquo;s first this time.</>
             )}
@@ -355,8 +404,10 @@ export function WhoGetsTheCall() {
           <ul className={s.scores}>
             <li>
               <span>Google Maps</span>
-              {centreCell ? (
-                <b className={tone(centreCell.rank)}>{centreCell.rank ? `#${centreCell.rank}` : "Not showing"}</b>
+              {ok(grid) ? (
+                <b className={top3 === 0 ? s.bad : top3 * 2 < spots ? s.mid : s.good}>
+                  Top 3 in {top3} of {spots} spots
+                </b>
               ) : (
                 <b className={s.mid}>Unknown</b>
               )}
@@ -393,12 +444,13 @@ export function WhoGetsTheCall() {
 
           {ok(grid) && (
             <>
-              <p className={s.gridLabel}>Your map position, searched from around {area}</p>
+              <p className={s.gridLabel}>Your map position for &ldquo;{job}&rdquo;, searched from each spot</p>
               <div className={s.grid}>
                 {grid.cells.map((g, k) => (
                   <div className={`${s.cell} ${tone(g.rank)}`} key={`${g.name}-${k}`}>
                     <b>{g.rank ?? "–"}</b>
                     <span>{g.name}</span>
+                    {g.base && <span className={s.baseTag}>your base</span>}
                     {g.rank === null && <span>{g.shown ? `not in top ${g.shown}` : "no data"}</span>}
                   </div>
                 ))}
