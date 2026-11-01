@@ -2,23 +2,36 @@
 
 import { FormEvent, useEffect, useRef, useState } from "react";
 
-import { DEMO } from "./demo-data";
+import { moves } from "@/lib/wgtc/moves";
+import type {
+  AiResult,
+  Business,
+  Centre,
+  FindResult,
+  GridResult,
+  SearchResult,
+} from "@/lib/wgtc/types";
+
 import s from "./who-gets-the-call.module.css";
 
-type Phase = "form" | "running" | "result" | "unlocked";
+type Phase = "form" | "finding" | "pick" | "running" | "result" | "unlocked";
+type Slot<T> = T | "error" | null; // null = still loading
 
-// Stages of the phone playback, in order. Each one is revealed after the
-// previous one's delay (ms).
-const STAGES = [
-  { key: "query", delay: 0 },
-  { key: "ads", delay: 1600 },
-  { key: "map", delay: 1300 },
-  { key: "you", delay: 1300 },
-  { key: "aio", delay: 1400 },
-  { key: "chatgpt", delay: 2600 },
-  { key: "call", delay: 5200 },
-] as const;
-type StageKey = (typeof STAGES)[number]["key"];
+// Phone playback stages, in order. Each waits for a minimum gap after the
+// previous one AND for the data it shows, so nothing on screen is invented.
+const STAGES = ["query", "ads", "map", "you", "aio", "chatgpt", "call"] as const;
+const MIN_GAP = [0, 1500, 1300, 1300, 1400, 2200, 5200];
+
+async function post<T>(path: string, body: unknown): Promise<T> {
+  const res = await fetch(`/api/wgtc/${path}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error ?? "Something went wrong.");
+  return data as T;
+}
 
 function useTyped(text: string, active: boolean, msPerChar = 28) {
   const [n, setN] = useState(0);
@@ -41,81 +54,196 @@ function useTyped(text: string, active: boolean, msPerChar = 28) {
   return active ? text.slice(0, n) : "";
 }
 
-function posTone(pos: number) {
-  if (pos <= 3) return s.good;
-  if (pos <= 10) return s.mid;
-  return s.bad;
-}
+const tone = (rank: number | null) =>
+  rank === null ? s.bad : rank <= 3 ? s.good : rank <= 10 ? s.mid : s.bad;
+
+const ok = <T,>(v: Slot<T>): v is T => v !== null && v !== "error";
 
 export function WhoGetsTheCall() {
   const [phase, setPhase] = useState<Phase>("form");
-  const [business, setBusiness] = useState("Harcourt Concrete");
-  const [job, setJob] = useState("concrete driveway, Albany");
+  const [error, setError] = useState("");
+  const [business, setBusiness] = useState("");
+  const [job, setJob] = useState("");
+  const [place, setPlace] = useState("");
+  const [found, setFound] = useState<FindResult | null>(null);
+  const [you, setYou] = useState<Business | null>(null);
+  const [search, setSearch] = useState<Slot<SearchResult>>(null);
+  const [grid, setGrid] = useState<Slot<GridResult>>(null);
+  const [ai, setAi] = useState<Slot<AiResult>>(null);
   const [stage, setStage] = useState(-1);
-  const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
+  const [contact, setContact] = useState("");
+  const [sending, setSending] = useState(false);
+  const runId = useRef(0);
 
-  const [jobPart, suburbPart] = job.includes(",")
-    ? [job.slice(0, job.lastIndexOf(",")).trim(), job.slice(job.lastIndexOf(",") + 1).trim()]
-    : [job.trim(), ""];
-  const query = `${jobPart} ${suburbPart}`.trim().toLowerCase();
-  const name = business.trim() || "Your business";
+  const centre: Centre | null = found?.centre ?? null;
+  const area = centre?.name ?? "";
+  const query = ok(search) ? search.query : `${job} ${area}`.trim().toLowerCase();
+  const reached = (k: (typeof STAGES)[number]) => stage >= STAGES.indexOf(k);
 
-  const reached = (key: StageKey) =>
-    phase !== "form" && stage >= STAGES.findIndex((st) => st.key === key);
+  const typedQuery = useTyped(query, phase === "running" && reached("query"), 55);
+  const typedChat = useTyped(ok(ai) ? ai.answer : "", phase === "running" && reached("chatgpt") && ok(ai), 12);
 
-  const typedQuery = useTyped(query, reached("query"), 55);
-  const typedChat = useTyped(DEMO.chatgpt, reached("chatgpt"), 14);
+  // Is the data for stage i on hand (or failed, which also lets it pass)?
+  const ready = (i: number) => {
+    const k = STAGES[i];
+    if (k === "query") return true;
+    if (k === "you") return search !== null && grid !== null;
+    if (k === "chatgpt") return ai !== null;
+    return search !== null;
+  };
 
-  useEffect(() => () => timers.current.forEach(clearTimeout), []);
+  useEffect(() => {
+    if (phase !== "running") return;
+    const next = stage + 1;
+    if (next >= STAGES.length) {
+      const id = setTimeout(() => setPhase("result"), 3200);
+      return () => clearTimeout(id);
+    }
+    if (!ready(next)) return;
+    // Let ChatGPT's answer finish typing before the phone rings.
+    const gap =
+      STAGES[next] === "call" && ok(ai) ? Math.max(MIN_GAP[next], ai.answer.length * 12 + 1800) : MIN_GAP[next];
+    const id = setTimeout(() => setStage(next), gap);
+    return () => clearTimeout(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase, stage, search, grid, ai]);
 
-  function run(e: FormEvent) {
+  async function find(e: FormEvent) {
     e.preventDefault();
-    timers.current.forEach(clearTimeout);
-    timers.current = [];
-    setPhase("running");
+    setError("");
+    setPhase("finding");
+    try {
+      const r = await post<FindResult>("find", { business, place });
+      setFound(r);
+      setPhase("pick");
+    } catch (err) {
+      setError((err as Error).message);
+      setPhase("form");
+    }
+  }
+
+  function run(picked: Business | null) {
+    if (!centre) return;
+    const me: Business = picked ?? { name: business };
+    const id = ++runId.current;
+    setYou(me);
+    setSearch(null);
+    setGrid(null);
+    setAi(null);
     setStage(-1);
-    let t = 300;
-    STAGES.forEach((st, i) => {
-      t += st.delay;
-      timers.current.push(setTimeout(() => setStage(i), t));
-    });
-    timers.current.push(setTimeout(() => setPhase("result"), t + 2600));
+    setPhase("running");
+    const body = { job, centre, you: me };
+    const settle = <T,>(p: Promise<T>, set: (v: Slot<T>) => void) =>
+      p.then((v) => id === runId.current && set(v)).catch(() => id === runId.current && set("error"));
+    settle(post<SearchResult>("search", body), setSearch);
+    settle(post<GridResult>("grid", body), setGrid);
+    settle(post<AiResult>("ai", body), setAi);
   }
 
   function reset() {
-    timers.current.forEach(clearTimeout);
+    runId.current++;
     setPhase("form");
     setStage(-1);
+    setFound(null);
+    setContact("");
+  }
+
+  const centreCell = ok(grid) ? (grid.cells.find((c) => c.name === area) ?? grid.cells[4]) : null;
+  const pack = ok(search) ? search.pack : [];
+  const winner =
+    pack[0]?.name ?? (ok(grid) ? grid.leaders[0]?.name : undefined) ?? null;
+  const youFirst = ok(search) && search.youInPack === 1;
+  const theMoves = you ? moves(you, area, job, ok(search) ? search : null, ok(grid) ? grid : null, ok(ai) ? ai : null) : [];
+
+  function summary(): string {
+    const lines = [
+      `Job: ${job}`,
+      `Area: ${area} (${centre?.lat}, ${centre?.lng})`,
+      `Their listing: ${you?.cid ? `${you.name}, ${you.address ?? ""}, ${you.reviews ?? 0} reviews, ${you.domain ?? "no website"}` : "not matched"}`,
+      "",
+      `Search: ${query}`,
+      `First in the map pack: ${winner ?? "unknown"}`,
+    ];
+    if (ok(search)) {
+      lines.push(
+        `Map pack: ${search.pack.map((b, i) => `${i + 1}. ${b.name} (${b.reviews ?? 0})`).join("; ")}`,
+        `In map pack: ${search.youInPack ?? "no"} | Website rank: ${search.organicRank ?? "not top 10"} | Advertising: ${search.youAdvertising ? "yes" : "no"} (${search.ads.length} ads)`,
+        `AI Overview: ${search.aio ? (search.aio.namesYou ? "names them" : "doesn't name them") : "none"}`,
+      );
+    }
+    if (ok(grid)) lines.push(`Grid: ${grid.cells.map((c) => `${c.name} ${c.rank ?? "-"}`).join(", ")}`);
+    if (ok(ai)) lines.push(`ChatGPT: ${ai.youNamed ? "named" : "not named"}. Named: ${ai.named.join(", ")}`);
+    lines.push("", "Moves shown:", ...theMoves.map((m) => `- ${m.title}`));
+    return lines.join("\n");
+  }
+
+  async function unlock(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const hp = new FormData(e.currentTarget).get("company_url");
+    setSending(true);
+    try {
+      await post("lead", { contact, business: you?.name ?? business, summary: summary(), company_url: hp });
+      setPhase("unlocked");
+    } catch (err) {
+      setError((err as Error).message);
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
     <div className={s.tool}>
-      <div className={s.demoFlag}>Prototype · example data, nothing is sent</div>
+      <div className={s.demoFlag}>Prototype · live results</div>
 
-      {phase === "form" && (
-        <form className={s.card} onSubmit={run}>
+      {(phase === "form" || phase === "finding") && (
+        <form className={s.card} onSubmit={find}>
           <p className={s.kicker}>Who gets the call?</p>
           <h2 className={s.cardTitle}>
             Watch a customer search for what you do, and see who they ring.
           </h2>
           <label className={s.field}>
             <span>Your business name</span>
-            <input value={business} onChange={(e) => setBusiness(e.target.value)} required />
+            <input value={business} onChange={(e) => setBusiness(e.target.value)} placeholder="Harcourt Concrete" required maxLength={80} />
           </label>
           <label className={s.field}>
-            <span>The job you want more of, and where</span>
-            <input
-              value={job}
-              onChange={(e) => setJob(e.target.value)}
-              placeholder="concrete driveway, Albany"
-              required
-            />
+            <span>Your trade, or the job you want more of</span>
+            <input value={job} onChange={(e) => setJob(e.target.value)} placeholder="electrician, concrete driveways" required maxLength={60} />
           </label>
-          <button className={`btn-primary ${s.go}`} type="submit">
-            Run the search <span className="arrow">→</span>
+          <label className={s.field}>
+            <span>Where you want it</span>
+            <input value={place} onChange={(e) => setPlace(e.target.value)} placeholder="Albany, Auckland" required maxLength={80} />
+          </label>
+          {error && <p className={s.error}>{error}</p>}
+          <button className={`btn-primary ${s.go}`} type="submit" disabled={phase === "finding"}>
+            {phase === "finding" ? "Finding you on Google…" : "Run the search"} <span className="arrow">→</span>
           </button>
-          <p className={s.small}>Takes about 20 seconds. Google, Maps, ChatGPT and Gemini.</p>
+          <p className={s.small}>Takes about 30 seconds. Live from Google, Maps and ChatGPT.</p>
         </form>
+      )}
+
+      {phase === "pick" && found && (
+        <div className={s.card}>
+          <p className={s.kicker}>Near {found.centre.name}</p>
+          <h2 className={s.cardTitle}>Which one is you on Google?</h2>
+          <div className={s.picks}>
+            {found.candidates.map((c) => (
+              <button key={c.cid ?? c.name} className={s.pick} type="button" onClick={() => run(c)}>
+                <strong>{c.name}</strong>
+                <span>
+                  {c.rating ? `${c.rating} ★ (${c.reviews ?? 0})` : "No reviews"}
+                  {c.address ? ` · ${c.address}` : ""}
+                </span>
+              </button>
+            ))}
+            <button className={`${s.pick} ${s.pickNone}`} type="button" onClick={() => run(null)}>
+              <strong>None of these are me</strong>
+              <span>Run it anyway with just my business name</span>
+            </button>
+          </div>
+          <button className="btn-ghost" type="button" onClick={reset}>
+            Change the details
+          </button>
+        </div>
       )}
 
       {phase === "running" && (
@@ -132,11 +260,17 @@ export function WhoGetsTheCall() {
                   </span>
                 </div>
 
-                {reached("ads") && (
+                {stage >= 0 && !reached("ads") && <p className={s.wait}>Searching from {area}…</p>}
+
+                {reached("ads") && search === "error" && (
+                  <p className={s.wait}>Google didn&rsquo;t answer this time. Carrying on with Maps and ChatGPT.</p>
+                )}
+
+                {reached("ads") && ok(search) && search.ads.length > 0 && (
                   <div className={s.block}>
-                    {DEMO.ads.map((ad) => (
-                      <div className={s.ad} key={ad.name}>
-                        <span className={s.sponsored}>Sponsored</span>
+                    {search.ads.slice(0, 2).map((ad) => (
+                      <div className={s.ad} key={ad.name + ad.domain}>
+                        <span className={s.sponsored}>Sponsored · {ad.domain}</span>
                         <strong>{ad.name}</strong>
                         <p>{ad.line}</p>
                       </div>
@@ -144,126 +278,159 @@ export function WhoGetsTheCall() {
                   </div>
                 )}
 
-                {reached("map") && (
+                {reached("map") && ok(search) && search.pack.length > 0 && (
                   <div className={s.block}>
                     <div className={s.mapStrip} aria-hidden="true">
                       <i style={{ left: "22%", top: "40%" }}>1</i>
                       <i style={{ left: "55%", top: "28%" }}>2</i>
                       <i style={{ left: "72%", top: "62%" }}>3</i>
                     </div>
-                    {DEMO.mapPack.map((l, i) => (
-                      <div className={s.listing} key={l.name}>
+                    {search.pack.map((l, i) => (
+                      <div className={`${s.listing} ${search.youInPack === i + 1 ? s.you : ""}`} key={l.cid ?? l.name}>
                         <span className={s.pin}>{i + 1}</span>
                         <div>
                           <strong>{l.name}</strong>
-                          <p>
-                            {l.rating} ★ ({l.reviews}) · {l.note}
-                          </p>
+                          <p>{l.rating ? `${l.rating} ★ (${l.reviews ?? 0})` : "No reviews yet"}</p>
                         </div>
                       </div>
                     ))}
-                    {reached("you") && (
+                    {reached("you") && !search.youInPack && (
                       <div className={`${s.listing} ${s.you}`}>
-                        <span className={s.pin}>{DEMO.yourPosition}</span>
+                        <span className={s.pin}>{centreCell?.rank ?? "?"}</span>
                         <div>
-                          <strong>{name}</strong>
-                          <p>Below &ldquo;More places&rdquo;. Most people never tap it.</p>
+                          <strong>{you?.name}</strong>
+                          <p>
+                            {centreCell?.rank
+                              ? "Below “More places”. Most people never tap it."
+                              : ok(grid)
+                                ? `Not in the ${centreCell?.shown ?? 20} businesses Google shows here.`
+                                : "We couldn't read the map position this time."}
+                          </p>
                         </div>
                       </div>
                     )}
                   </div>
                 )}
 
-                {reached("aio") && (
+                {reached("aio") && ok(search) && search.aio && (
                   <div className={`${s.block} ${s.aio}`}>
                     <span className={s.sponsored}>AI Overview</span>
-                    <p>{DEMO.aiOverview}</p>
+                    <p>{search.aio.text}</p>
                   </div>
                 )}
               </>
             ) : !reached("call") ? (
               <div className={s.chat}>
                 <div className={s.chatHead}>ChatGPT</div>
-                <div className={s.bubbleUser}>
-                  Who&rsquo;s the best for a {query}?
+                <div className={s.bubbleUser}>{ok(ai) ? ai.question : `Who's the best ${job} in ${area}?`}</div>
+                <div className={s.bubbleBot}>
+                  {ok(ai) ? typedChat : "ChatGPT didn't answer this time."}
                 </div>
-                <div className={s.bubbleBot}>{typedChat}</div>
               </div>
             ) : (
               <div className={s.calling}>
                 <div className={s.ring} />
                 <p className={s.callingLabel}>Calling</p>
-                <p className={s.callingName}>{DEMO.winner}</p>
-                <p className={s.callingSub}>Not {name}.</p>
+                <p className={s.callingName}>{youFirst ? you?.name : (winner ?? "someone else")}</p>
+                <p className={s.callingSub}>{youFirst ? "That's you." : `Not ${you?.name}.`}</p>
               </div>
             )}
           </div>
         </div>
       )}
 
-      {(phase === "result" || phase === "unlocked") && (
+      {(phase === "result" || phase === "unlocked") && you && (
         <div className={s.card}>
           <p className={s.kicker}>Your result for &ldquo;{query}&rdquo;</p>
           <h2 className={s.cardTitle}>
-            Right now, this search sends most calls to <em>{DEMO.winner}</em>.
+            {youFirst ? (
+              <>Right now, this search puts <em>you</em> first.</>
+            ) : winner ? (
+              <>Right now, this search puts <em>{winner}</em> first.</>
+            ) : (
+              <>We couldn&rsquo;t read who&rsquo;s first this time.</>
+            )}
           </h2>
 
           <ul className={s.scores}>
             <li>
               <span>Google Maps</span>
-              <b className={s.bad}>#{DEMO.yourPosition}</b>
+              {centreCell ? (
+                <b className={tone(centreCell.rank)}>{centreCell.rank ? `#${centreCell.rank}` : "Not showing"}</b>
+              ) : (
+                <b className={s.mid}>Unknown</b>
+              )}
             </li>
             <li>
               <span>Google Ads</span>
-              <b className={s.bad}>Not showing</b>
+              {ok(search) ? (
+                <b className={search.youAdvertising ? s.good : search.ads.length ? s.bad : s.mid}>
+                  {search.youAdvertising ? "Showing" : search.ads.length ? `Not showing (${search.ads.length} are)` : "No ads here"}
+                </b>
+              ) : (
+                <b className={s.mid}>Unknown</b>
+              )}
+            </li>
+            <li>
+              <span>Google AI answer</span>
+              {ok(search) ? (
+                <b className={search.aio ? (search.aio.namesYou ? s.good : s.bad) : s.mid}>
+                  {search.aio ? (search.aio.namesYou ? "Named" : "Not named") : "None shown"}
+                </b>
+              ) : (
+                <b className={s.mid}>Unknown</b>
+              )}
             </li>
             <li>
               <span>ChatGPT</span>
-              <b className={s.bad}>Not named</b>
-            </li>
-            <li>
-              <span>Gemini</span>
-              <b className={s.mid}>Named 4th</b>
+              {ok(ai) ? (
+                <b className={ai.youNamed ? s.good : s.bad}>{ai.youNamed ? "Named" : "Not named"}</b>
+              ) : (
+                <b className={s.mid}>Unknown</b>
+              )}
             </li>
           </ul>
 
-          <p className={s.gridLabel}>Your map position, searched from each suburb</p>
-          <div className={s.grid}>
-            {DEMO.grid.map((g) => (
-              <div className={`${s.cell} ${posTone(g.pos)}`} key={g.suburb}>
-                <b>{g.pos >= 20 ? "20+" : g.pos}</b>
-                <span>{g.suburb}</span>
+          {ok(grid) && (
+            <>
+              <p className={s.gridLabel}>Your map position, searched from around {area}</p>
+              <div className={s.grid}>
+                {grid.cells.map((g, k) => (
+                  <div className={`${s.cell} ${tone(g.rank)}`} key={`${g.name}-${k}`}>
+                    <b>{g.rank ?? "–"}</b>
+                    <span>{g.name}</span>
+                    {g.rank === null && <span>{g.shown ? `not in top ${g.shown}` : "no data"}</span>}
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </>
+          )}
 
           {phase === "result" ? (
-            <form
-              className={s.gate}
-              onSubmit={(e) => {
-                e.preventDefault();
-                setPhase("unlocked");
-              }}
-            >
-              <p className={s.gateTitle}>Three moves that would get the call to you</p>
+            <form className={s.gate} onSubmit={unlock}>
+              <p className={s.gateTitle}>
+                {theMoves.length} {theMoves.length === 1 ? "move" : "moves"} that would get more of these calls to you
+              </p>
               <div className={s.blurred} aria-hidden="true">
-                {DEMO.moves.map((m) => (
+                {theMoves.map((m) => (
                   <p key={m.title}>{m.title}</p>
                 ))}
               </div>
+              <input className={s.hp} name="company_url" tabIndex={-1} autoComplete="off" aria-hidden="true" />
               <label className={s.field}>
-                <span>Mobile or email, and we&rsquo;ll send them over</span>
-                <input placeholder="021 123 4567" required />
+                <span>Mobile or email, and we&rsquo;ll send them to you too</span>
+                <input value={contact} onChange={(e) => setContact(e.target.value)} placeholder="021 123 4567" required maxLength={120} />
               </label>
-              <button className={`btn-primary ${s.go}`} type="submit">
-                Show me the three moves <span className="arrow">→</span>
+              {error && <p className={s.error}>{error}</p>}
+              <button className={`btn-primary ${s.go}`} type="submit" disabled={sending}>
+                {sending ? "Sending…" : "Show me the moves"} <span className="arrow">→</span>
               </button>
             </form>
           ) : (
             <div className={s.gate}>
-              <p className={s.gateTitle}>Three moves that would get the call to you</p>
+              <p className={s.gateTitle}>What would get more of these calls to you</p>
               <ol className={s.moves}>
-                {DEMO.moves.map((m) => (
+                {theMoves.map((m) => (
                   <li key={m.title}>
                     <strong>{m.title}</strong>
                     <p>{m.body}</p>
@@ -276,6 +443,10 @@ export function WhoGetsTheCall() {
             </div>
           )}
 
+          <p className={s.small}>
+            Live from Google and ChatGPT just now. Results shift through the day and with where
+            the search happens.
+          </p>
           <button className="btn-ghost" type="button" onClick={reset}>
             Run another search
           </button>

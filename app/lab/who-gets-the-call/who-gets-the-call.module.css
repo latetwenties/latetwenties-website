@@ -442,3 +442,57 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+/* Live version additions */
+.error {
+  margin: 0;
+  font-size: 14px;
+  color: var(--color-red);
+}
+.wait {
+  margin: 4px 2px;
+  font-size: 12px;
+  color: var(--ink-mute);
+  animation: fadeUp 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.picks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.pick {
+  font: inherit;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 14px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 10px;
+  background: var(--ground);
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color 160ms ease, transform 160ms ease;
+}
+.pick:hover {
+  border-color: var(--ink);
+  transform: translateY(-1px);
+}
+.pick span {
+  font-size: 12.5px;
+  color: var(--ink-soft);
+}
+.pickNone {
+  background: transparent;
+  border-style: dashed;
+}
+.hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.chat {
+  overflow: hidden;
+}
