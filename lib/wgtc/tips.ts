@@ -42,6 +42,12 @@ export const TIPS: Tip[] = [
     source: "Google",
   },
   {
+    // Search Engine Land (2025): ChatGPT runs local searches on Bing and
+    // reorders the results.
+    line: "ChatGPT searches Bing, not Google. A free Bing Places listing helps it find you.",
+    source: "Search Engine Land",
+  },
+  {
     // Map spots 1 to 3 click share, see lib/wgtc/worth.ts (BrightLocal 2018, First Page Sage 2026).
     line: "The top three on the map take roughly a third of all the taps on the page.",
     source: "BrightLocal, First Page Sage",

@@ -67,10 +67,21 @@ export function moves(
   if (ai?.answers.length) {
     const named = ai.answers.filter((a) => a.youNamed).length;
     if (named < ai.answers.length) {
-      const missed = ai.answers.filter((a) => !a.youNamed).map((a) => a.label);
+      const missed = ai.answers.filter((a) => !a.youNamed);
+      // Each assistant searches a different index, so the fix depends on
+      // which ones missed. ChatGPT runs its local searches on Bing (Search
+      // Engine Land, 2025); Claude's web search runs on Brave (reported from
+      // its tool parameters); Google's AI reads the Google profile.
+      const fixes: Record<string, string> = {
+        chatgpt: "ChatGPT searches Bing, not Google, so claim your free Bing Places listing and add your site to Bing Webmaster Tools.",
+        claude: "Claude searches Brave, so check your website comes up there for your trade and town.",
+        aimode: "Google's AI reads your Google profile, so fill in every service and the areas you cover.",
+        perplexity: "Perplexity leans on review sites and local directories, so get listed on the ones your trade uses.",
+      };
+      const tips = missed.map((a) => fixes[a.engine]).filter(Boolean).slice(0, 2);
       out.push({
         title: "Get recommended by AI assistants",
-        body: `Asked who's best for ${job} in ${area}, ${list(missed)} didn't name you. They lean on your reviews, what your website says you do, and other sites that mention you.`,
+        body: [`Asked who's best for ${job} in ${area}, ${list(missed.map((a) => a.label))} didn't name you.`, ...tips].join(" "),
       });
     }
   }

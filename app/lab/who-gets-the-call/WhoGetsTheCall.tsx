@@ -169,7 +169,7 @@ export function WhoGetsTheCall() {
   // Waiting on data for the next screen: show the loader and a tip.
   const nextStage = STAGES[stage + 1];
   const stalled = phase === "running" && stage >= 0 && !!nextStage && !ready(nextStage);
-  const tip = TIPS[(tipStart + Math.floor(elapsed / 5)) % TIPS.length];
+  const tip = TIPS[(tipStart + Math.floor(elapsed / 7)) % TIPS.length];
 
   useEffect(() => {
     if (phase !== "running") return;
