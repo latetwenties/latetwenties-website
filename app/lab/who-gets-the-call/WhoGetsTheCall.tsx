@@ -711,7 +711,12 @@ export function WhoGetsTheCall() {
                   </li>
                 ))}
               </ol>
-              <a className={`btn-primary ${s.go}`} href="/contact">
+              <a
+                className={`btn-primary ${s.go}`}
+                href="https://tidycal.com/latetwenties/15-minute-meeting"
+                target="_blank"
+                rel="noopener"
+              >
                 Talk it through with Brendan, 15 min <span className="arrow">→</span>
               </a>
             </div>
