@@ -31,11 +31,17 @@ export async function POST(req: Request) {
     const d = await res.json();
     if (d.error) throw new Error(d.error.message);
     const audits = d.lighthouseResult?.audits ?? {};
+    // Some pages (heavy animation) give NO_LCP; fall back to Speed Index,
+    // labelled as a different measure with its own "good" mark (3.4s).
     const lcp = audits["largest-contentful-paint"]?.numericValue;
-    if (typeof lcp !== "number") throw new Error("no load time in the result");
+    const si = audits["speed-index"]?.numericValue;
+    const ms = typeof lcp === "number" ? lcp : si;
+    if (typeof ms !== "number") throw new Error("no load time in the result");
     const result: SiteResult = {
       url,
-      loadSeconds: Math.round(lcp / 100) / 10,
+      loadSeconds: Math.round(ms / 100) / 10,
+      measure: typeof lcp === "number" ? "main content" : "page to fill in",
+      goodMark: typeof lcp === "number" ? 2.5 : 3.4,
       screenshot: audits["final-screenshot"]?.details?.data ?? null,
     };
     return NextResponse.json(result);

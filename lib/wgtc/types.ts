@@ -56,6 +56,10 @@ export type WorthResult = {
 
 export type SiteResult = {
   url: string;
-  loadSeconds: number; // Largest Contentful Paint on a mid-range phone, lab test
+  // Seconds on a mid-range phone (lab test). Largest Contentful Paint when
+  // Google can time it ("main content"), else Speed Index ("page to fill in").
+  loadSeconds: number;
+  measure: "main content" | "page to fill in";
+  goodMark: number; // Google's "good" threshold for that measure, in seconds
   screenshot: string | null; // data: URI of the page as the phone sees it
 };

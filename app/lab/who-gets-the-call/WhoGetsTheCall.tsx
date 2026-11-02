@@ -438,9 +438,9 @@ export function WhoGetsTheCall() {
                   ) : (
                     <div className={s.siteShot} />
                   )}
-                  <div className={`${s.speed} ${site.loadSeconds <= 2.5 ? s.badgeYes : s.badgeNo}`}>
-                    <b>{site.loadSeconds}s</b> to load on a phone
-                    <span>Google&rsquo;s good mark is 2.5s</span>
+                  <div className={`${s.speed} ${site.loadSeconds <= site.goodMark ? s.badgeYes : s.badgeNo}`}>
+                    <b>{site.loadSeconds}s</b> for the {site.measure} to show on a phone
+                    <span>Google&rsquo;s good mark is {site.goodMark}s</span>
                   </div>
                 </div>
               ) : !reached("others") && chat ? (
@@ -594,7 +594,7 @@ export function WhoGetsTheCall() {
             {ok(site) && (
               <li>
                 <span>Website on a phone</span>
-                <b className={site.loadSeconds <= 2.5 ? s.good : site.loadSeconds <= 4 ? s.mid : s.bad}>
+                <b className={site.loadSeconds <= site.goodMark ? s.good : site.loadSeconds <= site.goodMark * 1.6 ? s.mid : s.bad}>
                   {site.loadSeconds}s to load
                 </b>
               </li>

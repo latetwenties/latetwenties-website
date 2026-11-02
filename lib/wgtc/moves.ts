@@ -68,10 +68,10 @@ export function moves(
     });
   }
 
-  if (site && site.loadSeconds > 2.5) {
+  if (site && site.loadSeconds > site.goodMark) {
     out.push({
       title: "Make your website quicker on a phone",
-      body: `Your homepage took ${site.loadSeconds} seconds to show its main content on a phone. Google's own mark for good is 2.5 seconds, and people searching for a tradie don't wait.`,
+      body: `Your homepage took ${site.loadSeconds} seconds for the ${site.measure} to show on a phone. Google's own mark for good is ${site.goodMark} seconds, and people searching for a tradie don't wait.`,
     });
   }
 
