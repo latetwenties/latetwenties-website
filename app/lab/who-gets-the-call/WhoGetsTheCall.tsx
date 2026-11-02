@@ -2,6 +2,7 @@
 
 import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 
+import { aiQuestion, parseJob } from "@/lib/wgtc/job";
 import { moves } from "@/lib/wgtc/moves";
 import { TIPS } from "@/lib/wgtc/tips";
 import { brandName } from "@/lib/wgtc/names";
@@ -114,7 +115,9 @@ export function WhoGetsTheCall() {
 
   const centre: Centre | null = found?.centre ?? null;
   const area = centre?.name ?? "";
-  const query = ok(search) ? search.query : `${job} ${area}`.trim().toLowerCase();
+  // What was typed, read as the phrase we search (see lib/wgtc/job.ts).
+  const jobPhrase = parseJob(job).search;
+  const query = ok(search) ? search.query : `${jobPhrase} ${area}`.trim().toLowerCase();
   const me = you ? brandName(you.name) : brandName(business);
   const reached = (k: Stage) => stage >= STAGES.indexOf(k);
   const at = (k: Stage) => STAGES[stage] === k;
@@ -256,7 +259,7 @@ export function WhoGetsTheCall() {
     ? moves(
         you,
         area,
-        job,
+        jobPhrase,
         ok(search) ? search : null,
         ok(grid) ? grid : null,
         ok(ai) ? ai : null,
@@ -331,8 +334,8 @@ export function WhoGetsTheCall() {
             <input value={business} onChange={(e) => setBusiness(e.target.value)} placeholder="Harcourt Concrete" required maxLength={80} />
           </label>
           <label className={s.field}>
-            <span>Your trade, or the job you want more of</span>
-            <input value={job} onChange={(e) => setJob(e.target.value)} placeholder="electrician, concrete driveways" required maxLength={60} />
+            <span>The job you want more calls for</span>
+            <input value={job} onChange={(e) => setJob(e.target.value)} placeholder="new builds" required maxLength={60} />
           </label>
           <label className={s.field}>
             <span>Where you want it</span>
@@ -491,7 +494,7 @@ export function WhoGetsTheCall() {
               ) : !reached("call") && chat ? (
                 <div className={s.chat}>
                   <div className={s.chatHead}>{chat.label}</div>
-                  <div className={s.bubbleUser}>{ok(aiChat) ? aiChat.question : `Who's the best ${job} in ${area}?`}</div>
+                  <div className={s.bubbleUser}>{ok(aiChat) ? aiChat.question : aiQuestion(parseJob(job), area)}</div>
                   <span className={`${s.badge} ${chat.youNamed ? s.badgeYes : s.badgeNo}`}>
                     {chat.youNamed ? `${chat.label} names ${me}` : `${me} isn't named`}
                   </span>
@@ -551,13 +554,13 @@ export function WhoGetsTheCall() {
               <p className={s.small}>Counting the searches…</p>
             ) : !ok(worth) ? null : worth.searches === null ? (
               <p className={s.worthNote}>
-                Google counts fewer than 20 searches a month for &ldquo;{job}&rdquo; around {area}, so we
+                Google counts fewer than 20 searches a month for &ldquo;{jobPhrase}&rdquo; around {area}, so we
                 won&rsquo;t put a number on it. Try your main trade word.
               </p>
             ) : (
               <>
                 <p className={s.worthBig}>
-                  <b>{worth.searches.toLocaleString("en-NZ")}</b> searches a month for {job} around {area}
+                  <b>{worth.searches.toLocaleString("en-NZ")}</b> searches a month for {jobPhrase} around {area}
                 </p>
                 <p className={s.worthLine}>
                   About <b>{worth.topThreeLow}&ndash;{worth.topThreeHigh}</b> of those people tap one of the

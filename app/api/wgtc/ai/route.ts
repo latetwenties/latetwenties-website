@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { aiMode, type Business, chatgpt, isYou, llm, plain, textNamesYou } from "@/lib/wgtc/dataforseo";
+import { aiQuestion, parseJob } from "@/lib/wgtc/job";
 import { guard, num, text } from "@/lib/wgtc/guard";
 import type { AiAnswer, AiResult, Engine } from "@/lib/wgtc/types";
 
@@ -22,7 +23,7 @@ export async function POST(req: Request) {
   if (blocked) return blocked;
 
   const body = await req.json().catch(() => ({}));
-  const job = text(body.job);
+  const job = parseJob(text(body.job));
   const area = text(body.centre?.name);
   const lat = num(body.centre?.lat);
   const lng = num(body.centre?.lng);
@@ -32,13 +33,13 @@ export async function POST(req: Request) {
   const wanted = Array.isArray(body.engines)
     ? ENGINES.filter((e) => (body.engines as unknown[]).includes(e))
     : ENGINES;
-  if (!job || !area || lat === null || lng === null || !you?.name) {
+  if (!job.search || !area || lat === null || lng === null || !you?.name) {
     return NextResponse.json({ error: "Missing search details." }, { status: 400 });
   }
 
-  const question = `Who's the best ${job} in ${area}? Name up to 5 local businesses.`;
+  const question = aiQuestion(job, area);
   // The API assistants don't know where the asker is, so they get the country.
-  const withCountry = `Who's the best ${job} in ${area}, ${country}? Name up to 5 local businesses.`;
+  const withCountry = aiQuestion(job, area, `${area}, ${country}`);
 
   const settle = async (
     engine: AiAnswer["engine"],

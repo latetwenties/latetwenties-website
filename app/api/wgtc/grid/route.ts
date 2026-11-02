@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 
 import { type Business, isYou, localFinder, toBusiness } from "@/lib/wgtc/dataforseo";
 import { gridPoints, nameGrid, type Point } from "@/lib/wgtc/geo";
+import { parseJob } from "@/lib/wgtc/job";
 import { guard, num, text } from "@/lib/wgtc/guard";
 import type { GridResult } from "@/lib/wgtc/types";
 
@@ -15,7 +16,7 @@ export async function POST(req: Request) {
   if (blocked) return blocked;
 
   const body = await req.json().catch(() => ({}));
-  const job = text(body.job);
+  const job = parseJob(text(body.job)).search;
   const area = text(body.centre?.name);
   const lat = num(body.centre?.lat);
   const lng = num(body.centre?.lng);

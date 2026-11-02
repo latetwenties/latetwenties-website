@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { adsLocation, searchVolume } from "@/lib/wgtc/dataforseo";
+import { parseJob } from "@/lib/wgtc/job";
 import { guard, text } from "@/lib/wgtc/guard";
 import type { WorthResult } from "@/lib/wgtc/types";
 import { MIN_SEARCHES, topThree } from "@/lib/wgtc/worth";
@@ -15,7 +16,7 @@ export async function POST(req: Request) {
   if (blocked) return blocked;
 
   const body = await req.json().catch(() => ({}));
-  const job = text(body.job).toLowerCase();
+  const job = parseJob(text(body.job)).search;
   const area = text(body.centre?.name);
   const country = body.centre?.country === "Australia" ? "Australia" : "New Zealand";
   if (!job || !area) return NextResponse.json({ error: "Missing search details." }, { status: 400 });
