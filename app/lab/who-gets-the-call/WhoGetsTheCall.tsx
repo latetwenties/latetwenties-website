@@ -2,6 +2,7 @@
 
 import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 
+import type { Report, ReportScore } from "@/lib/wgtc/email";
 import { aiQuestion, parseJob } from "@/lib/wgtc/job";
 import { moves } from "@/lib/wgtc/moves";
 import { TIPS } from "@/lib/wgtc/tips";
@@ -276,6 +277,46 @@ export function WhoGetsTheCall() {
       : null;
   const jobs = each ? { low: jobsAMonth(each.low), high: jobsAMonth(each.high) } : null;
 
+  // The scores on the result card, shared with the visitor's emailed copy.
+  const scoreRows: ReportScore[] = you
+    ? [
+        ok(grid)
+          ? { label: "Google Maps", value: `Top 3 in ${top3} of ${spots} spots`, tone: top3 === 0 ? "bad" : top3 * 2 < spots ? "mid" : "good" }
+          : { label: "Google Maps", value: "Unknown", tone: "mid" },
+        you.cid && ok(grid) && grid.topReviews
+          ? {
+              label: "Google reviews",
+              value: `${you.reviews ?? 0} vs ${grid.topReviews} for the top three`,
+              tone: (you.reviews ?? 0) >= grid.topReviews ? "good" : (you.reviews ?? 0) * 2 >= grid.topReviews ? "mid" : "bad",
+            }
+          : { label: "Google reviews", value: "Unknown", tone: "mid" },
+        ok(ai)
+          ? { label: "AI assistants", value: `${aiNamed} of ${ai.answers.length} name you`, tone: aiNamed === 0 ? "bad" : aiNamed < ai.answers.length ? "mid" : "good" }
+          : { label: "AI assistants", value: "Unknown", tone: "mid" },
+        ...(ok(site)
+          ? [
+              {
+                label: "Website on a phone",
+                value: `${site.loadSeconds}s to load`,
+                tone: (site.loadSeconds <= site.goodMark ? "good" : site.loadSeconds <= site.goodMark * 1.6 ? "mid" : "bad") as ReportScore["tone"],
+              },
+            ]
+          : []),
+        ok(search)
+          ? {
+              label: "Google Ads",
+              value: search.youAdvertising ? "Showing" : search.ads.length ? `Not showing (${search.ads.length} are)` : "No ads here",
+              tone: search.youAdvertising ? "good" : search.ads.length ? "bad" : "mid",
+            }
+          : { label: "Google Ads", value: "Unknown", tone: "mid" },
+      ]
+    : [];
+  const headline = youFirst
+    ? "Right now, Google Maps puts you first for this search."
+    : winner
+      ? "Right now, someone else gets this call first."
+      : "We couldn't read who's first this time.";
+
   function summary(): string {
     const lines = [
       `Job: ${job}`,
@@ -310,7 +351,8 @@ export function WhoGetsTheCall() {
     const hp = new FormData(e.currentTarget).get("company_url");
     setSending(true);
     try {
-      await post("lead", { contact, business: you?.name ?? business, summary: summary(), company_url: hp });
+      const report: Report = { query, headline, scores: scoreRows, moves: theMoves };
+      await post("lead", { contact, business: me, summary: summary(), report, company_url: hp });
       setPhase("unlocked");
     } catch (err) {
       setError((err as Error).message);
@@ -607,54 +649,12 @@ export function WhoGetsTheCall() {
           </div>
 
           <ul className={s.scores}>
-            <li>
-              <span>Google Maps</span>
-              {ok(grid) ? (
-                <b className={top3 === 0 ? s.bad : top3 * 2 < spots ? s.mid : s.good}>
-                  Top 3 in {top3} of {spots} spots
-                </b>
-              ) : (
-                <b className={s.mid}>Unknown</b>
-              )}
-            </li>
-            <li>
-              <span>Google reviews</span>
-              {you.cid && ok(grid) && grid.topReviews ? (
-                <b className={(you.reviews ?? 0) >= grid.topReviews ? s.good : (you.reviews ?? 0) * 2 >= grid.topReviews ? s.mid : s.bad}>
-                  {you.reviews ?? 0} vs {grid.topReviews} for the top three
-                </b>
-              ) : (
-                <b className={s.mid}>Unknown</b>
-              )}
-            </li>
-            <li>
-              <span>AI assistants</span>
-              {ok(ai) ? (
-                <b className={aiNamed === 0 ? s.bad : aiNamed < ai.answers.length ? s.mid : s.good}>
-                  {aiNamed} of {ai.answers.length} name you
-                </b>
-              ) : (
-                <b className={s.mid}>Unknown</b>
-              )}
-            </li>
-            {ok(site) && (
-              <li>
-                <span>Website on a phone</span>
-                <b className={site.loadSeconds <= site.goodMark ? s.good : site.loadSeconds <= site.goodMark * 1.6 ? s.mid : s.bad}>
-                  {site.loadSeconds}s to load
-                </b>
+            {scoreRows.map((r) => (
+              <li key={r.label}>
+                <span>{r.label}</span>
+                <b className={s[r.tone]}>{r.value}</b>
               </li>
-            )}
-            <li>
-              <span>Google Ads</span>
-              {ok(search) ? (
-                <b className={search.youAdvertising ? s.good : search.ads.length ? s.bad : s.mid}>
-                  {search.youAdvertising ? "Showing" : search.ads.length ? `Not showing (${search.ads.length} are)` : "No ads here"}
-                </b>
-              ) : (
-                <b className={s.mid}>Unknown</b>
-              )}
-            </li>
+            ))}
           </ul>
 
           {ok(ai) && (
@@ -695,8 +695,8 @@ export function WhoGetsTheCall() {
               </div>
               <input className={s.hp} name="company_url" tabIndex={-1} autoComplete="off" aria-hidden="true" />
               <label className={s.field}>
-                <span>Mobile or email, and we&rsquo;ll send them to you too</span>
-                <input value={contact} onChange={(e) => setContact(e.target.value)} placeholder="021 123 4567" required maxLength={120} />
+                <span>Your email, and we&rsquo;ll send you a copy (or a mobile)</span>
+                <input value={contact} onChange={(e) => setContact(e.target.value)} placeholder="you@yourbusiness.co.nz" required maxLength={120} />
               </label>
               {error && <p className={s.error}>{error}</p>}
               <button className={`btn-primary ${s.go}`} type="submit" disabled={sending}>
