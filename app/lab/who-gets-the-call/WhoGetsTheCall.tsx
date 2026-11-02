@@ -3,6 +3,7 @@
 import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 
 import { moves } from "@/lib/wgtc/moves";
+import { TIPS } from "@/lib/wgtc/tips";
 import { brandName } from "@/lib/wgtc/names";
 import type {
   AiAnswer,
@@ -109,6 +110,7 @@ export function WhoGetsTheCall() {
   const [sending, setSending] = useState(false);
   const [elapsed, setElapsed] = useState(0);
   const runId = useRef(0);
+  const [tipStart, setTipStart] = useState(0);
 
   const centre: Centre | null = found?.centre ?? null;
   const area = centre?.name ?? "";
@@ -159,7 +161,13 @@ export function WhoGetsTheCall() {
   };
   // Stages with nothing to show are passed straight through.
   const empty = (k: Stage) =>
+    (k === "ads" && ok(search) && search.ads.length === 0) ||
     (k === "site" && !ok(site)) || (k === "chatgpt" && !chat) || (k === "others" && others.length === 0);
+
+  // Waiting on data for the next screen: show the loader and a tip.
+  const nextStage = STAGES[stage + 1];
+  const stalled = phase === "running" && stage >= 0 && !!nextStage && !ready(nextStage);
+  const tip = TIPS[(tipStart + Math.floor(elapsed / 5)) % TIPS.length];
 
   useEffect(() => {
     if (phase !== "running") return;
@@ -199,6 +207,8 @@ export function WhoGetsTheCall() {
     if (!centre) return;
     const meNow: Business = picked ?? { name: business };
     const id = ++runId.current;
+    // Each run starts on a different tip.
+    setTipStart((id * 3) % TIPS.length);
     setYou(meNow);
     setSearch(null);
     setGrid(null);
@@ -382,12 +392,6 @@ export function WhoGetsTheCall() {
                     </span>
                   </div>
 
-                  {stage >= 0 && !reached("ads") && (
-                    <p className={s.wait} key={waitLine}>
-                      {waitLine}
-                    </p>
-                  )}
-
                   {reached("ads") && search === "error" && (
                     <p className={s.wait}>Google&rsquo;s results page was slow this time. Checking the map and AI assistants instead.</p>
                   )}
@@ -500,8 +504,21 @@ export function WhoGetsTheCall() {
                         : "First on the map for this search, where most local calls start."}
                   </p>
                 </div>
-              ) : (
-                <p className={s.wait}>Asking the AI assistants…</p>
+              ) : null}
+              {stalled && (
+                <div className={`${s.loader} ${reached("ads") ? "" : s.loaderCentre}`} aria-live="polite">
+                  <div className={s.loaderHead}>
+                    <span className={s.spinner} aria-hidden />
+                    <span>{reached("others") ? "Waiting on ChatGPT…" : reached("site") ? "Asking the AI assistants…" : reached("map") ? "Checking the suburbs around you…" : waitLine}</span>
+                  </div>
+                  {/* On the website screen the tip would cover the speed badge. */}
+                  {!(at("site") && ok(site)) && (
+                    <p className={s.tip} key={tip.line}>
+                      {tip.line}
+                      <span>{tip.source}</span>
+                    </p>
+                  )}
+                </div>
               )}
             </div>
           </div>

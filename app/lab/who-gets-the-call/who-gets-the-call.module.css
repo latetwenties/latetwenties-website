@@ -132,6 +132,7 @@
   z-index: 2;
 }
 .screen {
+  position: relative;
   height: 100%;
   border-radius: 34px;
   background: var(--paper);
@@ -688,4 +689,65 @@
   flex-wrap: wrap;
   gap: 6px 14px;
   font-size: 12.5px;
+}
+
+/* Loader while the run waits on data: a spinner, what it's doing, and a tip. */
+.loader {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  padding: 12px 14px;
+  border-radius: 18px;
+  background: color-mix(in oklab, var(--paper) 92%, var(--ink));
+  box-shadow: 0 10px 30px -14px rgba(26, 24, 20, 0.35);
+  animation: fadeUp 500ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.loaderCentre {
+  bottom: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: none;
+}
+.loaderHead {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--ink-mute);
+}
+.spinner {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid color-mix(in oklab, var(--ink) 15%, transparent);
+  border-top-color: var(--accent);
+  animation: spin 800ms linear infinite;
+}
+.tip {
+  margin: 10px 0 0;
+  font-family: var(--serif);
+  font-size: 15px;
+  line-height: 1.35;
+  color: var(--ink);
+  animation: fadeUp 600ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.tip span {
+  display: block;
+  margin-top: 6px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: var(--ink-mute);
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation-duration: 2400ms;
+  }
 }
