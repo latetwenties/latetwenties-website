@@ -154,6 +154,8 @@ export function WhoGetsTheCall() {
   const ready = (k: Stage) => {
     if (k === "query") return true;
     if (k === "you") return search !== null && grid !== null;
+    // Without the results page, the map waits for the map search instead.
+    if (k === "map") return search !== null && (ok(search) && search.pack.length > 0 ? true : grid !== null);
     if (k === "site") return site !== null;
     if (k === "others") return aiRest !== null;
     if (k === "chatgpt") return aiChat !== null;
@@ -238,9 +240,14 @@ export function WhoGetsTheCall() {
     setContact("");
   }
 
-  const pack = ok(search) ? search.pack : [];
+  // The map pack from the Google results page, or, when that page failed, the
+  // top three from the map search at the centre.
+  const fromSearch = ok(search) && search.pack.length > 0;
+  const pack = fromSearch ? search.pack : ok(grid) ? grid.pack : [];
+  const centreRank = ok(grid) ? (grid.cells.find((c) => c.name === area)?.rank ?? null) : null;
+  const youInPack = fromSearch ? search.youInPack : centreRank !== null && centreRank <= 3 ? centreRank : null;
   const winner = pack[0]?.name ?? null;
-  const youFirst = ok(search) && search.youInPack === 1;
+  const youFirst = youInPack === 1;
   const centreCell = ok(grid) ? (grid.cells.find((c) => c.name === area) ?? null) : null;
   const top3 = ok(grid) ? grid.cells.filter((c) => c.rank !== null && c.rank <= 3).length : 0;
   const spots = ok(grid) ? grid.cells.length : 0;
@@ -393,7 +400,7 @@ export function WhoGetsTheCall() {
                   </div>
 
                   {reached("ads") && search === "error" && (
-                    <p className={s.wait}>Google&rsquo;s results page was slow this time. Checking the map and AI assistants instead.</p>
+                    <p className={s.wait}>Google&rsquo;s results page didn&rsquo;t load this time, so this is the map on its own.</p>
                   )}
 
                   {reached("ads") && ok(search) && search.ads.length > 0 && (
@@ -408,15 +415,15 @@ export function WhoGetsTheCall() {
                     </div>
                   )}
 
-                  {reached("map") && ok(search) && search.pack.length > 0 && (
+                  {reached("map") && pack.length > 0 && (
                     <div className={s.block}>
                       <div className={s.mapStrip} aria-hidden="true">
                         <i style={{ left: "22%", top: "40%" }}>1</i>
                         <i style={{ left: "55%", top: "28%" }}>2</i>
                         <i style={{ left: "72%", top: "62%" }}>3</i>
                       </div>
-                      {search.pack.map((l, i) => (
-                        <div className={`${s.listing} ${search.youInPack === i + 1 ? s.you : ""}`} key={l.cid ?? l.name}>
+                      {pack.map((l, i) => (
+                        <div className={`${s.listing} ${youInPack === i + 1 ? s.you : ""}`} key={l.cid ?? l.name}>
                           <span className={s.pin}>{i + 1}</span>
                           <div>
                             <strong>{l.name}</strong>
@@ -424,7 +431,7 @@ export function WhoGetsTheCall() {
                           </div>
                         </div>
                       ))}
-                      {reached("you") && !search.youInPack && (
+                      {reached("you") && !youInPack && (
                         <div className={`${s.listing} ${s.you}`}>
                           <span className={s.pin}>{centreCell?.rank ?? "?"}</span>
                           <div>

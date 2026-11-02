@@ -26,6 +26,9 @@ export type GridResult = {
   // Average Google review count of the top three at the centre point, the
   // visitor excluded. Null when it couldn't be read.
   topReviews: number | null;
+  // The top three on the map searched from the centre, the visitor included.
+  // Stands in for the map pack when the Google results page fails.
+  pack: Business[];
 };
 
 export type Engine = "chatgpt" | "aimode" | "perplexity" | "claude";

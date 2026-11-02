@@ -30,9 +30,10 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Missing search details." }, { status: 400 });
   }
 
-  const query = `${job} ${area}`.toLowerCase();
   try {
-    const items = await googleSearch(query, lat, lng);
+    // If Google's page for "job area" can't be read, the job on its own,
+    // still searched from the area, is what a phone there would show.
+    const { items, keyword: query } = await googleSearch(`${job} ${area}`.toLowerCase(), lat, lng, job.toLowerCase());
 
     const paid = items.filter((i) => i.type === "paid");
     const pack = items.filter((i) => i.type === "local_pack").map(toBusiness);

@@ -33,7 +33,7 @@ export async function POST(req: Request) {
     const all = base ? [...pts, base] : pts;
     const [gridNames, allResults] = await Promise.all([
       nameGrid(pts, area),
-      Promise.all(all.map((p) => localFinder(keyword, p.lat, p.lng).catch(() => null))),
+      Promise.all(all.map((p) => localFinder(keyword, p.lat, p.lng, job.toLowerCase()).catch(() => null))),
     ]);
     // Drop points that landed in the sea (named grid points keep their order).
     const keep = [...gridNames.map((p) => !p.sea), ...(base ? [true] : [])];
@@ -64,8 +64,8 @@ export async function POST(req: Request) {
     // Review benchmark: the average review count of the top three searched
     // from the centre, the visitor left out.
     const centreIdx = named.findIndex((p) => p.name === area);
-    const centreTop = (results[centreIdx] ?? [])
-      .map(toBusiness)
+    const centrePack = (results[centreIdx] ?? []).map(toBusiness).slice(0, 4);
+    const centreTop = centrePack
       .filter((b) => !isYou(b, you))
       .slice(0, 3)
       .map((b) => b.reviews)
@@ -75,6 +75,7 @@ export async function POST(req: Request) {
       cells,
       leaders: [...tally.values()].sort((a, b) => b.top3 - a.top3).slice(0, 3),
       topReviews: centreTop.length ? Math.round(centreTop.reduce((a, b) => a + b, 0) / centreTop.length) : null,
+      pack: centrePack.slice(0, 3),
     };
     return NextResponse.json(result);
   } catch (err) {

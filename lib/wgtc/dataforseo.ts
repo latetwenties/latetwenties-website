@@ -21,25 +21,78 @@ export type Item = Record<string, unknown> & { type?: string };
 // One live task, returning the first result's items. Throws on any non-Ok
 // status so a route can report the source as unavailable rather than empty.
 export async function dfs(endpoint: string, task: Record<string, unknown>): Promise<Item[]> {
-  const result = await dfsResult(endpoint, task);
-  return ((result[0] as { items?: Item[] } | undefined)?.items ?? []) as Item[];
+  return (await dfsAlt(endpoint, task)).items;
+}
+
+// As dfs, with a fallback task tried as the second copy (see dfsResult).
+// Returns which task answered, so the page can show the search it really ran.
+export async function dfsAlt(
+  endpoint: string,
+  task: Record<string, unknown>,
+  alt?: Record<string, unknown>,
+): Promise<{ items: Item[]; task: Record<string, unknown> }> {
+  const { result, task: used } = await hedged(endpoint, alt ? [task, alt, task] : [task]);
+  return { items: ((result[0] as { items?: Item[] } | undefined)?.items ?? []) as Item[], task: used! };
 }
 
 // The task's whole `result` array, for endpoints that don't wrap rows in items.
 // Pass no task for a GET.
-// DataForSEO sometimes fails one call with "Internal SE Server Error" and
-// answers the same call fine a second later, so every call gets one retry.
 export async function dfsResult(endpoint: string, task?: Record<string, unknown>): Promise<unknown[]> {
-  try {
-    return await dfsOnce(endpoint, task);
-  } catch (err) {
-    console.warn("[wgtc] retrying", endpoint, (err as Error).message);
-    await new Promise((r) => setTimeout(r, 600));
-    return dfsOnce(endpoint, task);
-  }
+  return (await hedged(endpoint, [task])).result;
 }
 
-async function dfsOnce(endpoint: string, task?: Record<string, unknown>): Promise<unknown[]> {
+// DataForSEO's Google endpoints sometimes hang and then fail with "Internal
+// SE Server Error" (40101), while the same call sent again answers in a few
+// seconds. So a call still out after HEDGE_MS gets another copy sent (up to
+// COPIES), a failed copy starts the next one straight away, and the first
+// good answer wins. Failed tasks aren't billed.
+// Some phrases fail nearly every time (2 Nov 2026: "new home builds
+// mangawhai", any "build(s)" + place name), so copies cycle through the
+// given tasks, letting a caller offer a fallback phrase as copy two.
+const HEDGE_MS = 8_000;
+const COPIES = 3;
+
+function hedged(
+  endpoint: string,
+  tasks: (Record<string, unknown> | undefined)[],
+): Promise<{ result: unknown[]; task: Record<string, unknown> | undefined }> {
+  return new Promise((resolve, reject) => {
+    let started = 0;
+    let failed = 0;
+    let done = false;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const start = () => {
+      if (done || started >= COPIES) return;
+      const task = tasks[started % tasks.length];
+      started++;
+      clearTimeout(timer);
+      timer = setTimeout(start, HEDGE_MS);
+      dfsOnce(endpoint, task).then(
+        (result) => {
+          if (done) return;
+          done = true;
+          clearTimeout(timer);
+          resolve({ result, task });
+        },
+        (err) => {
+          if (done) return;
+          failed++;
+          console.warn("[wgtc] retrying", endpoint, (err as Error).message);
+          if (failed >= COPIES) {
+            done = true;
+            clearTimeout(timer);
+            reject(err);
+          } else if (failed === started) {
+            start();
+          }
+        },
+      );
+    };
+    start();
+  });
+}
+
+export async function dfsOnce(endpoint: string, task?: Record<string, unknown>): Promise<unknown[]> {
   const res = await fetch(API + endpoint, {
     method: task ? "POST" : "GET",
     headers: { Authorization: auth(), "Content-Type": "application/json" },
@@ -68,24 +121,26 @@ export function mapsSearch(keyword: string, lat: number, lng: number, depth = 20
 // in all four searches where the Maps endpoint found it in none, and ranked
 // them in the same order. 12z tracked the manual checks best (tested 12z,
 // 14z, 16z). Returns items shaped like Maps results.
-export function localFinder(keyword: string, lat: number, lng: number, depth = 40, zoom = "12z") {
-  return dfs("serp/google/local_finder/live/advanced", {
-    keyword,
-    language_code: "en",
-    depth,
-    location_coordinate: `${lat},${lng},${zoom}`,
-  }).then((items) => items.filter((i) => i.type === "local_pack"));
+// `alt` is a fallback phrase (the job without the area), tried as the second copy.
+export function localFinder(keyword: string, lat: number, lng: number, alt?: string, depth = 40, zoom = "12z") {
+  const task = (k: string) => ({ keyword: k, language_code: "en", depth, location_coordinate: `${lat},${lng},${zoom}` });
+  return dfsAlt("serp/google/local_finder/live/advanced", task(keyword), alt ? task(alt) : undefined).then(
+    ({ items }) => items.filter((i) => i.type === "local_pack"),
+  );
 }
 
-export function googleSearch(keyword: string, lat: number, lng: number) {
-  return dfs("serp/google/organic/live/advanced", {
-    keyword,
+// Returns the phrase that answered: `keyword`, or `alt` when only that worked.
+export async function googleSearch(keyword: string, lat: number, lng: number, alt?: string) {
+  const task = (k: string) => ({
+    keyword: k,
     language_code: "en",
     device: "mobile",
     depth: 10,
     location_coordinate: `${lat},${lng}`,
     load_async_ai_overview: true,
   });
+  const { items, task: used } = await dfsAlt("serp/google/organic/live/advanced", task(keyword), alt ? task(alt) : undefined);
+  return { items, keyword: String(used.keyword) };
 }
 
 export function chatgpt(prompt: string, country: string) {

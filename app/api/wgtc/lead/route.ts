@@ -20,6 +20,13 @@ export async function POST(req: Request) {
   if (!contact || !business) {
     return NextResponse.json({ error: "We need a mobile or email." }, { status: 400 });
   }
+  const isEmail = contact.includes("@");
+  if (isEmail && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(contact)) {
+    return NextResponse.json({ error: "That email doesn't look right. Check for a missing dot." }, { status: 400 });
+  }
+  if (!isEmail && contact.replace(/\D/g, "").length < 8) {
+    return NextResponse.json({ error: "Enter a mobile number or an email." }, { status: 400 });
+  }
 
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
@@ -30,7 +37,7 @@ export async function POST(req: Request) {
   const { error } = await new Resend(apiKey).emails.send({
     from: FROM_ADDRESS,
     to: TO_ADDRESS,
-    replyTo: contact.includes("@") ? contact : undefined,
+    replyTo: isEmail ? contact : undefined,
     subject: `Who gets the call: ${business}`,
     text: [`Business: ${business}`, `Contact: ${contact}`, "", summary].join("\n"),
   });
