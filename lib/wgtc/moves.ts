@@ -27,7 +27,7 @@ export function moves(
   }
 
   if (you.cid && centre && (centre.rank === null || centre.rank > 3)) {
-    const where = centre.rank ? `you're #${centre.rank}` : `you're not in the ${centre.shown} businesses Google shows`;
+    const where = centre.rank ? `you came up #${centre.rank}` : "you weren't in the top results we could see";
     const ahead = grid?.leaders.map((l) => l.name) ?? [];
     out.push({
       title: `Get onto the map in ${area}`,

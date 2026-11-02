@@ -337,7 +337,7 @@ export function WhoGetsTheCall() {
                             {centreCell?.rank
                               ? "Below “More places”. Most people never tap it."
                               : ok(grid)
-                                ? `Not in the ${centreCell?.shown ?? 20} businesses Google shows here.`
+                                ? "Outside the top results we could see from here."
                                 : "We couldn't read the map position this time."}
                           </p>
                         </div>
@@ -451,7 +451,7 @@ export function WhoGetsTheCall() {
                     <b>{g.rank ?? "–"}</b>
                     <span>{g.name}</span>
                     {g.base && <span className={s.baseTag}>your base</span>}
-                    {g.rank === null && <span>{g.shown ? `not in top ${g.shown}` : "no data"}</span>}
+                    {g.rank === null && <span>{g.shown ? "not in view" : "no data"}</span>}
                   </div>
                 ))}
               </div>
@@ -496,8 +496,9 @@ export function WhoGetsTheCall() {
           )}
 
           <p className={s.small}>
-            Live from Google and ChatGPT just now. Results shift through the day and with where
-            the search happens.
+            Live from Google and ChatGPT just now. Map positions are read from a fixed point and
+            can differ from your own phone, especially if you&rsquo;re signed in to your Google
+            profile.
           </p>
           <button className="btn-ghost" type="button" onClick={reset}>
             Run another search
