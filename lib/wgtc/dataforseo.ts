@@ -27,7 +27,19 @@ export async function dfs(endpoint: string, task: Record<string, unknown>): Prom
 
 // The task's whole `result` array, for endpoints that don't wrap rows in items.
 // Pass no task for a GET.
+// DataForSEO sometimes fails one call with "Internal SE Server Error" and
+// answers the same call fine a second later, so every call gets one retry.
 export async function dfsResult(endpoint: string, task?: Record<string, unknown>): Promise<unknown[]> {
+  try {
+    return await dfsOnce(endpoint, task);
+  } catch (err) {
+    console.warn("[wgtc] retrying", endpoint, (err as Error).message);
+    await new Promise((r) => setTimeout(r, 600));
+    return dfsOnce(endpoint, task);
+  }
+}
+
+async function dfsOnce(endpoint: string, task?: Record<string, unknown>): Promise<unknown[]> {
   const res = await fetch(API + endpoint, {
     method: task ? "POST" : "GET",
     headers: { Authorization: auth(), "Content-Type": "application/json" },

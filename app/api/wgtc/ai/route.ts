@@ -2,14 +2,21 @@ import { NextResponse } from "next/server";
 
 import { aiMode, type Business, chatgpt, isYou, llm, plain, textNamesYou } from "@/lib/wgtc/dataforseo";
 import { guard, num, text } from "@/lib/wgtc/guard";
-import type { AiAnswer, AiResult } from "@/lib/wgtc/types";
+import type { AiAnswer, AiResult, Engine } from "@/lib/wgtc/types";
 
 export const maxDuration = 90;
 
+// An assistant still thinking after this long is left out, so one slow
+// answer can't hold the whole run up. ChatGPT (the real chatgpt.com answer)
+// is the slowest and the one people care about most, so it gets its own
+// request from the page and longer to answer.
+const TIMEOUT_MS: Record<Engine, number> = { chatgpt: 45_000, aimode: 24_000, perplexity: 24_000, claude: 24_000 };
+const ENGINES: Engine[] = ["chatgpt", "aimode", "perplexity", "claude"];
+
 // Ask four AI assistants the question a customer would, all at once:
 // ChatGPT (the real chatgpt.com answer), Google's AI Mode searched from the
-// area, Perplexity and Claude, both with web search. About $0.06 and 25 seconds,
-// set by ChatGPT. An assistant that fails is left out, never guessed.
+// area, Perplexity and Claude, both with web search. About $0.06 and 25 seconds
+// at most. An assistant that fails or runs late is left out, never guessed.
 export async function POST(req: Request) {
   const blocked = guard(req);
   if (blocked) return blocked;
@@ -21,6 +28,10 @@ export async function POST(req: Request) {
   const lng = num(body.centre?.lng);
   const country = body.centre?.country === "Australia" ? "Australia" : "New Zealand";
   const you = body.you as Business | undefined;
+  // Optional subset of assistants to ask; all four when not given.
+  const wanted = Array.isArray(body.engines)
+    ? ENGINES.filter((e) => (body.engines as unknown[]).includes(e))
+    : ENGINES;
   if (!job || !area || lat === null || lng === null || !you?.name) {
     return NextResponse.json({ error: "Missing search details." }, { status: 400 });
   }
@@ -34,8 +45,15 @@ export async function POST(req: Request) {
     label: string,
     run: () => Promise<{ text: string; named?: boolean }>,
   ): Promise<AiAnswer | null> => {
+    if (!wanted.includes(engine)) return null;
+    const ms = TIMEOUT_MS[engine];
     try {
-      const { text: answer, named } = await run();
+      const { text: answer, named } = await Promise.race([
+        run(),
+        new Promise<never>((_, reject) =>
+          setTimeout(() => reject(new Error(`no answer in ${ms / 1000}s`)), ms),
+        ),
+      ]);
       if (!answer.trim()) return null;
       return { engine, label, answer: plain(answer, 520), youNamed: !!named || textNamesYou(answer, you) };
     } catch (err) {

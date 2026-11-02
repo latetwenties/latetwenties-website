@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useRef, useState } from "react";
+import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 
 import { moves } from "@/lib/wgtc/moves";
 import { brandName } from "@/lib/wgtc/names";
@@ -25,7 +25,8 @@ type Slot<T> = T | "error" | null; // null = still loading
 // Phone playback stages, in order. Each waits for a minimum gap after the
 // previous one AND for the data it shows, so nothing on screen is invented.
 // A stage with nothing to show (no website, no other assistants) is skipped.
-const STAGES = ["query", "ads", "map", "you", "aio", "site", "chatgpt", "others", "call"] as const;
+// The other assistants play before ChatGPT because ChatGPT answers last.
+const STAGES = ["query", "ads", "map", "you", "aio", "site", "others", "chatgpt", "call"] as const;
 type Stage = (typeof STAGES)[number];
 const MIN_GAP: Record<Stage, number> = {
   query: 0,
@@ -34,11 +35,12 @@ const MIN_GAP: Record<Stage, number> = {
   you: 1300,
   aio: 1400,
   site: 2200,
-  chatgpt: 2600,
-  others: 5200,
-  call: 4200,
+  others: 2000,
+  chatgpt: 3800, // how long the other assistants stay on screen
+  call: 3200,
 };
 const TYPICAL_SECONDS = 40;
+const CHAT_TYPE_MS = 4000;
 
 async function post<T>(path: string, body: unknown): Promise<T> {
   const res = await fetch(`/api/wgtc/${path}`, {
@@ -97,7 +99,8 @@ export function WhoGetsTheCall() {
   const [you, setYou] = useState<Business | null>(null);
   const [search, setSearch] = useState<Slot<SearchResult>>(null);
   const [grid, setGrid] = useState<Slot<GridResult>>(null);
-  const [ai, setAi] = useState<Slot<AiResult>>(null);
+  const [aiRest, setAiRest] = useState<Slot<AiResult>>(null);
+  const [aiChat, setAiChat] = useState<Slot<AiResult>>(null);
   const [worth, setWorth] = useState<Slot<WorthResult>>(null);
   const [site, setSite] = useState<Slot<SiteResult>>(null);
   const [stage, setStage] = useState(-1);
@@ -114,11 +117,20 @@ export function WhoGetsTheCall() {
   const reached = (k: Stage) => stage >= STAGES.indexOf(k);
   const at = (k: Stage) => STAGES[stage] === k;
 
-  const chat: AiAnswer | null = ok(ai) ? (ai.answers.find((a) => a.engine === "chatgpt") ?? ai.answers[0] ?? null) : null;
-  const others: AiAnswer[] = ok(ai) ? ai.answers.filter((a) => a !== chat) : [];
+  // ChatGPT and the other three come back as separate requests.
+  const ai: Slot<AiResult> = useMemo(() => {
+    if (aiRest === null || aiChat === null) return null;
+    const parts = [aiChat, aiRest].filter(ok);
+    if (!parts.length) return "error";
+    return { question: parts[0].question, answers: parts.flatMap((p) => p.answers) };
+  }, [aiRest, aiChat]);
+  const chat: AiAnswer | null = ok(aiChat) ? (aiChat.answers[0] ?? null) : null;
+  const others: AiAnswer[] = ok(aiRest) ? aiRest.answers : [];
 
   const typedQuery = useTyped(query, phase === "running" && reached("query"), 55);
-  const typedChat = useTyped(chat?.answer ?? "", phase === "running" && at("chatgpt") && !!chat, 12);
+  // ChatGPT's answer types out in about four seconds, however long it is.
+  const chatMs = chat ? Math.min(12, Math.max(4, Math.round(CHAT_TYPE_MS / chat.answer.length))) : 12;
+  const typedChat = useTyped(chat?.answer ?? "", phase === "running" && at("chatgpt") && !!chat, chatMs);
 
   // One clock for the whole run, shown above the phone.
   useEffect(() => {
@@ -141,7 +153,8 @@ export function WhoGetsTheCall() {
     if (k === "query") return true;
     if (k === "you") return search !== null && grid !== null;
     if (k === "site") return site !== null;
-    if (k === "chatgpt" || k === "others") return ai !== null;
+    if (k === "others") return aiRest !== null;
+    if (k === "chatgpt") return aiChat !== null;
     return search !== null;
   };
   // Stages with nothing to show are passed straight through.
@@ -152,7 +165,7 @@ export function WhoGetsTheCall() {
     if (phase !== "running") return;
     const next = stage + 1;
     if (next >= STAGES.length) {
-      const id = setTimeout(() => setPhase("result"), 3400);
+      const id = setTimeout(() => setPhase("result"), 2600);
       return () => clearTimeout(id);
     }
     const k = STAGES[next];
@@ -160,13 +173,13 @@ export function WhoGetsTheCall() {
     // Let ChatGPT's answer finish typing before moving on.
     const gap = empty(k)
       ? 0
-      : k === "others" && chat
-        ? Math.max(MIN_GAP.others, chat.answer.length * 12 + 2200)
+      : k === "call" && chat
+        ? Math.max(MIN_GAP.call, chat.answer.length * chatMs + 1800)
         : MIN_GAP[k];
     const id = setTimeout(() => setStage(next), gap);
     return () => clearTimeout(id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [phase, stage, search, grid, ai, site]);
+  }, [phase, stage, search, grid, aiRest, aiChat, site]);
 
   async function find(e: FormEvent) {
     e.preventDefault();
@@ -189,7 +202,8 @@ export function WhoGetsTheCall() {
     setYou(meNow);
     setSearch(null);
     setGrid(null);
-    setAi(null);
+    setAiRest(null);
+    setAiChat(null);
     setWorth(null);
     setSite(meNow.domain ? null : "error");
     setStage(-1);
@@ -200,7 +214,8 @@ export function WhoGetsTheCall() {
       p.then((v) => id === runId.current && set(v)).catch(() => id === runId.current && set("error"));
     settle(post<SearchResult>("search", body), setSearch);
     settle(post<GridResult>("grid", body), setGrid);
-    settle(post<AiResult>("ai", body), setAi);
+    settle(post<AiResult>("ai", { ...body, engines: ["aimode", "perplexity", "claude"] }), setAiRest);
+    settle(post<AiResult>("ai", { ...body, engines: ["chatgpt"] }), setAiChat);
     settle(post<WorthResult>("worth", body), setWorth);
     if (meNow.domain) settle(post<SiteResult>("site", { domain: meNow.domain }), setSite);
   }
@@ -348,7 +363,11 @@ export function WhoGetsTheCall() {
             <div className={s.timerBar}>
               <i style={{ width: `${Math.min(100, (elapsed / TYPICAL_SECONDS) * 100)}%` }} />
             </div>
-            <span>{elapsed < TYPICAL_SECONDS ? `about ${TYPICAL_SECONDS - elapsed}s to go` : "nearly there"}</span>
+            <span>{elapsed < TYPICAL_SECONDS
+                ? `about ${TYPICAL_SECONDS - elapsed}s to go`
+                : ai === null
+                  ? "waiting on the AI assistants"
+                  : "putting it together"}</span>
           </div>
           <div className={s.phone} aria-live="polite">
             <div className={s.notch} />
@@ -370,7 +389,7 @@ export function WhoGetsTheCall() {
                   )}
 
                   {reached("ads") && search === "error" && (
-                    <p className={s.wait}>Google didn&rsquo;t answer this time. Carrying on with the rest.</p>
+                    <p className={s.wait}>Google&rsquo;s results page was slow this time. Checking the map and AI assistants instead.</p>
                   )}
 
                   {reached("ads") && ok(search) && search.ads.length > 0 && (
@@ -443,18 +462,9 @@ export function WhoGetsTheCall() {
                     <span>Google&rsquo;s good mark is {site.goodMark}s</span>
                   </div>
                 </div>
-              ) : !reached("others") && chat ? (
+              ) : !reached("chatgpt") && others.length ? (
                 <div className={s.chat}>
-                  <div className={s.chatHead}>{chat.label}</div>
-                  <div className={s.bubbleUser}>{ok(ai) ? ai.question : `Who's the best ${job} in ${area}?`}</div>
-                  <span className={`${s.badge} ${chat.youNamed ? s.badgeYes : s.badgeNo}`}>
-                    {chat.youNamed ? `${chat.label} names ${me}` : `${me} isn't named`}
-                  </span>
-                  <div className={s.bubbleBot}>{highlight(typedChat, me)}</div>
-                </div>
-              ) : !reached("call") && others.length ? (
-                <div className={s.chat}>
-                  <div className={s.chatHead}>Asking the other AI assistants</div>
+                  <div className={s.chatHead}>Asking the AI assistants</div>
                   {others.map((a, i) => (
                     <div className={s.aiCard} key={a.engine} style={{ animationDelay: `${i * 600}ms` }}>
                       <div className={s.aiCardHead}>
@@ -466,6 +476,15 @@ export function WhoGetsTheCall() {
                       <p>{highlight(a.answer.slice(0, 150) + (a.answer.length > 150 ? " …" : ""), me)}</p>
                     </div>
                   ))}
+                </div>
+              ) : !reached("call") && chat ? (
+                <div className={s.chat}>
+                  <div className={s.chatHead}>{chat.label}</div>
+                  <div className={s.bubbleUser}>{ok(aiChat) ? aiChat.question : `Who's the best ${job} in ${area}?`}</div>
+                  <span className={`${s.badge} ${chat.youNamed ? s.badgeYes : s.badgeNo}`}>
+                    {chat.youNamed ? `${chat.label} names ${me}` : `${me} isn't named`}
+                  </span>
+                  <div className={s.bubbleBot}>{highlight(typedChat, me)}</div>
                 </div>
               ) : reached("call") ? (
                 <div className={s.calling}>

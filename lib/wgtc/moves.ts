@@ -1,4 +1,4 @@
-// The "three moves" are rules over the live results, not generated text, so
+// The "five moves" are rules over the live results, not generated text, so
 // every line traces back to something the visitor was just shown. They never
 // name another business: comparisons are against "the businesses Google shows
 // first", not a competitor by name.
@@ -43,12 +43,24 @@ export function moves(
     });
   }
 
+  if (you.cid && typeof you.rating === "number" && you.rating < 4.6) {
+    out.push({
+      title: "Lift your star rating",
+      body: `Your Google rating is ${you.rating}. People comparing three listings on the map often skip anything under about 4.5 stars. Fresh reviews from happy customers lift the average, and replying to the poor ones shows the next customer how you handle problems.`,
+    });
+  }
+
   const missing = grid?.cells.filter((c) => c.rank === null || c.rank > 3).map((c) => c.name) ?? [];
   const winning = grid?.cells.filter((c) => c.rank !== null && c.rank <= 3).map((c) => c.name) ?? [];
   if (winning.length && missing.length) {
     out.push({
       title: "Win the suburbs next door",
       body: `You show in the top three from ${list(winning.slice(0, 3))}, but not from ${list(missing.slice(0, 3))}. Pages and photos that name those suburbs help Google connect you to them.`,
+    });
+  } else if (you.cid && !winning.length && missing.length > 1) {
+    out.push({
+      title: "Win one suburb at a time",
+      body: `You weren't in the top three from any of the ${missing.length} spots we searched, including ${list(missing.slice(0, 3))}. Pick the one closest to your base, name it on a page and in your Google profile, win it, then move to the next.`,
     });
   }
 
@@ -61,7 +73,8 @@ export function moves(
         body: `Asked who's best for ${job} in ${area}, ${list(missed)} didn't name you. They lean on your reviews, what your website says you do, and other sites that mention you.`,
       });
     }
-  } else if (search?.aio && !search.aio.namesYou) {
+  }
+  if (search?.aio && !search.aio.namesYou) {
     out.push({
       title: "Get into Google's AI answer",
       body: "Google now writes a short answer above the results for this search, and it doesn't mention you. It draws on the same signals as the map: reviews, your website and your Google profile.",
@@ -75,12 +88,6 @@ export function moves(
     });
   }
 
-  if (search && search.ads.length && !search.youAdvertising) {
-    out.push({
-      title: "Decide on ads, with your eyes open",
-      body: `${search.ads.length} ${search.ads.length === 1 ? "business is" : "businesses are"} paying to sit above everyone on this search. Ads are the fastest way onto the page while the rest builds, if the numbers work for your jobs.`,
-    });
-  }
 
   if (you.cid && !you.domain) {
     out.push({
@@ -94,5 +101,36 @@ export function moves(
     });
   }
 
-  return out.slice(0, 3);
+  if (search && search.ads.length && !search.youAdvertising) {
+    out.push({
+      title: "Decide on ads, with your eyes open",
+      body: `${search.ads.length} ${search.ads.length === 1 ? "business is" : "businesses are"} paying to sit above everyone on this search. Ads are the fastest way onto the page while the rest builds, if the numbers work for your jobs.`,
+    });
+  } else if (search && !search.ads.length) {
+    out.push({
+      title: "Test ads while the top is empty",
+      body: `Nobody was running ads on "${search.query}" when we searched, so the very top of the page is open. A small, tightly targeted test would show quickly whether it brings in jobs.`,
+    });
+  }
+
+  // Fillers for businesses already doing well, so there are always five.
+  const holdsAll = grid ? grid.cells.length > 0 && missing.length === 0 : false;
+  if (holdsAll) {
+    out.push({
+      title: "Protect the spots you hold",
+      body: "You're in the top three from every spot we checked. Map positions move every month, and a competitor with a steady run of reviews can pass you, so keep doing what got you here.",
+    });
+  }
+  if (you.cid && !out.some((m) => m.title.startsWith("Close the review gap"))) {
+    out.push({
+      title: "Keep reviews coming every month",
+      body: "Google looks at how recent your reviews are, not only how many. A few new ones every month, asked for when the job is finished, beats one big push.",
+    });
+  }
+  out.push({
+    title: "Know which calls came from Google",
+    body: "Most trades can't say which jobs came from the map, ads or the website. Call tracking and a tagged enquiry form show what's working, so time and money go to what wins jobs.",
+  });
+
+  return out.slice(0, 5);
 }
