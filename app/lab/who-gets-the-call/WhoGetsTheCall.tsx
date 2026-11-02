@@ -444,7 +444,7 @@ export function WhoGetsTheCall() {
 
           {ok(grid) && (
             <>
-              <p className={s.gridLabel}>Your map position for &ldquo;{job}&rdquo;, searched from each spot</p>
+              <p className={s.gridLabel}>Your map position for &ldquo;{query}&rdquo;, searched from each spot</p>
               <div className={s.grid}>
                 {grid.cells.map((g, k) => (
                   <div className={`${s.cell} ${tone(g.rank)}`} key={`${g.name}-${k}`}>

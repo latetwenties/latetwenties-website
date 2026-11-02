@@ -15,6 +15,8 @@ export async function geocode(place: string): Promise<(Point & { country: string
     "https://nominatim.openstreetmap.org/search?" +
     new URLSearchParams({ q: place, format: "json", limit: "1", countrycodes: "nz,au", addressdetails: "1" });
   const res = await fetch(url, { headers: { "User-Agent": UA }, cache: "no-store" });
+  // A refusal (429 rate limit) is an outage, not "place not found".
+  if (!res.ok) throw new Error(`Geocoder returned ${res.status}`);
   const hits = (await res.json()) as Array<{
     lat: string;
     lon: string;
@@ -73,10 +75,11 @@ export function gridPoints(centre: Point, km = 2.5): Point[] {
   return pts;
 }
 
-// Names each point and drops points in the sea, so no search is paid for there.
-export async function nameGrid(pts: Point[], centreName: string): Promise<Point[]> {
+// Names each point and flags points in the sea (`sea: true`) so their
+// results can be dropped. Runs alongside the searches to save time.
+export async function nameGrid(pts: Point[], centreName: string): Promise<(Point & { sea?: true })[]> {
   // A suburb already used keeps its compass label, so no two cells share a name.
-  const out: Point[] = [];
+  const out: (Point & { sea?: true })[] = [];
   const used = new Set([centreName]);
   for (const p of pts) {
     if (p.name === centreName) {
@@ -85,8 +88,9 @@ export async function nameGrid(pts: Point[], centreName: string): Promise<Point[
     }
     const { name, land } = await reverseName(p.lat, p.lng);
     await sleep(1050);
-    if (!land) continue;
-    if (name && !used.has(name)) {
+    if (!land) {
+      out.push({ ...p, sea: true });
+    } else if (name && !used.has(name)) {
       used.add(name);
       out.push({ ...p, name });
     } else {

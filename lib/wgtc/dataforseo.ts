@@ -1,7 +1,7 @@
 // DataForSEO calls for the "Who gets the call?" tool. Server-only.
 // Credentials come from DATAFORSEO_LOGIN / DATAFORSEO_PASSWORD on the Vercel
 // project. Measured cost (Nov 2026): Google SERP $0.004, ChatGPT $0.004,
-// Maps $0.002 a call. One full run is about US$0.03.
+// Maps $0.002, Local Finder $0.004 a call. One full run is about US$0.05.
 
 import { brandName } from "./names";
 
@@ -40,6 +40,20 @@ export function mapsSearch(keyword: string, lat: number, lng: number, depth = 20
     depth,
     location_coordinate: `${lat},${lng},${zoom}`,
   }).then((items) => items.filter((i) => i.type === "maps_search"));
+}
+
+// The full "More places" list behind the map pack. Used for map positions:
+// checked against manual searches for Boaz (2 Nov 2026), it found the business
+// in all four searches where the Maps endpoint found it in none, and ranked
+// them in the same order. 12z tracked the manual checks best (tested 12z,
+// 14z, 16z). Returns items shaped like Maps results.
+export function localFinder(keyword: string, lat: number, lng: number, depth = 40, zoom = "12z") {
+  return dfs("serp/google/local_finder/live/advanced", {
+    keyword,
+    language_code: "en",
+    depth,
+    location_coordinate: `${lat},${lng},${zoom}`,
+  }).then((items) => items.filter((i) => i.type === "local_pack"));
 }
 
 export function googleSearch(keyword: string, lat: number, lng: number) {

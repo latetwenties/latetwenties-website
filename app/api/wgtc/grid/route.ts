@@ -1,15 +1,15 @@
 import { NextResponse } from "next/server";
 
-import { type Business, isYou, mapsSearch, toBusiness } from "@/lib/wgtc/dataforseo";
+import { type Business, isYou, localFinder, toBusiness } from "@/lib/wgtc/dataforseo";
 import { gridPoints, nameGrid, type Point } from "@/lib/wgtc/geo";
 import { guard, num, text } from "@/lib/wgtc/guard";
 import type { GridResult } from "@/lib/wgtc/types";
 
-export const maxDuration = 60;
+export const maxDuration = 90;
 
 // Map position for the job, searched from 9 points around the area, plus one
 // from the business's own address when it sits outside that grid (up to 10
-// Maps calls, $0.02). Per-point ranks only; never averaged.
+// Local Finder calls, $0.04). Per-point ranks only; never averaged.
 export async function POST(req: Request) {
   const blocked = guard(req);
   if (blocked) return blocked;
@@ -28,11 +28,17 @@ export async function POST(req: Request) {
   const pts = gridPoints({ name: area, lat, lng }, km);
   const base = basePoint(you, pts);
   try {
-    // Name first (about 9 seconds, still inside ChatGPT's wait) so sea points
-    // are dropped before any Maps call is paid for.
-    const gridNames = await nameGrid(pts, area);
-    const named = base ? [...gridNames, base] : gridNames;
-    const results = await Promise.all(named.map((p) => mapsSearch(job, p.lat, p.lng).catch(() => null)));
+    // Search what people type: the job plus the area, from every point.
+    const keyword = `${job} ${area}`.toLowerCase();
+    const all = base ? [...pts, base] : pts;
+    const [gridNames, allResults] = await Promise.all([
+      nameGrid(pts, area),
+      Promise.all(all.map((p) => localFinder(keyword, p.lat, p.lng).catch(() => null))),
+    ]);
+    // Drop points that landed in the sea (named grid points keep their order).
+    const keep = [...gridNames.map((p) => !p.sea), ...(base ? [true] : [])];
+    const named = [...gridNames, ...(base ? [base] : [])].filter((_, k) => keep[k]);
+    const results = allResults.filter((_, k) => keep[k]);
     if (results.every((r) => r === null)) throw new Error("every grid point failed");
 
     const tally = new Map<string, GridResult["leaders"][number]>();
