@@ -61,9 +61,20 @@ export async function POST(req: Request) {
       };
     });
 
+    // Review benchmark: the average review count of the top three searched
+    // from the centre, the visitor left out.
+    const centreIdx = named.findIndex((p) => p.name === area);
+    const centreTop = (results[centreIdx] ?? [])
+      .map(toBusiness)
+      .filter((b) => !isYou(b, you))
+      .slice(0, 3)
+      .map((b) => b.reviews)
+      .filter((n): n is number => typeof n === "number");
+
     const result: GridResult = {
       cells,
       leaders: [...tally.values()].sort((a, b) => b.top3 - a.top3).slice(0, 3),
+      topReviews: centreTop.length ? Math.round(centreTop.reduce((a, b) => a + b, 0) / centreTop.length) : null,
     };
     return NextResponse.json(result);
   } catch (err) {

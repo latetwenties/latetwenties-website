@@ -1,7 +1,9 @@
 // DataForSEO calls for the "Who gets the call?" tool. Server-only.
 // Credentials come from DATAFORSEO_LOGIN / DATAFORSEO_PASSWORD on the Vercel
 // project. Measured cost (Nov 2026): Google SERP $0.004, ChatGPT $0.004,
-// Maps $0.002, Local Finder $0.004 a call. One full run is about US$0.05.
+// Google AI Mode $0.004, Perplexity $0.006, Claude $0.046, Maps $0.002,
+// Local Finder $0.004 a call, search volume about $0.075 a request.
+// One full run is about US$0.20.
 
 import { brandName } from "./names";
 
@@ -19,10 +21,17 @@ export type Item = Record<string, unknown> & { type?: string };
 // One live task, returning the first result's items. Throws on any non-Ok
 // status so a route can report the source as unavailable rather than empty.
 export async function dfs(endpoint: string, task: Record<string, unknown>): Promise<Item[]> {
+  const result = await dfsResult(endpoint, task);
+  return ((result[0] as { items?: Item[] } | undefined)?.items ?? []) as Item[];
+}
+
+// The task's whole `result` array, for endpoints that don't wrap rows in items.
+// Pass no task for a GET.
+export async function dfsResult(endpoint: string, task?: Record<string, unknown>): Promise<unknown[]> {
   const res = await fetch(API + endpoint, {
-    method: "POST",
+    method: task ? "POST" : "GET",
     headers: { Authorization: auth(), "Content-Type": "application/json" },
-    body: JSON.stringify([task]),
+    body: task ? JSON.stringify([task]) : undefined,
     cache: "no-store",
   });
   const data = await res.json();
@@ -30,7 +39,7 @@ export async function dfs(endpoint: string, task: Record<string, unknown>): Prom
   if (data?.status_code !== 20000 || t?.status_code !== 20000) {
     throw new Error(`DataForSEO ${endpoint}: ${t?.status_message ?? data?.status_message ?? res.status}`);
   }
-  return (t.result?.[0]?.items ?? []) as Item[];
+  return (t.result ?? []) as unknown[];
 }
 
 export function mapsSearch(keyword: string, lat: number, lng: number, depth = 20, zoom = "14z") {
@@ -74,6 +83,67 @@ export function chatgpt(prompt: string, country: string) {
     language_code: "en",
     force_web_search: true,
   });
+}
+
+// Google's AI Mode answer, searched from the area.
+export async function aiMode(question: string, lat: number, lng: number): Promise<string> {
+  const items = await dfs("serp/google/ai_mode/live/advanced", {
+    keyword: question,
+    language_code: "en",
+    device: "mobile",
+    location_coordinate: `${lat},${lng}`,
+  });
+  return items.map((i) => String(i.markdown ?? "")).join("\n");
+}
+
+// An assistant's answer through its API with web search on (Perplexity, Claude).
+export async function llm(type: "perplexity" | "claude", model: string, prompt: string): Promise<string> {
+  const items = await dfs(`ai_optimization/${type}/llm_responses/live`, {
+    user_prompt: prompt,
+    model_name: model,
+    web_search: true,
+  });
+  return items
+    .filter((i) => i.type === "message")
+    .flatMap((i) => (i.sections as { type?: string; text?: string }[] | undefined) ?? [])
+    .filter((sec) => sec.type === "text")
+    .map((sec) => sec.text ?? "")
+    .join("");
+}
+
+// ---- Search demand ----------------------------------------------------------
+
+type AdsLocation = { location_code: number; location_name: string; location_type: string };
+const locationCache = new Map<string, AdsLocation[]>();
+
+const fold = (v: string) => v.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+
+// The Google Ads location for a place name (a city or suburb), or null. The
+// country list is fetched once per warm instance; the endpoint is free.
+export async function adsLocation(name: string, country: "NZ" | "AU"): Promise<AdsLocation | null> {
+  let list = locationCache.get(country);
+  if (!list) {
+    list = (await dfsResult(`keywords_data/google_ads/locations/${country.toLowerCase()}`)) as AdsLocation[];
+    locationCache.set(country, list);
+  }
+  const want = fold(name);
+  const hits = list.filter((l) => fold(l.location_name.split(",")[0]) === want);
+  const rank = (t: string) => ["City", "Neighborhood", "Municipality", "District"].indexOf(t) + 1 || 9;
+  return hits.sort((a, b) => rank(a.location_type) - rank(b.location_type))[0] ?? null;
+}
+
+// Average monthly Google searches per keyword (Google Ads data), searched from
+// a location, or from the whole country when no location code is given.
+export async function searchVolume(
+  keywords: string[],
+  where: { location_code?: number; location_name?: string },
+): Promise<Record<string, number>> {
+  const rows = (await dfsResult("keywords_data/google_ads/search_volume/live", {
+    keywords,
+    language_code: "en",
+    ...where,
+  })) as { keyword: string; search_volume?: number | null }[];
+  return Object.fromEntries(rows.map((r) => [r.keyword, r.search_volume ?? 0]));
 }
 
 // ---- Matching the visitor's own business --------------------------------
