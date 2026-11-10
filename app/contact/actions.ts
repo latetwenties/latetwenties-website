@@ -1,12 +1,6 @@
 "use server";
 
-import { Resend } from "resend";
-
-// Presence Report requests land in Brendan's inbox. Sending domain
-// latetwenties.agency is verified in the Resend account; RESEND_API_KEY lives
-// in the project's environment (Vercel). FROM must stay on the verified domain.
-const TO_ADDRESS = "team@latetwenties.agency";
-const FROM_ADDRESS = "Latetwenties <noreply@latetwenties.agency>";
+import { deliverPresenceReport } from "@/lib/presence-report";
 
 export type PresenceReportState = {
   status: "idle" | "success" | "error";
@@ -26,13 +20,16 @@ export async function submitPresenceReport(
     return { status: "success", message: "Thanks, we'll be in touch shortly." };
   }
 
-  const name = clean(formData.get("name"));
-  const business = clean(formData.get("business"));
-  const trade = clean(formData.get("trade"));
-  const town = clean(formData.get("town"));
-  const contact = clean(formData.get("contact"));
+  const fields = {
+    name: clean(formData.get("name")),
+    business: clean(formData.get("business")),
+    website: clean(formData.get("website")),
+    trade: clean(formData.get("trade")),
+    town: clean(formData.get("town")),
+    contact: clean(formData.get("contact")),
+  };
 
-  if (!name || !business || !contact) {
+  if (!fields.name || !fields.business || !fields.contact) {
     return {
       status: "error",
       message:
@@ -40,52 +37,14 @@ export async function submitPresenceReport(
     };
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) {
-    // Fail loudly in logs so a missing key doesn't look like a working form.
-    console.error("RESEND_API_KEY is not set; Presence Report not sent.");
-    return {
-      status: "error",
-      message:
-        "Something went wrong on our end. Email team@latetwenties.agency and we'll sort it.",
-    };
-  }
+  const result = await deliverPresenceReport(fields);
 
-  const resend = new Resend(apiKey);
-  const looksLikeEmail = contact.includes("@");
-
-  const lines = [
-    `Name: ${name}`,
-    `Business: ${business}`,
-    `Trade: ${trade || "(not given)"}`,
-    `Town: ${town || "(not given)"}`,
-    `Best contact: ${contact}`,
-  ];
-
-  try {
-    const { error } = await resend.emails.send({
-      from: FROM_ADDRESS,
-      to: TO_ADDRESS,
-      replyTo: looksLikeEmail ? contact : undefined,
-      subject: `Presence Report request: ${business}`,
-      text: lines.join("\n"),
-    });
-
-    if (error) {
-      console.error("Resend send failed:", error);
-      return {
-        status: "error",
-        message:
-          "Something went wrong sending that. Email team@latetwenties.agency and we'll sort it.",
-      };
-    }
-  } catch (err) {
-    console.error("Resend threw:", err);
-    return {
-      status: "error",
-      message:
-        "Something went wrong sending that. Email team@latetwenties.agency and we'll sort it.",
-    };
+  if (!result.ok) {
+    const message =
+      result.reason === "no_key"
+        ? "Something went wrong on our end. Email team@latetwenties.agency and we'll sort it."
+        : "Something went wrong sending that. Email team@latetwenties.agency and we'll sort it.";
+    return { status: "error", message };
   }
 
   return {

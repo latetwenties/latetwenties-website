@@ -60,7 +60,7 @@ export const metadata: Metadata = {
 const SCHEMA = [
   breadcrumbList([
     { name: "Home", href: "/" },
-    { name: "Resources", href: "/resources" },
+    { name: "Insights", href: "/insights" },
     { name: TITLE, href: URL },
   ]),
   article({
@@ -316,9 +316,9 @@ export default function Post() {
         <Signoff>
           Local SEO isn’t magic and it isn’t a scam. It’s four piles of
           ordinary work, done properly and kept up. At Latetwenties that’s{" "}
-          <a href="/how-it-works">what we do for local businesses</a>, and
+          <a href="/what-we-do">what we do for local businesses</a>, and
           if you’d like to see where you stand first,{" "}
-          <a href="/contact">ask us for a free Presence Report</a>. We’ll
+          <a href="/local-search-check">run the free search</a>. We’ll
           tell you straight what’s worth fixing, including the bits you can
           do yourself.
         </Signoff>

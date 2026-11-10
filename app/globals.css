@@ -2059,6 +2059,11 @@ section {
   gap: 80px;
   align-items: start;
 }
+.ct-stack {
+  display: grid;
+  gap: 24px;
+  min-width: 0;
+}
 .ct-cal {
   background: var(--paper);
   border: 1px solid var(--rule);

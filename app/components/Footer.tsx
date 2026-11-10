@@ -21,16 +21,19 @@ export function Footer() {
             <h4>Site</h4>
             <ul>
               <li>
-                <Link href="/how-it-works">How it works</Link>
+                <Link href="/what-we-do">What we do</Link>
               </li>
               <li>
-                <Link href="/work">Work</Link>
+                <Link href="/work">Our work</Link>
               </li>
               <li>
                 <Link href="/about">About</Link>
               </li>
               <li>
-                <Link href="/resources">Resources</Link>
+                <Link href="/insights">Insights</Link>
+              </li>
+              <li>
+                <Link href="/local-search-check">Free search</Link>
               </li>
               <li>
                 <Link href="/contact">Contact</Link>

@@ -137,6 +137,31 @@ export function Act3() {
 
         <Reveal as="div" className="cs-proof" delay={120}>
           <div className="cs-proof-head">
+            <Eyebrow>Four months on</Eyebrow>
+            <h3 className="cs-proof-h3">
+              The result held. <em>Then it got better.</em>
+            </h3>
+            <p className="cs-proof-sub">
+              A second search, &ldquo;new home build mangawhai&rdquo;, measured
+              across 49 points around Mangawhai and Mangawhai Heads. In April
+              Boaz averaged 7.9 across the grid. By August, 1.6, with 48 of the
+              49 points sitting in the top three. One point returned no result
+              that week. We&rsquo;ve left it as it came.
+            </p>
+          </div>
+          <figure className="cs-proof-fig cs-proof-fig-single">
+            <Image
+              src="/images/case-studies/boaz/grid-new-home-build.png"
+              alt="Local search grid comparison for the search new home build mangawhai. April 11 2026 on the left, average rank 7.9, all 49 grid points ranking between 6 and 9. August 24 2026 on the right, average rank 1.6, 48 of the 49 points ranking first or second."
+              width={1970}
+              height={1170}
+              sizes="(max-width: 920px) 100vw, 880px"
+            />
+          </figure>
+        </Reveal>
+
+        <Reveal as="div" className="cs-proof" delay={120}>
+          <div className="cs-proof-head">
             <Eyebrow num="04">Google Business Profile</Eyebrow>
             <h3 className="cs-proof-h3">
               From a thin listing, to <em>a full presence</em> with photos,

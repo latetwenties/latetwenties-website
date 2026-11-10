@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 const SCHEMA = [
   breadcrumbList([
     { name: "Home", href: "/" },
-    { name: "Resources", href: "/resources" },
+    { name: "Insights", href: "/insights" },
     { name: TITLE, href: URL },
   ]),
   article({

@@ -57,7 +57,7 @@ export function BlogPost({
           <header className="bp-hero">
             <div className="wrap">
               <p className="bp-eyebrow">
-                <span className="bp-eyebrow-accent">Resources</span> / {readTime}
+                <span className="bp-eyebrow-accent">Insights</span> / {readTime}
               </p>
               <h1 className="bp-h1">{title}</h1>
               <p className="bp-lede">{lede}</p>
@@ -81,7 +81,7 @@ export function BlogPost({
               )}
 
               <div className="bp-back">
-                <a href="/resources">← Back to resources</a>
+                <a href="/insights">← Back to insights</a>
               </div>
             </div>
           </div>
@@ -95,7 +95,7 @@ export function BlogPost({
                 <h2 className="bp-cta-h2">{ctaTitle}</h2>
                 <p className="bp-cta-body">{ctaBody}</p>
               </div>
-              <Button href="/contact">Take a look</Button>
+              <Button href="/local-search-check">Run the free search</Button>
             </div>
           </div>
         </section>

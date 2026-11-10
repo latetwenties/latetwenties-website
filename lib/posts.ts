@@ -168,6 +168,15 @@ export const POSTS: Post[] = [
     publishedAt: "2026-10-30",
   },
   {
+    slug: "review-gating",
+    title:
+      "The hidden risk of review gating: why shortcuts can kill your local rankings",
+    description:
+      "Review gating means only sending happy customers to Google. It breaks Google’s rules, it can breach consumer law in NZ and Australia, and it can cost you the reviews you have. Here’s the safer way to grow them.",
+    readTime: "6 min read",
+    publishedAt: "2026-11-06",
+  },
+  {
     slug: "what-a-customer-costs-you",
     title: "Do you actually know what a customer costs you?",
     description:

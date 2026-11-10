@@ -47,6 +47,18 @@ export function PresenceReportForm() {
         />
       </div>
 
+      <div className="pr-field">
+        <label htmlFor="pr-website">Your website</label>
+        <input
+          id="pr-website"
+          name="website"
+          type="text"
+          inputMode="url"
+          autoComplete="url"
+          placeholder="yourbusiness.co.nz (or leave blank if you don't have one)"
+        />
+      </div>
+
       <div className="pr-field-row">
         <div className="pr-field">
           <label htmlFor="pr-trade">Your trade</label>

@@ -38,7 +38,7 @@ export async function GET(request: Request): Promise<NextResponse> {
   // Clause 3: reveal newly-live posts without a deploy. Purge the listing, the
   // sitemap, and each due post so caches reflect them on this run.
   if (dueToday.length > 0) {
-    revalidatePath("/resources");
+    revalidatePath("/insights");
     revalidatePath("/sitemap.xml");
     for (const post of dueToday) revalidatePath(`/blog/${post.slug}`);
   }

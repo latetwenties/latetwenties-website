@@ -39,7 +39,7 @@ export const metadata: Metadata = {
 const SCHEMA = [
   breadcrumbList([
     { name: "Home", href: "/" },
-    { name: "Resources", href: "/resources" },
+    { name: "Insights", href: "/insights" },
     { name: TITLE, href: URL },
   ]),
   article({
@@ -116,10 +116,8 @@ export default function Post() {
           uncomfortable is telling you something too.
         </P>
         <P>
-          (We put ours in writing: more enquiries in 90 days than the 90 days
-          before us, or we keep working free until you get them. That’s not a
-          flex. It’s just the answer to this question, and you should demand one
-          from everyone you talk to.)
+          (Ask us the same question. We’ll give you a straight answer, and
+          you should demand one from everyone you talk to.)
         </P>
 
         <H2 id="q3-who-does-the-work">3. “Who actually does the work?”</H2>

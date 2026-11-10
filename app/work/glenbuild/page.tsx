@@ -68,7 +68,7 @@ export default function GlenbuildCaseStudy() {
               </div>
               <div className="cs-meta-cell">
                 <div className="cs-meta-label">Engagement</div>
-                <div className="cs-meta-val">Get Found, now Stay Chosen</div>
+                <div className="cs-meta-val">Groundwork, now Upkeep</div>
               </div>
               <div className="cs-meta-cell">
                 <div className="cs-meta-label">Status</div>
@@ -214,7 +214,7 @@ export default function GlenbuildCaseStudy() {
                   foundations, not the results.
                 </p>
                 <p>
-                  Stay Chosen is running now: the profile, the reviews, the
+                  Upkeep is running now: the profile, the reviews, the
                   content, and weekly checks on where Glenbuild shows up. We
                   will update this page once the results are in.
                 </p>

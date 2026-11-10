@@ -13,10 +13,10 @@ export const metadata: Metadata = {
 
 const SUGGESTIONS = [
   { href: "/", label: "Home" },
-  { href: "/how-it-works", label: "How it works" },
+  { href: "/what-we-do", label: "What we do" },
   { href: "/work", label: "Recent work" },
   { href: "/about", label: "About" },
-  { href: "/resources", label: "Resources" },
+  { href: "/insights", label: "Insights" },
   { href: "/contact", label: "Contact" },
 ];
 

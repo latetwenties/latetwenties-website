@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 const SCHEMA = [
   breadcrumbList([
     { name: "Home", href: "/" },
-    { name: "Resources", href: "/resources" },
+    { name: "Insights", href: "/insights" },
     { name: TITLE, href: URL },
   ]),
   article({
@@ -315,8 +315,8 @@ export default function Post() {
         </P>
         <Signoff>
           If you want to know whether your current site is earning its keep,{" "}
-          <a href="/contact">ask us for a Presence Report</a>. We’ll tell you
-          honestly if it’s fine. Sometimes it is.
+          <a href="/local-search-check">run the free search</a>, then talk
+          it through with us. We’ll tell you honestly if it’s fine. Sometimes it is.
         </Signoff>
       </BlogPost>
     </>

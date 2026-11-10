@@ -60,7 +60,7 @@ export const metadata: Metadata = {
 const SCHEMA = [
   breadcrumbList([
     { name: "Home", href: "/" },
-    { name: "Resources", href: "/resources" },
+    { name: "Insights", href: "/insights" },
     { name: TITLE, href: URL },
   ]),
   article({
@@ -269,7 +269,7 @@ export default function Post() {
           service businesses across New Zealand and Australia, from a{" "}
           <a href="/work/boaz-developments">builder in Mangawhai</a> to
           concreters in Gippsland. If you’d like to test us on your patch,{" "}
-          <a href="/contact">ask for a free Presence Report</a> and we’ll
+          <a href="/local-search-check">run the free search</a> and we’ll
           show you who’s winning your area and why. Then ask us the four
           questions above.
         </Signoff>

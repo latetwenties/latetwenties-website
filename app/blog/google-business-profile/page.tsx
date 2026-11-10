@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 const SCHEMA = [
   breadcrumbList([
     { name: "Home", href: "/" },
-    { name: "Resources", href: "/resources" },
+    { name: "Insights", href: "/insights" },
     {
       name: "Google Business Profile: the 15-minute task that doubles your calls",
       href: "/blog/google-business-profile",

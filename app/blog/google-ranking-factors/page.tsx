@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const SCHEMA = [
   breadcrumbList([
     { name: "Home", href: "/" },
-    { name: "Resources", href: "/resources" },
+    { name: "Insights", href: "/insights" },
     {
       name: "The 6 things that decide where you show up on Google",
       href: "/blog/google-ranking-factors",
@@ -218,9 +218,10 @@ export default function Post() {
         , worked through in order.
       </P>
       <P>
-        If you want someone to look at all 6 for you, we do a free
-        Presence Report. No pitch, just a clear picture of where you stand
-        and what to fix.
+        If you want to see where you stand first,{" "}
+        <a href="/local-search-check">run the free search</a>. It takes
+        about 40 seconds. Then book 15 minutes with Brendan if you want help
+        with the fix. No pitch.
       </P>
     </BlogPost>
     </>

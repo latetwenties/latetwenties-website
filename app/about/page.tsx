@@ -14,7 +14,7 @@ import { Reveal } from "../components/Reveal";
 export const metadata: Metadata = {
   title: { absolute: "About Latetwenties | Small Auckland marketing agency" },
   description:
-    "We help local service owners get found online and chosen by local customers, with a plain promise: more enquiries in 90 days, or we work free until you get them. The story behind why that guarantee exists.",
+    "Latetwenties is a small Auckland based local marketing agency, run by Brendan MacDonald. We help home service businesses across NZ and Australia get found on Google, Maps and AI search, and treat the work like our own.",
   alternates: { canonical: "/about" },
 };
 
@@ -29,31 +29,19 @@ export default function About() {
       <JsonLd schema={SCHEMA} />
       <Header current="about" />
       <main>
-        <section className="ab-hero">
-          <div className="wrap">
-            <Reveal>
+        <section className="v2-hero is-short">
+          <div className="wrap v2-hero-inner">
+            <div className="v2-eyebrow">
+              <span className="dot" />
               <Eyebrow>About</Eyebrow>
-            </Reveal>
-            <Reveal delay={80}>
-              <h1 className="ab-h1">
-                We treat your business
-                <br />
-                <em>like our own.</em>
-              </h1>
-            </Reveal>
-            <Reveal as="div" className="ab-lede" delay={160}>
-              <p>
-                Latetwenties is for local service owners who are good at the
-                work and tired of being the best-kept secret in town. We get
-                you found online and chosen by local customers, and we treat
-                the job with the same seriousness you treat yours.
-              </p>
-              <p>
-                If we&rsquo;re asking you to trust a marketing partner off the
-                internet, the risk should sit with us, not you. Here&rsquo;s
-                the story of why we work the way we do.
-              </p>
-            </Reveal>
+            </div>
+            <h1>
+              We treat your business <em>like our own.</em>
+            </h1>
+            <p className="v2-sub">
+              For local service owners who are good at the work and tired of
+              being the best-kept secret in town.
+            </p>
           </div>
         </section>
 

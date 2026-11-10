@@ -6,6 +6,7 @@ import Script from "next/script";
 import { MicrosoftClarity } from "./components/analytics/MicrosoftClarity";
 import { TabTitleNudge } from "./components/TabTitleNudge";
 import "./globals.css";
+import "./styles/v2.css";
 
 const GTM_ID = "GTM-WCQNQ9LN";
 

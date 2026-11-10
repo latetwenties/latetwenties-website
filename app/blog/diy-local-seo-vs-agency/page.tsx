@@ -60,7 +60,7 @@ export const metadata: Metadata = {
 const SCHEMA = [
   breadcrumbList([
     { name: "Home", href: "/" },
-    { name: "Resources", href: "/resources" },
+    { name: "Insights", href: "/insights" },
     { name: TITLE, href: URL },
   ]),
   article({
@@ -261,9 +261,9 @@ export default function Post() {
           and a profile set up properly, then keep up the everyday work
           yourself, or hand the upkeep over when you’d rather not. That’s
           why we sell the build and the ongoing care separately:{" "}
-          <a href="/how-it-works">Get Found is a one-off build that’s
-          yours to keep</a>, and Stay Chosen is there if you want the
-          upkeep off your plate.
+          <a href="/what-we-do">Groundwork is the build, and it’s yours
+          to keep</a>, and Upkeep is there if you want the ongoing work off
+          your plate.
         </P>
         <P>
           One timing note. It’s the end of October. The profile, reviews
@@ -285,8 +285,8 @@ export default function Post() {
           Whichever way you go, do the free list above this week. If you’d
           like to know which of your gaps you can close yourself and which
           need more,{" "}
-          <a href="/contact">ask us for a free Presence Report</a>. We’ll
-          split it plainly, and if you can do the lot yourself, we’ll tell
+          <a href="/local-search-check">run the free search</a> and book 15
+          minutes. We’ll split it plainly, and if you can do the lot yourself, we’ll tell
           you that.
         </Signoff>
       </BlogPost>

@@ -5,14 +5,18 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
 const NAV_LINKS = [
-  { href: "/how-it-works", label: "How it works" },
-  { href: "/work", label: "Work" },
+  { href: "/what-we-do", label: "What we do" },
+  { href: "/work", label: "Our work" },
   { href: "/about", label: "About" },
-  { href: "/resources", label: "Resources" },
+  { href: "/insights", label: "Insights" },
   { href: "/contact", label: "Contact" },
 ];
 
-export function MobileMenu() {
+type MobileMenuProps = {
+  cta: { href: string; label: string };
+};
+
+export function MobileMenu({ cta }: MobileMenuProps) {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -84,8 +88,8 @@ export function MobileMenu() {
         ))}
       </nav>
 
-      <Link href="/contact" className="mobile-menu-cta" onClick={close}>
-        Free Presence Report <span aria-hidden="true">→</span>
+      <Link href={cta.href} className="mobile-menu-cta" onClick={close}>
+        {cta.label} <span aria-hidden="true">→</span>
       </Link>
 
       <div className="mobile-menu-foot">

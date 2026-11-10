@@ -20,7 +20,8 @@ export function BookingMonth() {
 
   // Correct the build-time value to the visitor's actual date after mount.
   useEffect(() => {
-    setMonth(bookingMonth(new Date()));
+    const id = setTimeout(() => setMonth(bookingMonth(new Date())), 0);
+    return () => clearTimeout(id);
   }, []);
 
   return <span suppressHydrationWarning>{month}</span>;

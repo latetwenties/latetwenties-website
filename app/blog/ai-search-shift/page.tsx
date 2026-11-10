@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 const SCHEMA = [
   breadcrumbList([
     { name: "Home", href: "/" },
-    { name: "Resources", href: "/resources" },
+    { name: "Insights", href: "/insights" },
     {
       name: "The year your customers stopped clicking",
       href: "/blog/ai-search-shift",
@@ -188,7 +188,7 @@ export default function Post() {
             href="/contact"
             className="underline underline-offset-4 hover:opacity-65 transition-opacity"
           >
-            asked us for a free Presence Report
+            booked 15 minutes with us
           </a>
           . You can do it yourself first. It costs you nothing and it’s
           genuinely useful.

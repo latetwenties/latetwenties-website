@@ -1,0 +1,753 @@
+/* Page layout: existing hero copy on the left, the tool on the right */
+.hero {
+  padding: 72px 0 120px;
+}
+.cols {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(40px, 6vw, 88px);
+  align-items: start;
+}
+.headline {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(48px, 6.4vw, 96px);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  margin: 28px 0 32px;
+}
+.lede {
+  font-family: var(--serif);
+  font-size: clamp(20px, 1.6vw, 24px);
+  line-height: 1.4;
+  color: var(--ink-soft);
+  max-width: 32ch;
+  margin: 0 0 28px;
+}
+.trust {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--ink-mute);
+}
+
+/* Tool shell */
+.tool {
+  position: relative;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.demoFlag {
+  align-self: flex-end;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.card {
+  width: 100%;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 18px;
+  padding: clamp(24px, 3vw, 36px);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  animation: fadeUp 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.kicker {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin: 0;
+}
+.cardTitle {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(24px, 2.2vw, 30px);
+  line-height: 1.2;
+  margin: 0;
+}
+.cardTitle em {
+  font-style: italic;
+  color: var(--accent);
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.field input {
+  font: inherit;
+  font-size: 16px;
+  color: var(--ink);
+  background: var(--ground);
+  border: 1px solid var(--rule-strong);
+  border-radius: 10px;
+  padding: 13px 14px;
+}
+.field input:focus {
+  outline: 2px solid var(--ink);
+  outline-offset: 1px;
+}
+.go {
+  justify-content: center;
+}
+.small {
+  font-size: 12px;
+  color: var(--ink-mute);
+  margin: 0;
+  text-align: center;
+}
+
+/* Phone playback */
+.phone {
+  width: min(330px, 100%);
+  height: 600px;
+  border-radius: 44px;
+  background: var(--ink);
+  padding: 12px;
+  position: relative;
+  box-shadow: 0 30px 60px -30px rgba(26, 24, 20, 0.45);
+  animation: fadeUp 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.notch {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 22px;
+  border-radius: 999px;
+  background: #000;
+  z-index: 2;
+}
+.screen {
+  position: relative;
+  height: 100%;
+  border-radius: 34px;
+  background: var(--paper);
+  overflow: hidden;
+  padding: 52px 14px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 12.5px;
+}
+.searchBar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-size: 14px;
+  min-height: 42px;
+}
+.g {
+  font-weight: 600;
+  color: var(--accent);
+}
+.caret {
+  display: inline-block;
+  width: 1.5px;
+  height: 15px;
+  background: var(--ink);
+  margin-left: 1px;
+  vertical-align: -2px;
+  animation: blink 1s steps(1) infinite;
+}
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  animation: fadeUp 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.block p,
+.ad p,
+.listing p {
+  margin: 2px 0 0;
+  color: var(--ink-soft);
+  font-size: 11.5px;
+  line-height: 1.35;
+}
+.ad {
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 6px;
+}
+.sponsored {
+  display: block;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.mapStrip {
+  position: relative;
+  height: 70px;
+  border-radius: 10px;
+  background:
+    linear-gradient(90deg, transparent 48%, rgba(26, 24, 20, 0.06) 48% 52%, transparent 52%),
+    linear-gradient(0deg, transparent 58%, rgba(26, 24, 20, 0.06) 58% 62%, transparent 62%),
+    var(--ground-2);
+}
+.mapStrip i {
+  position: absolute;
+  font-style: normal;
+  font-size: 10px;
+  font-weight: 600;
+  width: 18px;
+  height: 18px;
+  display: grid;
+  place-items: center;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  background: var(--color-red);
+  color: var(--paper);
+}
+.listing {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 4px 0;
+}
+.pin {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 11px;
+  font-weight: 600;
+}
+.you {
+  margin-top: 4px;
+  padding: 8px;
+  border: 1px dashed var(--accent);
+  border-radius: 10px;
+  background: color-mix(in oklab, var(--accent) 7%, var(--paper));
+  animation: fadeUp 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.you .pin {
+  background: var(--accent);
+}
+.aio {
+  border-radius: 10px;
+  padding: 10px;
+  background: var(--ground);
+}
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: fadeUp 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.chatHead {
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--rule);
+}
+.bubbleUser {
+  align-self: flex-end;
+  max-width: 85%;
+  background: var(--ground-2);
+  border-radius: 16px 16px 4px 16px;
+  padding: 9px 12px;
+}
+.bubbleBot {
+  white-space: pre-line;
+  line-height: 1.45;
+}
+
+.calling {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--ink);
+  color: var(--paper);
+  margin: -52px -14px -14px;
+  animation: fadeUp 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.ring {
+  width: 72px;
+  height: 72px;
+  border-radius: 999px;
+  background: var(--color-green);
+  margin-bottom: 22px;
+  animation: ring 1.1s ease-out infinite;
+}
+.callingLabel {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin: 0;
+}
+.callingName {
+  font-family: var(--serif);
+  font-size: 28px;
+  margin: 6px 0;
+}
+.callingSub {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 22px;
+  color: var(--accent-soft);
+  margin: 0;
+}
+
+/* Result */
+.scores {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.scores li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  font-size: 13px;
+}
+.good {
+  color: var(--color-green);
+}
+.mid {
+  color: var(--accent);
+}
+.bad {
+  color: var(--color-red);
+}
+.gridLabel {
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin: 0 0 -8px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+.cell {
+  border-radius: 8px;
+  padding: 8px 6px;
+  text-align: center;
+  background: color-mix(in oklab, currentColor 10%, var(--paper));
+  border: 1px solid color-mix(in oklab, currentColor 30%, transparent);
+}
+.cell b {
+  display: block;
+  font-size: 16px;
+}
+.cell span {
+  display: block;
+  font-size: 10px;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.gate {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule);
+}
+.gateTitle {
+  font-family: var(--serif);
+  font-size: 20px;
+  margin: 0;
+}
+.blurred {
+  filter: blur(5px);
+  user-select: none;
+}
+.blurred p {
+  margin: 0 0 6px;
+}
+.moves {
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.moves p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes ring {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-green) 60%, transparent);
+  }
+  100% {
+    box-shadow: 0 0 0 26px transparent;
+  }
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .cols {
+    grid-template-columns: 1fr;
+  }
+  .hero {
+    padding: 40px 0 80px;
+  }
+  .scores {
+    grid-template-columns: 1fr;
+  }
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Live version additions */
+.error {
+  margin: 0;
+  font-size: 14px;
+  color: var(--color-red);
+}
+.wait {
+  margin: 4px 2px;
+  font-size: 12px;
+  color: var(--ink-mute);
+  animation: fadeUp 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.picks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.pick {
+  font: inherit;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 14px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 10px;
+  background: var(--ground);
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color 160ms ease, transform 160ms ease;
+}
+.pick:hover {
+  border-color: var(--ink);
+  transform: translateY(-1px);
+}
+.pick span {
+  font-size: 12.5px;
+  color: var(--ink-soft);
+}
+.pickNone {
+  background: transparent;
+  border-style: dashed;
+}
+.hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.chat {
+  overflow: hidden;
+}
+.badge {
+  align-self: flex-start;
+  margin-top: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 9px;
+  border-radius: 999px;
+  animation: fadeUp 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.badgeYes {
+  background: color-mix(in oklab, var(--color-green) 16%, var(--paper));
+  color: var(--color-green);
+}
+.badgeNo {
+  background: color-mix(in oklab, var(--color-red) 12%, var(--paper));
+  color: var(--color-red);
+}
+.callingNote {
+  max-width: 24ch;
+  margin: 18px 0 0;
+  font-size: 12px;
+  line-height: 1.45;
+  opacity: 0.7;
+}
+.baseTag {
+  font-family: var(--mono);
+  font-size: 9px !important;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent) !important;
+}
+.bubbleBot mark {
+  background: color-mix(in oklab, var(--color-green) 22%, var(--paper));
+  color: inherit;
+  padding: 0 2px;
+  border-radius: 3px;
+}
+
+/* Timer above the phone */
+.timer {
+  width: min(330px, 100%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--ink-mute);
+}
+.timerBar {
+  flex: 1;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--rule);
+  overflow: hidden;
+}
+.timerBar i {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  transition: width 1s linear;
+}
+
+/* Their website on the phone */
+.siteScreen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 0;
+  animation: fadeUp 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.urlBar {
+  font-size: 11px;
+  text-align: center;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: var(--ground-2);
+  color: var(--ink-soft);
+}
+.siteShot {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 10px;
+  border: 1px solid var(--rule);
+  background: var(--ground);
+}
+.speed {
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.speed b {
+  font-size: 20px;
+}
+.speed span {
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+/* The other AI assistants */
+.aiCard {
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: 10px;
+  animation: fadeUp 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.aiCard p {
+  margin: 6px 0 0;
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+.aiCard mark {
+  background: color-mix(in oklab, var(--color-green) 22%, var(--paper));
+  color: inherit;
+  padding: 0 2px;
+  border-radius: 3px;
+}
+.aiCardHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+.aiCardHead .badge {
+  margin-top: 0;
+}
+
+/* What it's worth */
+.worth {
+  border-radius: 14px;
+  padding: 18px;
+  background: var(--ground);
+  border: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.worthBig {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.3;
+}
+.worthBig b {
+  display: block;
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 1;
+  color: var(--accent);
+}
+.worthLine,
+.worthNote {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+.worthLine b {
+  color: var(--ink);
+}
+.worthCalc {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--rule);
+}
+.source {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--ink-mute);
+}
+.aiList {
+  list-style: none;
+  margin: -6px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  font-size: 12.5px;
+}
+
+/* Loader while the run waits on data: a spinner, what it's doing, and a tip. */
+.loader {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  padding: 12px 14px;
+  border-radius: 18px;
+  background: color-mix(in oklab, var(--paper) 92%, var(--ink));
+  box-shadow: 0 10px 30px -14px rgba(26, 24, 20, 0.35);
+  animation: fadeUp 500ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.loaderCentre {
+  bottom: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: none;
+}
+.loaderHead {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--ink-mute);
+}
+.spinner {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid color-mix(in oklab, var(--ink) 15%, transparent);
+  border-top-color: var(--accent);
+  animation: spin 800ms linear infinite;
+}
+.tip {
+  margin: 10px 0 0;
+  font-family: var(--serif);
+  font-size: 15px;
+  line-height: 1.35;
+  color: var(--ink);
+  animation: fadeUp 600ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.tip span {
+  display: block;
+  margin-top: 6px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: var(--ink-mute);
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation-duration: 2400ms;
+  }
+}

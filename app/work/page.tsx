@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const SCHEMA = [
   breadcrumbList([
     { name: "Home", href: "/" },
-    { name: "Work", href: "/work" },
+    { name: "Our work", href: "/work" },
   ]),
 ];
 
@@ -30,25 +30,19 @@ export default function WorkPage() {
       <JsonLd schema={SCHEMA} />
       <Header current="work" />
       <main>
-        <section className="hiw-hero">
-          <div className="wrap">
-            <Reveal>
-              <Eyebrow>The work</Eyebrow>
-            </Reveal>
-            <Reveal delay={80}>
-              <h1 className="hiw-h1">
-                Case studies, <em>receipts attached.</em>
-              </h1>
-            </Reveal>
-            <Reveal delay={160}>
-              <p className="hiw-lede">
-                Local service businesses across New Zealand and Australia.
-                Each case study shows the situation, the work, and the
-                numbers that followed, with the screenshots and sources on
-                the page. No composites, no vague claims, just what happened
-                and when.
-              </p>
-            </Reveal>
+        <section className="v2-hero is-short">
+          <div className="wrap v2-hero-inner">
+            <div className="v2-eyebrow">
+              <span className="dot" />
+              <Eyebrow>Our work</Eyebrow>
+            </div>
+            <h1>
+              Case studies, <em>receipts attached.</em>
+            </h1>
+            <p className="v2-sub">
+              Local service businesses across NZ and Australia. The situation,
+              the work and the numbers that followed, with sources on the page.
+            </p>
           </div>
         </section>
 

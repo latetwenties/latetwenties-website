@@ -27,6 +27,15 @@ const nextConfig: NextConfig = {
         destination: "/privacy",
         permanent: true,
       },
+      // Nov 2026 rebuild: How it works became What we do, Resources became
+      // Insights, and the lab prototype became the free search page.
+      { source: "/how-it-works", destination: "/what-we-do", permanent: true },
+      { source: "/resources", destination: "/insights", permanent: true },
+      {
+        source: "/lab/who-gets-the-call",
+        destination: "/local-search-check",
+        permanent: true,
+      },
     ];
   },
 };
