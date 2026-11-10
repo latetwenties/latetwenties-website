@@ -2,17 +2,22 @@ import type { MetadataRoute } from "next";
 
 const SITE = "https://latetwenties.agency";
 
-// AI crawlers explicitly allowed per the brief in CLAUDE.md so the site is
-// citable in AI search responses. Standard search engines covered by the
+// AI and search crawlers explicitly allowed (seo-currency 2.3 list, Nov 2026)
+// so the site is citable in AI search responses. bingbot matters because the
+// Bing index feeds ChatGPT search and Copilot. Standard search engines covered by the
 // default User-agent: * rule above.
 const AI_USER_AGENTS = [
   "GPTBot",
-  "PerplexityBot",
-  "ClaudeBot",
-  "Google-Extended",
-  "anthropic-ai",
-  "CCBot",
   "OAI-SearchBot",
+  "ChatGPT-User",
+  "ClaudeBot",
+  "Claude-SearchBot",
+  "Claude-User",
+  "PerplexityBot",
+  "Perplexity-User",
+  "Google-Extended",
+  "CCBot",
+  "bingbot",
 ];
 
 export default function robots(): MetadataRoute.Robots {
