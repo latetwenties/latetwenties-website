@@ -53,13 +53,13 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://latetwenties.agency"),
   title: {
     default:
-      "Latetwenties | Local marketing for service businesses, Auckland",
+      "Latetwenties | Local marketing for home service businesses, Auckland",
     template: "%s | Latetwenties",
   },
   description:
-    "A small Auckland marketing agency helping local service businesses across New Zealand and Australia get found online and chosen by local customers. Plain-spoken, no jargon.",
+    "Auckland based local marketing agency for home service businesses across NZ and Australia. We get builders and trades found on Google, Maps and AI search.",
   openGraph: {
-    title: "Latetwenties | Local marketing for service businesses, Auckland",
+    title: "Latetwenties | Local marketing for home service businesses, Auckland",
     description:
       "A small Auckland marketing agency helping local service businesses across New Zealand and Australia get found online and chosen by local customers.",
     url: "https://latetwenties.agency",
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Latetwenties | Local marketing for service businesses, Auckland",
+    title: "Latetwenties | Local marketing for home service businesses, Auckland",
     description:
       "A small Auckland marketing agency helping local service businesses across New Zealand and Australia get found online and chosen by local customers.",
   },
@@ -84,7 +84,7 @@ const SCHEMA = [
     url: "https://latetwenties.agency",
     logo: "https://latetwenties.agency/icon.svg",
     description:
-      "Local marketing for service businesses in Auckland. We help local service businesses across New Zealand and Australia get found online and chosen by local customers.",
+      "Auckland based local marketing agency for home service businesses across New Zealand and Australia. We get builders and trades found on Google, Maps and AI search, so the calls come to them.",
     email: "team@latetwenties.agency",
     telephone: "+64-9-884-4418",
     address: {
@@ -101,6 +101,7 @@ const SCHEMA = [
     sameAs: [
       "https://www.linkedin.com/company/latetwenties",
       "https://www.facebook.com/latetwenties",
+      "https://maps.google.com/maps?cid=4727617715780294311",
     ],
   },
   {
@@ -113,6 +114,7 @@ const SCHEMA = [
     telephone: "+64-9-884-4418",
     email: "team@latetwenties.agency",
     priceRange: "$$",
+    hasMap: "https://maps.google.com/maps?cid=4727617715780294311",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Auckland",

@@ -1,8 +1,8 @@
 # Latetwenties
 
-> Latetwenties is a small Auckland marketing agency. We help local service
-> businesses across New Zealand and Australia get found online and chosen by
-> local customers. We treat the website, the Google Business Profile, the
+> Latetwenties is an Auckland based local marketing agency for home service
+> businesses across New Zealand and Australia. We get builders and trades
+> found on Google, Maps and AI search, so the calls come to them. We treat the website, the Google Business Profile, the
 > listings, the reviews and the advertising as one connected system, and we
 > treat the business owner like a person, not a dashboard.
 
@@ -16,37 +16,31 @@ Website: https://latetwenties.agency
 
 ## What we do
 
-One system, three parts: the Found & Chosen System. Run one or all three.
-Fixed pricing, no lock-ins.
+Three steps, one goal: more of the right enquiries, and proof of where every
+one came from. No lock-ins; after the first three months it's month to month.
 
-- **Get Found**: a one-time build covering the website, Google Business
-  Profile, local listings, SEO and AI-search foundations, and review
-  systems. Two to four weeks, end to end. One fixed price, and it is yours
-  to keep when it's done.
-- **Stay Chosen**: the ongoing care that moves you up the list over months.
-  Google Business Profile posts, review generation, listings monitoring,
-  iterative SEO, and a regular plain-language update on what's working.
-  Fixed monthly, month-to-month, no lock-ins.
-- **Ring This Week**: paid campaigns on Google and Meta for enquiries now,
-  not next quarter. Campaigns pointed at the jobs you actually want, ads
-  that sound like you, landing pages ready for the click, and conversion
-  tracking that counts real enquiries. Your ad budget plus a fixed monthly
-  management fee. On when you want it, off when you don't.
+- **Onboarding**: a short form and a kick-off call. We learn the business,
+  the work you want more of and how customers find you now, and collect the
+  logins and project photos.
+- **Groundwork**: we map where the real demand is in your area, service by
+  service and town by town, then build to win it: a fast website with a page
+  for every job, Google Business Profile, listings, a review system, and call
+  and form tracking. Google Ads too, if they suit. Live in two to four weeks.
+- **Upkeep**: each month we keep it working: new pages, Google posts, reviews
+  kept moving, Google Ads managed, and fixes. You get a short monthly report
+  and walkthrough video: how many enquiries came in, what they cost and which
+  ones turned into work.
 
-The guarantee: run the full 90 days with us (the build plus your first
-three months of Stay Chosen) and if you don't have more enquiries than the
-90 days before us, we keep working free until you do.
+Free search: run the search your customer runs and see who gets the call in
+your area, on Google, Maps and AI. About 40 seconds, no sign-up.
+https://latetwenties.agency/local-search-check
 
 ## Who we work with
 
-Local service businesses, owner-led, close to the work. Builders,
-concreters, electricians, plumbers, landscapers, mobile mechanics, physios,
-dentists, allied health practitioners, bookkeepers, accountants, lawyers in
-their own practice, cleaners, tutors, family businesses. Anyone whose
-customers search "near me" or their suburb name.
-
-The market we serve sits between "established" and "can't yet afford one of
-the big agencies."
+Home service businesses, owner-led, close to the work: builders, concreters,
+electricians, plumbers, roofers, landscapers and other trades, across New
+Zealand and Australia. Usually established on referrals, with capacity for
+more work and no reliable flow of enquiries from search.
 
 ## Recent work
 
@@ -75,58 +69,35 @@ https://latetwenties.agency/work/kd-bookworks
 
 ## Frequently asked
 
-**How long does Get Found take?** Two to four weeks, end to end. Week one
-is research; weeks two and three are the build; week four is launch and
-handover.
+**How long until it's live?** Two to four weeks from onboarding to launch.
+The first week is research, then the build. Upkeep starts the day it goes
+live.
 
-**When should Stay Chosen start?** Whenever you're ready. Most clients
-pick it up the week Get Found goes live so the signals get worked while
-the build is fresh in Google's eyes.
-
-**Can I run Ring This Week on its own?** Yes. Each part works on its own
-and they're stronger together. Some clients come with a site they're happy
-with and want the ads only.
+**Can I just get ads?** Ads work best on top of the groundwork, because the
+page they land on has to be ready for the click. If you already have a site
+you're happy with, ask us and we'll tell you straight.
 
 **Do you work outside Auckland?** Yes, across New Zealand and Australia.
-Most of what we do is remote. The location of your customers matters more
-than yours.
+What matters is your patch and how people search in it.
 
-**What if I already have a website?** We'll look before recommending
-anything. Sometimes it's a rebuild, sometimes it's leave-it-alone and
-focus on Stay Chosen or Ring This Week. We'll tell you straight.
+**Can you get me into ChatGPT?** We can help, but nobody can promise a spot.
+We set up Bing Places, match your listings and write pages that answer real
+questions, then check where you show up.
 
 **Do I own everything?** Yes. Website, domain, Google Business Profile,
 every account we set up, all in your name.
 
-**Why not hourly rates?** Hourly rewards slow work. Fixed pricing rewards
-getting the work done properly.
-
-**What if it's not working?** Then we keep working, free, until the
-90-day guarantee is met. No lock-in either way.
+**Am I locked in?** No. After the first three months it's month to month.
 
 ## Pages
 
 - Home: https://latetwenties.agency/
-- About Brendan: https://latetwenties.agency/about
-- How it works (the Found & Chosen System, with FAQs): https://latetwenties.agency/how-it-works
+- What we do (Onboarding, Groundwork, Upkeep, with FAQs): https://latetwenties.agency/what-we-do
+- Free search, who gets the call in your area: https://latetwenties.agency/local-search-check
 - Case studies: https://latetwenties.agency/work
-- Resources (writing): https://latetwenties.agency/resources
-  - The five-minute rule: why the business that answers first wins the job: /blog/five-minute-rule
-  - How to get 50 Google reviews without being weird about it: /blog/how-to-get-google-reviews
-  - You show up in your suburb. Three suburbs over, you don't exist: /blog/ranking-in-nearby-suburbs
-  - What should a website actually cost in New Zealand?: /blog/what-a-website-costs-nz
-  - Seven questions to ask a marketing agency before you pay them a cent: /blog/questions-to-ask-a-marketing-agency
-  - The jobs you didn't lose. You just never followed them up: /blog/following-up-quotes
-  - Google Ads or Facebook Ads? For a local business, the answer isn't close: /blog/google-ads-vs-facebook-ads
-  - How to get ChatGPT to recommend your business: /blog/get-recommended-by-ai
-  - Nine photos, and why they're worth more than your last $2,000 of ads: /blog/google-business-profile-photos
-  - Do you actually know what a customer costs you?: /blog/what-a-customer-costs-you
-  - The year your customers stopped clicking: /blog/ai-search-shift
-  - Should you run Google Ads? A framework for service businesses: /blog/google-ads-framework
-  - Google Business Profile: the 15-minute task that doubles your calls: /blog/google-business-profile
-  - The 6 things that decide where you show up on Google: /blog/google-ranking-factors
-  - 5 reasons your business isn't showing up on Google: /blog/google-ranking
-- Contact (free Presence Report): https://latetwenties.agency/contact
+- About Brendan: https://latetwenties.agency/about
+- Insights (writing): https://latetwenties.agency/insights
+- Contact (book 15 minutes with Brendan): https://latetwenties.agency/contact
 
 ## How we work
 
