@@ -66,7 +66,7 @@ export async function notifyBlogLive(
       type: "section",
       text: {
         type: "mrkdwn",
-        text: `*New blog live*\n<${url}|${post.title}>\n${post.description}${status ? `\n_${status}_` : ""}`,
+        text: `*New blog live*\n<${url}|${post.title}>\n${post.description}${status ? `\n_${status}_` : ""}\n<${requestIndexingUrl(url)}|Request indexing in Search Console>`,
       },
     },
   ];
@@ -126,4 +126,15 @@ export async function notifyQueueStatus(remaining: number): Promise<void> {
     { type: "section", text: { type: "mrkdwn", text: `:calendar: ${text}` } },
   ];
   await notify(subject, text, blocks);
+}
+
+/**
+ * One tap opens Search Console's URL inspection for the new page; press
+ * "Request indexing" there. Deliberately a link, not an API call: Google's
+ * Indexing API is not for ordinary pages, so the submit stays manual.
+ * Assumes a domain property (sc-domain:), which every agency site uses.
+ */
+export function requestIndexingUrl(pageUrl: string): string {
+  const host = new URL(pageUrl).hostname.replace(/^www\./, "");
+  return `https://search.google.com/search-console/inspect?resource_id=${encodeURIComponent(`sc-domain:${host}`)}&id=${encodeURIComponent(pageUrl)}`;
 }
