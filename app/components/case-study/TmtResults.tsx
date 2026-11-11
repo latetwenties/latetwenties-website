@@ -25,8 +25,8 @@ function useCountAnim(from: number, to: number, active: boolean, ms = 1600) {
 
 const SUBSTATS = [
   {
-    value: "⅓ the cost",
-    label: "Per enquiry from the ads",
+    value: "7 of the 12",
+    label: "June enquiries that came from the ads",
     note: "A small search campaign, switched on once the site was ready. Each enquiry came in at about a third of the cost we'd allowed for.",
   },
   {
@@ -74,7 +74,7 @@ export function TmtResults() {
     };
   }, []);
 
-  const enquiries = useCountAnim(4, 15, active);
+  const enquiries = useCountAnim(4, 13, active);
 
   return (
     <section className="cs-act cs-act-3" ref={ref}>
@@ -84,7 +84,7 @@ export function TmtResults() {
             <Reveal>
               <Eyebrow num="03">The result</Eyebrow>
               <h2 className="cs-act-h2">
-                One month in,
+                Three months in,
                 <br />
                 the numbers
                 <br />
@@ -94,10 +94,18 @@ export function TmtResults() {
           </div>
           <Reveal as="div" className="cs-act-body" delay={80}>
             <p>
-              June 2026 was the first full month with all of it running
-              together: the new site, the local layer, the ads. By August,
-              three months in, TMT took 15 quality enquiries for the month,
-              up from 4 in May.
+              Before we started, TMT took about seven enquiries a month, and
+              four of those were worth quoting. June
+              2026 was the first full month with all of it running together:
+              the new site, the local layer, the ads. TMT took 12 enquiries
+              for the month. Ten came through the
+              quote forms, one from a phone tap on the site, and one call
+              straight off an ad.
+            </p>
+            <p>
+              It kept building from there. By August, the third full month,
+              15 enquiries came through the quote forms, and 13 of them were
+              worth quoting.
             </p>
           </Reveal>
         </div>
@@ -105,7 +113,7 @@ export function TmtResults() {
         <Reveal className={`cs-rank ${active ? "is-active" : ""}`} delay={120}>
           <div className="cs-rank-stats">
             <div className="cs-rank-label">
-              Enquiries · May → August 2026
+              Quote-worthy enquiries a month · before → August 2026
             </div>
             <div className="cs-rank-value">
               <span className="cs-rank-old">4</span>
@@ -113,9 +121,10 @@ export function TmtResults() {
               <span className="cs-rank-new">{enquiries}</span>
             </div>
             <div className="cs-rank-meta">
-              <em>Nearly four times May&rsquo;s enquiries</em> three months after
-              the site, the map and the ads all went to work. Counted from
-              GA4 and Google Ads, August 2026.
+              <em>Over three times the jobs worth quoting</em> by the third
+              full month. Quote-form enquiries only, August 2026. Phone taps
+              are left out, because a tap on the number isn&rsquo;t always a
+              call.
             </div>
           </div>
 
@@ -158,12 +167,14 @@ export function TmtResults() {
               me&rdquo; from anywhere around Sale and TMT comes up first.
             </li>
             <li>
-              <strong>Google Ads:</strong> each enquiry off the ads came
-              in at about a third of the cost we allowed for.
+              <strong>Google Ads:</strong> 7 of June&rsquo;s 12 enquiries came
+              straight off the ads, each at about a third of the cost we
+              allowed for.
             </li>
             <li>
-              <strong>Enquiries:</strong> 4 in May, 15 in August. Tracked end
-              to end, so every one of them is counted, not guessed.
+              <strong>Enquiries:</strong> about 7 a month before, 4 of them
+              worth quoting. 15 quote-form enquiries in August, 13 of them
+              worth quoting.
             </li>
             <li>
               <strong>Up next:</strong> hold the map, keep publishing, keep

@@ -206,7 +206,7 @@ export default function BoazCaseStudy() {
                 </figure>
 
                 <p>
-                  From there we took over Upkeep. The relationship runs
+                  From there we moved into Upkeep. The relationship runs
                   smoothly because Reece trusts the practice. We only check in
                   when factual confirmation is needed. Otherwise he focuses on
                   his actual work and the signals stay active.

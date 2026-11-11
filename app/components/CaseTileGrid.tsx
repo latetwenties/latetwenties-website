@@ -8,24 +8,38 @@ type CaseTile = {
   client: string;
   meta: string;
   line: ReactNode;
-  stat: string;
-  // Results still to come. Shown on /work only, so the homepage and About
-  // grids stay results-only.
-  inProgress?: boolean;
 };
 
+// The three trade case studies lead everywhere a short proof strip appears.
+// /work shows the full list.
+export const FEATURED_CASES = [
+  "/work/tmt-concreting",
+  "/work/boaz-developments",
+  "/work/rbm-concrete",
+];
+
 export const CASE_TILES: CaseTile[] = [
+  {
+    href: "/work/glenbuild",
+    client: "Glenbuild",
+    meta: "Builders · Auckland NZ",
+    line: (
+      <>
+        Thirty years of award-winning homes, then <em>page one</em> in four of
+        its focus suburbs, one month in.
+      </>
+    ),
+  },
   {
     href: "/work/tmt-concreting",
     client: "TMT Concreting & Maintenance",
     meta: "Concreting · Gippsland VIC",
     line: (
       <>
-        Four enquiries a month <em>became fifteen</em>, three months after
-        everything went on.
+        Four quote-worthy enquiries a month <em>became thirteen</em>, three
+        months in.
       </>
     ),
-    stat: "4 → 15",
   },
   {
     href: "/work/boaz-developments",
@@ -34,10 +48,9 @@ export const CASE_TILES: CaseTile[] = [
     line: (
       <>
         From not showing, to <em>#2 in search</em> across the neighbouring
-        towns.
+        towns, in under two months.
       </>
     ),
-    stat: "10.1 → 2.5",
   },
   {
     href: "/work/rbm-concrete",
@@ -46,10 +59,9 @@ export const CASE_TILES: CaseTile[] = [
     line: (
       <>
         No website at all, then <em>a stranger on the phone</em> about a new
-        house slab.
+        house slab, four days after launch.
       </>
     ),
-    stat: "Four days",
   },
   {
     href: "/work/kd-bookworks",
@@ -57,64 +69,38 @@ export const CASE_TILES: CaseTile[] = [
     meta: "Bookkeeping · Christchurch NZ",
     line: (
       <>
-        A local bookkeeping site, re-aimed at Xero nationwide. Its first
-        Google enquiry <em>became a client.</em>
+        A local bookkeeping site, re-aimed at Xero nationwide. Seven days after
+        launch, its first Google enquiry <em>became a client.</em>
       </>
     ),
-    stat: "Seven days",
-  },
-  {
-    href: "/work/glenbuild",
-    client: "Glenbuild",
-    meta: "Builders · Auckland NZ",
-    line: (
-      <>
-        Thirty years of award-winning homes, built on referrals. The
-        foundations are in, <em>results to follow.</em>
-      </>
-    ),
-    stat: "In progress",
-    inProgress: true,
   },
 ];
 
-// Render the metric with a terracotta arrow when the stat is a before/after.
-function renderStat(stat: string): ReactNode {
-  if (!stat.includes("→")) return stat;
-  const [before, after] = stat.split("→");
-  return (
-    <>
-      {before}
-      <span className="case-tile-stat-arrow" aria-hidden="true">
-        →
-      </span>
-      {after}
-    </>
-  );
-}
-
+// The client's name is saved for the case study itself; the tile leads with
+// the trade, the place and the result.
 export function CaseTileGrid({
   baseDelay = 120,
-  showInProgress = false,
+  only,
 }: {
   baseDelay?: number;
-  showInProgress?: boolean;
+  only?: string[];
 }) {
-  const tiles = CASE_TILES.filter((c) => showInProgress || !c.inProgress);
+  const tiles = only
+    ? CASE_TILES.filter((c) => only.includes(c.href))
+    : CASE_TILES;
   return (
     <div className="case-grid">
       {tiles.map((c, i) => (
         <Reveal key={c.href} delay={baseDelay + i * 80}>
-          <Link className="case-tile" href={c.href}>
+          <Link
+            className="case-tile"
+            href={c.href}
+            aria-label={`${c.client}: see the story`}
+          >
             <div className="case-tile-meta">{c.meta}</div>
             <p className="case-tile-line">{c.line}</p>
-            <div className="case-tile-stat">
-              <span className="case-tile-stat-value">
-                {renderStat(c.stat)}
-              </span>
-            </div>
             <div className="case-tile-foot">
-              <span className="case-tile-client">{c.client}</span>
+              <span className="case-tile-client">See the story</span>
               <span className="case-tile-arrow" aria-hidden="true">
                 →
               </span>

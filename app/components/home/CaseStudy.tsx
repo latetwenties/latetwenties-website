@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { CaseTileGrid } from "../CaseTileGrid";
+import { CaseTileGrid, FEATURED_CASES } from "../CaseTileGrid";
 import { Reveal } from "../Reveal";
 
 export function CaseStudy() {
@@ -19,15 +19,14 @@ export function CaseStudy() {
             <span className="case-meta-num">04</span> The proof · Real clients ·
             Real numbers · Recent work
           </Reveal>
+          <Reveal delay={120}>
+            <Link className="ghost-link" href="/work">
+              See all case studies →
+            </Link>
+          </Reveal>
         </div>
 
-        <CaseTileGrid />
-
-        <Reveal className="case-cta" delay={360}>
-          <Link className="ghost-link" href="/work">
-            All case studies →
-          </Link>
-        </Reveal>
+        <CaseTileGrid only={FEATURED_CASES} />
       </div>
     </section>
   );

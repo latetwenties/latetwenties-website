@@ -26,10 +26,10 @@ a portfolio. Promise + guarantee + proof is an offer.
 1. Lead with the outcome, never the vehicle. If a heading names a deliverable,
    rewrite it to name a result.
 2. The guarantee is NOT a site-wide brand element. Do not put it in the footer or
-   on every page. It lives in FULL once, on the homepage Promise section, is
-   lightly echoed on the homepage (hero opening + "Backed by the 90-day guarantee"
-   under the System), and is answered in the /how-it-works "what if it's not
-   working" FAQ. That's it. Do NOT lead non-pitch pages (About) with it, do NOT
+   on every page. It lives in FULL on the homepage Promise section and at the
+   top of /how-it-works (same `ThePromise` component, Brendan's call 2026-10),
+   and is lightly echoed on the homepage (hero opening + "Backed by the 90-day
+   guarantee" under the System). That's it. Do NOT lead non-pitch pages (About) with it, do NOT
    restate it in multiple sections of one page, and do NOT add a footer promise
    line. Over-exposure reads as anxious and breaks the "quietly confident" voice
    (Brendan's call, 2026-07-08).
@@ -46,9 +46,14 @@ a portfolio. Promise + guarantee + proof is an offer.
    problem at all". Warm is fine, doormat is not. End sections with a next step.
 8. Reader > writer. Every "I/we" sentence must serve the reader. One founder-story
    moment of personality per page, max.
-9. One named system: "The Found & Chosen System". Parts: Get Found / Stay Chosen /
-   Ring This Week. Use consistently. Retire "Foundations" and "Presence Care" from
-   customer-facing copy.
+9. One named system: "The Found & Chosen System". Parts: Groundwork / Momentum /
+   Fast Track (Brendan's call, 2026-10). Use consistently.
+   Momentum is explained in plain words as "the monthly upkeep that keeps you
+   climbing". Retire "Foundations", "Presence Care", "Get Found" and "Stay
+   Chosen" from customer-facing copy.
+   Never promise a timeframe we can't guarantee for every client: no "phone
+   ringing this week", no "show up first", nothing that depends on the client's
+   own workload (like review volume). Say "in weeks, not months" for ads.
 10. Truth constraint (hard rule). Never publish a guarantee, a scarcity claim, a
     number, or a testimonial that isn't real and confirmed by Brendan. If a claim
     isn't confirmed, ship the page without it and flag it. Get as close to the
@@ -70,8 +75,8 @@ a portfolio. Promise + guarantee + proof is an offer.
 ## Per-page adaptation notes (not yet applied beyond homepage)
 
 - /how-it-works: restructure around time + effort, when the first visible result
-  lands, when the guarantee clock starts. Rename steps to Get Found / Stay Chosen /
-  Ring This Week. End with promise + Presence Report CTA. Real client-effort shape
+  lands, when the guarantee clock starts. Rename steps to Groundwork / Momentum /
+  Fast Track. End with promise + Presence Report CTA. Real client-effort shape
   (confirmed by Brendan, do NOT invent a minutes figure): Brendan does all the
   website copywriting and sources the images. At onboarding the client just uploads
   their own project photos. After that the only asks are occasional new photos for
@@ -95,6 +100,43 @@ a portfolio. Promise + guarantee + proof is an offer.
 - /resources: each resource is a lead magnet. Solve one narrow problem completely,
   point to the system for the rest. Add the Presence Report CTA to every resource.
 
+## Case study template (Brendan's call, 2026-10)
+
+Use this for every /work case study so the shape never needs rethinking.
+Grounded in the Proof Checklist (big > small > no results, numbers > no
+numbers, newer > older) and the Hooks Playbook (call out + value).
+
+**Headline = known fact + biggest true number + time taken.**
+"[Award, years in trade, or trade and town]. [Before to after, or the first
+real result] in [time]." The known fact is the call out (and the borrowed
+credibility of a recognisable name). The number is the value. Never lead with
+"results to follow" or anything that announces no result.
+
+**Pick the headline by stage:**
+
+1. Live under a month, no numbers yet: hidden page only (noindex, out of the
+   sitemap and the /work grid), shared by direct link. Don't list it.
+2. Early signal: lead with the first true number, and say plainly what comes
+   next ("the map pack is next"). Status line names the next step, not
+   "results to follow". Example: Glenbuild, "Thirty years of award-winning
+   homes. One month to page one in four of its focus suburbs."
+3. Full result: lead with before to after and the time taken. Example: TMT,
+   7 to 35 enquiries a month.
+
+**Sections, same order every time:**
+
+1. The situation: who they are, in specifics (personal > generic). Factual
+   before, no judgement (rule 11).
+2. The work: show it (site video or scroll, screenshots), don't list it.
+3. The result: numbers with how they were measured, before/after screenshots
+   (map pack, branded search, AI answers). Durations, not month stamps.
+4. In their words: a named client quote.
+5. CTA: the Presence Report.
+
+Every number must be backed by a source we can show (Search Console,
+BrightLocal, the client's own count) and confirmed by Brendan (rule 10).
+Crop competitor names out of screenshots.
+
 ## Page-ship checklist (run before committing any page)
 
 - [ ] Outcome in the H1, not the vehicle
@@ -109,12 +151,33 @@ a portfolio. Promise + guarantee + proof is an offer.
 
 1. The 90-day guarantee is live and confirmed. It applies to clients who run the
    full 90 days: the foundations plus the first three months of ongoing care
-   (Stay Chosen). The Promise section and fine print carry that condition. No
+   (Momentum). The Promise section and fine print carry that condition. No
    lock-in contract still holds; the guarantee just needs the full run to be fair.
 2. The "three new businesses a month" scarcity cap is confirmed and rendered in
    the final CTA. The booking month is computed automatically by
    `app/components/home/BookingMonth.tsx` (current month, rolling to the next in
    the last 7 days), so it stays honest without manual updates.
+3. TMT enquiries (confirmed by Brendan, 2026-10): about 7 a month before we
+   started (all enquiries, the like-for-like baseline), 12 in June (first full
+   month), 35 in August (third full month), with no extra ad spend. The headline
+   proof is 7 to 35. Don't use the old "4 in May" figure: it wasn't counted the
+   same way as 35. The June detail (7 of 12 from ads) stays as first-month colour.
+
+## Selling one system, not a menu (Brendan's call, 2026-10)
+
+- The default offer is the full run: Groundwork build + Momentum care, with
+  Fast Track as the accelerator on top. That's what the guarantee covers.
+- Never present the parts as separately sold, and never write "run one or all
+  three" or "each part works on its own". Ads-only is never offered on the site;
+  it's handled case by case on a sales call.
+- We always rebuild an existing website onto our platform. Never say we might
+  leave a client's existing site in place. The rebuild is the reason we can make
+  same-day changes and put the guarantee in writing.
+- Deliverables are written obstacle-first: the title names the problem removed
+  or the result, the body says what the work is, how it helps, and proof where
+  it exists. Never a bare task name ("GBP posts", "Iterative SEO").
+- Search examples (hero, typewriter queries) are trades only, to match the
+  clients and proof.
 
 ## Standing rule on dates
 
