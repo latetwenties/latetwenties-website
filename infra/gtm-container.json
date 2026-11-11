@@ -3,13 +3,13 @@
   "exportTime": "2026-11-11 20:50:39",
   "containerVersion": {
     "path": "accounts/0/containers/0/versions/0",
-    "accountId": "0",
-    "containerId": "0",
+    "accountId": "6353495442",
+    "containerId": "251426909",
     "containerVersionId": "0",
     "container": {
       "path": "accounts/0/containers/0",
-      "accountId": "0",
-      "containerId": "0",
+      "accountId": "6353495442",
+      "containerId": "251426909",
       "name": "latetwenties.agency",
       "publicId": "GTM-WCQNQ9LN",
       "usageContext": [
@@ -19,8 +19,8 @@
     },
     "tag": [
       {
-        "accountId": "0",
-        "containerId": "0",
+        "accountId": "6353495442",
+        "containerId": "251426909",
         "tagId": "300",
         "name": "GA4 Event - generate_lead",
         "type": "gaawe",
@@ -120,8 +120,8 @@
         }
       },
       {
-        "accountId": "0",
-        "containerId": "0",
+        "accountId": "6353495442",
+        "containerId": "251426909",
         "tagId": "301",
         "name": "GA4 Event - phone_click",
         "type": "gaawe",
@@ -176,8 +176,8 @@
         }
       },
       {
-        "accountId": "0",
-        "containerId": "0",
+        "accountId": "6353495442",
+        "containerId": "251426909",
         "tagId": "302",
         "name": "GA4 Event - book_call",
         "type": "gaawe",
@@ -232,8 +232,8 @@
         }
       },
       {
-        "accountId": "0",
-        "containerId": "0",
+        "accountId": "6353495442",
+        "containerId": "251426909",
         "tagId": "303",
         "name": "GA4 Event - email_click",
         "type": "gaawe",
@@ -288,8 +288,8 @@
         }
       },
       {
-        "accountId": "0",
-        "containerId": "0",
+        "accountId": "6353495442",
+        "containerId": "251426909",
         "tagId": "304",
         "name": "GA4 Event - booking_click",
         "type": "gaawe",
@@ -344,8 +344,8 @@
         }
       },
       {
-        "accountId": "0",
-        "containerId": "0",
+        "accountId": "6353495442",
+        "containerId": "251426909",
         "tagId": "305",
         "name": "GA4 Event - free_search_start",
         "type": "gaawe",
@@ -417,8 +417,8 @@
     ],
     "trigger": [
       {
-        "accountId": "0",
-        "containerId": "0",
+        "accountId": "6353495442",
+        "containerId": "251426909",
         "triggerId": "100",
         "name": "CE - generate_lead",
         "type": "CUSTOM_EVENT",
@@ -442,8 +442,8 @@
         "fingerprint": "1000000000001"
       },
       {
-        "accountId": "0",
-        "containerId": "0",
+        "accountId": "6353495442",
+        "containerId": "251426909",
         "triggerId": "101",
         "name": "CE - phone_click",
         "type": "CUSTOM_EVENT",
@@ -467,8 +467,8 @@
         "fingerprint": "1000000000001"
       },
       {
-        "accountId": "0",
-        "containerId": "0",
+        "accountId": "6353495442",
+        "containerId": "251426909",
         "triggerId": "102",
         "name": "CE - book_call",
         "type": "CUSTOM_EVENT",
@@ -492,8 +492,8 @@
         "fingerprint": "1000000000001"
       },
       {
-        "accountId": "0",
-        "containerId": "0",
+        "accountId": "6353495442",
+        "containerId": "251426909",
         "triggerId": "103",
         "name": "CE - email_click",
         "type": "CUSTOM_EVENT",
@@ -517,8 +517,8 @@
         "fingerprint": "1000000000001"
       },
       {
-        "accountId": "0",
-        "containerId": "0",
+        "accountId": "6353495442",
+        "containerId": "251426909",
         "triggerId": "104",
         "name": "CE - booking_click",
         "type": "CUSTOM_EVENT",
@@ -542,8 +542,8 @@
         "fingerprint": "1000000000001"
       },
       {
-        "accountId": "0",
-        "containerId": "0",
+        "accountId": "6353495442",
+        "containerId": "251426909",
         "triggerId": "105",
         "name": "CE - free_search_start",
         "type": "CUSTOM_EVENT",
@@ -569,8 +569,8 @@
     ],
     "variable": [
       {
-        "accountId": "0",
-        "containerId": "0",
+        "accountId": "6353495442",
+        "containerId": "251426909",
         "variableId": "500",
         "name": "DLV - area",
         "type": "v",
@@ -595,8 +595,8 @@
         "formatValue": {}
       },
       {
-        "accountId": "0",
-        "containerId": "0",
+        "accountId": "6353495442",
+        "containerId": "251426909",
         "variableId": "501",
         "name": "DLV - contact_type",
         "type": "v",
@@ -621,8 +621,8 @@
         "formatValue": {}
       },
       {
-        "accountId": "0",
-        "containerId": "0",
+        "accountId": "6353495442",
+        "containerId": "251426909",
         "variableId": "502",
         "name": "DLV - cta_location",
         "type": "v",
@@ -647,8 +647,8 @@
         "formatValue": {}
       },
       {
-        "accountId": "0",
-        "containerId": "0",
+        "accountId": "6353495442",
+        "containerId": "251426909",
         "variableId": "503",
         "name": "DLV - job",
         "type": "v",
@@ -673,8 +673,8 @@
         "formatValue": {}
       },
       {
-        "accountId": "0",
-        "containerId": "0",
+        "accountId": "6353495442",
+        "containerId": "251426909",
         "variableId": "504",
         "name": "DLV - source",
         "type": "v",
@@ -701,8 +701,8 @@
     ],
     "builtInVariable": [
       {
-        "accountId": "0",
-        "containerId": "0",
+        "accountId": "6353495442",
+        "containerId": "251426909",
         "type": "EVENT",
         "name": "Event"
       }

@@ -64,3 +64,23 @@ On the live site, with Tag Assistant open:
 - Book a test slot in TidyCal → lands on /booked → `book_call` in Realtime. Cancel the slot.
 
 All three seen in Realtime = gate green. The campaign stays paused until then.
+
+## Status (2026-11-11, done by Claude in Brendan's browser, with his approval)
+
+- [x] Step 1. TidyCal "15 min checkin" (the `/15-minute-meeting` link the site uses) redirects
+      to `https://latetwenties.agency/booked`.
+- [x] Step 2. Imported as Merge (17 added, 0 modified, 0 deleted), published as GTM version 5
+      "Conversion events for Google Ads". GTM account 6353495442, container 251426909.
+- [x] Step 3. GA4 property **536088700** (account 393589953): generate_lead, phone_click,
+      book_call are key events (no default value); 5 event-scoped dimensions created; linked to
+      Ads 164-164-0942 with auto-tagging enabled.
+- [x] Step 4. Ads 164-164-0942: auto-tagging on (API-verified). Conversion actions imported from
+      GA4, all ENABLED, primary, ONE_PER_CLICK, 90-day click window (kept Google's default; an
+      agency decision runs longer than 30 days): phone_click 7898301550, generate_lead
+      7898301553, book_call 7898301556. GA4's default purchase / qualify_lead /
+      close_convert_lead actions are HIDDEN and not primary.
+- [x] GTM to GA4 leg verified in Realtime for all three (phone tap on /contact, /booked load,
+      a test generate_lead pushed to the dataLayer; no email sent).
+- [ ] Still to prove end to end: one real free search lead and one real TidyCal booking
+      landing on /booked. Note: Google Ads uses these as campaign-level goals, so the campaign
+      build must select the three goals (the console warns they aren't account defaults).
