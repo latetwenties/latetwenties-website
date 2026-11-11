@@ -24,6 +24,15 @@ export function Footer() {
                 <Link href="/what-we-do">What we do</Link>
               </li>
               <li>
+                <Link href="/local-seo-auckland">Local SEO</Link>
+              </li>
+              <li>
+                <Link href="/web-design-auckland">Websites</Link>
+              </li>
+              <li>
+                <Link href="/google-ads-auckland">Google Ads</Link>
+              </li>
+              <li>
                 <Link href="/work">Our work</Link>
               </li>
               <li>

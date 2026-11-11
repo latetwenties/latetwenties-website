@@ -12,8 +12,8 @@ export function HomeHero() {
           <Eyebrow>Auckland based Local Marketing Agency</Eyebrow>
         </div>
         <h1>
-          The best home service businesses don&rsquo;t win.{" "}
-          <em>The most visible ones do.</em>
+          Being the best home service business isn&rsquo;t enough.{" "}
+          <em>You have to be the most visible, too.</em>
         </h1>
         {/* TODO(source): the 44% figure came with the Nov 2026 design
             handoff without a citation. It is commonly attributed to local

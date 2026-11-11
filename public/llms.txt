@@ -72,9 +72,9 @@ https://latetwenties.agency/work/kd-bookworks
 The first week is research, then the build. Upkeep starts the day it goes
 live.
 
-**Can I just get ads?** Ads work best on top of the groundwork, because the
-page they land on has to be ready for the click. If you already have a site
-you're happy with, ask us and we'll tell you straight.
+**Where do Google Ads fit?** On top of the groundwork, when you want calls
+sooner. The page an ad lands on decides whether a click becomes a call, so we
+run ads alongside the site and Google profile, not instead of them.
 
 **Do you work outside Auckland?** Yes, across New Zealand and Australia.
 What matters is your patch and how people search in it.
@@ -92,6 +92,9 @@ every account we set up, all in your name.
 
 - Home: https://latetwenties.agency/
 - What we do (Onboarding, Groundwork, Upkeep, with FAQs): https://latetwenties.agency/what-we-do
+  - Local SEO: https://latetwenties.agency/local-seo-auckland
+  - Websites: https://latetwenties.agency/web-design-auckland
+  - Google Ads: https://latetwenties.agency/google-ads-auckland
 - Free search, who gets the call in your area: https://latetwenties.agency/local-search-check
 - Case studies: https://latetwenties.agency/work
 - About Brendan: https://latetwenties.agency/about

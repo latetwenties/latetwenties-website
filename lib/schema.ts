@@ -29,18 +29,19 @@ export function breadcrumbList(
 export function service(input: {
   name: string;
   description: string;
-  price: string;
+  // Optional: the site publishes no prices, so most service pages omit it.
+  price?: string;
   currency?: string;
   unitText?: string;
   url?: string;
 }): SchemaItem {
-  const offer: SchemaItem = {
+  const offer: SchemaItem | null = input.price === undefined ? null : {
     "@type": "Offer",
     price: input.price,
     priceCurrency: input.currency ?? "NZD",
     availability: "https://schema.org/InStock",
   };
-  if (input.unitText) {
+  if (offer && input.unitText) {
     offer.priceSpecification = {
       "@type": "UnitPriceSpecification",
       price: input.price,
@@ -58,7 +59,7 @@ export function service(input: {
       { "@type": "Country", name: "New Zealand" },
       { "@type": "Country", name: "Australia" },
     ],
-    offers: offer,
+    ...(offer ? { offers: offer } : {}),
     ...(input.url ? { url: `${BASE_URL}${input.url}` } : {}),
   };
 }

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 
 import { Eyebrow } from "../components/Eyebrow";
 import { Footer } from "../components/Footer";
+import Link from "next/link";
+
 import { GhostLink } from "../components/Button";
 import { Header } from "../components/Header";
 import { JsonLd } from "../components/JsonLd";
@@ -60,6 +62,24 @@ const STEPS: PinnedItem[] = [
   },
 ];
 
+const SERVICES = [
+  {
+    href: "/local-seo-auckland",
+    title: "Local SEO",
+    body: "Show up on Google, Maps and AI answers when someone nearby searches your trade.",
+  },
+  {
+    href: "/web-design-auckland",
+    title: "Websites",
+    body: "A fast site with a page for every job, written by us and built to make the phone ring.",
+  },
+  {
+    href: "/google-ads-auckland",
+    title: "Google Ads",
+    body: "Calls in weeks, not months, from people searching for your trade right now.",
+  },
+];
+
 const FAQS: Faq[] = [
   {
     question: "How soon will the phone ring?",
@@ -79,12 +99,12 @@ const FAQS: Faq[] = [
   {
     question: "What if I already have a website?",
     answer:
-      "We'll look at it before we recommend anything. Sometimes the right answer is a rebuild. Sometimes it's leave it and focus on the rest. We'll tell you straight.",
+      "We rebuild it onto our platform. That's what lets us make changes the same day and track every enquiry. Anything worth keeping from your current site comes across.",
   },
   {
-    question: "Can I just get ads?",
+    question: "Where do Google Ads fit?",
     answer:
-      "Ads work best on top of the groundwork, because the page they land on has to be ready for the click. If you already have a site you're happy with, ask us. We'll tell you straight whether ads alone make sense.",
+      "On top of the groundwork, when you want calls sooner. Ads bring enquiries in weeks, not months, but the page they land on decides whether a click becomes a call. So we run them alongside your site and Google profile, not instead of them.",
   },
   {
     question: "Am I locked in?",
@@ -134,6 +154,29 @@ export default function WhatWeDoPage() {
             </>
           }
         />
+
+        <section className="wwd-svcs">
+          <div className="wrap">
+            <div className="wwd-svcs-head">
+              <h2>
+                The parts, <em>in more detail.</em>
+              </h2>
+            </div>
+            <ul className="wwd-svcs-grid">
+              {SERVICES.map((sv) => (
+                <li key={sv.href}>
+                  <Link href={sv.href}>
+                    <h3>{sv.title}</h3>
+                    <p>{sv.body}</p>
+                    <span className="ghost-link ghost-strong">
+                      Read more <span aria-hidden>→</span>
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
 
         <HomeFaq faqs={FAQS} />
         <HomeCTA />
