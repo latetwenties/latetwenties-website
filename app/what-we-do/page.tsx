@@ -22,8 +22,8 @@ export const metadata: Metadata = {
   twitter: { description: DESCRIPTION },
 };
 
-// Each step leads with what the owner gets, then what it takes. Every number
-// is from a live case study (RBM, Glenbuild, TMT).
+// Each step leads with what the owner gets, then what it takes. Kept free of
+// client names and dated figures so the page doesn't age; proof lives on /work.
 const STEPS: PinnedItem[] = [
   {
     word: "Onboarding",
@@ -34,7 +34,7 @@ const STEPS: PinnedItem[] = [
   {
     word: "Groundwork",
     label: "02 · Weeks two to four · We build where the work is",
-    body: "Before we build anything, we look at what people near you actually type, job by job and town by town. Then everything is built to win those searches. RBM Concrete had a stranger ring about a house slab four days after launch.",
+    body: "Before we build anything, we look at what people near you actually type, job by job and town by town. Then everything is built to win those searches, so the calls come for the jobs and places you want.",
     tags: [
       "Demand map",
       "Fast website",
@@ -49,7 +49,7 @@ const STEPS: PinnedItem[] = [
   {
     word: "Upkeep",
     label: "03 · Every month after · We keep the phone ringing",
-    body: "Rankings slip when nobody's watching, so every month we add, fix and keep things moving. Then a short video shows you what came in and which jobs it turned into. TMT Concreting went from 4 enquiries a month to 15 in three months.",
+    body: "Rankings slip when nobody's watching, so every month we add, fix and keep things moving. Then a short video shows you what came in and which jobs it turned into.",
     tags: [
       "New pages",
       "Google posts",
@@ -64,7 +64,7 @@ const FAQS: Faq[] = [
   {
     question: "How soon will the phone ring?",
     answer:
-      "The site and your Google profile go live two to four weeks after kick-off. RBM Concrete had its first enquiry from a stranger four days after launch, and Glenbuild reached page one in four of its focus suburbs within its first month. Busier areas take longer, and we'll tell you which yours is before we start.",
+      "The site and your Google profile go live two to four weeks after kick-off. The first enquiries can come within days of launch. Climbing the map takes longer, and busier areas take longer still. We'll tell you which yours is before we start.",
   },
   {
     question: "How much of my time will it take?",
