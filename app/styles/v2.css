@@ -987,6 +987,13 @@ h3 em,
   margin: 0;
 }
 
+.svc-reading {
+  padding: 0 0 var(--section);
+}
+.svc-reading .ins-list {
+  margin-bottom: 0;
+}
+
 /* What we do: the three services */
 .wwd-svcs {
   padding: clamp(56px, 6vw, 88px) 0 var(--section);

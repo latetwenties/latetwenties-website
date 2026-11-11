@@ -14,33 +14,33 @@ const C: ServiceContent = {
   lede: "Local SEO decides whether your business shows up on Google, Maps and AI answers when someone nearby searches for what you do. We map where the demand is, build your site and Google profile around it, and keep it moving every month.",
   itemsTitle: (
     <>
-      What you get, <em>and why it matters.</em>
+      What usually stops the phone ringing, <em>and what we do about it.</em>
     </>
   ),
   items: [
     {
-      title: "Know where the work actually is",
-      body: "We map what people near you type, job by job and suburb by suburb. Every page then targets searches that exist, not guesses.",
+      title: "Show up across your whole patch, not just your street",
+      body: "Most trades rank near their own address and disappear a few suburbs over. We map where the work is, suburb by suburb, then work your Google profile, listings and pages until you show up there too. You see where you rank from point to point across your area, before and after.",
     },
     {
-      title: "Show up on the map, not just the website",
-      body: "Your Google Business Profile set up properly: categories, services, areas, photos and posts. It carries more weight in the map results than anything on your site.",
+      title: "Stop losing jobs to businesses newer than yours",
+      body: "When a newer business shows up above you, it usually comes down to signals, not workmanship: a fuller Google profile, fresher reviews, clearer pages. We close those gaps one at a time, starting with the ones that move the map most.",
     },
     {
-      title: "A page for every job you want more of",
-      body: "Each service gets its own page that says plainly what you do and where. We write every word, in your voice, with nothing templated.",
+      title: "Get the technical side right, once",
+      body: "A site that loads fast on a phone, structured data that tells Google your trade, area and hours, every page found and indexed, and the same business details on every directory. The invisible stuff that quietly holds rankings back.",
     },
     {
-      title: "Reviews that keep coming",
-      body: "A simple way to ask after every good job, and a reply to every review. Recent reviews are one of the strongest reasons people pick one tradie over the next.",
+      title: "More reviews, without chasing customers",
+      body: "A simple ask that goes out when a job wraps up, and a reply to every review. No shortcuts that put your profile at risk.",
     },
     {
-      title: "Named in AI answers too",
-      body: "ChatGPT, Google's AI and Perplexity lean on the same signals: clear pages, matching listings and real reviews. We set those up, list you on Bing and Apple Maps, and check where you're named.",
+      title: "Get named when someone asks ChatGPT",
+      body: "AI assistants pull from Bing, Apple Maps, directories and your own site. We make sure they all say the same thing about you, then check who gets named for your trade in your area.",
     },
     {
-      title: "Proof of what it brought in",
-      body: "Calls and forms are tracked from day one. Each month a short video shows you which enquiries came from search, and which turned into work.",
+      title: "All of it, without becoming a marketer",
+      body: "We write, build and keep it moving. Your part is the odd project photo and a quick yes by email. Each month a short video shows you what search brought in.",
     },
   ],
   proofTitle: (
@@ -49,6 +49,7 @@ const C: ServiceContent = {
     </>
   ),
   proof: ["/work/glenbuild", "/work/boaz-developments", "/work/rbm-concrete"],
+  articles: ["local-seo-cost-nz", "diy-local-seo-vs-agency", "review-gating"],
   faqs: [
     {
       question: "How long does local SEO take?",

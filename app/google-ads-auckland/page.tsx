@@ -19,24 +19,24 @@ const C: ServiceContent = {
   ),
   items: [
     {
-      title: "Spend on the jobs you want",
-      body: "Campaigns are built from the same demand map as your site, so the budget goes on the work you want more of, not the work you don't.",
+      title: "Know the numbers before you spend",
+      body: "We work out what clicks cost for your jobs in your area, and what that budget should bring in, before a dollar goes to Google.",
     },
     {
-      title: "Stop paying for the wrong searches",
-      body: "We keep the list of searches to block up to date, so DIY questions and job hunters don't eat your budget.",
+      title: "Ads that don't burn money on the wrong people",
+      body: "DIY questions, job hunters and the jobs you don't want get blocked, and we check what people actually searched every week.",
     },
     {
-      title: "Pages ready for the click",
-      body: "Every ad lands on a page about that exact job, with a quote form and your number one tap away.",
+      title: "Clicks that turn into calls",
+      body: "Every ad lands on a page about that exact job, in that area, with your number and a short quote form within reach.",
     },
     {
-      title: "Count enquiries, not clicks",
-      body: "Calls and forms are tracked back to the ad that brought them, so you see what each enquiry cost.",
+      title: "See what every enquiry cost",
+      body: "Calls and forms are tracked back to the ad that brought them. Each month a short video shows what came in, what it cost and which became work.",
     },
     {
-      title: "Up when you want work, down when you're booked",
-      body: "Turn it up when you want more and ease off when the diary is full. No lock-in contract.",
+      title: "Up when it's quiet, down when you're booked",
+      body: "Turn it up when you want more work and ease off when the diary's full. No lock-in contract, and the ads account is in your name.",
     },
   ],
   proofTitle: (
@@ -45,6 +45,7 @@ const C: ServiceContent = {
     </>
   ),
   proof: ["/work/tmt-concreting", "/work/boaz-developments"],
+  articles: ["google-ads-framework", "google-ads-vs-facebook-ads", "what-a-customer-costs-you"],
   faqs: [
     {
       question: "How much should I spend?",

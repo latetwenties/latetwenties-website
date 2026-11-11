@@ -1,4 +1,7 @@
+import Link from "next/link";
 import type { ReactNode } from "react";
+
+import { getLivePosts } from "@/lib/posts";
 
 import { breadcrumbList, faqPage, service } from "@/lib/schema";
 import { FREE_SEARCH_HREF } from "@/lib/site";
@@ -26,6 +29,9 @@ export type ServiceContent = {
   proofTitle: ReactNode;
   proof: string[]; // case study hrefs, pulled from the shared /work tiles
   faqs: Faq[];
+  // Blog slugs to feature. Only posts already live are shown, so a queued
+  // post never links to a 404.
+  articles?: string[];
 };
 
 // One template for every service page: answer-first hero, what the owner
@@ -84,6 +90,39 @@ export function ServicePage({ c }: { c: ServiceContent }) {
             <CaseTileGrid only={c.proof} />
           </div>
         </section>
+
+        {(() => {
+          const live = getLivePosts();
+          const posts = (c.articles ?? [])
+            .map((slug) => live.find((p) => p.slug === slug))
+            .filter((p): p is NonNullable<typeof p> => !!p);
+          if (!posts.length) return null;
+          return (
+            <section className="svc-reading">
+              <div className="wrap">
+                <div className="svc-proof-head">
+                  <h2>
+                    Further reading, <em>from our Insights.</em>
+                  </h2>
+                  <GhostLink href="/insights" tone="strong">
+                    All insights
+                  </GhostLink>
+                </div>
+                <ul className="ins-list">
+                  {posts.map((post) => (
+                    <li key={post.slug} className="ins-row">
+                      <Link href={`/blog/${post.slug}`}>
+                        <h3 className="ins-title">{post.title}</h3>
+                        <span className="ins-meta">{post.readTime}</span>
+                        <p className="ins-sum">{post.description}</p>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </section>
+          );
+        })()}
 
         <HomeFaq faqs={c.faqs} />
         <HomeCTA />
