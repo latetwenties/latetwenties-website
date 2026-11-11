@@ -121,7 +121,7 @@ credibility of a recognisable name). The number is the value. Never lead with
    "results to follow". Example: Glenbuild, "Thirty years of award-winning
    homes. One month to page one in four of its focus suburbs."
 3. Full result: lead with before to after and the time taken. Example: TMT,
-   7 to 35 enquiries a month.
+   4 to 15 enquiries a month in three months.
 
 **Sections, same order every time:**
 
