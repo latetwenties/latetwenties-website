@@ -48,7 +48,7 @@ export function ServicePage({ c }: { c: ServiceContent }) {
                 Run the free search
               </Button>
               <GhostLink href="/what-we-do" tone="strong" arrow={false}>
-                How it works
+                What we do
               </GhostLink>
             </div>
           </div>

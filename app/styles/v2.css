@@ -989,7 +989,8 @@ h3 em,
 
 /* What we do: the three services */
 .wwd-svcs {
-  padding: 0 0 var(--section);
+  padding: clamp(56px, 6vw, 88px) 0 var(--section);
+  border-top: 1px solid var(--rule);
 }
 .wwd-svcs-grid {
   list-style: none;

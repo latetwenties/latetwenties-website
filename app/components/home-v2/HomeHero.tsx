@@ -30,7 +30,7 @@ export function HomeHero() {
               Run the free search
             </Button>
             <GhostLink href="/what-we-do" tone="strong" arrow={false}>
-              How it works
+              What we do
             </GhostLink>
           </div>
           <span className="mono-note">40-second search · No sign-up</span>

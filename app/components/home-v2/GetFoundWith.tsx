@@ -95,7 +95,7 @@ type Props = {
 const DEFAULT_FOOT = (
   <>
     <GhostLink href="/what-we-do" tone="strong">
-      See how it works
+      See what we do
     </GhostLink>
     <span className="mono-note">No lock-ins · Cancel anytime</span>
   </>

@@ -4,63 +4,22 @@ import { Eyebrow } from "../components/Eyebrow";
 import { Footer } from "../components/Footer";
 import Link from "next/link";
 
-import { GhostLink } from "../components/Button";
 import { Header } from "../components/Header";
 import { JsonLd } from "../components/JsonLd";
-import { GetFoundWith, type PinnedItem } from "../components/home-v2/GetFoundWith";
 import { HomeCTA } from "../components/home-v2/HomeCTA";
 import { type Faq, HomeFaq } from "../components/home-v2/HomeFaq";
 import { breadcrumbList, faqPage } from "@/lib/schema";
-import { FREE_SEARCH_HREF } from "@/lib/site";
 
 const DESCRIPTION =
-  "How Latetwenties works with home service businesses: Onboarding, Groundwork, then Upkeep. We map where the demand is in your area, build to win it, and show you every enquiry it brings in.";
+  "Local SEO, websites and Google Ads for home service businesses. We map where the demand is in your area, build to win it, and show you every enquiry it brings in. Live in two to four weeks.";
 
 export const metadata: Metadata = {
-  title: "What we do: Onboarding, Groundwork, Upkeep",
+  title: "What we do: local SEO, websites and Google Ads for trades",
   description: DESCRIPTION,
   alternates: { canonical: "/what-we-do" },
   openGraph: { description: DESCRIPTION, url: "https://latetwenties.agency/what-we-do" },
   twitter: { description: DESCRIPTION },
 };
-
-// Each step leads with what the owner gets, then what it takes. Kept free of
-// client names and dated figures so the page doesn't age; proof lives on /work.
-const STEPS: PinnedItem[] = [
-  {
-    word: "Onboarding",
-    label: "01 · Week one · We learn how your work comes in",
-    body: "One call about the jobs you want more of, and the ones you'd rather not do. Then it's on us. We write every word on the site and source the images. Your part is uploading your project photos, once.",
-    tags: ["One kick-off call", "Your best jobs", "Your photos, once", "We write the words"],
-  },
-  {
-    word: "Groundwork",
-    label: "02 · Weeks two to four · We build where the work is",
-    body: "Before we build anything, we look at what people near you actually type, job by job and town by town. Then everything is built to win those searches, so the calls come for the jobs and places you want.",
-    tags: [
-      "Demand map",
-      "Fast website",
-      "A page for every job",
-      "Google Business Profile",
-      "Listings",
-      "Review asks",
-      "Calls and forms tracked",
-      "Google Ads, if they'll pay",
-    ],
-  },
-  {
-    word: "Upkeep",
-    label: "03 · Every month after · We keep the phone ringing",
-    body: "Rankings slip when nobody's watching, so every month we add, fix and keep things moving. Then a short video shows you what came in and which jobs it turned into.",
-    tags: [
-      "New pages",
-      "Google posts",
-      "Fresh reviews",
-      "Google Ads managed",
-      "Monthly video walkthrough",
-    ],
-  },
-];
 
 const SERVICES = [
   {
@@ -123,7 +82,7 @@ export default function WhatWeDoPage() {
     <>
       <Header current="what-we-do" />
       <main>
-        <section className="v2-hero">
+        <section className="v2-hero is-short">
           <div className="wrap v2-hero-inner">
             <div className="v2-eyebrow">
               <span className="dot" />
@@ -133,33 +92,17 @@ export default function WhatWeDoPage() {
               We find where your work is. <em>Then we build to win it.</em>
             </h1>
             <p className="v2-sub">
-              Three steps, one goal: more of the right enquiries, and proof of
-              where every one came from. Live in two to four weeks.
+              One goal: more of the right enquiries, and proof of where every
+              one came from. Live in two to four weeks.
             </p>
           </div>
         </section>
-
-        <GetFoundWith
-          id="steps"
-          title="How it works"
-          items={STEPS}
-          foot={
-            <>
-              <GhostLink href={FREE_SEARCH_HREF} tone="strong">
-                Run the free search
-              </GhostLink>
-              <span className="mono-note">
-                You own everything we build · No lock-in contract
-              </span>
-            </>
-          }
-        />
 
         <section className="wwd-svcs">
           <div className="wrap">
             <div className="wwd-svcs-head">
               <h2>
-                The parts, <em>in more detail.</em>
+                Three ways we <em>get you found.</em>
               </h2>
             </div>
             <ul className="wwd-svcs-grid">
