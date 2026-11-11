@@ -81,6 +81,6 @@ All three seen in Realtime = gate green. The campaign stays paused until then.
       close_convert_lead actions are HIDDEN and not primary.
 - [x] GTM to GA4 leg verified in Realtime for all three (phone tap on /contact, /booked load,
       a test generate_lead pushed to the dataLayer; no email sent).
-- [ ] Still to prove end to end: one real free search lead and one real TidyCal booking
+- [x] End to end proven 2026-11-11: a real free search lead and a real TidyCal booking
       landing on /booked. Note: Google Ads uses these as campaign-level goals, so the campaign
       build must select the three goals (the console warns they aren't account defaults).
