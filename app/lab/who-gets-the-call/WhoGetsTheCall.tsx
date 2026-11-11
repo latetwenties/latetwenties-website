@@ -4,6 +4,7 @@ import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 
 import type { Report, ReportScore } from "@/lib/wgtc/email";
 import { BOOKING_URL } from "@/lib/site";
+import { track } from "@/lib/analytics";
 import { aiQuestion, parseJob } from "@/lib/wgtc/job";
 import { moves } from "@/lib/wgtc/moves";
 import { TIPS } from "@/lib/wgtc/tips";
@@ -232,6 +233,7 @@ export function WhoGetsTheCall() {
     if (!centre) return;
     const meNow: Business = picked ?? { name: business };
     const id = ++runId.current;
+    track("free_search_start", { job: jobPhrase, area });
     // Each run starts on a different tip.
     setTipStart((id * 3) % TIPS.length);
     setYou(meNow);
@@ -372,6 +374,16 @@ export function WhoGetsTheCall() {
     try {
       const report: Report = { query, headline, scores: scoreRows, moves: theMoves };
       await post("lead", { contact, business: me, summary: summary(), report, company_url: hp });
+      // The conversion. Only after the server accepted it, and never for the
+      // honeypot (the server fakes success for bots).
+      if (!hp) {
+        track("generate_lead", {
+          source: "free_search",
+          contact_type: contact.includes("@") ? "email" : "mobile",
+          job: jobPhrase,
+          area,
+        });
+      }
       setPhase("unlocked");
     } catch (err) {
       setError((err as Error).message);
