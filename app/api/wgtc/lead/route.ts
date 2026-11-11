@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
 import { cleanReport, renderReport } from "@/lib/wgtc/email";
+import { alertBrendan } from "@/lib/wgtc/alert";
 import { text } from "@/lib/wgtc/guard";
 
 // The unlock step: the visitor leaves a mobile or email to see their moves.
@@ -62,6 +63,8 @@ export async function POST(req: Request) {
     console.error("[wgtc/lead] Resend failed:", error);
     return NextResponse.json({ error: "That didn't send." }, { status: 502 });
   }
+
+  alertBrendan(`:telephone_receiver: Free search lead: *${business}* · ${contact}`);
 
   // Their copy. The lead is already safe in the team inbox, so a failure here
   // is logged, not shown.

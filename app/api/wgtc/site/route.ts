@@ -23,13 +23,28 @@ export async function POST(req: Request) {
   const url = `https://${domain}`;
 
   try {
-    const res = await fetch(
-      "https://www.googleapis.com/pagespeedonline/v5/runPagespeed?" +
-        new URLSearchParams({ url, strategy: "mobile", category: "performance", key }),
-      { cache: "no-store" },
-    );
-    const d = await res.json();
-    if (d.error) throw new Error(d.error.message);
+    // One lab run is noisy (the same homepage can read 9s, then 3s a minute
+    // later). Run two at once and keep the faster, so a single slow roll
+    // never gets reported to a business owner as their speed.
+    const runOnce = async () => {
+      const res = await fetch(
+        "https://www.googleapis.com/pagespeedonline/v5/runPagespeed?" +
+          new URLSearchParams({ url, strategy: "mobile", category: "performance", key }),
+        { cache: "no-store" },
+      );
+      const d = await res.json();
+      if (d.error) throw new Error(d.error.message);
+      return d;
+    };
+    const runs = (await Promise.allSettled([runOnce(), runOnce()]))
+      .filter((r): r is PromiseFulfilledResult<any> => r.status === "fulfilled") // eslint-disable-line @typescript-eslint/no-explicit-any
+      .map((r) => r.value);
+    if (!runs.length) throw new Error("both PageSpeed runs failed");
+    const loadOf = (x: any) => // eslint-disable-line @typescript-eslint/no-explicit-any
+      x.lighthouseResult?.audits?.["largest-contentful-paint"]?.numericValue ??
+      x.lighthouseResult?.audits?.["speed-index"]?.numericValue ??
+      Infinity;
+    const d = runs.reduce((best, x) => (loadOf(x) < loadOf(best) ? x : best));
     const audits = d.lighthouseResult?.audits ?? {};
     // Some pages (heavy animation) give NO_LCP; fall back to Speed Index,
     // labelled as a different measure with its own "good" mark (3.4s).

@@ -12,6 +12,7 @@ import {
 import { parseJob } from "@/lib/wgtc/job";
 import { guard, num, text } from "@/lib/wgtc/guard";
 import type { SearchResult } from "@/lib/wgtc/types";
+import { alertBrendan } from "@/lib/wgtc/alert";
 
 export const maxDuration = 60;
 
@@ -30,6 +31,11 @@ export async function POST(req: Request) {
   if (!job || !area || lat === null || lng === null || !you?.name) {
     return NextResponse.json({ error: "Missing search details." }, { status: 400 });
   }
+
+  // One search route call per run, so this is one ping per search.
+  alertBrendan(
+    `:mag: Free search run: *${text(you.name, 80)}* · "${job}" · ${area}${you.domain ? ` · ${text(you.domain, 80)}` : ""}`,
+  );
 
   try {
     // If Google's page for "job area" can't be read, the job on its own,

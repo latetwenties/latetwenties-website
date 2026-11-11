@@ -324,7 +324,7 @@ export function WhoGetsTheCall() {
         ok(search)
           ? {
               label: "Google Ads",
-              value: search.youAdvertising ? "Showing" : search.ads.length ? `Not showing (${search.ads.length} are)` : "No ads here",
+              value: search.youAdvertising ? "Showing" : search.ads.length ? `Not showing (${search.ads.length} are)` : "No one advertising",
               tone: search.youAdvertising ? "good" : search.ads.length ? "bad" : "mid",
             }
           : { label: "Google Ads", value: "Unknown", tone: "mid" },
