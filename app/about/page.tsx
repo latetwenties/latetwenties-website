@@ -109,13 +109,13 @@ export default function About() {
               <Eyebrow num="02">How we work</Eyebrow>
             </Reveal>
             <Reveal delay={60}>
-              <h2 className="ab-mana-word">M&#257;naakitanga.</h2>
+              <h2 className="ab-mana-word">Manaakitanga.</h2>
             </Reveal>
 
             <div className="ab-mana-body">
               <Reveal delay={100}>
                 <p>
-                  A M&#257;ori value centred on how we care for others.
+                  A Māori value centred on how we care for others.
                   <br />
                   It brings together <em>mana</em> (a person&rsquo;s
                   standing, dignity, spirit) and <em>aki</em> (to uplift or
@@ -188,7 +188,7 @@ export default function About() {
                 </p>
               </Reveal>
               <Reveal as="p" className="case-meta" delay={80}>
-                <span className="case-meta-num">03</span> The proof · Real
+                The proof · Real
                 clients · Real numbers · Recent work
               </Reveal>
               <Reveal delay={120}>

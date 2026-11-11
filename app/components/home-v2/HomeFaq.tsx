@@ -22,7 +22,7 @@ export const HOME_FAQS: Faq[] = [
   {
     question: "How soon will I see results?",
     answer:
-      "Your website and Google profile go live in two to four weeks. RBM Concrete had an enquiry from a stranger four days after their site went live. TMT Concreting went from 4 enquiries a month to 15 in three months.",
+      "Your website and Google profile go live two to four weeks after kick-off. RBM Concrete had an enquiry from a stranger four days after launch, Glenbuild reached page one in four of its focus suburbs in its first month, and TMT Concreting went from 4 enquiries a month to 15 in three months.",
   },
   {
     question: "Can you get me into ChatGPT?",

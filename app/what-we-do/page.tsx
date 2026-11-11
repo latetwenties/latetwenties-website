@@ -22,54 +22,64 @@ export const metadata: Metadata = {
   twitter: { description: DESCRIPTION },
 };
 
+// Each step leads with what the owner gets, then what it takes. Every number
+// is from a live case study (RBM, Glenbuild, TMT).
 const STEPS: PinnedItem[] = [
   {
     word: "Onboarding",
-    label: "01 · We learn the business",
-    body: "A short form and a call. You tell us about the business, the work you want more of and how customers find you now. We collect the logins and photos, so nothing holds up the build.",
-    tags: ["Intake form", "Kick-off call", "Logins", "Photos", "Your best jobs"],
+    label: "01 · Week one · We learn how your work comes in",
+    body: "One call about the jobs you want more of, and the ones you'd rather not do. Then it's on us. We write every word on the site and source the images. Your part is uploading your project photos, once.",
+    tags: ["One kick-off call", "Your best jobs", "Your photos, once", "We write the words"],
   },
   {
     word: "Groundwork",
-    label: "02 · We find the demand and build to win it",
-    body: "We map where the real demand is in your area, service by service and town by town. Then we build everything around that. If ads suit you, we build those from the same map.",
+    label: "02 · Weeks two to four · We build where the work is",
+    body: "Before we build anything, we look at what people near you actually type, job by job and town by town. Then everything is built to win those searches. RBM Concrete had a stranger ring about a house slab four days after launch.",
     tags: [
       "Demand map",
       "Fast website",
       "A page for every job",
       "Google Business Profile",
       "Listings",
-      "Review system",
-      "Call and form tracking",
-      "Ads, if they suit",
+      "Review asks",
+      "Calls and forms tracked",
+      "Google Ads, if they'll pay",
     ],
   },
   {
     word: "Upkeep",
-    label: "03 · We keep it working, and show you the enquiries",
-    body: "Each month we keep working, and anything that slips gets fixed. You get a short report and walkthrough video: how many enquiries came in, what they cost and which ones turned into work.",
+    label: "03 · Every month after · We keep the phone ringing",
+    body: "Rankings slip when nobody's watching, so every month we add, fix and keep things moving. Then a short video shows you what came in and which jobs it turned into. TMT Concreting went from 4 enquiries a month to 15 in three months.",
     tags: [
       "New pages",
       "Google posts",
+      "Fresh reviews",
       "Google Ads managed",
-      "Reviews kept moving",
-      "Fixes",
-      "Monthly report",
-      "Walkthrough video",
+      "Monthly video walkthrough",
     ],
   },
 ];
 
 const FAQS: Faq[] = [
   {
-    question: "How long until it's live?",
+    question: "How soon will the phone ring?",
     answer:
-      "Two to four weeks from onboarding to launch. The first week is research, then the build. Upkeep starts the day it goes live.",
+      "The site and your Google profile go live two to four weeks after kick-off. RBM Concrete had its first enquiry from a stranger four days after launch, and Glenbuild reached page one in four of its focus suburbs within its first month. Busier areas take longer, and we'll tell you which yours is before we start.",
+  },
+  {
+    question: "How much of my time will it take?",
+    answer:
+      "Very little. Upload your project photos once at the start. After that it's the odd new photo for your Google profile and a quick yes by email when something new goes live. No status meetings.",
+  },
+  {
+    question: "How will I know it's working?",
+    answer:
+      "Every month you get a short report and a walkthrough video: how many enquiries came in, where from, what they cost and which turned into work. Calls and forms are tracked from day one, so the numbers are real, not our estimate.",
   },
   {
     question: "What if I already have a website?",
     answer:
-      "We'll take a look at it before we recommend anything. Sometimes the right answer is a rebuild. Sometimes it's to leave it and focus on the rest. We'll tell you straight.",
+      "We'll look at it before we recommend anything. Sometimes the right answer is a rebuild. Sometimes it's leave it and focus on the rest. We'll tell you straight.",
   },
   {
     question: "Can I just get ads?",
@@ -77,18 +87,14 @@ const FAQS: Faq[] = [
       "Ads work best on top of the groundwork, because the page they land on has to be ready for the click. If you already have a site you're happy with, ask us. We'll tell you straight whether ads alone make sense.",
   },
   {
-    question: "How much of my time will this take?",
+    question: "Am I locked in?",
     answer:
-      "Very little. Upload your project photos once. After that it's the odd new photo and a quick yes by email when new content goes live. No status meetings.",
+      "No. There's no lock-in contract. You stay because it's working, and the monthly report shows you whether it is.",
   },
   {
     question: "Do I own everything?",
     answer:
-      "Yes. The website, the domain, the Google Business Profile, every account we set up. All in your name, all yours to keep. If you ever want to move on, there's nothing to untangle.",
-  },
-  {
-    question: "Am I locked in?",
-    answer: "No lock-ins. After the first three months, it's month to month.",
+      "Yes. The website, the domain, the Google Business Profile, every account we set up. All in your name, all yours to keep.",
   },
 ];
 
@@ -108,7 +114,7 @@ export default function WhatWeDoPage() {
             </h1>
             <p className="v2-sub">
               Three steps, one goal: more of the right enquiries, and proof of
-              where every one came from.
+              where every one came from. Live in two to four weeks.
             </p>
           </div>
         </section>
@@ -123,7 +129,7 @@ export default function WhatWeDoPage() {
                 Run the free search
               </GhostLink>
               <span className="mono-note">
-                You own everything we build · Monthly report and video
+                You own everything we build · No lock-in contract
               </span>
             </>
           }
