@@ -157,11 +157,10 @@ Crop competitor names out of screenshots.
    the final CTA. The booking month is computed automatically by
    `app/components/home/BookingMonth.tsx` (current month, rolling to the next in
    the last 7 days), so it stays honest without manual updates.
-3. TMT enquiries (confirmed by Brendan, 2026-10): about 7 a month before we
-   started (all enquiries, the like-for-like baseline), 12 in June (first full
-   month), 35 in August (third full month), with no extra ad spend. The headline
-   proof is 7 to 35. Don't use the old "4 in May" figure: it wasn't counted the
-   same way as 35. The June detail (7 of 12 from ads) stays as first-month colour.
+3. TMT enquiries (confirmed by Brendan, 2026-11-11, replaces the October
+   7 to 35 and 4 to 13 figures): 4 enquiries in May, 15 in August (the third
+   full month), counted the same way in GA4 and Google Ads. The headline proof
+   is 4 to 15 in three months. Do not use 7 to 35 or 4 to 13.
 
 ## Selling one system, not a menu (Brendan's call, 2026-10)
 
