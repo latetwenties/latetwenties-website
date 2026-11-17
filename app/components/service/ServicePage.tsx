@@ -24,10 +24,18 @@ export type ServiceContent = {
   h1: ReactNode;
   // Answer-first: stands alone as a complete answer for AI retrieval.
   lede: string;
+  // Visible freshness line under the lede, e.g. "Updated November 2026".
+  // Only set it when the page has actually been revised.
+  updated?: string;
+  // Optional plain-prose section between the hero and the list, for pages
+  // that need body copy with in-line links (not only the list and proof row).
+  body?: { title: ReactNode; paras: ReactNode[] };
   itemsTitle: ReactNode;
   items: ServiceItem[];
   proofTitle: ReactNode;
   proof: string[]; // case study hrefs, pulled from the shared /work tiles
+  // Optional sentence or two above the tiles naming the result in words.
+  proofNote?: ReactNode;
   faqs: Faq[];
   // Blog slugs to feature. Only posts already live are shown, so a queued
   // post never links to a 404.
@@ -49,6 +57,7 @@ export function ServicePage({ c }: { c: ServiceContent }) {
             </div>
             <h1>{c.h1}</h1>
             <p className="v2-sub svc-lede">{c.lede}</p>
+            {c.updated ? <p className="svc-updated">{c.updated}</p> : null}
             <div className="h-hero-ctas">
               <Button href={FREE_SEARCH_HREF} size="lg">
                 Run the free search
@@ -59,6 +68,21 @@ export function ServicePage({ c }: { c: ServiceContent }) {
             </div>
           </div>
         </section>
+
+        {c.body ? (
+          <section className="svc">
+            <div className="wrap svc-grid">
+              <Reveal as="div" className="svc-head">
+                <h2>{c.body.title}</h2>
+              </Reveal>
+              <div className="svc-body">
+                {c.body.paras.map((para, i) => (
+                  <p key={i}>{para}</p>
+                ))}
+              </div>
+            </div>
+          </section>
+        ) : null}
 
         <section className="svc">
           <div className="wrap svc-grid">
@@ -87,6 +111,7 @@ export function ServicePage({ c }: { c: ServiceContent }) {
                 All case studies
               </GhostLink>
             </div>
+            {c.proofNote ? <p className="svc-proof-note">{c.proofNote}</p> : null}
             <CaseTileGrid only={c.proof} />
           </div>
         </section>

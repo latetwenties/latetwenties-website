@@ -15,13 +15,25 @@ export const dynamic = "force-dynamic";
 
 const SITE = "https://latetwenties.agency";
 
-type StaticRoute = { path: string; priority: number; changeFrequency: string };
+// lastmod only where a real content change was made and dated by hand, for
+// the same honesty reason as the blog entries below.
+type StaticRoute = {
+  path: string;
+  priority: number;
+  changeFrequency: string;
+  lastmod?: string;
+};
 
 const ROUTES: StaticRoute[] = [
   { path: "/", priority: 1, changeFrequency: "weekly" },
   { path: "/about", priority: 0.8, changeFrequency: "monthly" },
   { path: "/what-we-do", priority: 0.8, changeFrequency: "monthly" },
-  { path: "/local-seo-auckland", priority: 0.9, changeFrequency: "monthly" },
+  {
+    path: "/local-seo-auckland",
+    priority: 0.9,
+    changeFrequency: "monthly",
+    lastmod: "2026-11-17",
+  },
   { path: "/web-design-auckland", priority: 0.9, changeFrequency: "monthly" },
   { path: "/google-ads-auckland", priority: 0.8, changeFrequency: "monthly" },
   { path: "/work", priority: 0.7, changeFrequency: "monthly" },
@@ -64,8 +76,13 @@ function urlEntry(fields: {
 }
 
 export function GET(): NextResponse {
-  const staticEntries = ROUTES.map(({ path, priority, changeFrequency }) =>
-    urlEntry({ loc: `${SITE}${path}`, changefreq: changeFrequency, priority }),
+  const staticEntries = ROUTES.map(({ path, priority, changeFrequency, lastmod }) =>
+    urlEntry({
+      loc: `${SITE}${path}`,
+      lastmod,
+      changefreq: changeFrequency,
+      priority,
+    }),
   );
 
   // Blog posts come from the date-gated registry, so future-dated posts stay

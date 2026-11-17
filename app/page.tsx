@@ -7,6 +7,7 @@ import { GetFoundWith } from "./components/home-v2/GetFoundWith";
 import { HomeCTA } from "./components/home-v2/HomeCTA";
 import { HOME_FAQS, HomeFaq } from "./components/home-v2/HomeFaq";
 import { HomeHero } from "./components/home-v2/HomeHero";
+import { LatestInsights } from "./components/home-v2/LatestInsights";
 import { OurPatch } from "./components/home-v2/OurPatch";
 import { Testimonials } from "./components/home-v2/Testimonials";
 import { VideoZoom } from "./components/home-v2/VideoZoom";
@@ -35,6 +36,7 @@ export default function Home() {
         <GetFoundWith />
         <OurPatch />
         <Testimonials />
+        <LatestInsights />
         <HomeFaq />
         <HomeCTA />
       </main>

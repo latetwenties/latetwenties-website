@@ -987,11 +987,53 @@ h3 em,
   margin: 0;
 }
 
+/* Service pages: optional freshness line, body prose and proof note */
+.svc-updated {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin: 0;
+}
+.svc-body {
+  flex: 1.2 1 480px;
+  min-width: 0;
+}
+.svc-body p,
+.svc-proof-note {
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 0 0 18px;
+  max-width: 58ch;
+}
+.svc-proof-note {
+  margin-bottom: 32px;
+}
+.svc-body a,
+.svc-proof-note a,
+.hfaq-item p a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 300ms var(--ease-considered);
+}
+.svc-body a:hover,
+.svc-proof-note a:hover,
+.hfaq-item p a:hover {
+  color: var(--accent);
+}
+
 .svc-reading {
   padding: 0 0 var(--section);
 }
 .svc-reading .ins-list {
   margin-bottom: 0;
+}
+.home-insights {
+  padding-top: var(--section);
 }
 
 /* What we do: the three services */

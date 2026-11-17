@@ -1,17 +1,55 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { ServicePage, type ServiceContent } from "../components/service/ServicePage";
 
 const C: ServiceContent = {
   path: "/local-seo-auckland",
-  eyebrow: "Local SEO · Auckland",
+  eyebrow: "SEO agency · Auckland",
   name: "Local SEO",
   h1: (
     <>
       Local SEO for Auckland trades. <em>Found where the work is.</em>
     </>
   ),
-  lede: "Local SEO decides whether your business shows up on Google, Maps and AI answers when someone nearby searches for what you do. We map where the demand is, build your site and Google profile around it, and keep it moving every month.",
+  lede: "Latetwenties is an Auckland SEO agency for trades and home service businesses. Local SEO decides whether you show up on Google, Maps and AI answers when someone nearby searches for what you do, so we map where the demand is, build your site and Google profile around it, and keep it moving every month.",
+  updated: "Updated November 2026",
+  body: {
+    title: (
+      <>
+        What an SEO agency in Auckland <em>should do for a trade.</em>
+      </>
+    ),
+    paras: [
+      <>
+        Most searches that turn into a job have a place in them, said or not:
+        &ldquo;builder Grey Lynn&rdquo;, &ldquo;concreter near me&rdquo;,
+        &ldquo;electrician North Shore&rdquo;. Google answers them with the map
+        first and the results underneath. Both lean on where you are, what
+        your Google profile says, your reviews, and whether your website backs
+        all of it up.
+      </>,
+      <>
+        So for a trade, SEO is local first. We start with where you show up
+        today, point by point across your area, then fix what holds you back
+        in order: the profile, the pages, the listings, the reviews. You can
+        see your own starting point in about 40 seconds with the{" "}
+        <Link href="/local-search-check">free local search check</Link>.
+      </>,
+      <>
+        If you would rather do some of it yourself first, that can be the
+        right call. Here is{" "}
+        <Link href="/blog/diy-local-seo-vs-agency">
+          what you can do on your own, and when an agency is worth paying
+        </Link>
+        , and{" "}
+        <Link href="/blog/local-seo-cost-nz">
+          what local SEO costs in New Zealand
+        </Link>
+        .
+      </>,
+    ],
+  },
   itemsTitle: (
     <>
       What usually stops the phone ringing, <em>and what we do about it.</em>
@@ -48,9 +86,46 @@ const C: ServiceContent = {
       Local search, <em>working.</em>
     </>
   ),
+  proofNote: (
+    <>
+      An Auckland example.{" "}
+      <Link href="/work/glenbuild">Glenbuild</Link>, a Mt Albert builder,
+      reached page one on Google for builder searches in four of its focus
+      suburbs within its first month. Ask ChatGPT for a builder to renovate a
+      Mt Eden villa and it names Glenbuild first.{" "}
+      <Link href="/local-search-check">See where you stand in your area</Link>.
+    </>
+  ),
   proof: ["/work/glenbuild", "/work/boaz-developments", "/work/rbm-concrete"],
   articles: ["local-seo-cost-nz", "diy-local-seo-vs-agency", "review-gating"],
   faqs: [
+    {
+      question: "Do I need an SEO agency in Auckland, or can I do it myself?",
+      answer:
+        "You can do a fair bit yourself: fill in your Google profile properly, ask every happy customer for a review, and keep your business details the same everywhere. An agency earns its fee when you run out of time, or when the map stops moving and you can't see why.",
+      link: {
+        href: "/blog/diy-local-seo-vs-agency",
+        label: "The honest split, DIY or agency.",
+      },
+    },
+    {
+      question: "What does SEO cost in Auckland?",
+      answer:
+        "Published NZ agency price guides mostly put small local campaigns between about $500 and $3,000 a month, with many trade businesses quoted roughly $800 to $2,000. Treat that as indicative. Your figure depends on how busy your area is and the state your website and profile are in now.",
+      link: {
+        href: "/blog/local-seo-cost-nz",
+        label: "What local SEO costs in New Zealand.",
+      },
+    },
+    {
+      question: "Why did my map ranking drop?",
+      answer:
+        "Most drops are not penalties. Some are a bad data day, and some are a real slide caused by a profile change, fewer fresh reviews, or a competitor doing more. It pays to check before you change anything.",
+      link: {
+        href: "/blog/why-your-ranking-dropped",
+        label: "What to check, in what order.",
+      },
+    },
     {
       question: "How long does local SEO take?",
       answer:
@@ -80,7 +155,9 @@ const C: ServiceContent = {
 };
 
 export const metadata: Metadata = {
-  title: "Local SEO Auckland for trades and home service businesses",
+  title: {
+    absolute: "SEO agency Auckland for trades | Local SEO, Maps and AI search",
+  },
   description: C.lede,
   alternates: { canonical: C.path },
   openGraph: { description: C.lede, url: `https://latetwenties.agency${C.path}` },

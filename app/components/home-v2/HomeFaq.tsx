@@ -1,7 +1,15 @@
+import Link from "next/link";
+
 import { Eyebrow } from "../Eyebrow";
 
 // Homepage FAQ. The 90-day guarantee is for sales calls now, not the site.
-export type Faq = { question: string; answer: string };
+// `link` is optional and visible only: the FAQPage schema carries the answer
+// text alone, so a link never changes what the structured data says.
+export type Faq = {
+  question: string;
+  answer: string;
+  link?: { href: string; label: string };
+};
 
 export const HOME_FAQS: Faq[] = [
   {
@@ -69,7 +77,15 @@ export function HomeFaq({ faqs = HOME_FAQS }: { faqs?: Faq[] } = {}) {
                 <span className="hfaq-icon" aria-hidden="true" />
                 {f.question}
               </summary>
-              <p>{f.answer}</p>
+              <p>
+                {f.answer}
+                {f.link ? (
+                  <>
+                    {" "}
+                    <Link href={f.link.href}>{f.link.label}</Link>
+                  </>
+                ) : null}
+              </p>
             </details>
           ))}
         </div>
