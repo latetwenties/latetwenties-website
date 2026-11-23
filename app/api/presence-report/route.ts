@@ -38,6 +38,7 @@ export async function POST(req: NextRequest) {
     trade: str(raw.trade),
     town: str(raw.town),
     contact: str(raw.contact),
+    message: str(raw.message).slice(0, 4000),
   };
 
   if (!fields.name || !fields.business || !fields.contact) {

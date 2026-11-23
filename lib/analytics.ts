@@ -12,13 +12,11 @@ type DataLayerWindow = Window & {
 type EventMap = {
   // A visitor started a free search (looked up their business).
   free_search_start: { job: string; area: string };
-  // Conversion: a free search lead submitted and accepted by the server.
-  generate_lead: {
-    source: "free_search";
-    contact_type: "email" | "mobile";
-    job: string;
-    area: string;
-  };
+  // Conversion: a lead accepted by the server (the free search, retired
+  // 2026-11-23, or the /contact form).
+  generate_lead:
+    | { source: "free_search"; contact_type: "email" | "mobile"; job: string; area: string }
+    | { source: "contact_form"; contact_type: "email" | "phone" };
   // Conversion: a tap on our own tel: link.
   phone_click: { cta_location: string };
   email_click: { cta_location: string };

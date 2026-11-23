@@ -3,14 +3,14 @@ import type { Metadata } from "next";
 import { breadcrumbList } from "@/lib/schema";
 import { EMAIL, PHONE_DISPLAY, PHONE_HREF } from "@/lib/site";
 
-import { TidyCalEmbed } from "../components/contact/TidyCalEmbed";
+import { ContactForm } from "../components/contact/ContactForm";
 import { Eyebrow } from "../components/Eyebrow";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { JsonLd } from "../components/JsonLd";
 
 const DESCRIPTION =
-  "Book 15 minutes with Brendan, call 09-884-4418 or email team@latetwenties.agency. Auckland based, working with home service businesses across NZ and Australia.";
+  "Send us a message, call 09-884-4418 or email team@latetwenties.agency. Auckland based, working with home service businesses across NZ and Australia.";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -38,11 +38,11 @@ export default function Contact() {
               <Eyebrow>Contact</Eyebrow>
             </div>
             <h1>
-              Talk it through with Brendan. <em>15 minutes, no pitch.</em>
+              Talk it through with Brendan. <em>No pitch.</em>
             </h1>
             <p className="v2-sub">
-              Pick a time below, or call or email. We&rsquo;ll tell you straight
-              what we&rsquo;d do in your area.
+              Send a message below, or call or email. We&rsquo;ll tell you
+              straight what we&rsquo;d do in your area.
             </p>
           </div>
         </section>
@@ -50,7 +50,7 @@ export default function Contact() {
         <section className="ct2">
           <div className="wrap ct2-grid">
             <div className="ct2-cal">
-              <TidyCalEmbed />
+              <ContactForm />
             </div>
 
             <aside className="ct2-side">

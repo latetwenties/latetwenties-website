@@ -1,7 +1,7 @@
 import { Resend } from "resend";
 import { SMOKE_TEST_RECIPIENT, SMOKE_TEST_SUBJECT_PREFIX } from "@/lib/smoke-test";
 
-// Presence Report requests land in Brendan's inbox. Sending domain
+// Contact form enquiries (formerly Presence Report requests) land in Brendan's inbox. Sending domain
 // latetwenties.agency is verified in the Resend account; RESEND_API_KEY lives
 // in the project's environment (Vercel). FROM must stay on the verified domain.
 const TO_ADDRESS = "team@latetwenties.agency";
@@ -14,6 +14,7 @@ export type PresenceReportFields = {
   trade: string;
   town: string;
   contact: string;
+  message?: string;
 };
 
 export type DeliverResult =
@@ -45,6 +46,7 @@ export async function deliverPresenceReport(
     `Trade: ${fields.trade || "(not given)"}`,
     `Town: ${fields.town || "(not given)"}`,
     `Best contact: ${fields.contact}`,
+    ...(fields.message ? ["", "Message:", fields.message] : []),
   ];
 
   try {
@@ -55,7 +57,7 @@ export async function deliverPresenceReport(
       replyTo: looksLikeEmail && !opts.smoke ? fields.contact : undefined,
       subject:
         (opts.smoke ? SMOKE_TEST_SUBJECT_PREFIX : "") +
-        `Presence Report request: ${fields.business}`,
+        `Website enquiry: ${fields.business}`,
       text: lines.join("\n"),
     });
 

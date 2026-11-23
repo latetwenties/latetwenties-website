@@ -2307,7 +2307,11 @@ section {
   overflow: hidden;
   box-shadow: 0 1px 0 rgba(26, 24, 20, 0.04);
 }
-/* Presence Report form */
+/* Contact form */
+.pr-field textarea {
+  resize: vertical;
+  line-height: 1.5;
+}
 .pr-form {
   padding: 32px;
   display: flex;
@@ -2338,7 +2342,8 @@ section {
   text-transform: uppercase;
   color: var(--ink-mute);
 }
-.pr-field input {
+.pr-field input,
+.pr-field textarea {
   font-family: var(--sans);
   font-size: 16px;
   color: var(--ink);
@@ -2348,10 +2353,12 @@ section {
   padding: 13px 14px;
   transition: border-color 160ms, box-shadow 160ms;
 }
-.pr-field input::placeholder {
+.pr-field input::placeholder,
+.pr-field textarea::placeholder {
   color: color-mix(in oklab, var(--ink-mute) 70%, transparent);
 }
-.pr-field input:focus {
+.pr-field input:focus,
+.pr-field textarea:focus {
   outline: none;
   border-color: var(--accent);
   box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent) 18%, transparent);

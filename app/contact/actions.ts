@@ -5,6 +5,7 @@ import { deliverPresenceReport } from "@/lib/presence-report";
 export type PresenceReportState = {
   status: "idle" | "success" | "error";
   message: string;
+  contactType?: "email" | "phone";
 };
 
 function clean(value: FormDataEntryValue | null): string {
@@ -27,6 +28,7 @@ export async function submitPresenceReport(
     trade: clean(formData.get("trade")),
     town: clean(formData.get("town")),
     contact: clean(formData.get("contact")),
+    message: clean(formData.get("message")).slice(0, 4000),
   };
 
   if (!fields.name || !fields.business || !fields.contact) {
@@ -50,6 +52,7 @@ export async function submitPresenceReport(
   return {
     status: "success",
     message:
-      "Got it. We'll go looking and send your video walkthrough within a couple of days.",
+      "Thanks, got it. Brendan will be in touch shortly.",
+    contactType: fields.contact.includes("@") ? "email" : "phone",
   };
 }
