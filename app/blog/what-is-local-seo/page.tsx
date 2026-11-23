@@ -318,7 +318,7 @@ export default function Post() {
           ordinary work, done properly and kept up. At Latetwenties that’s{" "}
           <a href="/what-we-do">what we do for local businesses</a>, and
           if you’d like to see where you stand first,{" "}
-          <a href="/local-search-check">run the free search</a>. We’ll
+          <a href="/contact">get in touch</a>. We’ll
           tell you straight what’s worth fixing, including the bits you can
           do yourself.
         </Signoff>

@@ -285,8 +285,7 @@ export default function Post() {
           Whichever way you go, do the free list above this week. If you’d
           like to know which of your gaps you can close yourself and which
           need more,{" "}
-          <a href="/local-search-check">run the free search</a> and book 15
-          minutes. We’ll split it plainly, and if you can do the lot yourself, we’ll tell
+          <a href="/contact">get in touch</a>. We’ll split it plainly, and if you can do the lot yourself, we’ll tell
           you that.
         </Signoff>
       </BlogPost>

@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ReactNode, useEffect, useRef } from "react";
 
-import { FREE_SEARCH_HREF } from "@/lib/site";
+import { CONTACT_HREF } from "@/lib/site";
 import { GhostLink } from "../Button";
 
 type Client = {
@@ -158,8 +158,8 @@ export function OurPatch() {
 
           <div className="patch-next">
             <h3>Yours could be next.</h3>
-            <GhostLink href={FREE_SEARCH_HREF} tone="light">
-              See who gets the call near you
+            <GhostLink href={CONTACT_HREF} tone="light">
+              Get in touch
             </GhostLink>
           </div>
         </div>

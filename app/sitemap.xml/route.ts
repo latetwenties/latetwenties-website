@@ -43,7 +43,6 @@ const ROUTES: StaticRoute[] = [
   { path: "/work/kd-bookworks", priority: 0.7, changeFrequency: "monthly" },
   { path: "/work/glenbuild", priority: 0.7, changeFrequency: "monthly" },
   { path: "/insights", priority: 0.6, changeFrequency: "weekly" },
-  { path: "/local-search-check", priority: 0.9, changeFrequency: "monthly" },
   { path: "/contact", priority: 0.7, changeFrequency: "yearly" },
   { path: "/privacy", priority: 0.2, changeFrequency: "yearly" },
 ];

@@ -32,9 +32,9 @@ const C: ServiceContent = {
       <>
         So for a trade, SEO is local first. We start with where you show up
         today, point by point across your area, then fix what holds you back
-        in order: the profile, the pages, the listings, the reviews. You can
-        see your own starting point in about 40 seconds with the{" "}
-        <Link href="/local-search-check">free local search check</Link>.
+        in order: the profile, the pages, the listings, the reviews. If you want
+        to see your own starting point,{" "}
+        <Link href="/contact">get in touch</Link>.
       </>,
       <>
         If you would rather do some of it yourself first, that can be the
@@ -93,7 +93,7 @@ const C: ServiceContent = {
       reached page one on Google for builder searches in four of its focus
       suburbs within its first month. Ask ChatGPT for a builder to renovate a
       Mt Eden villa and it names Glenbuild first.{" "}
-      <Link href="/local-search-check">See where you stand in your area</Link>.
+      <Link href="/contact">Talk to us about your area</Link>.
     </>
   ),
   proof: ["/work/glenbuild", "/work/boaz-developments", "/work/rbm-concrete"],

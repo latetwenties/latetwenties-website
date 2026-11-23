@@ -315,7 +315,7 @@ export default function Post() {
         </P>
         <Signoff>
           If you want to know whether your current site is earning its keep,{" "}
-          <a href="/local-search-check">run the free search</a>, then talk
+          <a href="/contact">get in touch</a> and talk
           it through with us. We’ll tell you honestly if it’s fine. Sometimes it is.
         </Signoff>
       </BlogPost>

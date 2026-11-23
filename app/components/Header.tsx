@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-import { FREE_SEARCH_HREF } from "@/lib/site";
+import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/site";
 import { MobileMenu } from "./MobileMenu";
 import { Wordmark } from "./Wordmark";
 
@@ -14,7 +14,7 @@ export const NAV_LINKS = [
   { href: "/contact", label: "Contact", match: "contact" },
 ];
 
-const CTA = { href: FREE_SEARCH_HREF, label: "Who gets the call?" };
+const CTA = { href: PHONE_HREF, label: `Call ${PHONE_DISPLAY}` };
 
 type HeaderProps = {
   current?: string;

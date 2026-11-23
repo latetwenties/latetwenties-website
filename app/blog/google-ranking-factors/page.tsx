@@ -219,9 +219,8 @@ export default function Post() {
       </P>
       <P>
         If you want to see where you stand first,{" "}
-        <a href="/local-search-check">run the free search</a>. It takes
-        about 40 seconds. Then book 15 minutes with Brendan if you want help
-        with the fix. No pitch.
+        <a href="/contact">get in touch</a> with Brendan.
+        We&rsquo;ll show you where you stand and help with the fix. No pitch.
       </P>
     </BlogPost>
     </>

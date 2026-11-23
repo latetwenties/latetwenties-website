@@ -95,7 +95,7 @@ export function BlogPost({
                 <h2 className="bp-cta-h2">{ctaTitle}</h2>
                 <p className="bp-cta-body">{ctaBody}</p>
               </div>
-              <Button href="/local-search-check">Run the free search</Button>
+              <Button href="/contact">Get in touch</Button>
             </div>
           </div>
         </section>

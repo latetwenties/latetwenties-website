@@ -279,9 +279,8 @@ export default function Post() {
         <Signoff>
           Our own pricing is fixed, with no lock-in, and how it’s
           structured is laid out on{" "}
-          <a href="/what-we-do">what we do</a>. Run the{" "}
-          <a href="/local-search-check">free search</a>, then book 15
-          minutes and we’ll give you the actual number, alongside what we’d
+          <a href="/what-we-do">what we do</a>. <a href="/contact">Get in touch</a>{" "}
+          and we’ll give you the actual number, alongside what we’d
           fix first, before you commit to anything. And if a quote you already
           have looks fair, we’ll tell you that too. If you’re still working
           out what local SEO covers,{" "}

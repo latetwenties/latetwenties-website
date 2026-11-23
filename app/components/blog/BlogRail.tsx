@@ -21,8 +21,8 @@ export function BlogRail({
   toc,
   keyStat,
   ctaLine = "Not sure where you stand?",
-  ctaHref = "/local-search-check",
-  ctaLabel = "Run the free search",
+  ctaHref = "/contact",
+  ctaLabel = "Get in touch",
 }: BlogRailProps) {
   const [activeId, setActiveId] = useState<string>(toc[0]?.id ?? "");
   const railFillRef = useRef<HTMLDivElement>(null);

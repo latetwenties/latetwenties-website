@@ -55,7 +55,7 @@ export const HOME_FAQS: Faq[] = [
   {
     question: "How does it start?",
     answer:
-      "Run the free search. In about 40 seconds you'll see who gets the call in your area, on Google, Maps and AI. Then book 15 minutes with Brendan to talk it through, no pitch.",
+      "Call Brendan on 09-884-4418 or email team@latetwenties.agency. We'll look at who comes up in your area on Google, Maps and AI, and talk it through with you, no pitch.",
   },
 ];
 

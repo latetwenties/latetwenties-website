@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 
 import { breadcrumbList } from "@/lib/schema";
-import { EMAIL, FREE_SEARCH_HREF, PHONE_DISPLAY, PHONE_HREF } from "@/lib/site";
+import { EMAIL, PHONE_DISPLAY, PHONE_HREF } from "@/lib/site";
 
-import { Button } from "../components/Button";
 import { TidyCalEmbed } from "../components/contact/TidyCalEmbed";
 import { Eyebrow } from "../components/Eyebrow";
 import { Footer } from "../components/Footer";
@@ -75,20 +74,6 @@ export default function Contact() {
                   </span>
                 </li>
               </ul>
-
-              <div className="ct2-search">
-                <Eyebrow>Before we talk</Eyebrow>
-                <h2>
-                  See who gets the call <em>in your area.</em>
-                </h2>
-                <p>
-                  Run the free search first. About 40 seconds, live from Google,
-                  Maps and AI.
-                </p>
-                <div>
-                  <Button href={FREE_SEARCH_HREF}>Run the free search</Button>
-                </div>
-              </div>
             </aside>
           </div>
         </section>

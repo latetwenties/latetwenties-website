@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 import { getLivePosts } from "@/lib/posts";
 
 import { breadcrumbList, faqPage, service } from "@/lib/schema";
-import { FREE_SEARCH_HREF } from "@/lib/site";
+import { CONTACT_HREF } from "@/lib/site";
 import { Button, GhostLink } from "../Button";
 import { CaseTileGrid } from "../CaseTileGrid";
 import { Eyebrow } from "../Eyebrow";
@@ -59,8 +59,8 @@ export function ServicePage({ c }: { c: ServiceContent }) {
             <p className="v2-sub svc-lede">{c.lede}</p>
             {c.updated ? <p className="svc-updated">{c.updated}</p> : null}
             <div className="h-hero-ctas">
-              <Button href={FREE_SEARCH_HREF} size="lg">
-                Run the free search
+              <Button href={CONTACT_HREF} size="lg">
+                Get in touch
               </Button>
               <GhostLink href="/what-we-do" tone="strong" arrow={false}>
                 What we do

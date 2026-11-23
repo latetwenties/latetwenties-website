@@ -27,8 +27,7 @@ export default function BookedPage() {
               You&rsquo;re booked in. <em>Talk soon.</em>
             </h1>
             <p className="v2-sub">
-              The calendar invite is on its way to your inbox. If you ran the
-              free search, have your result handy and we&rsquo;ll start there.
+              The calendar invite is on its way to your inbox.
             </p>
           </div>
         </section>

@@ -31,11 +31,10 @@ const nextConfig: NextConfig = {
       // Insights, and the lab prototype became the free search page.
       { source: "/how-it-works", destination: "/what-we-do", permanent: true },
       { source: "/resources", destination: "/insights", permanent: true },
-      {
-        source: "/lab/who-gets-the-call",
-        destination: "/local-search-check",
-        permanent: true,
-      },
+      // The free search was taken down 2026-11-23 (temporary, so it can
+      // come back). Its page and API code are kept; WGTC_ENABLED gates spend.
+      { source: "/lab/who-gets-the-call", destination: "/contact", permanent: false },
+      { source: "/local-search-check", destination: "/contact", permanent: false },
     ];
   },
 };

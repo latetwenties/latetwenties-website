@@ -295,7 +295,7 @@ export default function Post() {
         <Signoff>
           Open your last review request today and check it sends everyone to
           the same link. If you’d like a second pair of eyes on it,{" "}
-          <a href="/local-search-check">run the free search</a>.
+          <a href="/contact">get in touch</a>.
         </Signoff>
       </BlogPost>
     </>

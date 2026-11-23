@@ -42,9 +42,6 @@ export function Footer() {
                 <Link href="/insights">Insights</Link>
               </li>
               <li>
-                <Link href="/local-search-check">Free search</Link>
-              </li>
-              <li>
                 <Link href="/contact">Contact</Link>
               </li>
             </ul>

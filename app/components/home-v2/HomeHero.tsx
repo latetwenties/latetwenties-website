@@ -1,4 +1,4 @@
-import { FREE_SEARCH_HREF } from "@/lib/site";
+import { CONTACT_HREF, PHONE_DISPLAY, PHONE_HREF } from "@/lib/site";
 import { Button, GhostLink } from "../Button";
 import { Eyebrow } from "../Eyebrow";
 
@@ -26,14 +26,16 @@ export function HomeHero() {
         </p>
         <div className="h-hero-row">
           <div className="h-hero-ctas">
-            <Button href={FREE_SEARCH_HREF} size="lg">
-              Run the free search
+            <Button href={CONTACT_HREF} size="lg">
+              Get in touch
             </Button>
             <GhostLink href="/what-we-do" tone="strong" arrow={false}>
               What we do
             </GhostLink>
           </div>
-          <span className="mono-note">40-second search · No sign-up</span>
+          <span className="mono-note">
+            Or call <a href={PHONE_HREF}>{PHONE_DISPLAY}</a>
+          </span>
         </div>
       </div>
     </section>

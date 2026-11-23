@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-import { FREE_SEARCH_HREF } from "@/lib/site";
+import { CONTACT_HREF } from "@/lib/site";
 import { GhostLink } from "../Button";
 
 const NAV = 76;
@@ -108,8 +108,8 @@ export function VideoZoom() {
             Turn unpredictable referral work into{" "}
             <em className="v2-em">a reliable flow of quality enquiries</em>
           </p>
-          <GhostLink href={FREE_SEARCH_HREF} tone="strong">
-            Run the free search
+          <GhostLink href={CONTACT_HREF} tone="strong">
+            Get in touch
           </GhostLink>
         </div>
       </div>

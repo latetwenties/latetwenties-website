@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { HomeCTA } from "./home-v2/HomeCTA";
 
 // Legacy props are accepted so older pages keep compiling, but every page now
-// closes on the same thing: the free search, then 15 minutes with Brendan.
+// closes on the same thing: call or email Brendan.
 type FinalCTAProps = {
   num?: string;
   label?: string;

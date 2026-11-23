@@ -269,7 +269,7 @@ export default function Post() {
           service businesses across New Zealand and Australia, from a{" "}
           <a href="/work/boaz-developments">builder in Mangawhai</a> to
           concreters in Gippsland. If you’d like to test us on your patch,{" "}
-          <a href="/local-search-check">run the free search</a> and we’ll
+          <a href="/contact">get in touch</a> and we’ll
           show you who’s winning your area and why. Then ask us the four
           questions above.
         </Signoff>
